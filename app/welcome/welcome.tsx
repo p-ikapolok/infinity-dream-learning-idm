@@ -1,5 +1,4 @@
 import type { Route } from "./+types/home";
-import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import PublicNavbar from "../components/PublicNavbar";
 
@@ -15,24 +14,9 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Welcome() {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const savedMode = localStorage.getItem("darkMode");
-      if (savedMode === "true") setDarkMode(true);
-    }
-  }, []);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("darkMode", String(darkMode));
-    }
-  }, [darkMode]);
-
   return (
-    <div className={darkMode ? "dark min-h-screen" : "min-h-screen"}>
-      <div className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
+    <div className="min-h-screen">
+      <div className="bg-white text-gray-900 transition-colors duration-500">
 
         {/* HEADER + HERO */}
         <div
@@ -48,16 +32,6 @@ export default function Welcome() {
 
           <div className="relative z-10">
             <PublicNavbar />
-
-            {/* DARK MODE */}
-            <div className="flex justify-end px-6 py-4">
-              <button
-                onClick={() => setDarkMode(!darkMode)}
-                className="bg-gradient-to-r from-purple-600 to-pink-500 text-white px-4 py-2 rounded-full font-semibold transform transition hover:scale-105"
-              >
-                {darkMode ? "☀️ Light Mode" : "🌙 Dark Mode"}
-              </button>
-            </div>
 
             {/* HERO */}
             <section className="py-20 px-6">
@@ -101,7 +75,7 @@ export default function Welcome() {
         <section className="py-20 px-6 max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">What We Do</h2>
 
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
+          <p className="text-gray-600 max-w-2xl mx-auto mb-12">
             We merge creativity and technology to help learners build skills,
             projects, and careers that inspire.
           </p>
@@ -110,11 +84,11 @@ export default function Welcome() {
             {["Learn", "Practice", "Create", "Grow"].map((item) => (
               <div
                 key={item}
-                className="p-6 rounded-lg shadow-md hover:-translate-y-2 hover:shadow-xl transition bg-white dark:bg-gray-800"
+                className="p-6 rounded-lg shadow-md hover:-translate-y-2 hover:shadow-xl transition bg-white"
               >
                 <div className="bg-gradient-to-r from-purple-500 to-pink-500 w-16 h-16 mx-auto rounded-full" />
                 <h3 className="mt-4 font-semibold">{item}</h3>
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-gray-500">
                   Hands-on, creative, and tech-driven.
                 </p>
               </div>
@@ -123,10 +97,10 @@ export default function Welcome() {
         </section>
 
         {/* RESULTS — PENTAGON SVG */}
-        <section className="bg-gray-100 dark:bg-gray-800 py-20 px-6 text-center">
+        <section className="bg-gray-100 py-20 px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Our Results Speak</h2>
 
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
+          <p className="text-gray-600 max-w-2xl mx-auto mb-12">
             Learners worldwide have transformed their careers and creativity with us.
           </p>
 
@@ -143,7 +117,7 @@ export default function Welcome() {
                   <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
                     <polygon
                       points="50,5 95,38 77,95 23,95 5,38"
-                      className="fill-purple-600 dark:fill-purple-500"
+                      className="fill-purple-600"
                     />
                   </svg>
 
@@ -154,7 +128,7 @@ export default function Welcome() {
                   </div>
                 </div>
 
-                <p className="mt-4 text-gray-700 dark:text-gray-300 text-sm font-medium text-center">
+                <p className="mt-4 text-gray-700 text-sm font-medium text-center">
                   {res.label}
                 </p>
 
@@ -164,7 +138,7 @@ export default function Welcome() {
         </section>
 
         {/* TESTIMONIAL */}
-        <section className="bg-purple-100 dark:bg-purple-900 py-20 px-6 text-center">
+        <section className="bg-purple-100 py-20 px-6 text-center">
           <blockquote className="text-xl italic max-w-3xl mx-auto">
             “This platform makes learning tech feel creative and fun,
             while still preparing me for real-world challenges.”
@@ -173,7 +147,7 @@ export default function Welcome() {
         </section>
 
         {/* FOOTER */}
-        <footer className="bg-blue-950 dark:bg-black text-white py-10 text-center">
+        <footer className="bg-blue-950 text-white py-10 text-center">
           <h3 className="text-xl font-bold">Infinity Dream Learning</h3>
           <p className="mt-2">© Infinity Dream Learning 2026</p>
 
