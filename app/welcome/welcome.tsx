@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import PublicNavbar from "../components/PublicNavbar";
 
@@ -14,29 +14,42 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-// FAQ Item component
+// FAQ item with smooth slide and 180° arrow rotation
 function FAQItem({ question, answer }: { question: string; answer: string }) {
   const [open, setOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div
-      className="border rounded-lg p-4 cursor-pointer transition hover:shadow-lg"
-      onClick={() => setOpen(!open)}
-    >
-      <div className="flex justify-between items-center">
+    <div className="border rounded-lg p-4 cursor-pointer transition hover:shadow-lg">
+      <div
+        className="flex justify-between items-center"
+        onClick={() => setOpen(!open)}
+      >
         <h3 className="font-semibold">{question}</h3>
-        <span className="text-xl">{open ? "−" : "+"}</span>
+        <span
+          className={`text-xl transform transition-transform duration-300 ${
+            open ? "rotate-180" : "rotate-0"
+          }`}
+        >
+          ▼
+        </span>
       </div>
-      {open && (
+      <div
+        ref={contentRef}
+        style={{
+          maxHeight: open ? `${contentRef.current?.scrollHeight}px` : "0px",
+          transition: "max-height 0.3s ease",
+          overflow: "hidden",
+        }}
+      >
         <p className="mt-2 text-gray-600 dark:text-gray-300">{answer}</p>
-      )}
+      </div>
     </div>
   );
 }
 
 export default function Welcome() {
   const [darkMode, setDarkMode] = useState(false);
-  const [bounce, setBounce] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -51,11 +64,7 @@ export default function Welcome() {
     }
   }, [darkMode]);
 
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    setBounce(true);
-    setTimeout(() => setBounce(false), 300);
-  };
+  const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
     <div className={darkMode ? "dark min-h-screen" : "min-h-screen"}>
@@ -72,7 +81,6 @@ export default function Welcome() {
           }}
         >
           <div className="absolute inset-0 bg-black/60" />
-
           <div className="relative z-10">
             <PublicNavbar />
 
@@ -85,12 +93,10 @@ export default function Welcome() {
                     Build Real Projects <br />
                     Grow Creatively
                   </h1>
-
                   <p className="mt-6 text-gray-200">
                     A creative + tech learning platform with real-world programs,
                     community, and career support.
                   </p>
-
                   <div className="flex gap-4 mt-8">
                     <Link
                       to="/marketplace"
@@ -98,7 +104,6 @@ export default function Welcome() {
                     >
                       Start Learning
                     </Link>
-
                     <Link
                       to="/ehub"
                       className="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-700 transition"
@@ -107,7 +112,6 @@ export default function Welcome() {
                     </Link>
                   </div>
                 </div>
-
                 <div className="h-80" />
               </div>
             </section>
@@ -117,12 +121,10 @@ export default function Welcome() {
         {/* WHAT WE DO */}
         <section className="py-20 px-6 max-w-7xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-6">What We Do</h2>
-
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
             We merge creativity and technology to help learners build skills,
             projects, and careers that inspire.
           </p>
-
           <div className="grid md:grid-cols-4 gap-8">
             {["Learn", "Practice", "Create", "Grow"].map((item) => (
               <div
@@ -139,14 +141,12 @@ export default function Welcome() {
           </div>
         </section>
 
-        {/* RESULTS — PENTAGON SVG */}
+        {/* RESULTS */}
         <section className="bg-gray-100 dark:bg-gray-800 py-20 px-6 text-center">
           <h2 className="text-3xl font-bold mb-6">Our Results Speak</h2>
-
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-12">
             Learners worldwide have transformed their careers and creativity with us.
           </p>
-
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 place-items-center">
             {[
               { stat: "+85%", label: "Career Growth" },
@@ -162,12 +162,10 @@ export default function Welcome() {
                       className="fill-purple-600 dark:fill-purple-500"
                     />
                   </svg>
-
                   <div className="absolute inset-0 flex items-center justify-center">
                     <span className="text-white text-2xl font-bold">{res.stat}</span>
                   </div>
                 </div>
-
                 <p className="mt-4 text-gray-700 dark:text-gray-300 text-sm font-medium text-center">
                   {res.label}
                 </p>
@@ -185,10 +183,9 @@ export default function Welcome() {
           <p className="mt-4 font-semibold">— Learner Testimonial</p>
         </section>
 
-        {/* FAQ SECTION */}
+        {/* FAQ */}
         <section className="py-20 px-6 max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center">Frequently Asked Questions</h2>
-
+          <h2 className="text-3xl font-bold mb-10 text-center">FAQ</h2>
           <div className="space-y-4">
             {[
               {
@@ -224,59 +221,20 @@ export default function Welcome() {
             <span>Instagram</span>
           </div>
 
-          {/* Glow + Bounce + Pulse Dark/Light Mode Toggle */}
+          {/* Facebook Lite–style small toggle */}
           <div
-            className="relative flex items-center mt-6 w-36 h-8 rounded-full cursor-pointer select-none overflow-hidden"
+            className="relative flex items-center mt-6 w-16 h-5 bg-gray-300 dark:bg-gray-700 rounded-full cursor-pointer"
             onClick={toggleDarkMode}
           >
             <div
-              className={`absolute left-0 top-0 bottom-0 w-1/2 rounded-l-full transition-all duration-300 ${
-                darkMode ? "bg-white/50" : "bg-white shadow-inner shadow-white/50 animate-pulse-half"
+              className={`absolute top-0.5 w-4 h-4 bg-white dark:bg-black rounded-full shadow transition-transform duration-200 ${
+                darkMode ? "translate-x-11" : "translate-x-0"
               }`}
-            />
-            <div
-              className={`absolute right-0 top-0 bottom-0 w-1/2 rounded-r-full transition-all duration-300 ${
-                darkMode ? "bg-black shadow-inner shadow-black/50 animate-pulse-half" : "bg-black/50"
-              }`}
-            />
-
-            {/* Labels */}
-            <span className="absolute left-2 text-sm font-semibold text-black z-10">
-              Light
-            </span>
-            <span className="absolute right-2 text-sm font-semibold text-white z-10">
-              Dark
-            </span>
-
-            {/* Round switch with bounce */}
-            <div
-              className={`absolute top-0.5 w-7 h-7 bg-gray-50 dark:bg-gray-900 rounded-full shadow-md z-20 transform transition-all duration-300 ${
-                darkMode ? "translate-x-16" : "translate-x-0"
-              } ${bounce ? "animate-bounce-short" : ""}`}
             ></div>
+            <span className="absolute left-1 text-[9px] text-black dark:text-white">☀</span>
+            <span className="absolute right-1 text-[9px] text-black dark:text-white">🌙</span>
           </div>
         </footer>
-
-        {/* Tailwind custom animations */}
-        <style>
-          {`
-            @keyframes bounce-short {
-              0%, 100% { transform: translateY(0); }
-              50% { transform: translateY(-4px); }
-            }
-            .animate-bounce-short {
-              animation: bounce-short 0.3s ease;
-            }
-
-            @keyframes pulse-half {
-              0%, 100% { opacity: 1; }
-              50% { opacity: 0.6; }
-            }
-            .animate-pulse-half {
-              animation: pulse-half 1.5s ease-in-out infinite;
-            }
-          `}
-        </style>
 
       </div>
     </div>
