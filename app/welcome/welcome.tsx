@@ -28,6 +28,7 @@ export default function Welcome() {
             backgroundPosition: "center",
           }}
         >
+          {/* Dark overlay effect */}
           <div className="absolute inset-0 bg-black/60" />
 
           <div className="relative z-10">
