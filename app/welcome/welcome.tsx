@@ -4,6 +4,7 @@ import PublicNavbar from "../components/PublicNavbar";
 export default function Welcome() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-blue-950 to-white">
+      
       <PublicNavbar />
 
       {/* HERO */}
@@ -42,7 +43,6 @@ export default function Welcome() {
 
       </section>
 
-      {/* rest stays same */}
     </div>
   );
 }
