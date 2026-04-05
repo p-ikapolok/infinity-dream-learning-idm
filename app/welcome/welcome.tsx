@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import PublicNavbar from "../components/PublicNavbar";
 
+// ✅ Keep default export
 export default function Welcome() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-black via-blue-950 to-white">
