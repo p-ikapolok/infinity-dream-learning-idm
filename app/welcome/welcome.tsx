@@ -218,31 +218,107 @@ export default function Welcome() {
         </section>
 
         {/* FOOTER */}
-        <footer className="bg-blue-950 dark:bg-black text-white py-10 text-center flex flex-col items-center gap-4">
-          <h3 className="text-xl font-bold">Infinity Dream Learning</h3>
-          <p>© Infinity Dream Learning 2026</p>
+        <footer className="bg-blue-950 dark:bg-black text-white pt-16 pb-8 px-6">
+  <div className="max-w-7xl mx-auto grid md:grid-cols-5 gap-10">
 
-          <div className="flex justify-center gap-6 mt-4">
-            <span>Facebook</span>
-            <span>Twitter</span>
-            <span>Instagram</span>
-          </div>
+    {/* Brand */}
+    <div>
+      <h3 className="text-xl font-bold mb-4">
+        Infinity Dream Learning
+      </h3>
+      <p className="text-gray-300 text-sm leading-relaxed mb-4">
+        Learn tech skills, build real-world projects, and grow your
+        creative career with a modern learning experience.
+      </p>
 
-          <div
-            className="relative flex items-center mt-6 w-16 h-5 bg-gray-300 dark:bg-gray-700 rounded-full cursor-pointer"
-            onClick={toggleDarkMode}
-          >
-            <div
-              className={`absolute top-0.5 w-4 h-4 bg-white dark:bg-black rounded-full shadow transition-transform duration-200 ${
-                darkMode ? "translate-x-11" : "translate-x-0"
-              }`}
-            />
+      {/* Socials */}
+      <div className="flex gap-4 text-lg">
+        <span className="cursor-pointer hover:text-gray-300">🌐</span>
+        <span className="cursor-pointer hover:text-gray-300">🐦</span>
+        <span className="cursor-pointer hover:text-gray-300">📸</span>
+        <span className="cursor-pointer hover:text-gray-300">💼</span>
+      </div>
+    </div>
 
-            <span className="absolute left-1 text-[9px]">☀</span>
-            <span className="absolute right-1 text-[9px]">🌙</span>
-          </div>
-        </footer>
+    {/* Learning */}
+    <div>
+      <h4 className="font-semibold mb-4">Learning</h4>
+      <div className="flex flex-col gap-2 text-gray-300 text-sm">
+        <Link to="/programs">All Programs</Link>
+        <Link to="/ai-data-tech">AI Data & Tech</Link>
+        <Link to="/creative">Creative</Link>
+        <Link to="/entrepreneurship">Entrepreneurship</Link>
+      </div>
+    </div>
 
+    {/* Platform */}
+    <div>
+      <h4 className="font-semibold mb-4">Platform</h4>
+      <div className="flex flex-col gap-2 text-gray-300 text-sm">
+        <Link to="/learning-login">Start Learning</Link>
+        <Link to="/ehub-login">E-Hub</Link>
+        <Link to="/pricing">All Access</Link>
+        <Link to="/support">Support</Link>
+      </div>
+    </div>
+
+    {/* Company */}
+    <div>
+      <h4 className="font-semibold mb-4">Company</h4>
+      <div className="flex flex-col gap-2 text-gray-300 text-sm">
+        <Link to="/about">About</Link>
+        <Link to="/careers">Careers</Link>
+        <Link to="/privacy">Privacy Policy</Link>
+        <Link to="/terms">Terms of Service</Link>
+      </div>
+    </div>
+
+    {/* Newsletter */}
+    <div>
+      <h4 className="font-semibold mb-4">Stay Updated</h4>
+      <p className="text-gray-300 text-sm mb-3">
+        Get updates on new programs and opportunities.
+      </p>
+
+      <div className="flex">
+        <input
+          type="email"
+          placeholder="Your email"
+          className="px-3 py-2 text-sm rounded-l-md w-full text-black"
+        />
+        <button className="bg-purple-600 px-4 py-2 rounded-r-md text-sm font-semibold">
+          Join
+        </button>
+      </div>
+
+      <p className="text-gray-400 text-xs mt-3">
+        support@infinitydreamlearning.com
+      </p>
+    </div>
+
+  </div>
+
+  {/* Bottom */}
+  <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+
+    <p className="text-gray-400 text-sm">
+      © 2026 Infinity Dream Learning. All rights reserved.
+    </p>
+
+    {/* Toggle */}
+    <div
+      className="relative flex items-center w-14 h-5 bg-gray-400 dark:bg-gray-700 rounded-full cursor-pointer"
+      onClick={toggleDarkMode}
+    >
+      <div
+        className={`absolute top-0.5 w-4 h-4 bg-white dark:bg-black rounded-full transition-transform ${
+          darkMode ? "translate-x-9" : "translate-x-0"
+        }`}
+      />
+    </div>
+
+  </div>
+</footer>
       </div>
     </div>
   );
