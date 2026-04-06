@@ -13,8 +13,6 @@ export default [
   route("learning", "routes/learning.tsx"),
   route("community", "routes/community.tsx"),
   route("support", "routes/support.tsx"),
-  route("login", "routes/login.tsx"),
-  route("register", "routes/register.tsx"),
   route("rewards", "routes/rewards.tsx"),
   route("profile", "routes/profile.tsx"),
   route("settings", "routes/settings.tsx"),
@@ -40,4 +38,7 @@ export default [
   route("certificate", "routes/certificate.tsx"),
   route("marketplace", "routes/marketplace.tsx"),
   route("dashboard", "routes/dashboard.tsx"),
+  route("/ehub-login", "routes/ehub-login.tsx"),
+  route("/learning-login", "routes/learning-login.tsx"),
+  route("/signup", "routes/signup.tsx"),
 ] satisfies RouteConfig;
