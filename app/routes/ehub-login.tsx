@@ -1,6 +1,24 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router";
 
 export default function EhubLogin() {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    // Simulate login validation
+    if (email && password) {
+      // Here you can add real authentication logic
+      // After successful login, redirect to dashboard
+      navigate("/ehub-dashboard");
+    } else {
+      alert("Please enter your email and password.");
+    }
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
@@ -17,11 +35,13 @@ export default function EhubLogin() {
         </div>
 
         {/* Manual sign in */}
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleLogin}>
           <div>
             <label className="block text-sm font-medium">Email *</label>
             <input
               type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full border rounded px-3 py-2"
               placeholder="Enter your email"
             />
@@ -31,6 +51,8 @@ export default function EhubLogin() {
             <label className="block text-sm font-medium">Password *</label>
             <input
               type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="w-full border rounded px-3 py-2"
               placeholder="Enter your password"
             />
@@ -39,7 +61,10 @@ export default function EhubLogin() {
             </Link>
           </div>
 
-          <button className="w-full bg-blue-600 text-white py-2 rounded">
+          <button
+            type="submit"
+            className="w-full bg-blue-600 text-white py-2 rounded"
+          >
             Login to Ehub
           </button>
         </form>
