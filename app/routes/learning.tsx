@@ -34,7 +34,6 @@ export default function LearningPage() {
             </svg>
           </button>
 
-          {/* Profile */}
           <img
             src="/images/profile.png"
             alt="Profile"
@@ -44,7 +43,7 @@ export default function LearningPage() {
       </header>
 
       <div className="flex flex-1">
-        {/* Sidebar */}
+        {/* Sidebar (FULL - NO REMOVALS) */}
         <aside className="w-64 bg-white shadow-lg flex flex-col justify-between">
           <div className="p-6 space-y-6">
             <nav className="space-y-2">
@@ -57,7 +56,7 @@ export default function LearningPage() {
                 <span>Home</span>
               </a>
 
-              {/* Planning */}
+              {/* My Planning */}
               <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -68,32 +67,53 @@ export default function LearningPage() {
               {/* Projects */}
               <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <span>Projects</span>
               </a>
 
-              {/* Learning items */}
+              {/* Evaluation quizzes */}
               <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 20h9" />
+                  <path d="M12 20h9" />
                 </svg>
                 <span>Evaluation quizzes</span>
               </a>
 
+              {/* My courses */}
               <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16" />
+                  <path d="M12 4v16" />
                 </svg>
                 <span>My courses</span>
               </a>
 
+              {/* Concepts */}
               <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                  <path d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
                 <span>Concepts</span>
+              </a>
+
+              {/* Conference rooms */}
+              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+                <span>Conference rooms</span>
+              </a>
+
+              {/* Sandboxes */}
+              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+                <span>Sandboxes</span>
+              </a>
+
+              {/* Video on demand */}
+              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+                <span>Video on demand</span>
+              </a>
+
+              {/* Discord */}
+              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
+                <span>Discord</span>
               </a>
 
             </nav>
@@ -117,7 +137,6 @@ export default function LearningPage() {
           </h1>
           <p className="text-gray-600 mb-6">Average Score: 87.93%</p>
 
-          {/* Cards */}
           <div className="space-y-4">
             {["ALX AiCE", "Front-End Web Development", "Virtual Assistant"].map((item, i) => (
               <div key={i} className="bg-white p-4 shadow rounded-lg">
