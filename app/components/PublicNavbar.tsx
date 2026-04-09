@@ -12,7 +12,7 @@ export default function PublicNavbar() {
 
         {/* logo */}
         <Link to="/" className="font-bold text-lg">
-          Infinity Dream
+          Infinity Dream Learning
         </Link>
 
         {/* desktop nav */}
@@ -26,30 +26,35 @@ export default function PublicNavbar() {
             Programs
           </button>
 
-          <Link to="/marketplace">
-            Courses
+          <Link to="/programs/ai">
+            AI Data & Tech
           </Link>
 
-          <Link to="/ehub">
-            Ehub
+          <Link to="/programs/creative">
+            Creative
           </Link>
 
-          <Link to="/community">
-            Community
+          <Link to="/programs/business">
+            Entrepreneurship
+          </Link>
+
+          <Link to="/about">
+            About
+          </Link>
+
+          <Link to="/pricing">
+            All Access
+          </Link>
+
+          <Link to="/support">
+            Support
           </Link>
 
           <Link
             to="/login"
-            className="border border-white px-4 py-2 rounded-xl"
+            className="border border-white px-4 py-2 rounded-xl font-semibold"
           >
-            Login
-          </Link>
-
-          <Link
-            to="/register"
-            className="bg-white text-black px-4 py-2 rounded-xl"
-          >
-            Get Started
+            Log In
           </Link>
 
         </nav>
@@ -98,11 +103,14 @@ export default function PublicNavbar() {
       {menu && (
         <div className="md:hidden bg-black/90 text-white px-6 py-4 flex flex-col gap-4">
 
-          <Link to="/marketplace">Courses</Link>
-          <Link to="/ehub">Ehub</Link>
-          <Link to="/community">Community</Link>
-          <Link to="/login">Login</Link>
-          <Link to="/register">Get Started</Link>
+          <Link to="/">Programs</Link>
+          <Link to="/programs/ai">AI Data & Tech</Link>
+          <Link to="/programs/creative">Creative</Link>
+          <Link to="/programs/business">Entrepreneurship</Link>
+          <Link to="/about">About</Link>
+          <Link to="/pricing">All Access</Link>
+          <Link to="/support">Support</Link>
+          <Link to="/login" className="font-semibold">Log In</Link>
 
         </div>
       )}
