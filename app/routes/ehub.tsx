@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import { useNavigate } from "react-router";
-import EhubNineDotsMenu from "../components/EhubNineDotsMenu";
+import NineDotsMenu from "../components/NineDotsMenu";
 
 export default function EhubPage() {
   const navigate = useNavigate();
@@ -48,7 +48,7 @@ export default function EhubPage() {
   </button>
 
   {/* Dropdown menu */}
-  <EhubNineDotsDropdown menuOpen={menuOpen} />
+  <NineDotsMenu menuOpen={menuOpen} />
 </div>
 
           {/* Profile image */}
