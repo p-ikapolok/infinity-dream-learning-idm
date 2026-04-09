@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { useNavigate } from "react-router";
 
 export default function EhubPage() {
   return (
@@ -260,3 +261,12 @@ export default function EhubPage() {
     </div>
   );
 }
+
+
+
+
+const navigate = useNavigate();
+
+<button onClick={() => navigate("/learning-resources")}>
+  View More
+</button>
