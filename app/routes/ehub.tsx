@@ -1,269 +1,223 @@
 import { useState } from "react";
 import { Link } from "react-router";
 
-function EhubFullDashboard({ onBack }) {
+function CurrentPrograms({ onBack }) {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Header */}
-      <header className="bg-white shadow px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-purple-700">aIx eHub</h1>
-        <div className="flex items-center space-x-6">
-          <span className="text-sm text-gray-600">4210 Points</span>
-          <button className="text-gray-600 hover:text-purple-600">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002     
-                  6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67     
-                  6.165 6 8.388 6 11v3.159c0 .538-.214     
-                  1.055-.595 1.436L4 17h5m6 0v1a3 3 0     
-                  11-6 0v-1m6 0H9"
-              />
-            </svg>
-          </button>
-
-          {/* 9-dots menu */}
-          <button className="text-gray-600 hover:text-purple-600">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-              <circle cx="5" cy="5" r="2" />
-              <circle cx="12" cy="5" r="2" />
-              <circle cx="19" cy="5" r="2" />
-              <circle cx="5" cy="12" r="2" />
-              <circle cx="12" cy="12" r="2" />
-              <circle cx="19" cy="12" r="2" />
-              <circle cx="5" cy="19" r="2" />
-              <circle cx="12" cy="19" r="2" />
-              <circle cx="19" cy="19" r="2" />
-            </svg>
-          </button>
-
-          <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center">PI</div>
-        </div>
-      </header>
-
-      {/* Purple Banner */}
-      <section className="text-center py-10 bg-gradient-to-r from-purple-700 to-pink-500 text-white">
-        <h2 className="text-3xl font-bold">Your Learning Resources</h2>
-        <p className="mt-2 text-lg">View Your Program and Track Your Progress</p>
-        <p className="mt-4 text-sm text-gray-100">
-          Find detailed information about your enrolled program here.
-        </p>
-      </section>
+    <section className="px-6 py-10">
+      <h3 className="text-2xl font-bold mb-4">Your Learning Resources</h3>
+      <p className="text-gray-600 mb-2">Check your enrolled programs and track progress.</p>
+      <p className="text-sm text-gray-500 mb-6">
+        Access detailed content, assignments, and milestones for your current courses.
+      </p>
 
       {/* Current Programs */}
-      <section className="px-6 py-10">
-        <h3 className="text-2xl font-bold mb-4">Current Programs</h3>
-        <div className="bg-white shadow rounded-lg p-6 text-center">
-          <p className="text-gray-600 mb-2">No Programs Yet</p>
-          <p className="text-sm text-gray-500 mb-4">
-            Explore a world of knowledge. Start your learning journey today!
-          </p>
-          <button className="bg-purple-600 text-white px-6 py-2 rounded">Apply to new programs</button>
-        </div>
-      </section>
+      <div className="bg-white shadow rounded-lg p-6 text-center mb-8">
+        <p className="text-gray-600 mb-2">No Active Programs Yet</p>
+        <p className="text-sm text-gray-500 mb-4">
+          Explore courses and start your learning journey now!
+        </p>
+        <button className="bg-purple-600 text-white px-6 py-2 rounded">
+          Apply to Programs
+        </button>
+      </div>
 
       {/* Past Programs */}
-      <section className="px-6 py-10">
-        <h3 className="text-2xl font-bold mb-6">Past Programs</h3>
-        <div className="space-y-6">
-          <div className="bg-white shadow rounded-lg p-6">
-            <h4 className="font-bold">Professional Foundations ✅ Completed</h4>
-            <p className="text-gray-600">
-              Learn key leadership and professional skills that will help you navigate and succeed in the workplace.
-            </p>
-            <button className="mt-2 text-blue-600">Continue</button>
-          </div>
+      <h4 className="text-xl font-bold mb-4">Completed Programs</h4>
+      <div className="space-y-6">
+        <div className="bg-white shadow rounded-lg p-6">
+          <h5 className="font-bold">Web Development Bootcamp ✔ Completed</h5>
+          <p className="text-gray-600">
+            Learned HTML, CSS, JavaScript, and built responsive websites.
+          </p>
+          <button className="mt-2 text-blue-600">Review</button>
         </div>
-      </section>
 
-      {/* Programs Section */}
-      <section className="px-6 py-10">
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Graphic Design */}
-          <div className="bg-white shadow rounded-lg overflow-hidden">
-            <img src="/images/graphic-design.png" alt="Graphic Design" className="w-full h-40 object-cover" />
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">Graphic Design</h3>
-              <p className="text-gray-600 mb-4">
-                This programme redefines graphic design by merging universal
-                design principles with Afrocentric creativity, allowing
-                participants to craft authentic visual narratives with global
-                appeal.
-              </p>
-              <p className="text-sm text-gray-500 mb-2">Start Date: 25 May 2026 • Duration: 7 Months</p>
-              <div className="flex space-x-4">
-                <button className="border px-4 py-2 rounded">View Details</button>
-                <button className="bg-purple-600 text-white px-4 py-2 rounded">Enroll Now</button>
-              </div>
-            </div>
-          </div>
+        <div className="bg-white shadow rounded-lg p-6">
+          <h5 className="font-bold">Front-End React Essentials ✔ Completed</h5>
+          <p className="text-gray-600">
+            Mastered React fundamentals, components, state management, and hooks.
+          </p>
+          <button className="mt-2 text-blue-600">Review</button>
+        </div>
 
-          {/* AI Career Essentials */}
-          <div className="bg-white shadow rounded-lg overflow-hidden">
-            <img src="/images/ai-career.png" alt="AI Career Essentials" className="w-full h-40 object-cover" />
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-2">AI Career Essentials</h3>
-              <p className="text-gray-600 mb-4">
-                Develop key professional and technical skills using AI technology
-                that will help you succeed in today’s digital workplace.
-              </p>
-              <p className="text-sm text-gray-500 mb-2">Start Date: 04 May 2026 • Duration: 6 Weeks</p>
-              <div className="flex space-x-4">
-                <button className="border px-4 py-2 rounded">View Details</button>
-                <button className="bg-purple-600 text-white px-4 py-2 rounded">Enroll Now</button>
-              </div>
-            </div>
+        <div className="bg-white shadow rounded-lg p-6">
+          <h5 className="font-bold">Freelancing Basics ❌ Withdrawn</h5>
+          <p className="text-gray-600">
+            Learned how to start freelancing and build online client relationships.
+          </p>
+          <button className="mt-2 text-blue-600">Review</button>
+        </div>
+      </div>
+
+      {/* Recommended Programs */}
+      <h4 className="text-xl font-bold mb-6 mt-10">Recommended Programs</h4>
+      <div className="grid md:grid-cols-2 gap-6 mb-10">
+        <div className="bg-white shadow rounded-lg p-6">
+          <h5 className="font-bold">Advanced Web Development</h5>
+          <p className="text-gray-600 mb-2">
+            Enhance your web development skills with advanced JavaScript, React, and Node.js projects.
+          </p>
+          <p className="text-sm text-gray-500 mb-2">Start Date: 15 April 2026 • Duration: 8 Weeks</p>
+          <div className="flex space-x-4">
+            <button className="border px-4 py-2 rounded">View Details</button>
+            <button className="bg-purple-600 text-white px-4 py-2 rounded">Enroll Now</button>
           </div>
         </div>
 
-        <div className="mt-8 text-center">
-          <button onClick={onBack} className="bg-gray-300 text-gray-800 px-6 py-2 rounded">
-            Back to Dashboard
-          </button>
+        <div className="bg-white shadow rounded-lg p-6">
+          <h5 className="font-bold">AI & Data Science Essentials</h5>
+          <p className="text-gray-600 mb-2">
+            Learn the fundamentals of AI, data analytics, and Python programming for real-world projects.
+          </p>
+          <p className="text-sm text-gray-500 mb-2">Start Date: 22 April 2026 • Duration: 6 Weeks</p>
+          <div className="flex space-x-4">
+            <button className="border px-4 py-2 rounded">View Details</button>
+            <button className="bg-purple-600 text-white px-4 py-2 rounded">Enroll Now</button>
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* Support + Withdraw */}
-      <section className="px-6 py-10 grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-6 mt-8">
         <div className="bg-white shadow rounded-lg p-6">
           <h4 className="font-bold mb-2">Support</h4>
           <p className="text-gray-600 mb-4">
-            Get instant help on administrative issues from LEA, our AI assistant,
-            or contact our support team.
+            Get help from LEA, our AI assistant, or reach out to our support team for guidance.
           </p>
-          <button className="bg-purple-600 text-white px-4 py-2 rounded">Continue</button>
+          <Link to="/support" className="bg-purple-600 text-white px-4 py-2 rounded inline-block">
+            Continue
+          </Link>
         </div>
 
         <div className="bg-white shadow rounded-lg p-6">
           <h4 className="font-bold mb-2">Withdraw</h4>
           <p className="text-gray-600 mb-4">
-            Withdrawing from your program will end it permanently. You will need to reapply.
+            Withdraw from programs if necessary. You can re-enroll anytime later.
           </p>
-          <button className="bg-purple-600 text-white px-4 py-2 rounded">Continue</button>
+          <Link to="/withdraw" className="bg-red-600 text-white px-4 py-2 rounded inline-block">
+            Continue
+          </Link>
         </div>
-      </section>
+      </div>
 
-      {/* Footer */}
-      <footer className="bg-white shadow px-6 py-10 mt-auto">
-        <h2 className="text-xl font-bold text-purple-700 mb-2">aIx eHub</h2>
-        <p className="text-gray-600 mb-6">The community of those who Do Hard Things.</p>
-      </footer>
-    </div>
+      {/* Back button */}
+      <button
+        onClick={onBack}
+        className="mt-10 bg-gray-300 text-gray-800 px-6 py-2 rounded"
+      >
+        Back to Dashboard
+      </button>
+    </section>
   );
 }
 
 export default function EhubDashboard() {
-  const [showFull, setShowFull] = useState(false);
-
-  if (showFull) return <EhubFullDashboard onBack={() => setShowFull(false)} />;
+  const [viewCurrent, setViewCurrent] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      {/* Header */}
+      {/* Navbar */}
       <header className="bg-white shadow px-6 py-4 flex justify-between items-center">
-        <h1 className="text-xl font-bold text-purple-700">aIx eHub</h1>
+        <h1 className="text-xl font-bold text-purple-700">Artlink eHub</h1>
         <div className="flex items-center space-x-6">
-          <button className="text-gray-600 hover:text-purple-600">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002   
-                  6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67   
-                  6.165 6 8.388 6 11v3.159c0 .538-.214   
-                  1.055-.595 1.436L4 17h5m6 0v1a3 3 0   
-                  11-6 0v-1m6 0H9"
-              />
-            </svg>
-          </button>
-
-          <button className="text-gray-600 hover:text-purple-600">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-              <circle cx="5" cy="5" r="2" />
-              <circle cx="12" cy="5" r="2" />
-              <circle cx="19" cy="5" r="2" />
-              <circle cx="5" cy="12" r="2" />
-              <circle cx="12" cy="12" r="2" />
-              <circle cx="19" cy="12" r="2" />
-              <circle cx="5" cy="19" r="2" />
-              <circle cx="12" cy="19" r="2" />
-              <circle cx="19" cy="19" r="2" />
-            </svg>
-          </button>
-
-          <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center">PI</div>
+          <span className="text-sm text-gray-600">4210 Points</span>
+          <div className="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+            PI
+          </div>
         </div>
       </header>
 
-      {/* Welcome Banner */}
-      <section className="text-center py-10 bg-gradient-to-r from-purple-700 to-pink-500 text-white">
-        <h2 className="text-3xl font-bold">Welcome to the eHub</h2>
-        <p className="mt-2 text-lg">Your ALX Learning Journey Starts Here – Track your progress, achieve your goals.</p>
-        <p className="mt-4 text-xl">Welcome, Peter! Your learning journey begins today. Let’s explore together!</p>
-      </section>
-
-      {/* Current Programs */}
-      <section className="px-6 py-10">
-        <h3 className="text-2xl font-bold mb-4">Current Programs</h3>
-        <div className="bg-white shadow rounded-lg p-6 text-center">
-          <p className="text-gray-600 mb-2">No Programs Yet</p>
-          <p className="text-sm text-gray-500 mb-4">Explore a world of knowledge. Start your learning journey today!</p>
-          <button className="bg-purple-600 text-white px-6 py-2 rounded">Apply to new programs</button>
-        </div>
-      </section>
-
-      {/* Recommended Programs */}
-      <section className="px-6 py-10">
-        <h3 className="text-2xl font-bold mb-6">Recommended Programs</h3>
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* AI Career Essentials */}
-          <div className="bg-white shadow rounded-lg p-6">
-            <h4 className="text-xl font-bold mb-2">AI Career Essentials</h4>
-            <p className="text-gray-600 mb-4">
-              Develop key professional and technical skills using AI technology that will help you succeed in today’s digital workplace.
+      {!viewCurrent ? (
+        <>
+          {/* Welcome Section */}
+          <section className="text-center py-10 bg-gradient-to-r from-purple-700 to-pink-500 text-white">
+            <h2 className="text-3xl font-bold">Welcome to Artlink eHub</h2>
+            <p className="mt-2 text-lg">
+              Your learning hub for tech, freelancing, and skill development – track progress, achieve milestones, and grow.
             </p>
-            <p className="text-sm text-gray-500 mb-2">Start Date: 04 May 2026 • Duration: 6 Weeks</p>
-            <div className="flex space-x-4">
-              <button className="border px-4 py-2 rounded">View Details</button>
-              <button className="bg-purple-600 text-white px-4 py-2 rounded">Enroll Now</button>
-            </div>
-          </div>
+            <p className="mt-4 text-xl">Hello, Peter!</p>
+          </section>
 
-          {/* Content Creation */}
-          <div className="bg-white shadow rounded-lg p-6">
-            <h4 className="text-xl font-bold mb-2">Content Creation</h4>
-            <p className="text-gray-600 mb-4">
-              This programme enables learners to master content strategy and creation across various platforms.
-            </p>
-            <p className="text-sm text-gray-500 mb-2">Start Date: 25 May 2026 • Duration: 7 Months</p>
-            <div className="flex space-x-4">
-              <button className="border px-4 py-2 rounded">View Details</button>
-              <button className="bg-purple-600 text-white px-4 py-2 rounded">Enroll Now</button>
+          {/* Current Programs Preview */}
+          <section className="px-6 py-10">
+            <h3 className="text-2xl font-bold mb-4">Current Programs</h3>
+            <div className="bg-white shadow rounded-lg p-6 text-center">
+              <p className="text-gray-600 mb-2">No Active Programs Yet</p>
+              <p className="text-sm text-gray-500 mb-4">
+                Browse available programs and start learning today!
+              </p>
+              <button
+                onClick={() => setViewCurrent(true)}
+                className="bg-purple-600 text-white px-6 py-2 rounded"
+              >
+                View More
+              </button>
             </div>
-          </div>
-        </div>
+          </section>
 
-        <div className="mt-6 text-center">
-          <button onClick={() => setShowFull(true)} className="bg-purple-600 text-white px-6 py-2 rounded">
-            View All Programs
-          </button>
-        </div>
-      </section>
+          {/* Recommended Programs Preview */}
+          <section className="px-6 py-10">
+            <h3 className="text-2xl font-bold mb-6">Recommended Programs</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white shadow rounded-lg p-6">
+                <h4 className="text-xl font-bold mb-2">Freelancing Skills</h4>
+                <p className="text-gray-600 mb-4">
+                  Learn how to earn globally using your skills with practical freelancing tips.
+                </p>
+                <p className="text-sm text-gray-500 mb-2">Start Date: 25 April 2026 • Duration: 4 Weeks</p>
+                <div className="flex space-x-4">
+                  <button className="border px-4 py-2 rounded">View Details</button>
+                  <button className="bg-purple-600 text-white px-4 py-2 rounded">Enroll Now</button>
+                </div>
+              </div>
+
+              <div className="bg-white shadow rounded-lg p-6">
+                <h4 className="text-xl font-bold mb-2">Web Development</h4>
+                <p className="text-gray-600 mb-4">
+                  Build websites and web apps with HTML, CSS, JavaScript, and React.
+                </p>
+                <p className="text-sm text-gray-500 mb-2">Start Date: 01 May 2026 • Duration: 6 Weeks</p>
+                <div className="flex space-x-4">
+                  <button className="border px-4 py-2 rounded">View Details</button>
+                  <button className="bg-purple-600 text-white px-4 py-2 rounded">Enroll Now</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Explore the eHub */}
+          <section className="px-6 py-10 bg-gray-100">
+            <h3 className="text-2xl font-bold mb-6">Explore the eHub</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-white shadow rounded-lg p-6">
+                <h4 className="font-bold mb-2">Start Learning</h4>
+                <p className="text-gray-600">Access courses, track progress, and complete milestones.</p>
+              </div>
+              <div className="bg-white shadow rounded-lg p-6">
+                <h4 className="font-bold mb-2">Connect with Community</h4>
+                <p className="text-gray-600">Collaborate with other learners and share knowledge.</p>
+              </div>
+              <div className="bg-white shadow rounded-lg p-6">
+                <h4 className="font-bold mb-2">Earn Rewards</h4>
+                <p className="text-gray-600">Gain points and badges as you complete programs and tasks.</p>
+              </div>
+              <div className="bg-white shadow rounded-lg p-6">
+                <h4 className="font-bold mb-2">Get Support</h4>
+                <p className="text-gray-600">Chat with LEA or our support team for guidance anytime.</p>
+              </div>
+            </div>
+          </section>
+        </>
+      ) : (
+        <CurrentPrograms onBack={() => setViewCurrent(false)} />
+      )}
+
+      {/* Footer */}
+      <footer className="bg-white shadow mt-auto px-6 py-6 text-center">
+        <h4 className="text-purple-700 font-bold mb-2">Artlink eHub</h4>
+        <p className="text-gray-600 mb-4">Empowering learners to gain skills, earn points, and grow their careers.</p>
+        <p className="text-xs text-gray-400">© 2026 Artlink Media Africa. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
