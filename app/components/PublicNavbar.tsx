@@ -3,79 +3,89 @@ import { Link } from "react-router";
 
 export default function PublicNavbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [active, setActive] = useState("Start Learning"); // active nav item
+  const [activeLink, setActiveLink] = useState("Programs");
 
-  const navItems = [
-    "Start Learning",
-    "Explore Ehub",
-    "About",
-    "All Access",
-    "Support",
-    "Login",
+  const desktopLinks = [
+    { name: "Programs", href: "/" },
+    { name: "AI Data & Tech", href: "/programs/ai" },
+    { name: "Creative", href: "/programs/creative" },
+    { name: "Entrepreneurship", href: "/programs/business" },
+    { name: "About", href: "/about" },
+    { name: "All Access", href: "/pricing" },
+    { name: "Support", href: "/support" },
   ];
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-black/50 text-white">
+    <header className="absolute top-0 left-0 right-0 z-50 bg-transparent text-white">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
         {/* Logo */}
-        <h1 className="text-lg font-bold">Infinity Dream Learning</h1>
+        <Link to="/" className="font-bold text-lg">
+          Infinity Dream
+        </Link>
 
-        {/* Desktop Nav */}
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 relative">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => setActive(item)}
-              className="relative px-2 py-1 text-white hover:text-blue-400 transition-colors"
-            >
-              {item}
-              {active === item && (
-                <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-blue-400 rounded-full transition-all"></span>
+          {desktopLinks.map((link) => (
+            <div key={link.name} className="relative">
+              <Link
+                to={link.href}
+                onClick={() => setActiveLink(link.name)}
+                className="hover:text-blue-400 transition-colors"
+              >
+                {link.name}
+              </Link>
+              {/* Round underline indicator */}
+              {activeLink === link.name && (
+                <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-blue-400 rounded-full transition-all" />
               )}
-            </button>
+            </div>
           ))}
         </nav>
 
-        {/* Mobile Hamburger */}
+        {/* Hamburger button */}
         <button
-          className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1"
           onClick={() => setMenuOpen(!menuOpen)}
+          className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1"
         >
+          {/* Hamburger SVG lines */}
           <span
-            className={`block w-6 h-0.5 bg-white transition-transform origin-center ${
-              menuOpen ? "rotate-45 translate-y-1.5" : ""
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              menuOpen ? "rotate-45 translate-y-2" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white transition-opacity ${
-              menuOpen ? "opacity-0" : "opacity-100"
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              menuOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`block w-6 h-0.5 bg-white transition-transform origin-center ${
-              menuOpen ? "-rotate-45 -translate-y-1.5" : ""
+            className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
+              menuOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           />
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden bg-black/90 text-white px-6 py-4 flex flex-col gap-4">
-          {navItems.map((item) => (
+        <div className="md:hidden bg-black/90 text-white px-6 py-6 flex flex-col gap-6">
+          {desktopLinks.map((link) => (
             <Link
-              key={item}
-              to={item === "Login" ? "/login" : "/"} // adapt links
-              onClick={() => {
-                setActive(item);
-                setMenuOpen(false);
-              }}
-              className="text-lg"
+              key={link.name}
+              to={link.href}
+              onClick={() => setMenuOpen(false)}
+              className="text-lg font-medium"
             >
-              {item}
+              {link.name}
             </Link>
           ))}
+          <Link
+            to="/login"
+            onClick={() => setMenuOpen(false)}
+            className="text-lg font-semibold"
+          >
+            Log In
+          </Link>
         </div>
       )}
     </header>
