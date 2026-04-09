@@ -53,16 +53,25 @@ export default function EhubNineDotsDropdown({ menuOpen }: { menuOpen: boolean }
       </div>
 
       {/* Support */}
-      <div className="flex flex-col items-center">
-        <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full">
-          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="10"/>
-            <path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4"/>
-            <path d="M12 17h.01"/>
-          </svg>
-        </div>
-        <span className="mt-2 text-gray-700 font-medium">Support</span>
-      </div>
+<Link
+  to="/support"
+  className="flex flex-col items-center"
+>
+  <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full">
+    <svg
+      className="w-6 h-6 text-blue-600"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.09 9a3 3 0 1 1 5.82 1c0 2-3 2-3 4" />
+      <path d="M12 17h.01" />
+    </svg>
+  </div>
+  <span className="mt-2 text-gray-700 font-medium">Support</span>
+</Link>
 
     </div>
   );
