@@ -6,19 +6,27 @@ export default function ProfileMenu() {
 
   return (
     <div className="relative">
-      {/* Profile image button */}
-      <button onClick={() => setMenuOpen(!menuOpen)}>
-        <img
-          src="/images/profile.png"
-          alt="Profile"
-          className="w-10 h-10 rounded-full object-cover"
-        />
+      {/* Profile icon button */}
+      <button
+        onClick={() => setMenuOpen(!menuOpen)}
+        className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 focus:outline-none"
+      >
+        {/* Round SVG profile icon */}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-6 h-6 text-gray-700"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="8" r="4" />
+          <path d="M4 20a8 8 0 0116 0" />
+        </svg>
       </button>
 
       {/* Dropdown menu */}
       {menuOpen && (
         <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 space-y-4 z-50">
-          
+
           {/* Dark theme toggle */}
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
