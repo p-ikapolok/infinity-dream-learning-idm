@@ -3,6 +3,7 @@ import { Link } from "react-router";
 import { useNavigate } from "react-router";
 
 export default function EhubPage() {
+  const navigate = useNavigate();
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
 
