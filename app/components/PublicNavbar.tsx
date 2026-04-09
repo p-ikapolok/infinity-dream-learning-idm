@@ -12,7 +12,7 @@ export default function PublicNavbar() {
 
         {/* logo */}
         <Link to="/" className="font-bold text-lg">
-          Infinity Dream Learning
+          Infinity Dream
         </Link>
 
         {/* desktop nav */}
