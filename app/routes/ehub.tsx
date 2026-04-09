@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import React from "react";
 import { Link } from "react-router";
 import { useNavigate } from "react-router";
 import NineDotsMenu from "../components/NineDotsMenu";
