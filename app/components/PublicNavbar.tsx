@@ -50,13 +50,6 @@ export default function PublicNavbar() {
             Support
           </Link>
 
-          <Link
-            to="/login"
-            className="border border-white px-4 py-2 rounded-xl font-semibold"
-          >
-            Log In
-          </Link>
-
         </nav>
 
         {/* mobile menu button */}
