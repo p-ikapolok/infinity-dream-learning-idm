@@ -262,12 +262,3 @@ export default function EhubPage() {
     </div>
   );
 }
-
-
-
-
-const navigate = useNavigate();
-
-<button onClick={() => navigate("/learning-resources")}>
-  View More
-</button>
