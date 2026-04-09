@@ -41,4 +41,5 @@ export default [
   route("/ehub-login", "routes/ehub-login.tsx"),
   route("/learning-login", "routes/learning-login.tsx"),
   route("/signup", "routes/signup.tsx"),
+  route("/learning-resources-page", "routes/learning-resources-page.tsx"),
 ] satisfies RouteConfig;
