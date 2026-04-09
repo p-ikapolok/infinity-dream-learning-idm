@@ -18,17 +18,27 @@ export default function EhubNineDotsDropdown({ menuOpen }: { menuOpen: boolean }
       </div>
 
       {/* Community */}
-      <div className="flex flex-col items-center">
-        <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full">
-          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M17 11a4 4 0 1 0-2-7"/>
-            <path d="M2 21a7 7 0 0 1 14 0"/>
-            <path d="M22 21a7 7 0 0 0-6-6.7"/>
-          </svg>
-        </div>
-        <span className="mt-2 text-gray-700 font-medium">Community</span>
-      </div>
+<Link
+  to="/community"
+  className="flex flex-col items-center"
+  onClick={() => setMenuOpen(false)} // optional: closes dropdown after click
+>
+  <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full">
+    <svg
+      className="w-6 h-6 text-blue-600"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="9" cy="7" r="4" />
+      <path d="M17 11a4 4 0 1 0-2-7" />
+      <path d="M2 21a7 7 0 0 1 14 0" />
+      <path d="M22 21a7 7 0 0 0-6-6.7" />
+    </svg>
+  </div>
+  <span className="mt-2 text-gray-700 font-medium">Community</span>
+</Link>
 
       {/* Rewards */}
       <div className="flex flex-col items-center">
