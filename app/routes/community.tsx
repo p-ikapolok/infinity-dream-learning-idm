@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function EhubWithCommunity() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -30,7 +29,6 @@ export default function EhubWithCommunity() {
               >
                 <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1" />
               </svg>
-
               <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
             {showNotifications && <NotificationMenu />}
@@ -112,8 +110,8 @@ export default function EhubWithCommunity() {
         {/* Sidebar */}
         {sidebarOpen && (
           <aside className="w-64 bg-white shadow-lg flex flex-col justify-between">
+            {/* Sidebar content unchanged */}
             <div className="p-6 space-y-6 overflow-y-auto">
-              {/* Core navigation */}
               <nav className="space-y-2">
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Search</a>
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Notifications</a>
@@ -123,8 +121,7 @@ export default function EhubWithCommunity() {
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Events</a>
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Leaderboard</a>
               </nav>
-
-              {/* ALX section */}
+              {/* ALX, Welcome, Community, Resources sections same as before */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">ALX</h4>
                 <nav className="space-y-2 mt-2">
@@ -135,8 +132,6 @@ export default function EhubWithCommunity() {
                   <a href="#" className="block text-gray-700 hover:text-blue-600">ALX Alumni Community</a>
                 </nav>
               </div>
-
-              {/* Welcome section */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Welcome</h4>
                 <nav className="space-y-2 mt-2">
@@ -145,8 +140,6 @@ export default function EhubWithCommunity() {
                   <a href="#" className="block text-gray-700 hover:text-blue-600">Introduce Yourself</a>
                 </nav>
               </div>
-
-              {/* Community section */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Community</h4>
                 <nav className="space-y-2 mt-2">
@@ -158,8 +151,6 @@ export default function EhubWithCommunity() {
                   <a href="#" className="block text-gray-700 hover:text-blue-600">Community Corner</a>
                 </nav>
               </div>
-
-              {/* Resources */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Resources</h4>
                 <nav className="space-y-2 mt-2">
@@ -186,6 +177,28 @@ export default function EhubWithCommunity() {
 
         {/* Main content */}
         <main className="flex-1 p-10">
+          {/* Community Hamburger */}
+          <div className="flex justify-between items-center mb-6">
+            <div className="flex items-center space-x-3">
+              <img src="/images/alx-logo.png" alt="ALX Logo" className="h-8" />
+              <h1 className="text-xl font-bold text-gray-800">We Are ALX</h1>
+            </div>
+            <button
+              onClick={() => setSidebarOpen(!sidebarOpen)}
+              className="text-gray-600 hover:text-gray-800"
+            >
+              {sidebarOpen ? (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
+            </button>
+          </div>
+
           {/* Video thumbnail */}
           <div className="mb-6">
             <div className="bg-gray-200 h-48 flex items-center justify-center rounded-lg">
