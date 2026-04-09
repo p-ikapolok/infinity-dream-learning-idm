@@ -24,19 +24,32 @@ export default function EhubPage() {
           </button>
 
           {/* 9-dots menu */}
-          <button className="text-gray-600 hover:text-gray-800">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <circle cx="5" cy="5" r="1.5" />
-              <circle cx="12" cy="5" r="1.5" />
-              <circle cx="19" cy="5" r="1.5" />
-              <circle cx="5" cy="12" r="1.5" />
-              <circle cx="12" cy="12" r="1.5" />
-              <circle cx="19" cy="12" r="1.5" />
-              <circle cx="5" cy="19" r="1.5" />
-              <circle cx="12" cy="19" r="1.5" />
-              <circle cx="19" cy="19" r="1.5" />
-            </svg>
-          </button>
+<div className="relative">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-gray-600 hover:text-gray-800"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="5" cy="5" r="1.5" />
+      <circle cx="12" cy="5" r="1.5" />
+      <circle cx="19" cy="5" r="1.5" />
+      <circle cx="5" cy="12" r="1.5" />
+      <circle cx="12" cy="12" r="1.5" />
+      <circle cx="19" cy="12" r="1.5" />
+      <circle cx="5" cy="19" r="1.5" />
+      <circle cx="12" cy="19" r="1.5" />
+      <circle cx="19" cy="19" r="1.5" />
+    </svg>
+  </button>
+
+  {/* Dropdown menu */}
+  <EhubNineDotsDropdown menuOpen={menuOpen} />
+</div>
 
           {/* Profile image */}
           <img
