@@ -1,105 +1,48 @@
+// app/routes/community.tsx
 import { useState } from "react";
-import { Link } from "react-router";
+import NineDotsMenu from "../components/NineDotsMenu"; // adjust path if needed
 
-export default function LearningCommunityPage() {
-  const [menu, setMenu] = useState(false);
-  const [programs, setPrograms] = useState(false);
+export default function LearningResourcesCommunityPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* ================= Header + Hero ================= */}
+      <header className="bg-white shadow px-6 py-4 flex justify-between items-center">
+        {/* Left: Logo */}
+        <h1 className="font-bold text-lg">ALX eHub</h1>
 
-      {/* Header */}
-      <header className="absolute top-0 left-0 right-0 z-50 bg-white shadow">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        {/* Center: Points */}
+        <div>4210 points</div>
 
-          {/* Logo */}
-          <Link to="/" className="font-bold text-lg text-gray-800">
-            ALX eHub
-          </Link>
-
-          {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6 text-gray-800">
-            <button
-              type="button"
-              onClick={() => setPrograms(!programs)}
-              className="relative font-semibold"
+        {/* Right: Profile, Notification Bell, NineDotsMenu */}
+        <div className="flex items-center gap-4 relative">
+          {/* Notification Bell */}
+          <button>
+            <svg
+              className="w-6 h-6 text-gray-700"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
             >
-              Programs
-            </button>
-
-            <Link to="/programs/ai">AI Data & Tech</Link>
-            <Link to="/programs/creative">Creative</Link>
-            <Link to="/programs/business">Entrepreneurship</Link>
-            <Link to="/about">About</Link>
-            <Link to="/pricing">All Access</Link>
-            <Link to="/support">Support</Link>
-
-            <Link to="/login" className="border border-gray-800 px-4 py-2 rounded-xl">
-              Login
-            </Link>
-            <Link to="/register" className="bg-gray-800 text-white px-4 py-2 rounded-xl">
-              Get Started
-            </Link>
-          </nav>
-
-          {/* Mobile Hamburger */}
-          <button
-            type="button"
-            className="md:hidden text-gray-800"
-            onClick={() => setMenu(!menu)}
-          >
-            {menu ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            )}
+              <path d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14V11a6 6 0 10-12 0v3c0 .386-.149.735-.395 1L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+            </svg>
           </button>
+
+          {/* Nine Dots Menu */}
+          <button onClick={() => setMenuOpen(!menuOpen)}>
+            <svg className="w-6 h-6 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M6 6h2v2H6V6zM10 6h2v2h-2V6zM14 6h2v2h-2V6zM6 10h2v2H6v-2zM10 10h2v2h-2v-2zM14 10h2v2h-2v-2zM6 14h2v2H6v-2zM10 14h2v2h-2v-2zM14 14h2v2h-2v-2z"/>
+            </svg>
+          </button>
+
+          <NineDotsMenu menuOpen={menuOpen} />
         </div>
-
-        {/* Programs dropdown */}
-        {programs && (
-          <div className="absolute left-0 right-0 bg-white text-black shadow-sm">
-            <div className="max-w-7xl mx-auto px-6 py-6 grid md:grid-cols-3 gap-6">
-              <Link to="/programs/ai" className="block border p-4 rounded-xl">AI Data & Tech</Link>
-              <Link to="/programs/creative" className="block border p-4 rounded-xl">Creative</Link>
-              <Link to="/programs/business" className="block border p-4 rounded-xl">Entrepreneurship</Link>
-            </div>
-          </div>
-        )}
-
-        {/* Mobile menu */}
-        {menu && (
-          <div className="md:hidden bg-black/90 text-white px-6 py-6 flex flex-col gap-4">
-            <Link to="/">Programs</Link>
-            <Link to="/programs/ai">AI Data & Tech</Link>
-            <Link to="/programs/creative">Creative</Link>
-            <Link to="/programs/business">Entrepreneurship</Link>
-            <Link to="/about">About</Link>
-            <Link to="/pricing">All Access</Link>
-            <Link to="/support">Support</Link>
-            <Link to="/login" className="font-semibold">Log In</Link>
-          </div>
-        )}
       </header>
 
-      {/* Hero Section */}
-      <section className="relative mt-24">
+      {/* Banner / Hero */}
+      <section className="relative">
         <img
           src="/images/resources-banner.png"
           alt="Learning Resources Banner"
@@ -110,13 +53,11 @@ export default function LearningCommunityPage() {
         </div>
       </section>
 
-      {/* Layout: Sidebar + Main Content */}
+      {/* ================= Community Page Body ================= */}
       <div className="flex">
-
         {/* Sidebar */}
         <aside className="w-64 bg-white shadow-lg flex flex-col justify-between">
           <div className="p-6 space-y-4">
-
             <nav className="space-y-2">
               <a href="#" className="block text-gray-700 hover:text-blue-600">Search</a>
               <a href="#" className="block text-gray-700 hover:text-blue-600">Notifications</a>
@@ -171,7 +112,7 @@ export default function LearningCommunityPage() {
           </div>
         </aside>
 
-        {/* Main Content */}
+        {/* Main content */}
         <main className="flex-1 p-10">
           <header className="mb-6">
             <h1 className="text-3xl font-bold text-gray-800">We Are ALX</h1>
@@ -208,6 +149,36 @@ export default function LearningCommunityPage() {
           </div>
         </main>
       </div>
+
+      {/* ================= Footer ================= */}
+      <footer className="bg-blue-900 text-white px-6 py-10 mt-10">
+        <div className="text-center mb-6">
+          <h2 className="text-xl font-bold">aIx eHub</h2>
+          <p className="mt-2">The community of those who Do Hard Things.</p>
+        </div>
+
+        {/* Navigation Links */}
+        <div className="flex flex-wrap justify-center space-x-4 text-sm mb-6">
+          <a href="#" className="hover:underline">Home</a>
+          <a href="#" className="hover:underline">Learning</a>
+          <a href="#" className="hover:underline">Community</a>
+          <a href="#" className="hover:underline">Rewards</a>
+          <a href="#" className="hover:underline">Support</a>
+          <a href="#" className="hover:underline">Privacy policy</a>
+          <a href="#" className="hover:underline">Terms & Conditions</a>
+        </div>
+
+        {/* Social Icons */}
+        <div className="flex justify-center space-x-6 mb-6">
+          <img src="/icons/x.png" alt="X" className="w-6 h-6" />
+          <img src="/icons/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
+          <img src="/icons/facebook.png" alt="Facebook" className="w-6 h-6" />
+          <img src="/icons/instagram.png" alt="Instagram" className="w-6 h-6" />
+        </div>
+
+        {/* Copyright */}
+        <p className="text-center text-sm">© 2026 Sand. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
