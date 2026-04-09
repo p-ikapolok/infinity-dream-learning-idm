@@ -87,8 +87,8 @@ export default function EhubPage() {
     </svg>
   </button>
 
-  {/* Profile dropdown menu */}
-  {profileOpen && <ProfileMenu />}
+  {/* Profile dropdown menu connected */}
+  <ProfileMenu menuOpen={profileOpen} />
 </div>
         </div>
       </header>
