@@ -1,4 +1,7 @@
 import { useState } from "react";
+import NotificationMenu from "../components/NotificationMenu";
+import NineDotsMenu from "../components/NineDotsMenu";
+import ProfileMenu from "../components/ProfileMenu";
 
 export default function EhubWithCommunity() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
