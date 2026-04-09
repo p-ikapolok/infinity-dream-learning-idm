@@ -8,7 +8,11 @@ export default function LearningLogin() {
           Infinity Learning
         </h1>
 
-        <button className="w-full bg-gray-800 text-white py-2 rounded mb-4">
+        {/* Login with Ehub (now navigates too if you want later) */}
+        <button
+          className="w-full bg-gray-800 text-white py-2 rounded mb-4"
+          onClick={() => (window.location.href = "/learning")}
+        >
           Log in with Ehub
         </button>
 
@@ -38,14 +42,19 @@ export default function LearningLogin() {
               <input type="checkbox" />
               <span className="text-sm">Remember me</span>
             </label>
+
             <Link to="/forgot" className="text-sm text-blue-600">
               Forgot your password?
             </Link>
           </div>
 
-          <button className="w-full bg-purple-600 text-white py-2 rounded">
+          {/* MAIN LOGIN BUTTON → redirects to learning page */}
+          <Link
+            to="/learning"
+            className="w-full bg-purple-600 text-white py-2 rounded block text-center"
+          >
             Login to Learning
-          </button>
+          </Link>
         </form>
 
         <p className="text-center text-xs text-gray-400 mt-6">
