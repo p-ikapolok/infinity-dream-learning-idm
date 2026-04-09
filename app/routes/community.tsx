@@ -11,14 +11,13 @@ export default function EhubWithCommunity() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* Header */}
+      {/* Top Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
         <h1 className="text-xl font-bold text-gray-800">ALX eHub</h1>
         <div className="flex items-center space-x-6">
-          {/* Points */}
           <span className="text-gray-700 font-semibold">4210 points</span>
 
-          {/* Notification bell */}
+          {/* Notification */}
           <div className="relative">
             <button
               onClick={() => setShowNotifications(!showNotifications)}
@@ -37,7 +36,7 @@ export default function EhubWithCommunity() {
             {showNotifications && <NotificationMenu />}
           </div>
 
-          {/* 9-dots menu */}
+          {/* 9-Dots */}
           <div className="relative">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
@@ -63,7 +62,7 @@ export default function EhubWithCommunity() {
             <NineDotsMenu menuOpen={menuOpen} />
           </div>
 
-          {/* Profile icon */}
+          {/* Profile */}
           <div className="relative">
             <button
               onClick={() => setProfileOpen(!profileOpen)}
@@ -108,12 +107,11 @@ export default function EhubWithCommunity() {
         </p>
       </section>
 
-      {/* Community Section with Sidebar */}
+      {/* Community Section */}
       <div className="flex flex-1 min-h-[500px]">
         {/* Sidebar */}
         {sidebarOpen && (
           <aside className="w-64 bg-white shadow-lg flex flex-col justify-between">
-            {/* Sidebar content unchanged */}
             <div className="p-6 space-y-6 overflow-y-auto">
               <nav className="space-y-2">
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Search</a>
@@ -124,7 +122,7 @@ export default function EhubWithCommunity() {
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Events</a>
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Leaderboard</a>
               </nav>
-              {/* ALX, Welcome, Community, Resources sections same as before */}
+              {/* ALX, Welcome, Community, Resources */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">ALX</h4>
                 <nav className="space-y-2 mt-2">
@@ -163,7 +161,6 @@ export default function EhubWithCommunity() {
               </div>
             </div>
 
-            {/* Profile card */}
             <div className="p-6 border-t">
               <div className="flex items-center space-x-3">
                 <img src="/images/profile.png" alt="Peter Ikapolok" className="w-10 h-10 rounded-full object-cover" />
@@ -178,60 +175,81 @@ export default function EhubWithCommunity() {
           </aside>
         )}
 
-        {/* Main content */}
-        <main className="flex-1 p-10">
-          {/* Community Hamburger */}
-          <div className="flex justify-between items-center mb-6">
-            <div className="flex items-center space-x-3">
+        {/* Main Content + Community Header */}
+        <div className="flex-1 flex flex-col">
+          {/* Community Header */}
+          <div className="flex items-center justify-between p-6 bg-white shadow mb-6">
+            <div className="flex items-center gap-4">
+              <button
+                onClick={() => setSidebarOpen(!sidebarOpen)}
+                className="text-gray-600 hover:text-gray-800"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-7 h-7"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                >
+                  <line x1="3" y1="6" x2="15" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="15" y2="18" />
+                </svg>
+              </button>
               <img src="/images/alx-logo.png" alt="ALX Logo" className="h-8" />
-              <h1 className="text-xl font-bold text-gray-800">We Are ALX</h1>
             </div>
-            <button
-              onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="text-gray-600 hover:text-gray-800"
-            >
-              {sidebarOpen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-              )}
+            <button className="text-gray-600 hover:text-gray-800">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="5" r="1.5" />
+                <circle cx="12" cy="12" r="1.5" />
+                <circle cx="12" cy="19" r="1.5" />
+              </svg>
             </button>
           </div>
 
-          {/* Video thumbnail */}
-          <div className="mb-6">
-            <div className="bg-gray-200 h-48 flex items-center justify-center rounded-lg">
-              <span className="text-gray-600">Welcome to ALX! (Video)</span>
+          <main className="px-6 flex-1 overflow-y-auto">
+            <h1 className="text-center text-xl font-bold text-gray-800 mb-6">
+              We Are ALX
+            </h1>
+
+            {/* Video */}
+            <div className="mb-6">
+              <div className="bg-gray-200 h-48 flex items-center justify-center rounded-lg">
+                <span className="text-gray-600">Welcome to ALX! (Video)</span>
+              </div>
             </div>
-          </div>
 
-          {/* Mission and community text */}
-          <article className="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              Africa is a continent brimming with talent, ambition, and a desire to innovate. At ALX, we believe you hold the key to unlocking its extraordinary potential for progress.
-            </p>
-            <p>
-              <strong>Our Mission:</strong> To Create 2 Million Opportunities and Positively Change Lives. We equip young Africans with the skills, connections, and opportunities they need to build fulfilling careers.
-            </p>
-            <p>
-              <strong>Join a Movement – Led by You.</strong> When you join ALX, you become part of a vibrant, pan-African community that believes in collaboration and mutual support.
-            </p>
-            <p>
-              <strong>Your All-Access Fee:</strong> Fueling Your Community Experience. Keep your membership current to unlock exclusive resources, events, and support.
-            </p>
-          </article>
+            {/* Mission Text */}
+            <article className="space-y-4 text-gray-700 leading-relaxed">
+              <p>
+                Africa is a continent brimming with talent, ambition, and a desire to innovate. At ALX, we believe you hold the key to unlocking its extraordinary potential for progress.
+              </p>
+              <p>
+                <strong>Our Mission:</strong> To Create 2 Million Opportunities and Positively Change Lives. We equip young Africans with the skills, connections, and opportunities they need to build fulfilling careers.
+              </p>
+              <p>
+                <strong>Join a Movement – Led by You.</strong> When you join ALX, you become part of a vibrant, pan-African community that believes in collaboration and mutual support.
+              </p>
+              <p>
+                <strong>Your All-Access Fee:</strong> Fueling Your Community Experience. Keep your membership current to unlock exclusive resources, events, and support.
+              </p>
+            </article>
 
-          {/* Buttons */}
-          <div className="mt-8 flex space-x-4">
-            <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">Programs</button>
-            <button className="px-6 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700">Instagram</button>
-            <button className="px-6 py-2 bg-blue-800 text-white rounded-full hover:bg-blue-900">LinkedIn</button>
-          </div>
-        </main>
+            {/* Buttons */}
+            <div className="mt-8 flex space-x-4">
+              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">Programs</button>
+              <button className="px-6 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700">Instagram</button>
+              <button className="px-6 py-2 bg-blue-800 text-white rounded-full hover:bg-blue-900">LinkedIn</button>
+            </div>
+          </main>
+        </div>
       </div>
 
       {/* Footer */}
