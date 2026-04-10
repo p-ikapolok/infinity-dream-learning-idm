@@ -29,6 +29,7 @@ export default function ALXLearningDashboard() {
     { title: "Professional Foundations", validated: true, score: "97.37%" },
     { title: "Freelancer Academy - 4-week", validated: false, score: "0.0%" },
   ];
+const [search, setSearch] = useState("");
 
   return (
     <div className="flex bg-gray-100 min-h-screen">
@@ -43,6 +44,26 @@ export default function ALXLearningDashboard() {
           <Menu size={18} />
           {!collapsed && <span className="font-black">alx</span>}
         </div>
+
+{/* SIDEBAR SEARCH */}
+{!collapsed && (
+  <div className="px-3 mt-2">
+    <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
+
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+        <circle cx="11" cy="11" r="7" stroke="#6B7280" strokeWidth="2" />
+        <path d="M20 20l-3-3" stroke="#6B7280" strokeWidth="2" />
+      </svg>
+
+      <input
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search..."
+        className="bg-transparent outline-none text-sm w-full"
+      />
+    </div>
+  </div>
+)}
 
         {/* NAV */}
         <nav className="mt-6 space-y-1 px-3">
