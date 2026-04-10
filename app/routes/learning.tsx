@@ -74,21 +74,32 @@ export default function ALXLearningDashboard() {
         <div className="p-4 flex items-center gap-2 font-bold text-lg">
           <Menu size={18} />
           <span className="font-black">alx</span>
-          <span className="text-gray-500 font-normal">Learning</span>
         </div>
 
         <nav className="mt-6 space-y-1 px-3">
-          <SidebarItem icon={<Home size={18} />} label="Home" active />
-          <SidebarItem icon={<LayoutGrid size={18} />} label="My Planning" />
-          <SidebarItem icon={<Folder size={18} />} label="Projects" />
-          <SidebarItem icon={<CheckCircle size={18} />} label="Evaluation quizzes" />
-          <SidebarItem icon={<BookOpen size={18} />} label="My courses" />
-          <SidebarItem icon={<Lightbulb size={18} />} label="Concepts" />
-          <SidebarItem icon={<Video size={18} />} label="Conference rooms" />
-          <SidebarItem icon={<Code size={18} />} label="Sandboxes" />
-          <SidebarItem icon={<Video size={18} />} label="Video on demand" />
-          <SidebarItem icon={<Users size={18} />} label="Discord" />
-        </nav>
+
+  <SidebarItem icon={<HiHome size={18} />} label="Home" active />
+
+  <SidebarItem icon={<HiOutlineSquares2X2 size={18} />} label="My Planning" />
+
+  <SidebarItem icon={<HiFolder size={18} />} label="Projects" />
+
+  <SidebarItem icon={<HiCheckCircle size={18} />} label="Evaluation quizzes" />
+
+  <SidebarItem icon={<HiBookOpen size={18} />} label="My courses" />
+
+  <SidebarItem icon={<HiLightBulb size={18} />} label="Concepts" />
+
+  {/* REAL PLATFORM ICONS */}
+  <SidebarItem icon={<SiZoom size={18} />} label="Conference rooms" />
+
+  <SidebarItem icon={<SiCodesandbox size={18} />} label="Sandboxes" />
+
+  <SidebarItem icon={<SiYoutube size={18} />} label="Video on demand" />
+
+  <SidebarItem icon={<FaDiscord size={18} />} label="Discord" />
+
+</nav>
 
         <div className="absolute bottom-4 left-4 right-4">
           <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
