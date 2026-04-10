@@ -1,170 +1,218 @@
-export default function LearningPage() {
+import { useState, ReactNode } from "react";
+import {
+  Bell,
+  Calendar,
+  ChevronDown,
+  Menu,
+  Home,
+  Folder,
+  BookOpen,
+  Video,
+  MessageCircle,
+  CheckCircle,
+} from "lucide-react";
+
+type Score = {
+  title: string;
+  validated: boolean;
+  score: string;
+};
+
+export default function ALXLearningDashboard() {
+  const [open, setOpen] = useState<boolean>(false);
+
+  const scores: Score[] = [
+    {
+      title: "ALX AiCE – AI Career Essentials",
+      validated: true,
+      score: "79.28%",
+    },
+    {
+      title: "Front-End Web Development",
+      validated: true,
+      score: "87.93%",
+    },
+    {
+      title: "Virtual Assistant",
+      validated: true,
+      score: "98.04%",
+    },
+    {
+      title: "Professional Foundations",
+      validated: true,
+      score: "97.37%",
+    },
+    {
+      title: "Freelancer Academy - 4-week",
+      validated: false,
+      score: "0.0%",
+    },
+  ];
+
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
-        <div className="flex items-center space-x-3">
-          <img src="/images/alx-logo.png" alt="ALX Logo" className="h-8" />
-          <h1 className="text-xl font-bold text-gray-800">Learning</h1>
+    <div className="flex bg-gray-100 min-h-screen">
+      {/* Sidebar */}
+      <aside className="w-64 bg-white border-r">
+        <div className="p-4 flex items-center gap-2 font-bold text-lg">
+          <Menu size={18} />
+          <span className="font-black">alx</span>
+          <span className="text-gray-500 font-normal">Learning</span>
         </div>
 
-        <div className="flex items-center space-x-6">
-          <span className="text-gray-700 font-semibold">4210 points</span>
+        <nav className="mt-6 space-y-1 px-3">
+          <SidebarItem icon={<Home size={18} />} label="Home" active />
+          <SidebarItem label="My Planning" />
+          <SidebarItem label="Projects" />
+          <SidebarItem label="Evaluation quizzes" />
+          <SidebarItem label="My courses" />
+          <SidebarItem label="Concepts" />
+          <SidebarItem label="Conference rooms" />
+          <SidebarItem label="Sandboxes" />
+          <SidebarItem label="Video on demand" />
+          <SidebarItem label="Discord" />
+        </nav>
 
-          {/* Bell Icon */}
-          <button className="relative text-gray-600 hover:text-gray-800">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1" />
-            </svg>
-            <span className="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full"></span>
-          </button>
-
-          {/* 9 dots menu */}
-          <button className="text-gray-600 hover:text-gray-800">
-            <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-              <circle cx="5" cy="5" r="2" />
-              <circle cx="12" cy="5" r="2" />
-              <circle cx="19" cy="5" r="2" />
-              <circle cx="5" cy="12" r="2" />
-              <circle cx="12" cy="12" r="2" />
-              <circle cx="19" cy="12" r="2" />
-              <circle cx="5" cy="19" r="2" />
-              <circle cx="12" cy="19" r="2" />
-              <circle cx="19" cy="19" r="2" />
-            </svg>
-          </button>
-
-          <img
-            src="/images/profile.png"
-            alt="Profile"
-            className="w-10 h-10 rounded-full object-cover"
-          />
+        <div className="absolute bottom-4 left-4 right-4">
+          <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
+            <img
+              src="https://i.pravatar.cc/40"
+              className="w-8 h-8 rounded-full"
+            />
+            <span className="text-sm">My Profile</span>
+          </div>
         </div>
-      </header>
+      </aside>
 
-      <div className="flex flex-1">
-        {/* Sidebar (FULL - NO REMOVALS) */}
-        <aside className="w-64 bg-white shadow-lg flex flex-col justify-between">
-          <div className="p-6 space-y-6">
-            <nav className="space-y-2">
-
-              {/* Home */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 10l9-7 9 7v11a2 2 0 0 1-2 2h-4v-6H9v6H5a2 2 0 0 1-2-2z" />
-                </svg>
-                <span>Home</span>
-              </a>
-
-              {/* My Planning */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span>My Planning</span>
-              </a>
-
-              {/* Projects */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>Projects</span>
-              </a>
-
-              {/* Evaluation quizzes */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M12 20h9" />
-                </svg>
-                <span>Evaluation quizzes</span>
-              </a>
-
-              {/* My courses */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M12 4v16" />
-                </svg>
-                <span>My courses</span>
-              </a>
-
-              {/* Concepts */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                </svg>
-                <span>Concepts</span>
-              </a>
-
-              {/* Conference rooms */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <span>Conference rooms</span>
-              </a>
-
-              {/* Sandboxes */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <span>Sandboxes</span>
-              </a>
-
-              {/* Video on demand */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <span>Video on demand</span>
-              </a>
-
-              {/* Discord */}
-              <a href="#" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600">
-                <span>Discord</span>
-              </a>
-
-            </nav>
-          </div>
-
-          {/* Profile */}
-          <div className="p-6 border-t">
-            <div className="flex items-center space-x-3">
-              <img src="/images/profile.png" className="w-10 h-10 rounded-full" />
-              <div>
-                <p className="font-semibold text-gray-800">My Profile</p>
-              </div>
-            </div>
-          </div>
-        </aside>
-
-        {/* Main content */}
-        <main className="flex-1 p-10">
-          <h1 className="text-2xl font-bold text-gray-800 mb-2">
+      {/* Main */}
+      <div className="flex-1">
+        {/* Header */}
+        <header className="bg-white border-b px-6 py-4 flex justify-between items-center">
+          <div className="flex items-center gap-2 font-semibold">
             Front-End Web Development
-          </h1>
-          <p className="text-gray-600 mb-6">Average Score: 87.93%</p>
-
-          <div className="space-y-4">
-            {["ALX AiCE", "Front-End Web Development", "Virtual Assistant"].map((item, i) => (
-              <div key={i} className="bg-white p-4 shadow rounded-lg">
-                <h2 className="font-semibold">{item}</h2>
-                <p className="text-gray-600">Validated</p>
-              </div>
-            ))}
+            <ChevronDown size={16} />
           </div>
 
-          {/* Footer */}
-          <footer className="bg-blue-900 text-white px-6 py-6 mt-10">
-            <div className="text-center mb-4">
-              <h2 className="text-lg font-bold">alx eHub</h2>
-              <p className="text-sm">The community of those who Do Hard Things.</p>
+          <div className="flex items-center gap-6">
+            <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">
+              4210 points
             </div>
 
-            <div className="flex justify-center space-x-4 text-sm mb-4">
-              <a href="#">Home</a>
-              <a href="#">Learning</a>
-              <a href="#">Community</a>
-              <a href="#">Support</a>
+            <Bell size={20} className="text-gray-600" />
+
+            <img
+              src="https://i.pravatar.cc/40"
+              className="w-8 h-8 rounded-full"
+            />
+          </div>
+        </header>
+
+        {/* Content */}
+        <div className="p-6 space-y-4">
+          {/* Upcoming events */}
+          <Card>
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="font-semibold text-gray-700">Upcoming events</h2>
+
+              <button className="border px-3 py-1 rounded text-sm">
+                View all
+              </button>
             </div>
 
-            <p className="text-center text-xs">© 2026 Sand. All rights reserved.</p>
-          </footer>
+            <div className="flex flex-col items-center py-10 text-gray-400">
+              <Calendar size={32} />
+              <p>No upcoming event</p>
+            </div>
+          </Card>
 
-        </main>
+          {/* Current projects */}
+          <Card>
+            <h2 className="font-semibold text-gray-700 mb-2">
+              Current projects
+            </h2>
+
+            <p className="text-gray-500">None, enjoy the silence.</p>
+          </Card>
+
+          {/* Scores */}
+          {scores.map((item, index) => (
+            <Card key={index}>
+              <div className="flex justify-between">
+                <div>
+                  <h3 className="font-semibold text-gray-700">
+                    Scores - {item.title}
+                  </h3>
+
+                  <span
+                    className={`text-xs px-2 py-1 rounded mt-1 inline-block ${
+                      item.validated
+                        ? "bg-green-100 text-green-700"
+                        : "bg-yellow-100 text-yellow-700"
+                    }`}
+                  >
+                    {item.validated ? "Validated" : "Not validated"}
+                  </span>
+                </div>
+
+                <div className="text-right">
+                  <div className="text-sm text-gray-500">
+                    Average
+                  </div>
+
+                  <div className="font-semibold flex items-center gap-1 justify-end">
+                    {item.score}
+                    {item.validated && (
+                      <CheckCircle
+                        size={16}
+                        className="text-green-600"
+                      />
+                    )}
+                  </div>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+
+        {/* Footer */}
+        <div className="text-center text-xs text-gray-400 py-6">
+          Copyright © 2025 ALX, All rights reserved.
+        </div>
+
+        {/* Floating chat */}
+        <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
+          <MessageCircle />
+        </button>
       </div>
+    </div>
+  );
+}
+
+type SidebarItemProps = {
+  icon?: ReactNode;
+  label: string;
+  active?: boolean;
+};
+
+function SidebarItem({ icon, label, active }: SidebarItemProps) {
+  return (
+    <div
+      className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer
+      ${active ? "bg-red-50 text-red-500" : "text-gray-600 hover:bg-gray-100"}`}
+    >
+      {icon}
+      <span className="text-sm">{label}</span>
+    </div>
+  );
+}
+
+type CardProps = {
+  children: ReactNode;
+};
+
+function Card({ children }: CardProps) {
+  return (
+    <div className="bg-white border rounded-lg p-4 shadow-sm">
+      {children}
     </div>
   );
 }
