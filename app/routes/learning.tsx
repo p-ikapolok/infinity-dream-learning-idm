@@ -147,13 +147,19 @@ export default function ALXLearningDashboard() {
           </Card>
         ))}
 
-        <footer className="text-center text-xs text-gray-400 py-6">
-          Copyright © 2025 ALX
-        </footer>
+        <div className="min-h-screen flex flex-col">
+  <main className="flex-1">
+    {/* page content */}
+  </main>
 
-        <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
-          <MessageCircle />
-        </button>
+  <footer className="text-center text-xs text-gray-400 py-2">
+    Copyright © 2025 ALX
+  </footer>
+
+  <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
+    <MessageCircle />
+  </button>
+</div>
 
       </div>
     </div>
