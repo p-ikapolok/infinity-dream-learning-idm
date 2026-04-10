@@ -15,6 +15,27 @@ import {
   Lightbulb,
   Users,
 } from "lucide-react";
+import {
+  FaDiscord,
+} from "react-icons/fa";
+
+import {
+  SiAlx,
+  SiGoogleclassroom,
+  SiGithub,
+  SiZoom,
+  SiYoutube,
+  SiCodesandbox,
+} from "react-icons/si";
+
+import {
+  HiHome,
+  HiOutlineSquares2X2,
+  HiFolder,
+  HiCheckCircle,
+  HiBookOpen,
+  HiLightBulb,
+} from "react-icons/hi2";
 
 export default function ALXLearningDashboard() {
   const scores = [
