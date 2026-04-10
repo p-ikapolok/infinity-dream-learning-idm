@@ -1,66 +1,60 @@
-import { useState, ReactNode } from "react";
+import React from "react";
 import {
   Bell,
-  Calendar,
   ChevronDown,
-  Menu,
-  Home,
-  Folder,
-  BookOpen,
-  Video,
-  MessageCircle,
+  Calendar,
   CheckCircle,
+  MessageCircle,
 } from "lucide-react";
 
 type Score = {
   title: string;
-  validated: boolean;
-  score: string;
+  status: "validated" | "not_validated";
+  average: string;
 };
 
-export default function ALXLearningDashboard() {
-  const [open, setOpen] = useState<boolean>(false);
+const scores: Score[] = [
+  {
+    title: "ALX AiCE – AI Career Essentials",
+    status: "validated",
+    average: "79.28%",
+  },
+  {
+    title: "Front-End Web Development",
+    status: "validated",
+    average: "87.93%",
+  },
+  {
+    title: "Virtual Assistant",
+    status: "validated",
+    average: "98.04%",
+  },
+  {
+    title: "Professional Foundations",
+    status: "validated",
+    average: "97.37%",
+  },
+  {
+    title: "Freelancer Academy - 4-week",
+    status: "not_validated",
+    average: "0.0%",
+  },
+];
 
-  const scores: Score[] = [
-    {
-      title: "ALX AiCE – AI Career Essentials",
-      validated: true,
-      score: "79.28%",
-    },
-    {
-      title: "Front-End Web Development",
-      validated: true,
-      score: "87.93%",
-    },
-    {
-      title: "Virtual Assistant",
-      validated: true,
-      score: "98.04%",
-    },
-    {
-      title: "Professional Foundations",
-      validated: true,
-      score: "97.37%",
-    },
-    {
-      title: "Freelancer Academy - 4-week",
-      validated: false,
-      score: "0.0%",
-    },
-  ];
-
+export default function ALXDashboard(): JSX.Element {
   return (
-    <div className="flex bg-gray-100 min-h-screen">
+    <div className="min-h-screen bg-gray-100 flex">
       {/* Sidebar */}
-      <aside className="w-64 bg-white border-r">
-        <div className="p-4 flex items-center gap-2 font-bold text-lg">
-          <Menu size={18} />
-          <span className="font-black">alx</span>
-          <span className="text-gray-500 font-normal">Learning</span>
+      <aside className="w-[260px] bg-white border-r min-h-screen flex flex-col">
+        {/* Logo */}
+        <div className="px-6 py-4 border-b flex items-center gap-2">
+          <span className="font-black text-lg">alx</span>
+          <span className="text-gray-500">Learning</span>
         </div>
 
-        <nav className="mt-6 space-y-1 px-3">
-          <SidebarItem icon={<Home size={18} />} label="Home" active />
+        {/* Navigation */}
+        <nav className="flex-1 px-4 py-6 space-y-1 text-sm">
+          <SidebarItem active label="Home" />
           <SidebarItem label="My Planning" />
           <SidebarItem label="Projects" />
           <SidebarItem label="Evaluation quizzes" />
@@ -72,28 +66,27 @@ export default function ALXLearningDashboard() {
           <SidebarItem label="Discord" />
         </nav>
 
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
-            <img
-              src="https://i.pravatar.cc/40"
-              className="w-8 h-8 rounded-full"
-            />
-            <span className="text-sm">My Profile</span>
-          </div>
+        {/* Profile */}
+        <div className="p-4 border-t flex items-center gap-3">
+          <img
+            src="https://i.pravatar.cc/40"
+            className="w-8 h-8 rounded-full"
+          />
+          <span className="text-sm">My Profile</span>
         </div>
       </aside>
 
       {/* Main */}
-      <div className="flex-1">
+      <main className="flex-1 flex flex-col">
         {/* Header */}
         <header className="bg-white border-b px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2 font-semibold">
+          <div className="flex items-center gap-2 font-medium">
             Front-End Web Development
             <ChevronDown size={16} />
           </div>
 
           <div className="flex items-center gap-6">
-            <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">
+            <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">
               4210 points
             </div>
 
@@ -107,11 +100,13 @@ export default function ALXLearningDashboard() {
         </header>
 
         {/* Content */}
-        <div className="p-6 space-y-4">
-          {/* Upcoming events */}
+        <div className="p-6 space-y-4 flex-1">
+          {/* Upcoming Events */}
           <Card>
             <div className="flex justify-between items-center mb-4">
-              <h2 className="font-semibold text-gray-700">Upcoming events</h2>
+              <h2 className="font-semibold text-gray-700">
+                Upcoming events
+              </h2>
 
               <button className="border px-3 py-1 rounded text-sm">
                 View all
@@ -124,43 +119,43 @@ export default function ALXLearningDashboard() {
             </div>
           </Card>
 
-          {/* Current projects */}
+          {/* Current Projects */}
           <Card>
             <h2 className="font-semibold text-gray-700 mb-2">
               Current projects
             </h2>
-
             <p className="text-gray-500">None, enjoy the silence.</p>
           </Card>
 
           {/* Scores */}
-          {scores.map((item, index) => (
+          {scores.map((score, index) => (
             <Card key={index}>
-              <div className="flex justify-between">
+              <div className="flex justify-between items-start">
                 <div>
                   <h3 className="font-semibold text-gray-700">
-                    Scores - {item.title}
+                    Scores - {score.title}
                   </h3>
 
                   <span
                     className={`text-xs px-2 py-1 rounded mt-1 inline-block ${
-                      item.validated
+                      score.status === "validated"
                         ? "bg-green-100 text-green-700"
                         : "bg-yellow-100 text-yellow-700"
                     }`}
                   >
-                    {item.validated ? "Validated" : "Not validated"}
+                    {score.status === "validated"
+                      ? "Validated"
+                      : "Not validated"}
                   </span>
                 </div>
 
                 <div className="text-right">
-                  <div className="text-sm text-gray-500">
-                    Average
-                  </div>
+                  <p className="text-sm text-gray-500">Average</p>
 
-                  <div className="font-semibold flex items-center gap-1 justify-end">
-                    {item.score}
-                    {item.validated && (
+                  <div className="flex items-center gap-1 justify-end font-semibold">
+                    {score.average}
+
+                    {score.status === "validated" && (
                       <CheckCircle
                         size={16}
                         className="text-green-600"
@@ -174,42 +169,43 @@ export default function ALXLearningDashboard() {
         </div>
 
         {/* Footer */}
-        <div className="text-center text-xs text-gray-400 py-6">
+        <footer className="text-center text-xs text-gray-400 py-6">
           Copyright © 2025 ALX, All rights reserved.
-        </div>
+        </footer>
 
-        {/* Floating chat */}
+        {/* Floating Chat Button */}
         <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
           <MessageCircle />
         </button>
-      </div>
+      </main>
     </div>
   );
 }
 
-type SidebarItemProps = {
-  icon?: ReactNode;
+type SidebarProps = {
   label: string;
   active?: boolean;
 };
 
-function SidebarItem({ icon, label, active }: SidebarItemProps) {
+function SidebarItem({ label, active }: SidebarProps): JSX.Element {
   return (
     <div
-      className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer
-      ${active ? "bg-red-50 text-red-500" : "text-gray-600 hover:bg-gray-100"}`}
+      className={`px-3 py-2 rounded-lg cursor-pointer ${
+        active
+          ? "bg-red-50 text-red-600"
+          : "text-gray-600 hover:bg-gray-100"
+      }`}
     >
-      {icon}
-      <span className="text-sm">{label}</span>
+      {label}
     </div>
   );
 }
 
 type CardProps = {
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
-function Card({ children }: CardProps) {
+function Card({ children }: CardProps): JSX.Element {
   return (
     <div className="bg-white border rounded-lg p-4 shadow-sm">
       {children}
