@@ -256,7 +256,7 @@ export default function EhubWithCommunity() {
       <footer className="bg-blue-900 text-white px-6 py-10 mt-10">
         <div className="text-center mb-6">
           <h2 className="text-xl font-bold">aIx eHub</h2>
-          <p className="mt-2">The community of those who Do Hard Things.</p>
+          <p className="mt-2">The community of those who value time.</p>
         </div>
 
         <div className="flex flex-wrap justify-center space-x-4 text-sm mb-6">
