@@ -78,26 +78,42 @@ export default function ALXDashboard(): JSX.Element {
 
       {/* Main */}
       <main className="flex-1 flex flex-col">
+
         {/* Header */}
         <header className="bg-white border-b px-6 py-4 flex justify-between items-center">
-          <div className="flex items-center gap-2 font-medium">
-            Front-End Web Development
-            <ChevronDown size={16} />
-          </div>
+  {/* Program selector */}
+  <div className="flex items-center gap-2 font-medium">
+    Front-End Web Development
+    <ChevronDown size={16} />
+  </div>
 
-          <div className="flex items-center gap-6">
-            <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">
-              4210 points
-            </div>
+  {/* Right side */}
+  <div className="flex items-center gap-6">
+    
+    {/* Points */}
+    <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">
+      4210 points
+    </div>
 
-            <Bell size={20} className="text-gray-600" />
+    {/* 9 dots menu */}
+    <Grid3X3
+      size={20}
+      className="text-gray-600 cursor-pointer"
+    />
 
-            <img
-              src="https://i.pravatar.cc/40"
-              className="w-8 h-8 rounded-full"
-            />
-          </div>
-        </header>
+    {/* Bell */}
+    <Bell
+      size={20}
+      className="text-gray-600 cursor-pointer"
+    />
+
+    {/* Avatar */}
+    <img
+      src="https://i.pravatar.cc/40"
+      className="w-8 h-8 rounded-full"
+    />
+  </div>
+</header>
 
         {/* Content */}
         <div className="p-6 space-y-4 flex-1">
