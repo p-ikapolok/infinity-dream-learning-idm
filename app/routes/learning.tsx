@@ -81,25 +81,41 @@ export default function ALXLearningDashboard() {
         {/* HEADER (FIXED EXACT ORDER) */}
         <header className="bg-white border-b px-6 py-3 flex items-center justify-between">
 
-          {/* LEFT: LOGO + MENU */}
-          <div className="flex items-center gap-3">
-            <div className="font-black text-lg text-red-500">alx</div>
-            <Menu size={22} />
-          </div>
+  {/* LEFT SIDE */}
+  <div className="flex items-center gap-4">
+    <div className="font-black text-lg text-red-500">alx</div>
 
-          {/* RIGHT: BELL → 9 DOTS → PROFILE */}
-          <div className="flex items-center gap-6">
+    {/* Hamburger (VISIBLE FIX) */}
+    <button className="p-2 rounded hover:bg-gray-100">
+      <Menu size={22} />
+    </button>
+  </div>
 
-            <BellIcon />
+  {/* RIGHT SIDE */}
+  <div className="flex items-center gap-5">
 
-            <GridIcon />
+    {/* POINTS (VISIBLE FIX) */}
+    <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">
+      4210 pts
+    </div>
 
-            <img
-              src="https://i.pravatar.cc/40"
-              className="w-8 h-8 rounded-full"
-            />
-          </div>
-        </header>
+    {/* NOTIFICATION BELL */}
+    <button className="p-2 rounded hover:bg-gray-100">
+      <BellIcon />
+    </button>
+
+    {/* 9 DOTS GRID */}
+    <button className="p-2 rounded hover:bg-gray-100">
+      <GridIcon />
+    </button>
+
+    {/* PROFILE */}
+    <img
+      src="https://i.pravatar.cc/40"
+      className="w-8 h-8 rounded-full border"
+    />
+  </div>
+</header>
 
         {/* SECOND BAR (COURSE SELECTOR) */}
         <div className="bg-white border-b px-6 py-3 flex items-center gap-2 font-semibold text-gray-700">
