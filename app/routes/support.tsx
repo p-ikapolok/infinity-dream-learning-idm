@@ -124,7 +124,7 @@ export default function SupportCentrePage() {
       {/* Footer */}
       <footer className="bg-blue-900 text-white px-6 py-6">
         <div className="text-center mb-4">
-          <h2 className="text-lg font-bold">alx eHub</h2>
+          <h2 className="text-lg font-bold">infinity Hub</h2>
           <p className="text-sm">The community of those who value time.</p>
         </div>
 
