@@ -10,7 +10,7 @@ export default function SupportCentrePage() {
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
         <div className="flex items-center space-x-3">
           <img src="/images/alx-logo.png" alt="ALX Logo" className="h-8" />
-          <h1 className="text-xl font-bold text-gray-800">ALX eHub</h1>
+          <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
         </div>
         <div className="flex items-center space-x-6">
           <span className="text-gray-700 font-semibold">4210 points</span>
@@ -60,17 +60,17 @@ export default function SupportCentrePage() {
       <main className="flex-1 px-6 py-10">
         <div className="bg-white shadow rounded-lg overflow-hidden">
           <div className="bg-blue-600 text-white px-4 py-2 font-semibold">
-            ALX E-hub Support – Ask LEA
+            Infinity Hub Support – Ask Finley 
           </div>
 
           <div className="p-6 space-y-4">
-            {/* LEA */}
+            {/* Finley */}
             <div className="flex items-start space-x-3">
               <div className="w-10 h-10 flex items-center justify-center bg-blue-100 rounded-full">
-                <span className="text-blue-600 font-bold">LEA</span>
+                <span className="text-blue-600 font-bold">Finley</span>
               </div>
               <div className="bg-gray-100 rounded-lg p-3 max-w-md">
-                <p>Hello, I am LEA. How can I assist you today😊?</p>
+                <p>Hello, I am Finley. How can I assist you today😊?</p>
               </div>
             </div>
 
@@ -125,7 +125,7 @@ export default function SupportCentrePage() {
       <footer className="bg-blue-900 text-white px-6 py-6">
         <div className="text-center mb-4">
           <h2 className="text-lg font-bold">alx eHub</h2>
-          <p className="text-sm">The community of those who Do Hard Things.</p>
+          <p className="text-sm">The community of those who value time.</p>
         </div>
 
         <div className="flex flex-wrap justify-center space-x-4 text-sm mb-4">
@@ -135,7 +135,7 @@ export default function SupportCentrePage() {
           <a href="#">Support</a>
         </div>
 
-        <p className="text-center text-xs">© 2026 Sand. All rights reserved.</p>
+        <p className="text-center text-xs">© 2026 Infinity. All rights reserved.</p>
       </footer>
     </div>
   );
