@@ -101,8 +101,8 @@ export default function EhubPage() {
           className="w-full h-64 object-cover"
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4">
-          <h2 className="text-2xl font-bold">Welcome to the eHub</h2>
-          <p className="mt-2 text-lg">Your ALX Learning Journey Starts Here</p>
+          <h2 className="text-2xl font-bold">Welcome to the Hub</h2>
+          <p className="mt-2 text-lg">Your Infinity Learning Journey Starts Here</p>
           <p className="mt-1">Track your progress, achieve your goals.</p>
         </div>
       </section>
@@ -283,7 +283,7 @@ export default function EhubPage() {
       <footer className="bg-blue-900 text-white px-6 py-10 mt-10">
         <div className="text-center mb-6">
           <h2 className="text-xl font-bold">aIx eHub</h2>
-          <p className="mt-2">The community of those who Do Hard Things.</p>
+          <p className="mt-2">The community of those who value time.</p>
         </div>
 
         <div className="flex flex-wrap justify-center space-x-4 text-sm mb-6">
