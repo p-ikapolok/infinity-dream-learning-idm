@@ -22,9 +22,9 @@ export default function EhubLogin() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-2">Login to Ehub</h2>
+        <h2 className="text-2xl font-bold mb-2">Login to Hub</h2>
         <p className="text-gray-600 mb-6">
-          Access your Infinity Dream Ehub account.
+          Access your Infinity Dream Hub account.
         </p>
 
         {/* Social sign in */}
@@ -65,21 +65,21 @@ export default function EhubLogin() {
             type="submit"
             className="w-full bg-blue-600 text-white py-2 rounded"
           >
-            Login to Ehub
+            Login
           </button>
         </form>
 
         <p className="text-center mt-4 text-sm">
           Don’t have an account?{" "}
           <Link to="/register" className="text-blue-600">
-            Create Ehub account
+            Create Hub account
           </Link>
         </p>
 
         <p className="text-center mt-6 text-xs text-gray-500">
           Want to go to learning?{" "}
           <Link to="/learning-login" className="text-blue-600">
-            Login to Learning
+            Login to learning 
           </Link>
         </p>
       </div>
