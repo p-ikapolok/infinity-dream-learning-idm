@@ -282,7 +282,7 @@ export default function EhubPage() {
       {/* Footer */}
       <footer className="bg-blue-900 text-white px-6 py-10 mt-10">
         <div className="text-center mb-6">
-          <h2 className="text-xl font-bold">aIx eHub</h2>
+          <h2 className="text-xl font-bold">infinity Hub</h2>
           <p className="mt-2">The community of those who value time.</p>
         </div>
 
