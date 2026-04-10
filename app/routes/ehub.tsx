@@ -229,9 +229,9 @@ export default function EhubPage() {
         </div>
       </section>
 
-      {/* Explore the eHub */}
+      {/* Explore the Hub */}
       <section className="px-6 py-10">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Explore the eHub</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">Explore the Hub</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Start Learning */}
           <div className="bg-white shadow rounded-lg p-6 text-center">
@@ -273,7 +273,7 @@ export default function EhubPage() {
             </div>
             <h3 className="text-lg font-semibold text-gray-800">Need Support?</h3>
             <p className="text-gray-600 mt-2">
-              Chat with our AI learner support expert, LEA, or contact our support team directly.
+              Chat with our AI learner support expert, Finley, or contact our support team directly.
             </p>
           </div>
         </div>
