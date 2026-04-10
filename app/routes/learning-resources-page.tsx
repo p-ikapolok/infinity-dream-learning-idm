@@ -6,7 +6,7 @@ export default function EhubFullPage() {
     <div className="bg-gray-50 min-h-screen flex flex-col">
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
-        <h1 className="text-xl font-bold text-gray-800">ALX eHub</h1>
+        <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
         <div className="flex items-center space-x-6">
           <span className="text-gray-700 font-semibold">4210 points</span>
 
@@ -61,7 +61,7 @@ export default function EhubFullPage() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4">
           <h2 className="text-2xl font-bold">Welcome to the eHub</h2>
-          <p className="mt-2 text-lg">Your ALX Learning Journey Starts Here</p>
+          <p className="mt-2 text-lg">Your Infinity Learning Journey Starts Here</p>
           <p className="mt-1">Track your progress, achieve your goals.</p>
         </div>
       </section>
@@ -214,7 +214,7 @@ export default function EhubFullPage() {
           <div className="bg-blue-600 text-white rounded-lg p-6 flex flex-col">
             <h3 className="text-lg font-semibold">Support</h3>
             <p className="mt-2 flex-grow">
-              Get instant help on administrative issues from LEA, our AI assistant, or contact our support team.
+              Get instant help on administrative issues from Finley, our AI assistant, or contact our support team.
             </p>
             <button className="mt-4 px-6 py-2 bg-white text-blue-600 rounded-full hover:bg-gray-100">Continue</button>
           </div>
@@ -232,7 +232,7 @@ export default function EhubFullPage() {
       <footer className="bg-blue-900 text-white px-6 py-10 mt-10">
         <div className="text-center mb-6">
           <h2 className="text-xl font-bold">aIx eHub</h2>
-          <p className="mt-2">The community of those who Do Hard Things.</p>
+          <p className="mt-2">The community of those who value time.</p>
         </div>
 
         {/* Navigation Links */}
@@ -253,7 +253,7 @@ export default function EhubFullPage() {
           <img src="/icons/instagram.png" alt="Instagram" className="w-6 h-6" />
         </div>
 
-        <p className="text-center text-sm">© 2026 Sand. All rights reserved.</p>
+        <p className="text-center text-sm">© 2026 Infinity. All rights reserved.</p>
       </footer>
     </div>
   );
