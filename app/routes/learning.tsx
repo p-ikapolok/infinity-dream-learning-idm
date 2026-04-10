@@ -1,6 +1,8 @@
 import { useState } from "react";
 import {
   Menu,
+  Bell,
+  Grid3X3,
   Home,
   Folder,
   BookOpen,
