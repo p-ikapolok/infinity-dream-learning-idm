@@ -3,7 +3,7 @@ export default function NotificationMenu() {
     {
       title: "You've been accepted",
       message:
-        "Congratulations! You've been accepted into Professional Foundations. Access eHub to get started.",
+        "Congratulations! You've been accepted into Professional Foundations. Access Hub to get started.",
       action: "Go to Learning",
     },
     {
