@@ -49,7 +49,7 @@ export default function ALXLearningDashboard() {
     <div className="flex bg-gray-100 min-h-screen">
 
       {/* SIDEBAR */}
-      <aside className="w-64 bg-white border-r">
+      <aside className="w-64 bg-white border-r relative">
         <div className="p-4 flex items-center gap-2 font-bold text-lg">
           <Menu size={18} />
           <span className="font-black">alx</span>
@@ -71,7 +71,10 @@ export default function ALXLearningDashboard() {
 
         <div className="absolute bottom-4 left-4 right-4">
           <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
-            <img src="https://i.pravatar.cc/40" className="w-8 h-8 rounded-full" />
+            <img
+              src="https://i.pravatar.cc/40"
+              className="w-8 h-8 rounded-full"
+            />
             <span className="text-sm">My Profile</span>
           </div>
         </div>
@@ -80,50 +83,38 @@ export default function ALXLearningDashboard() {
       {/* MAIN */}
       <div className="flex-1">
 
-        {/* HEADER (FIXED EXACT ORDER) */}
+        {/* HEADER (FIXED ORDER) */}
         <header className="bg-white border-b px-6 py-3 flex items-center justify-between">
 
-  {/* LEFT */}
-  <div className="flex items-center gap-4">
+          {/* LEFT */}
+          <div className="flex items-center gap-4">
+            <div className="font-black text-lg text-red-600">alx</div>
 
-    {/* LOGO */}
-    <div className="font-black text-lg text-red-600">alx</div>
+            <button className="p-2 rounded-md hover:bg-gray-100">
+              <Menu size={24} />
+            </button>
+          </div>
 
-    {/* HAMBURGER (VISIBLE FIX) */}
-    <button className="p-2 rounded-md hover:bg-gray-100">
-      <Menu size={26} color="#111827" strokeWidth={2.5} />
-    </button>
+          {/* RIGHT */}
+          <div className="flex items-center gap-4">
 
-  </div>
+            <div className="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
+              4210 pts
+            </div>
 
-  {/* RIGHT */}
-  <div className="flex items-center gap-4">
+            <Bell size={22} />
 
-    {/* POINTS */}
-    <div className="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
-      4210 pts
-    </div>
+            <Grid3X3 size={22} />
 
-    {/* NOTIFICATION BELL (FORCED VISIBILITY) */}
-    <button className="p-2 rounded-md hover:bg-gray-100">
-      <Bell size={24} color="#111827" strokeWidth={2.5} />
-    </button>
+            <img
+              src="https://i.pravatar.cc/40"
+              className="w-9 h-9 rounded-full border"
+            />
 
-    {/* 9 DOTS (FORCED VISIBILITY) */}
-    <button className="p-2 rounded-md hover:bg-gray-100">
-      <Grid3X3 size={24} color="#111827" strokeWidth={2.5} />
-    </button>
+          </div>
+        </header>
 
-    {/* PROFILE */}
-    <img
-      src="https://i.pravatar.cc/40"
-      className="w-9 h-9 rounded-full border-2 border-gray-300"
-    />
-
-  </div>
-</header>
-
-        {/* SECOND BAR (COURSE SELECTOR) */}
+        {/* SECOND BAR */}
         <div className="bg-white border-b px-6 py-3 flex items-center gap-2 font-semibold text-gray-700">
           Front-End Web Development
           <ChevronDownIcon />
@@ -170,10 +161,10 @@ export default function ALXLearningDashboard() {
                   </span>
                 </div>
 
-                <div className="text-right font-semibold">
+                <div className="text-right font-semibold flex items-center gap-1">
                   {item.score}
                   {item.validated && (
-                    <CheckCircle size={16} className="text-green-600 inline ml-1" />
+                    <CheckCircle size={16} className="text-green-600" />
                   )}
                 </div>
               </div>
@@ -189,6 +180,7 @@ export default function ALXLearningDashboard() {
         <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
           <MessageCircle />
         </button>
+
       </div>
     </div>
   );
@@ -215,29 +207,11 @@ function Card({ children }) {
   );
 }
 
-/* SVG ICONS (HEADER) */
-function BellIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7z"
-        stroke="currentColor" strokeWidth="2"/>
-    </svg>
-  );
-}
-
-function GridIcon() {
-  return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"
-        stroke="currentColor" strokeWidth="2"/>
-    </svg>
-  );
-}
-
+/* CHEVRON */
 function ChevronDownIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2"/>
+      <path d="M6 9l6 6 6-6" stroke="currentColor" strokeWidth="2" />
     </svg>
   );
 }
