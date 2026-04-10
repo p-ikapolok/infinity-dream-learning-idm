@@ -19,11 +19,11 @@ import {
   HiLightBulb,
 } from "react-icons/hi2";
 
-export default function ALXLearningDashboard() {
+export default function InfinityLearningDashboard() {
   const [collapsed, setCollapsed] = useState(false);
 
   const scores = [
-    { title: "ALX AiCE – AI Career Essentials", validated: true, score: "79.28%" },
+    { title: "AiCE – AI Career Essentials", validated: true, score: "79.28%" },
     { title: "Front-End Web Development", validated: true, score: "87.93%" },
     { title: "Virtual Assistant", validated: true, score: "98.04%" },
     { title: "Professional Foundations", validated: true, score: "97.37%" },
@@ -42,7 +42,7 @@ const [search, setSearch] = useState("");
         {/* SIDEBAR HEADER */}
         <div className="p-4 flex items-center gap-2 font-bold text-lg">
           <Menu size={18} />
-          {!collapsed && <span className="font-black">alx</span>}
+          {!collapsed && <span className="font-black">infinity</span>}
         </div>
 
 {/* SIDEBAR SEARCH (FIXED COLLAPSE) */}
@@ -99,7 +99,7 @@ const [search, setSearch] = useState("");
           {/* LEFT */}
           <div className="flex items-center gap-4">
 
-            <div className="font-black text-lg text-red-600">alx</div>
+            <div className="font-black text-lg text-red-600">infinity</div>
 
             {/* HAMBURGER TOGGLE */}
             <button
@@ -215,7 +215,7 @@ const [search, setSearch] = useState("");
   </main>
 
   <footer className="text-center text-xs text-gray-400 py-2">
-    Copyright © 2025 ALX
+    Copyright © 2026 Infinity
   </footer>
 
   <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
