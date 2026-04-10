@@ -51,7 +51,7 @@ export default function SupportCentrePage() {
           <h2 className="text-3xl font-bold">Your Support Centre</h2>
           <p className="mt-2 text-lg">We Are Here to Support Your Journey</p>
           <p className="mt-1">
-            Chat with our AI learner support expert, LEA, or contact the support team.
+            Chat with our AI learner support expert, Finley, or contact the support team.
           </p>
         </div>
       </section>
