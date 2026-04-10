@@ -5,15 +5,15 @@ export default function LearningLogin() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
         <h1 className="text-center text-3xl font-bold mb-6 text-purple-600">
-          Infinity Learning
+          Infinity Dream Learning
         </h1>
 
-        {/* Login with Ehub (now navigates too if you want later) */}
+        {/* Login with Hub (now navigates too if you want later) */}
         <button
           className="w-full bg-gray-800 text-white py-2 rounded mb-4"
           onClick={() => (window.location.href = "/learning")}
         >
-          Log in with Ehub
+          Log in with Hub
         </button>
 
         <p className="text-center text-gray-500 mb-4">– OR –</p>
@@ -53,7 +53,7 @@ export default function LearningLogin() {
             to="/learning"
             className="w-full bg-purple-600 text-white py-2 rounded block text-center"
           >
-            Login to Learning
+            Login
           </Link>
         </form>
 
