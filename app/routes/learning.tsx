@@ -81,39 +81,43 @@ export default function ALXLearningDashboard() {
         {/* HEADER (FIXED EXACT ORDER) */}
         <header className="bg-white border-b px-6 py-3 flex items-center justify-between">
 
-  {/* LEFT SIDE */}
+  {/* LEFT */}
   <div className="flex items-center gap-4">
-    <div className="font-black text-lg text-red-500">alx</div>
 
-    {/* Hamburger (VISIBLE FIX) */}
-    <button className="p-2 rounded hover:bg-gray-100">
-      <Menu size={22} />
+    {/* LOGO */}
+    <div className="font-black text-lg text-red-600">alx</div>
+
+    {/* HAMBURGER (VISIBLE FIX) */}
+    <button className="p-2 rounded-md hover:bg-gray-100">
+      <Menu size={26} color="#111827" strokeWidth={2.5} />
     </button>
+
   </div>
 
-  {/* RIGHT SIDE */}
-  <div className="flex items-center gap-5">
+  {/* RIGHT */}
+  <div className="flex items-center gap-4">
 
-    {/* POINTS (VISIBLE FIX) */}
-    <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">
+    {/* POINTS */}
+    <div className="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
       4210 pts
     </div>
 
-    {/* NOTIFICATION BELL */}
-    <button className="p-2 rounded hover:bg-gray-100">
-      <BellIcon />
+    {/* NOTIFICATION BELL (FORCED VISIBILITY) */}
+    <button className="p-2 rounded-md hover:bg-gray-100">
+      <Bell size={24} color="#111827" strokeWidth={2.5} />
     </button>
 
-    {/* 9 DOTS GRID */}
-    <button className="p-2 rounded hover:bg-gray-100">
-      <GridIcon />
+    {/* 9 DOTS (FORCED VISIBILITY) */}
+    <button className="p-2 rounded-md hover:bg-gray-100">
+      <Grid3X3 size={24} color="#111827" strokeWidth={2.5} />
     </button>
 
     {/* PROFILE */}
     <img
       src="https://i.pravatar.cc/40"
-      className="w-8 h-8 rounded-full border"
+      className="w-9 h-9 rounded-full border-2 border-gray-300"
     />
+
   </div>
 </header>
 
