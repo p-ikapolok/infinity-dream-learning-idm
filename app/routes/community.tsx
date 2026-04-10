@@ -13,7 +13,7 @@ export default function EhubWithCommunity() {
     <div className="flex flex-col min-h-screen bg-gray-50">
       {/* Top Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
-        <h1 className="text-xl font-bold text-gray-800">ALX eHub</h1>
+        <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
         <div className="flex items-center space-x-6">
           <span className="text-gray-700 font-semibold">4210 points</span>
 
@@ -92,7 +92,7 @@ export default function EhubWithCommunity() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4">
           <h2 className="text-2xl font-bold">Welcome to the eHub</h2>
-          <p className="mt-2 text-lg">Your ALX Learning Journey Starts Here</p>
+          <p className="mt-2 text-lg">Your Infinity Dream Learning Journey Starts Here</p>
           <p className="mt-1">Track your progress, achieve your goals.</p>
         </div>
       </section>
@@ -122,15 +122,15 @@ export default function EhubWithCommunity() {
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Events</a>
                 <a href="#" className="block text-gray-700 hover:text-blue-600">Leaderboard</a>
               </nav>
-              {/* ALX, Welcome, Community, Resources */}
+              {/* Infinity, Welcome, Community, Resources */}
               <div>
-                <h4 className="text-sm font-semibold text-gray-800">ALX</h4>
+                <h4 className="text-sm font-semibold text-gray-800">Infinity</h4>
                 <nav className="space-y-2 mt-2">
                   <a href="#" className="block text-gray-700 hover:text-blue-600">Our Community</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">ALX Community</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">ALX Events</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">ALX Announcements</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">ALX Alumni Community</a>
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">Infinity Community</a>
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">Infinity Events</a>
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">Infinity Announcements</a>
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">Infinity Alumni Community</a>
                 </nav>
               </div>
               <div>
@@ -216,26 +216,26 @@ export default function EhubWithCommunity() {
 
           <main className="px-6 flex-1 overflow-y-auto">
             <h1 className="text-center text-xl font-bold text-gray-800 mb-6">
-              We Are ALX
+              We Are Infinity Dream 
             </h1>
 
             {/* Video */}
             <div className="mb-6">
               <div className="bg-gray-200 h-48 flex items-center justify-center rounded-lg">
-                <span className="text-gray-600">Welcome to ALX! (Video)</span>
+                <span className="text-gray-600">Welcome to Infinity Dream! (Video)</span>
               </div>
             </div>
 
             {/* Mission Text */}
             <article className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Africa is a continent brimming with talent, ambition, and a desire to innovate. At ALX, we believe you hold the key to unlocking its extraordinary potential for progress.
+                Africa is a continent brimming with talent, ambition, and a desire to innovate. At Infinity Dream, we believe you hold the key to unlocking its extraordinary potential for progress.
               </p>
               <p>
                 <strong>Our Mission:</strong> To Create 2 Million Opportunities and Positively Change Lives. We equip young Africans with the skills, connections, and opportunities they need to build fulfilling careers.
               </p>
               <p>
-                <strong>Join a Movement – Led by You.</strong> When you join ALX, you become part of a vibrant, pan-African community that believes in collaboration and mutual support.
+                <strong>Join a Movement – Led by You.</strong> When you join Infinity Dream, you become part of a vibrant, pan-African community that believes in collaboration and mutual support.
               </p>
               <p>
                 <strong>Your All-Access Fee:</strong> Fueling Your Community Experience. Keep your membership current to unlock exclusive resources, events, and support.
@@ -276,7 +276,7 @@ export default function EhubWithCommunity() {
           <img src="/icons/instagram.png" alt="Instagram" className="w-6 h-6" />
         </div>
 
-        <p className="text-center text-sm">© 2026 Sand. All rights reserved.</p>
+        <p className="text-center text-sm">© 2026 Infinity. All rights reserved.</p>
       </footer>
     </div>
   );
