@@ -15,7 +15,7 @@ export default function EhubPage() {
 
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
-        <h1 className="text-xl font-bold text-gray-800">ALX eHub</h1>
+        <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
         <div className="flex items-center space-x-6">
           {/* Points */}
           <span className="text-gray-700 font-semibold">4210 points</span>
@@ -303,7 +303,7 @@ export default function EhubPage() {
           <img src="/icons/instagram.png" alt="Instagram" className="w-6 h-6" />
         </div>
 
-        <p className="text-center text-sm">© 2026 Sand. All rights reserved.</p>
+        <p className="text-center text-sm">© 2026 Infinity. All rights reserved.</p>
       </footer>
 
     </div>
