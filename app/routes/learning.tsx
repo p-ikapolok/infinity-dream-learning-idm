@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { CheckCircle, Calendar, MessageCircle } from "lucide-react";
+import {
+  Menu,
+  Bell,
+  Grid3X3,
+  CheckCircle,
+  Calendar,
+  MessageCircle,
+} from "lucide-react";
 
 import { FaDiscord } from "react-icons/fa";
 import { SiZoom, SiYoutube, SiCodesandbox } from "react-icons/si";
@@ -14,7 +21,6 @@ import {
 
 export default function ALXLearningDashboard() {
   const [collapsed, setCollapsed] = useState(false);
-  const [search, setSearch] = useState("");
 
   const scores = [
     { title: "ALX AiCE – AI Career Essentials", validated: true, score: "79.28%" },
@@ -32,50 +38,11 @@ export default function ALXLearningDashboard() {
         collapsed ? "w-20" : "w-64"
       }`}>
 
-        {/* HEADER */}
+        {/* SIDEBAR HEADER */}
         <div className="p-4 flex items-center gap-2 font-bold text-lg">
-          <button onClick={() => setCollapsed(!collapsed)}>
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-              <path d="M4 6h16M4 12h16M4 18h16"
-                stroke="#111827"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </button>
-
+          <Menu size={18} />
           {!collapsed && <span className="font-black">alx</span>}
         </div>
-
-        {/* SEARCH */}
-        {!collapsed && (
-          <div className="px-3">
-            <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
-
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <circle cx="11" cy="11" r="7" stroke="#6B7280" strokeWidth="2"/>
-                <path d="M20 20l-3-3" stroke="#6B7280" strokeWidth="2"/>
-              </svg>
-
-              <input
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                placeholder="Search..."
-                className="bg-transparent outline-none text-sm w-full"
-              />
-            </div>
-          </div>
-        )}
-
-        {/* COLLAPSED SEARCH ICON */}
-        {collapsed && (
-          <div className="flex justify-center mt-2">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-              <circle cx="11" cy="11" r="7" stroke="#6B7280" strokeWidth="2"/>
-              <path d="M20 20l-3-3" stroke="#6B7280" strokeWidth="2"/>
-            </svg>
-          </div>
-        )}
 
         {/* NAV */}
         <nav className="mt-6 space-y-1 px-3">
@@ -103,63 +70,131 @@ export default function ALXLearningDashboard() {
       </aside>
 
       {/* MAIN */}
-      <div className="flex-1 p-6 space-y-4">
+      <div className="flex-1">
 
-        <Card>
-          <div className="flex justify-between mb-4">
-            <h2 className="font-semibold">Upcoming events</h2>
-            <button className="border px-3 py-1 rounded text-sm">View all</button>
+        {/* HEADER */}
+        <header className="bg-white border-b px-6 py-3 flex items-center justify-between">
+
+          {/* LEFT */}
+          <div className="flex items-center gap-4">
+
+            <div className="font-black text-lg text-red-600">alx</div>
+
+            {/* HAMBURGER TOGGLE */}
+            <button
+              onClick={() => setCollapsed(!collapsed)}
+              className="p-2 rounded-md hover:bg-gray-100"
+            >
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M4 6h16M4 12h16M4 18h16"
+                  stroke="#111827"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                />
+              </svg>
+            </button>
+
           </div>
 
-          <div className="flex flex-col items-center py-10 text-gray-400">
-            <Calendar size={32} />
-            <p>No upcoming event</p>
+          {/* RIGHT */}
+          <div className="flex items-center gap-4">
+
+            <div className="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
+              4210 pts
+            </div>
+
+            {/* BELL */}
+            <button className="p-2 rounded-md hover:bg-gray-100">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7z"
+                  stroke="#111827"
+                  strokeWidth="2"
+                />
+                <path
+                  d="M13.73 21a2 2 0 01-3.46 0"
+                  stroke="#111827"
+                  strokeWidth="2"
+                />
+              </svg>
+            </button>
+
+            {/* 9 DOTS */}
+            <button className="p-2 rounded-md hover:bg-gray-100">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="5" cy="5" r="2" fill="#111827" />
+                <circle cx="12" cy="5" r="2" fill="#111827" />
+                <circle cx="19" cy="5" r="2" fill="#111827" />
+
+                <circle cx="5" cy="12" r="2" fill="#111827" />
+                <circle cx="12" cy="12" r="2" fill="#111827" />
+                <circle cx="19" cy="12" r="2" fill="#111827" />
+
+                <circle cx="5" cy="19" r="2" fill="#111827" />
+                <circle cx="12" cy="19" r="2" fill="#111827" />
+                <circle cx="19" cy="19" r="2" fill="#111827" />
+              </svg>
+            </button>
+
+            <img src="https://i.pravatar.cc/40" className="w-9 h-9 rounded-full border" />
           </div>
-        </Card>
+        </header>
 
-        <Card>
-          <h2 className="font-semibold mb-2">Current projects</h2>
-          <p className="text-gray-500">None, enjoy the silence.</p>
-        </Card>
+        {/* CONTENT (UNCHANGED) */}
+        <div className="p-6 space-y-4">
 
-        {scores.map((item, index) => (
-          <Card key={index}>
-            <div className="flex justify-between">
-              <div>
-                <h3 className="font-semibold">
-                  Scores - {item.title}
-                </h3>
+          <Card>
+            <div className="flex justify-between mb-4">
+              <h2 className="font-semibold text-gray-700">Upcoming events</h2>
+              <button className="border px-3 py-1 rounded text-sm">View all</button>
+            </div>
 
-                <span className={`text-xs px-2 py-1 rounded inline-block mt-1 ${
-                  item.validated
-                    ? "bg-green-100 text-green-700"
-                    : "bg-yellow-100 text-yellow-700"
-                }`}>
-                  {item.validated ? "Validated" : "Not validated"}
-                </span>
-              </div>
-
-              <div className="font-semibold flex items-center gap-1">
-                {item.score}
-                {item.validated && <CheckCircle size={16} className="text-green-600" />}
-              </div>
+            <div className="flex flex-col items-center py-10 text-gray-400">
+              <Calendar size={32} />
+              <p>No upcoming event</p>
             </div>
           </Card>
-        ))}
 
-        <div className="min-h-screen flex flex-col">
-  <main className="flex-1">
-    {/* page content */}
-  </main>
+          <Card>
+            <h2 className="font-semibold text-gray-700 mb-2">Current projects</h2>
+            <p className="text-gray-500">None, enjoy the silence.</p>
+          </Card>
 
-  <footer className="text-center text-xs text-gray-400 py-2">
-    Copyright © 2025 ALX
-  </footer>
+          {scores.map((item, index) => (
+            <Card key={index}>
+              <div className="flex justify-between">
+                <div>
+                  <h3 className="font-semibold text-gray-700">
+                    Scores - {item.title}
+                  </h3>
 
-  <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
-    <MessageCircle />
-  </button>
-</div>
+                  <span className={`text-xs px-2 py-1 rounded inline-block mt-1 ${
+                    item.validated
+                      ? "bg-green-100 text-green-700"
+                      : "bg-yellow-100 text-yellow-700"
+                  }`}>
+                    {item.validated ? "Validated" : "Not validated"}
+                  </span>
+                </div>
+
+                <div className="font-semibold flex items-center gap-1">
+                  {item.score}
+                  {item.validated && <CheckCircle size={16} className="text-green-600" />}
+                </div>
+              </div>
+            </Card>
+          ))}
+
+        </div>
+
+        <footer className="text-center text-xs text-gray-400 py-6">
+          Copyright © 2025 ALX
+        </footer>
+
+        <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
+          <MessageCircle />
+        </button>
 
       </div>
     </div>
