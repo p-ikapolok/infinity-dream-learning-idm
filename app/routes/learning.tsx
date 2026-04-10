@@ -1,10 +1,10 @@
-import React from "react";
 import {
   Bell,
   ChevronDown,
   Calendar,
   CheckCircle,
   MessageCircle,
+  Grid3X3,
 } from "lucide-react";
 
 type Score = {
@@ -78,42 +78,27 @@ export default function ALXDashboard(): JSX.Element {
 
       {/* Main */}
       <main className="flex-1 flex flex-col">
-
         {/* Header */}
         <header className="bg-white border-b px-6 py-4 flex justify-between items-center">
-  {/* Program selector */}
-  <div className="flex items-center gap-2 font-medium">
-    Front-End Web Development
-    <ChevronDown size={16} />
-  </div>
+          <div className="flex items-center gap-2 font-medium">
+            Front-End Web Development
+            <ChevronDown size={16} />
+          </div>
 
-  {/* Right side */}
-  <div className="flex items-center gap-6">
-    
-    {/* Points */}
-    <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">
-      4210 points
-    </div>
+          <div className="flex items-center gap-6">
+            <div className="bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm font-medium">
+              4210 points
+            </div>
 
-    {/* 9 dots menu */}
-    <Grid3X3
-      size={20}
-      className="text-gray-600 cursor-pointer"
-    />
+            <Grid3X3 size={20} className="text-gray-600 cursor-pointer" />
+            <Bell size={20} className="text-gray-600 cursor-pointer" />
 
-    {/* Bell */}
-    <Bell
-      size={20}
-      className="text-gray-600 cursor-pointer"
-    />
-
-    {/* Avatar */}
-    <img
-      src="https://i.pravatar.cc/40"
-      className="w-8 h-8 rounded-full"
-    />
-  </div>
-</header>
+            <img
+              src="https://i.pravatar.cc/40"
+              className="w-8 h-8 rounded-full"
+            />
+          </div>
+        </header>
 
         {/* Content */}
         <div className="p-6 space-y-4 flex-1">
@@ -172,10 +157,7 @@ export default function ALXDashboard(): JSX.Element {
                     {score.average}
 
                     {score.status === "validated" && (
-                      <CheckCircle
-                        size={16}
-                        className="text-green-600"
-                      />
+                      <CheckCircle size={16} className="text-green-600" />
                     )}
                   </div>
                 </div>
@@ -198,6 +180,7 @@ export default function ALXDashboard(): JSX.Element {
   );
 }
 
+/* Sidebar Item */
 type SidebarProps = {
   label: string;
   active?: boolean;
@@ -217,6 +200,7 @@ function SidebarItem({ label, active }: SidebarProps): JSX.Element {
   );
 }
 
+/* Card */
 type CardProps = {
   children: React.ReactNode;
 };
