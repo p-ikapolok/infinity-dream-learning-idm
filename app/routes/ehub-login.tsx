@@ -71,7 +71,7 @@ export default function EhubLogin() {
 
         <p className="text-center mt-4 text-sm">
           Don’t have an account?{" "}
-          <Link to="/register" className="text-blue-600">
+          <Link to="/signup" className="text-blue-600">
             Create Hub account
           </Link>
         </p>
