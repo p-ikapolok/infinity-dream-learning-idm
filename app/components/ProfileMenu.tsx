@@ -1,11 +1,16 @@
+"use client";
+
 import React from "react";
+import { useRouter } from "next/navigation";
 
 interface ProfileMenuProps {
   menuOpen: boolean;
 }
 
 export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
-  if (!menuOpen) return null; // Only render when menuOpen is true
+  const router = useRouter();
+
+  if (!menuOpen) return null;
 
   return (
     <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 space-y-4 z-50">
@@ -34,12 +39,26 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
       </div>
 
       {/* View profile */}
-      <button className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600">
+      <button
+        onClick={() => router.push("/profile")}
+        className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
+      >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
           <circle cx="12" cy="8" r="4"/>
           <path d="M4 20a8 8 0 0116 0"/>
         </svg>
         <span>View profile</span>
+      </button>
+
+      {/* Account (added navigation only) */}
+      <button
+        onClick={() => router.push("/account")}
+        className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="16" rx="2"/>
+        </svg>
+        <span>Account</span>
       </button>
 
       {/* Settings */}
@@ -62,7 +81,13 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
       </button>
 
       {/* Log out */}
-      <button className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600">
+      <button
+        onClick={() => {
+          console.log("Logging out...");
+          router.push("/login");
+        }}
+        className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
+      >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
           <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
           <path d="M16 17l5-5-5-5"/>
