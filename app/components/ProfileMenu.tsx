@@ -1,16 +1,14 @@
-"use client";
-
 import React from "react";
-import { useRouter } from "next/navigation";
+import { useNavigate } from "react-router";
 
 interface ProfileMenuProps {
   menuOpen: boolean;
 }
 
 export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
-  const router = useRouter();
+  const navigate = useNavigate();
 
-  if (!menuOpen) return null;
+  if (!menuOpen) return null; // Only render when menuOpen is true
 
   return (
     <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 space-y-4 z-50">
@@ -40,7 +38,7 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
 
       {/* View profile */}
       <button
-        onClick={() => router.push("/profile")}
+        onClick={() => navigate("/profile")}
         className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
@@ -50,19 +48,11 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
         <span>View profile</span>
       </button>
 
-      {/* Account (added navigation only) */}
+      {/* Settings */}
       <button
-        onClick={() => router.push("/account")}
+        onClick={() => navigate("/settings")}
         className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
       >
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-          <rect x="3" y="4" width="18" height="16" rx="2"/>
-        </svg>
-        <span>Account</span>
-      </button>
-
-      {/* Settings */}
-      <button className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600">
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="3"/>
           <path d="M19.4 15a1.7 1.7 0 000-6l2.1-1.6-2-3.4-2.5 1a6.9 6.9 0 00-3-1.7L13.5 1h-3l-.5 2.3a6.9 6.9 0 00-3 1.7l-2.5-1-2 3.4L4.6 9a1.7 1.7 0 000 6l-2.1 1.6 2 3.4 2.5-1a6.9 6.9 0 003 1.7l.5 2.3h3l.5-2.3a6.9 6.9 0 003-1.7l2.5 1 2-3.4L19.4 15z"/>
@@ -71,7 +61,10 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
       </button>
 
       {/* Support */}
-      <button className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600">
+      <button
+        onClick={() => navigate("/support")}
+        className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
+      >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
           <circle cx="12" cy="12" r="10"/>
           <path d="M9.09 9a3 3 0 115.82 1c0 2-3 2-3 4"/>
@@ -84,7 +77,7 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
       <button
         onClick={() => {
           console.log("Logging out...");
-          router.push("/login");
+          navigate("/login");
         }}
         className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
       >
