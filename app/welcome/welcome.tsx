@@ -218,7 +218,7 @@ export default function Welcome() {
         </section>
 
                 {/* FOOTER */}
-        <footer className="bg-blue-950 dark:bg-black text-white pt-16 pb-8 px-6">
+<footer className="bg-blue-950 dark:bg-black text-white pt-16 pb-8 px-6">
   <div className="max-w-7xl mx-auto grid md:grid-cols-5 gap-10">
 
     {/* Brand */}
@@ -226,17 +226,61 @@ export default function Welcome() {
       <h3 className="text-xl font-bold mb-4">
         Infinity Dream Learning
       </h3>
+
       <p className="text-gray-300 text-sm leading-relaxed mb-4">
         Learn tech skills, build real-world projects, and grow your
         creative career with a modern learning experience.
       </p>
 
-      {/* Socials */}
-      <div className="flex gap-4 text-lg">
-        <span className="cursor-pointer hover:text-gray-300">🌐</span>
-        <span className="cursor-pointer hover:text-gray-300">🐦</span>
-        <span className="cursor-pointer hover:text-gray-300">📸</span>
-        <span className="cursor-pointer hover:text-gray-300">💼</span>
+      {/* Socials (REAL SVG ICONS) */}
+      <div className="flex gap-4">
+
+        {/* Globe */}
+        <span className="cursor-pointer hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
+              d="M3 12h18M12 3a15 15 0 010 18" />
+          </svg>
+        </span>
+
+        {/* X (Twitter) */}
+        <span className="cursor-pointer hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
+            viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18 2L6 22h2l12-20h-2z" />
+          </svg>
+        </span>
+
+        {/* Instagram */}
+        <span className="cursor-pointer hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <rect x="3" y="3" width="18" height="18" rx="5" ry="5"
+              strokeWidth="2" />
+            <circle cx="12" cy="12" r="4" strokeWidth="2" />
+            <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
+          </svg>
+        </span>
+
+        {/* Facebook */}
+        <span className="cursor-pointer hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
+            viewBox="0 0 24 24" fill="currentColor">
+            <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5V9.5C10.5 7 11.9 5.8 14.2 5.8c1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12H17l-.5 3h-2v7A10 10 0 0022 12z"/>
+          </svg>
+        </span>
+
+        {/* LinkedIn */}
+        <span className="cursor-pointer hover:text-gray-300">
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
+            viewBox="0 0 24 24" fill="currentColor">
+            <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.1c.6-1.1 2-2.2 4.1-2.2 4.4 0 5.2 2.9 5.2 6.7V24h-5v-7.3c0-1.7 0-3.9-2.4-3.9s-2.8 1.8-2.8 3.7V24h-5V8z"/>
+          </svg>
+        </span>
+
       </div>
     </div>
 
