@@ -77,7 +77,7 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
       <button
         onClick={() => {
           console.log("Logging out...");
-          navigate("/login");
+          navigate("/ehub-login");
         }}
         className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
       >
