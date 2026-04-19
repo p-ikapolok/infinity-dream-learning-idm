@@ -232,13 +232,48 @@ export default function Welcome() {
       </p>
 
       {/* Socials */}
-      <div className="flex gap-4 text-lg">
-        <span className="cursor-pointer hover:text-gray-300">🌐</span>
-        <span className="cursor-pointer hover:text-gray-300">🐦</span>
-        <span className="cursor-pointer hover:text-gray-300">📸</span>
-        <span className="cursor-pointer hover:text-gray-300">💼</span>
-      </div>
-    </div>
+<div className="flex gap-4 text-lg">
+
+  {/* Website / Globe */}
+  <span className="cursor-pointer hover:text-gray-300">
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+        d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+        d="M3.6 9h16.8M3.6 15h16.8M12 3a15 15 0 010 18a15 15 0 010-18z" />
+    </svg>
+  </span>
+
+  {/* X (Twitter) */}
+  <span className="cursor-pointer hover:text-gray-300">
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24"
+      fill="currentColor">
+      <path d="M18.244 2H21l-6.52 7.45L22 22h-6.8l-5.3-6.9L3.8 22H1l7.02-8.02L2 2h6.9l4.8 6.32L18.244 2zm-1.2 18h1.9L7.2 4H5.2l11.844 16z"/>
+    </svg>
+  </span>
+
+  {/* Instagram */}
+  <span className="cursor-pointer hover:text-gray-300">
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none"
+      viewBox="0 0 24 24" stroke="currentColor">
+      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"
+        strokeWidth={2} />
+      <path strokeWidth={2} strokeLinecap="round" strokeLinejoin="round"
+        d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" />
+      <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" />
+    </svg>
+  </span>
+
+  {/* LinkedIn */}
+  <span className="cursor-pointer hover:text-gray-300">
+    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
+      viewBox="0 0 24 24" fill="currentColor">
+      <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.1c.6-1.1 2-2.2 4.1-2.2 4.4 0 5.2 2.9 5.2 6.7V24h-5v-7.3c0-1.7 0-3.9-2.4-3.9s-2.8 1.8-2.8 3.7V24h-5V8z"/>
+    </svg>
+  </span>
+
+</div>
 
     {/* Learning */}
     <div>
