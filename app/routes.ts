@@ -13,9 +13,6 @@ export default [
   route("learning", "routes/learning.tsx"),
   route("community", "routes/community.tsx"),
   route("support", "routes/support.tsx"),
-  route("rewards", "routes/rewards.tsx"),
-  route("profile", "routes/profile.tsx"),
-  route("settings", "routes/settings.tsx"),
 
   route("learning/course/:id", "routes/learning.course.tsx"),
   route("learning/lesson/:id", "routes/learning.lesson.tsx"),
