@@ -1,101 +1,91 @@
-/* ================= PAYMENTS ================= */
+"use client";
 
-function Payments() {
+import Layout from "@/components/Layout";
+
+export default function AccountPayments() {
   return (
-    <div>
-      {/* Cards */}
-      <div className="grid md:grid-cols-2 gap-4 mb-6">
-        
-        {/* Status Card */}
-        <div className="border rounded-lg p-4">
-          <p className="text-sm text-gray-500 mb-2">
-            Your Payment Status for <span className="font-semibold">ALX Access</span> is
-          </p>
+    <Layout>
 
-          <div className="flex items-center gap-2 mb-3">
-            <span className="text-orange-500 font-semibold">Active</span>
-            <span className="bg-orange-100 text-orange-600 text-xs px-2 py-1 rounded-full">
-              At risk
-            </span>
+      <div className="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow">
+
+        <h1 className="text-xl font-semibold mb-4">Account</h1>
+
+        {/* Tabs */}
+        <div className="flex gap-6 border-b mb-6 text-sm">
+          <span className="text-blue-600 border-b-2 border-blue-600 pb-2">
+            Payments
+          </span>
+          <span className="text-gray-500 pb-2">Payments FAQ</span>
+          <span className="text-gray-500 pb-2">Hub Attendance</span>
+          <span className="text-gray-500 pb-2">Password</span>
+        </div>
+
+        {/* Cards */}
+        <div className="grid md:grid-cols-2 gap-4 mb-6">
+
+          <div className="border rounded-lg p-4">
+            <p className="text-sm text-gray-500">
+              Your Payment Status for <b>ALX Access</b> is
+            </p>
+            <div className="flex gap-2 mt-2">
+              <span className="text-orange-500 font-semibold">Active</span>
+              <span className="bg-orange-100 text-orange-600 text-xs px-2 rounded-full">
+                At risk
+              </span>
+            </div>
+            <p className="text-sm text-gray-500 mt-2">
+              Your access is valid until 13 Oct 2025
+            </p>
           </div>
 
-          <p className="text-sm text-gray-500">
-            Your access is valid until 13 Oct 2025
-          </p>
+          <div className="border rounded-lg p-4">
+            <p className="text-sm text-gray-500">Payment due is</p>
+            <h2 className="text-3xl text-blue-600 font-bold mt-2">
+              USD 5.00
+            </h2>
+            <p className="text-sm text-gray-500">Due on 13 Oct 2025</p>
+            <p className="text-blue-600 mt-2 text-sm">
+              Make payment now →
+            </p>
+          </div>
+
         </div>
 
-        {/* Due Card */}
-        <div className="border rounded-lg p-4">
-          <p className="text-sm text-gray-500">Payment due is</p>
-
-          <h2 className="text-3xl font-bold text-blue-600 mt-2">
-            USD 5.00
-          </h2>
-
-          <p className="text-sm text-gray-500 mt-1">
-            Due on 13 Oct 2025
-          </p>
-
-          <button className="mt-3 text-blue-600 text-sm font-medium flex items-center gap-1">
-            Make payment now →
-          </button>
-        </div>
-      </div>
-
-      {/* Billing History */}
-      <div>
+        {/* Billing */}
         <h2 className="font-semibold mb-4">Billing History</h2>
 
-        <div className="flex justify-between items-center mb-3">
-          <p className="text-sm text-gray-500">Receipts</p>
-          <button className="flex items-center gap-2 border px-3 py-1 rounded-full text-sm text-blue-600">
-            <Download size={16} /> Download
+        <div className="flex justify-between mb-3">
+          <span className="text-sm text-gray-500">Receipts</span>
+
+          <button className="flex items-center gap-2 border px-3 py-1 rounded-full text-blue-600 text-sm">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor">
+              <path d="M12 16v-8M8 12l4 4 4-4"/>
+            </svg>
+            Download
           </button>
         </div>
 
-        {/* Table */}
         <div className="border rounded-lg overflow-hidden">
-          {[
-            "Jul 27, 2025",
-            "Jun 18, 2025",
-            "May 15, 2025",
-            "Apr 14, 2025",
-            "Mar 15, 2025",
-            "Feb 13, 2025",
-          ].map((date, i) => (
-            <div
-              key={i}
-              className="flex justify-between items-center p-4 border-b last:border-none"
-            >
-              <div className="flex items-center gap-3">
-                <input type="checkbox" />
-                <span className="text-sm">
-                  Receipt ALX Access #{Math.floor(Math.random() * 500000)}
-                </span>
+          {[1,2,3,4,5,6].map((_, i) => (
+            <div key={i} className="flex justify-between items-center p-4 border-b">
+              <div className="flex gap-3 items-center">
+                <input type="checkbox"/>
+                <span>Receipt ALX Access #{420000 + i}</span>
               </div>
 
-              <span className="text-sm text-gray-500">{date}</span>
-              <span className="text-sm">USD 5.00</span>
+              <span className="text-gray-500 text-sm">Jul 27, 2025</span>
+              <span>USD 5.00</span>
 
-              <Eye className="text-blue-500 cursor-pointer" size={18} />
+              <svg className="w-5 h-5 text-blue-500" fill="none" stroke="currentColor">
+                <path d="M1 12s4-6 11-6 11 6 11 6-4 6-11 6S1 12 1 12z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
             </div>
           ))}
         </div>
 
-        {/* Pagination */}
-        <div className="flex justify-between items-center mt-4 text-sm">
-          <button className="text-gray-500">← Previous</button>
-
-          <div className="flex gap-2">
-            <span className="bg-blue-600 text-white px-3 py-1 rounded-full">
-              1
-            </span>
-            <span>2</span>
-          </div>
-
-          <button className="text-gray-500">Next →</button>
-        </div>
       </div>
-    </div>
+
+    </Layout>
   );
 }
