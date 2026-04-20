@@ -1,30 +1,49 @@
-/* ================= ATTENDANCE ================= */
+"use client";
 
-function Attendance() {
+import Layout from "@/components/Layout";
+
+export default function AccountAttendance() {
   return (
-    <div>
-      <h2 className="font-semibold mb-2">Hub Attendance</h2>
-      <p className="text-sm text-gray-500 mb-4">
-        Below is a list of your attendances
-      </p>
+    <Layout>
+      <div className="p-6">
+        <div className="max-w-5xl mx-auto bg-white p-6 rounded-xl shadow">
 
-      <div className="flex gap-3 mb-4">
-        <select className="border p-2 rounded-md text-sm">
-          <option>Hub Name</option>
-        </select>
+          <h1 className="text-xl mb-4">Account</h1>
 
-        <select className="border p-2 rounded-md text-sm">
-          <option>Date Range</option>
-        </select>
+          <div className="flex gap-6 border-b mb-6 text-sm">
+            <span>Payments</span>
+            <span>Payments FAQ</span>
+            <span className="text-blue-600 border-b-2 border-blue-600 pb-2">
+              Hub Attendance
+            </span>
+            <span>Password</span>
+          </div>
 
-        <button className="border px-3 py-2 rounded-md text-sm text-blue-600">
-          Clear Filters
-        </button>
+          <h2 className="font-semibold">Hub Attendance</h2>
+          <p className="text-sm text-gray-500 mb-4">
+            Below is a list of your attendances
+          </p>
+
+          <div className="flex gap-3 mb-4">
+            <select className="border p-2 rounded">
+              <option>Hub Name</option>
+            </select>
+
+            <select className="border p-2 rounded">
+              <option>Date Range</option>
+            </select>
+
+            <button className="border px-3 py-2 text-blue-600 rounded">
+              Clear Filters
+            </button>
+          </div>
+
+          <div className="border p-6 text-center text-gray-400 rounded">
+            No data to display
+          </div>
+
+        </div>
       </div>
-
-      <div className="border rounded-md p-6 text-center text-gray-400">
-        No data to display
-      </div>
-    </div>
+    </Layout>
   );
 }
