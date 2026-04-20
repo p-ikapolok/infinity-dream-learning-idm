@@ -38,7 +38,7 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
 
       {/* View profile */}
       <button
-        onClick={() => navigate("/account/payments")}
+        onClick={() => navigate("/account")}
         className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
