@@ -16,7 +16,6 @@ export default [
 
   route("pricing", "routes/pricing.tsx"),
   route("checkout", "routes/checkout.tsx"),
-  route("course-builder", "routes/course-builder.tsx"),
   route("course", "routes/course.tsx"),
   route("marketplace", "routes/marketplace.tsx"),
   route("/ehub-login", "routes/ehub-login.tsx"),
