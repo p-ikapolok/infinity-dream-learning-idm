@@ -18,9 +18,6 @@ export default [
   route("learning/lesson/:id", "routes/learning.lesson.tsx"),
 
   route("certificates", "routes/certificates.tsx"),
-  route("achievements", "routes/achievements.tsx"),
-  route("progress", "routes/progress.tsx"),
-  route("user", "routes/user.tsx"),
   route("notifications", "routes/notifications.tsx"),
   route("messages", "routes/messages.tsx"),
   route("followers", "routes/followers.tsx"),
