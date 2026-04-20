@@ -26,7 +26,6 @@ export default [
   route("admin", "routes/admin.tsx"),
   route("instructor", "routes/instructor.tsx"),
   route("course-builder", "routes/course-builder.tsx"),
-  route("upload-lesson", "routes/upload-lesson.tsx"),
   route("course", "routes/course.tsx"),
   route("my-courses", "routes/my-courses.tsx"),
   route("certificate", "routes/certificate.tsx"),
