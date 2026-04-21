@@ -27,6 +27,6 @@ export default function Footer() {
 
         <p className="text-center text-sm">© 2026 Infinity. All rights reserved.</p>
       </footer>
-     <>
+     </>
   );
 }
