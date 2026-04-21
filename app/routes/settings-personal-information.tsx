@@ -3,122 +3,95 @@ import Layout from "../components/layout";
 export default function ProfilePage() {
   return (
     <Layout>
-      <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Header Banner */}
+      <header className="bg-white shadow p-6 flex items-center space-x-6">
+        <img
+          src="/profile-photo.png"
+          alt="Profile"
+          className="w-24 h-24 rounded-full border-4 border-gray-200"
+        />
 
-        {/* System Status Bar */}
-        <div className="flex justify-between items-center bg-gray-100 px-4 py-1 text-xs text-gray-600">
-          <span>8:16 PM</span>
-          <div className="flex space-x-2">
+        <div>
+          <h1 className="text-2xl font-bold text-gray-800">Peter Ikapolok</h1>
+          <p className="text-gray-600">Graphic Designer</p>
+          <p className="text-gray-600">Artlink Media Africa Information Service Solution</p>
+          <p className="text-sm text-indigo-600 mt-1">Open to Opportunities</p>
 
-            {/* signal icon */}
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M3 10h2v10H3V10zm4-4h2v14H7V6zm4 6h2v8h-2v-8zm4-3h2v11h-2V9zm4-3h2v14h-2V6z"/>
-            </svg>
+          <div className="flex space-x-6 mt-2 text-sm text-gray-700">
+            <span className="flex items-center space-x-1">
+              {/* Phone SVG */}
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M22 16.92V19a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2 4.18 2 2 0 0 1 4 2h2.09a2 2 0 0 1 2 1.72c.12.86.31 1.7.57 2.5a2 2 0 0 1-.45 2.11L7.1 9.9a16 16 0 0 0 6 6l1.57-1.11a2 2 0 0 1 2.11-.45c.8.26 1.64.45 2.5.57A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span>+254740748621</span>
+            </span>
 
-            {/* battery icon */}
-            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M16 7h-1V5H9v2H8a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V9a2 2 0 00-2-2zm-7 3h6v8H9v-8z"/>
-            </svg>
-
+            <span className="flex items-center space-x-1">
+              {/* Mail SVG */}
+              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 4h16v16H4z" />
+                <path d="m4 4 8 8 8-8" />
+              </svg>
+              <span>ikapolokpeter18@gmail.com</span>
+            </span>
           </div>
         </div>
+      </header>
 
-        {/* Sub-Navigation Tabs */}
-        <nav className="flex bg-gray-100 px-6 py-2 space-x-6 text-sm font-medium text-gray-700">
-          <a href="/payments" className="text-indigo-600 border-b-2 border-indigo-600">Payments</a>
-          <a href="/faq" className="hover:text-indigo-600">Payments FAQ</a>
-          <a href="/attendance" className="hover:text-indigo-600">Hub Attendance</a>
-          <a href="/password" className="hover:text-indigo-600">Password</a>
-          <a href="/profile" className="hover:text-indigo-600">Profile</a>
-        </nav>
+      {/* About Me */}
+      <section className="p-6 bg-white shadow mt-4 mx-6 rounded">
+        <h2 className="text-lg font-semibold text-gray-800 mb-2">About Me</h2>
+        <p className="text-gray-700">
+          I am a dedicated Virtual Assistant specializing in administrative support for entrepreneurs
+          and small business owners. With a strong focus on efficiency and organization, I help busy
+          professionals streamline their daily tasks so they can focus on growing their business.
+        </p>
+        <p className="text-gray-700 mt-2">
+          What sets me apart: I understand the importance of time and productivity in business. By
+          handling routine administrative tasks, I provide my clients with more time to focus on
+          strategic decision-making and scaling their business.
+        </p>
+      </section>
 
-        {/* Profile Banner */}
-        <section className="bg-indigo-50 p-6 flex items-center space-x-6">
-          <img
-            src="/profile-photo.png"
-            alt="Profile"
-            className="w-24 h-24 rounded-full border-4 border-white shadow"
-          />
+      {/* Details Grid */}
+      <section className="p-6 grid grid-cols-2 gap-6 mx-6 mt-4">
+        <div>
+          <h3 className="font-semibold text-gray-800">Languages</h3>
+          <p className="text-gray-700">English (Advanced), Swahili (Native)</p>
+        </div>
 
-          <div>
-            <h2 className="text-2xl font-bold text-gray-800">Peter Ikapolok</h2>
-            <p className="text-gray-600">Graphic Designer</p>
-            <p className="text-gray-600">
-              Artlink Media Africa Information Service Solution
-            </p>
+        <div>
+          <h3 className="font-semibold text-gray-800">Phone Numbers</h3>
+          <p className="text-gray-700">Primary: +254739762594</p>
+          <p className="text-gray-700">WhatsApp: +254740748621</p>
+        </div>
 
-            <div className="flex space-x-6 mt-2 text-sm text-gray-700">
+        <div>
+          <h3 className="font-semibold text-gray-800">Social Profiles</h3>
+          <a href="https://linkedin.com" className="text-indigo-600 underline">
+            LinkedIn
+          </a>
+        </div>
 
-              {/* phone icon */}
-              <span className="flex items-center space-x-1">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M6.6 10.8a15.05 15.05 0 006.6 6.6l2.2-2.2a1 1 0 011-.24c1.1.36 2.3.56 3.5.56a1 1 0 011 1V21a1 1 0 01-1 1C10.3 22 2 13.7 2 3a1 1 0 011-1h3.5a1 1 0 011 1c0 1.2.2 2.4.56 3.5a1 1 0 01-.24 1z"/>
-                </svg>
-                <span>+254739762594</span>
-              </span>
+        <div>
+          <h3 className="font-semibold text-gray-800">Interests</h3>
+          <p className="text-gray-700">Software Developer</p>
+        </div>
 
-              {/* mail icon */}
-              <span className="flex items-center space-x-1">
-                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 4H4a2 2 0 00-2 2v12a2 2 0 002 2h16a2 2 0 002-2V6a2 2 0 00-2-2zm0 4l-8 5L4 8V6l8 5 8-5v2z"/>
-                </svg>
-                <span>peter@example.com</span>
-              </span>
+        <div>
+          <h3 className="font-semibold text-gray-800">Location</h3>
+          <p className="text-gray-700">Country of Origin: Kenya</p>
+          <p className="text-gray-700">Residence: Malaba, Kenya</p>
+        </div>
 
-            </div>
+        <div>
+          <h3 className="font-semibold text-gray-800">Profile Completion</h3>
+          <div className="w-full bg-gray-200 rounded-full h-2">
+            <div className="bg-green-500 h-2 rounded-full w-full"></div>
           </div>
-        </section>
-
-        {/* About Me */}
-        <section className="p-6 bg-white shadow mt-4 mx-6 rounded">
-          <h3 className="text-lg font-semibold text-gray-800 mb-2">About Me</h3>
-          <p className="text-gray-700">
-            Dedicated Virtual Assistant specializing in administrative support for entrepreneurs
-            and small business owners. Focused on efficiency, organization, and productivity.
-          </p>
-        </section>
-
-        {/* Details Grid */}
-        <section className="p-6 grid grid-cols-2 gap-6 mx-6 mt-4">
-          <div>
-            <h4 className="font-semibold text-gray-800">Languages</h4>
-            <p className="text-gray-700">English (Advanced), Swahili (Native)</p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-gray-800">Phone Numbers</h4>
-            <p className="text-gray-700">Primary: +254739762594</p>
-            <p className="text-gray-700">WhatsApp: +254740748621</p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-gray-800">Social Profiles</h4>
-            <a href="https://linkedin.com" className="text-indigo-600 underline">
-              LinkedIn
-            </a>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-gray-800">Interests</h4>
-            <p className="text-gray-700">Software Developer</p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-gray-800">Location</h4>
-            <p className="text-gray-700">Origin: Kenya</p>
-            <p className="text-gray-700">Residence: Malaba, Kenya</p>
-          </div>
-
-          <div>
-            <h4 className="font-semibold text-gray-800">Profile Completion</h4>
-            <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-green-500 h-2 rounded-full w-full"></div>
-            </div>
-            <p className="text-sm mt-1 text-gray-600">100% Complete</p>
-          </div>
-        </section>
-
-      </div>
+          <p className="text-sm mt-1 text-gray-600">100% Complete</p>
+        </div>
+      </section>
     </Layout>
   );
 }
