@@ -1,264 +1,319 @@
 import { NavLink } from "react-router-dom";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 export default function PersonalInformation() {
   return (
     <Layout>
-      {/* PROFILE BANNER */}
-      <section className="pt-6">
-        <div className="relative bg-white rounded-xl shadow-md overflow-hidden border">
-          <div className="h-40 bg-gradient-to-r from-blue-500 to-blue-700 relative">
-            <div className="absolute right-6 top-6 w-16 h-16 bg-blue-900 rounded-full opacity-40"></div>
+      {/* BANNER */}
+      <div className="mt-8 bg-white rounded-xl shadow border overflow-hidden relative">
+        <div className="h-44 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 relative">
+          {/* right circle globe placeholder */}
+          <div className="absolute top-5 right-6 w-20 h-20 rounded-full border-4 border-white/40 flex items-center justify-center">
+            {/* Globe SVG */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-8 h-8 text-white"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm6.93 9h-2.02a15.72 15.72 0 0 0-1.2-5.09A8.03 8.03 0 0 1 18.93 11zM12 4c.83 0 2.14 2.05 2.73 6H9.27C9.86 6.05 11.17 4 12 4zM4.07 13h2.02c.2 1.85.67 3.62 1.2 5.09A8.03 8.03 0 0 1 4.07 13zm2.02-2H4.07a8.03 8.03 0 0 1 3.22-5.09A15.72 15.72 0 0 0 6.09 11zM12 20c-.83 0-2.14-2.05-2.73-6h5.46c-.59 3.95-1.9 6-2.73 6zm3.69-1.91c.53-1.47 1-3.24 1.2-5.09h2.02a8.03 8.03 0 0 1-3.22 5.09zM16.91 11H7.09c.21-2.05.75-3.99 1.42-5.32C9.5 4.59 10.75 4 12 4s2.5.59 3.49 1.68c.67 1.33 1.21 3.27 1.42 5.32z" />
+            </svg>
           </div>
 
-          {/* Profile Image */}
-          <div className="absolute top-10 left-6 w-24 h-24 rounded-full bg-gray-200 border-4 border-white shadow-md"></div>
-
-          {/* Name Overlay */}
-          <div className="absolute top-12 left-36 text-white">
-            <h1 className="text-2xl font-bold">Peter Ikapolok</h1>
-            <p className="text-sm opacity-90">Graphic designer</p>
-          </div>
-
-          {/* Buttons */}
-          <div className="absolute bottom-5 right-6 flex gap-3">
-            <button className="bg-white text-gray-800 px-4 py-2 rounded-lg shadow text-sm font-semibold border">
-              Copy link
-            </button>
-
-            <button className="bg-blue-600 text-white px-4 py-2 rounded-lg shadow text-sm font-semibold flex items-center justify-center">
-              {/* Pencil Icon */}
+          {/* contact info */}
+          <div className="absolute right-6 bottom-5 text-white text-xs space-y-2">
+            <div className="flex items-center gap-2">
+              {/* Phone */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
+                className="w-4 h-4"
                 viewBox="0 0 24 24"
                 fill="currentColor"
               >
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
+                <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.59a1 1 0 0 1-.25 1.01l-2.2 2.19z" />
               </svg>
-            </button>
-          </div>
+              <span>+254739762594</span>
+            </div>
 
-          {/* Bottom Info */}
-          <div className="px-6 pt-28 pb-5">
             <div className="flex items-center gap-2">
-              <h2 className="text-xl font-bold text-gray-900">
-                Peter ikapolok
-              </h2>
-              <span className="text-blue-600 font-semibold">in</span>
-            </div>
-
-            <p className="text-gray-600 text-sm mt-1">Mr · Kenya Busia</p>
-
-            <div className="mt-2 inline-block px-4 py-1 rounded-full bg-green-100 text-green-700 text-sm font-semibold border border-green-300">
-              Open to Opportunities
+              {/* Mail */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
+                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+              </svg>
+              <span>ikapolokpeter@gmail.com</span>
             </div>
           </div>
+
+          {/* image left */}
+          <div className="absolute left-0 top-0 h-full w-44 bg-black/10"></div>
         </div>
-      </section>
 
-      {/* TABS */}
-      <nav className="mt-6">
-        <div className="bg-white rounded-xl shadow-md px-6 py-3 flex gap-6 text-sm font-semibold border">
-          <NavLink
-            to="/personal-information"
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-600 border-b-2 border-blue-600 pb-2"
-                : "text-gray-600 hover:text-blue-600"
-            }
-          >
-            Personal Information
-          </NavLink>
+        {/* profile circle */}
+        <div className="absolute -bottom-10 left-8 w-28 h-28 rounded-full border-4 border-white bg-gray-200 shadow"></div>
 
-          <NavLink
-            to="/education-info"
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-600 border-b-2 border-blue-600 pb-2"
-                : "text-gray-600 hover:text-blue-600"
-            }
-          >
-            Education Info
-          </NavLink>
+        {/* name section */}
+        <div className="absolute bottom-4 left-44 text-white">
+          <h2 className="text-2xl font-bold">Peter Ikapolok</h2>
+          <p className="text-sm opacity-90">Graphic designer</p>
+        </div>
 
-          <NavLink
-            to="/work-info"
-            className={({ isActive }) =>
-              isActive
-                ? "text-blue-600 border-b-2 border-blue-600 pb-2"
-                : "text-gray-600 hover:text-blue-600"
-            }
-          >
-            Work Info
-          </NavLink>
+        {/* buttons */}
+        <div className="absolute bottom-6 right-8 flex items-center gap-3">
+          <button className="px-4 py-2 rounded-lg bg-blue-100 text-blue-700 font-semibold text-sm border border-blue-200">
+            Copy link
+          </button>
 
-          <button className="text-gray-600 hover:text-blue-600">
-            Demographic Info
+          <button className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center">
+            {/* Edit icon */}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
+            </svg>
           </button>
         </div>
-      </nav>
 
-      {/* PAGE BODY */}
-      <section className="py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          {/* ABOUT ME */}
-          <div className="lg:col-span-2 bg-white rounded-xl shadow-md p-6 relative border">
-            <h2 className="font-bold text-lg mb-4">About me</h2>
+        {/* info below banner */}
+        <div className="pt-14 pb-6 px-8">
+          <div className="flex items-center gap-2">
+            <h3 className="text-xl font-bold text-gray-900">Peter ikapolok</h3>
 
-            <button className="absolute top-6 right-6 text-gray-500">
-              {/* Pencil Icon */}
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
-              </svg>
-            </button>
-
-            <p className="text-gray-700 leading-relaxed text-sm">
-              I am a dedicated Virtual Assistant specializing in administrative
-              support for entrepreneurs and small business owners. With a strong
-              focus on efficiency and organization, I help busy professionals
-              streamline their daily tasks so they can focus on growing their
-              business.
-              <br />
-              <br />
-              What sets me apart I understand the importance of time and
-              productivity in business. By handling routine administrative
-              tasks, I provide my clients with more time to focus on strategic
-              decision-making and scaling their business.
-            </p>
-          </div>
-
-          {/* COMPLETION */}
-          <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center justify-center border">
-            <div className="w-28 h-28 rounded-full border-[10px] border-purple-500 flex items-center justify-center font-bold text-xl text-gray-800">
-              100%
-            </div>
-
-            <div className="mt-6 text-sm space-y-2">
-              <p className="text-green-600 font-semibold">✔ About Me</p>
-              <p className="text-green-600 font-semibold">✔ Languages</p>
-              <p className="text-green-600 font-semibold">✔ Social Profiles</p>
-              <p className="text-green-600 font-semibold">✔ Interests</p>
-            </div>
-          </div>
-
-          {/* LANGUAGES */}
-          <div className="bg-white rounded-xl shadow-md p-6 relative border">
-            <h2 className="font-bold text-lg mb-3">Languages</h2>
-
-            <button className="absolute top-6 right-6 text-gray-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
-              </svg>
-            </button>
-
-            <p className="text-gray-700 text-sm">
-              <span className="font-semibold">English</span> · Advanced
-            </p>
-            <p className="text-gray-700 text-sm mt-2">
-              <span className="font-semibold">Swahili</span> · Native
-            </p>
-          </div>
-
-          {/* PHONE NUMBER */}
-          <div className="bg-white rounded-xl shadow-md p-6 relative border">
-            <h2 className="font-bold text-lg mb-3">Phone Number</h2>
-
-            <button className="absolute top-6 right-6 text-gray-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
-              </svg>
-            </button>
-
-            <p className="text-gray-700 text-sm">
-              <span className="font-semibold">Primary</span> · +254739762594
-            </p>
-
-            <p className="text-gray-700 text-sm mt-2">
-              <span className="font-semibold">WhatsApp</span> · +254740748621
-            </p>
-          </div>
-
-          {/* SOCIAL PROFILES */}
-          <div className="bg-white rounded-xl shadow-md p-6 relative border">
-            <h2 className="font-bold text-lg mb-3">Social Profiles</h2>
-
-            <button className="absolute top-6 right-6 text-gray-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
-              </svg>
-            </button>
-
-            <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">
+            {/* LinkedIn small square */}
+            <div className="w-6 h-6 bg-blue-600 text-white flex items-center justify-center rounded-sm text-xs font-bold">
               in
             </div>
           </div>
 
-          {/* INTERESTS */}
-          <div className="bg-white rounded-xl shadow-md p-6 relative border">
-            <h2 className="font-bold text-lg mb-3">Interests</h2>
+          <p className="text-gray-600 text-sm mt-1">Mr · Kenya Busia</p>
 
-            <button className="absolute top-6 right-6 text-gray-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
-              </svg>
-            </button>
-
-            <span className="inline-block bg-gray-200 px-4 py-1 rounded-full text-sm font-semibold text-gray-700 border">
-              Software developer
-            </span>
-          </div>
-
-          {/* CURRENT LOCATION */}
-          <div className="bg-white rounded-xl shadow-md p-6 relative border">
-            <h2 className="font-bold text-lg mb-3">Current Location</h2>
-
-            <button className="absolute top-6 right-6 text-gray-500">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
-                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zm2.92 2.83H5v-.92l9.06-9.06.92.92L5.92 20.08zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
-              </svg>
-            </button>
-
-            <p className="text-gray-700 text-sm">
-              <span className="font-semibold">Country of Origin</span> · Kenya
-            </p>
-
-            <p className="text-gray-700 text-sm mt-2">
-              <span className="font-semibold">Residence</span> · Malaba, Kenya
-            </p>
+          <div className="mt-2 inline-flex items-center px-4 py-1 rounded-full border border-green-400 bg-green-50 text-green-700 text-sm font-semibold">
+            Open to Opportunities
           </div>
         </div>
-      </section>
+      </div>
+
+      {/* NAV TABS */}
+      <div className="mt-6 flex gap-8 text-sm font-semibold text-gray-600">
+        <NavLink
+          to="/personal-information"
+          className={({ isActive }) =>
+            isActive ? "text-blue-600" : "hover:text-blue-600"
+          }
+        >
+          Personal Information
+        </NavLink>
+
+        <NavLink
+          to="/education-info"
+          className={({ isActive }) =>
+            isActive ? "text-blue-600" : "hover:text-blue-600"
+          }
+        >
+          Education Info
+        </NavLink>
+
+        <NavLink
+          to="/work-info"
+          className={({ isActive }) =>
+            isActive ? "text-blue-600" : "hover:text-blue-600"
+          }
+        >
+          Work Info
+        </NavLink>
+
+        <span className="hover:text-blue-600 cursor-pointer">
+          Demographic Info
+        </span>
+      </div>
+
+      {/* GRID CONTENT */}
+      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pb-12">
+        {/* ABOUT ME */}
+        <div className="lg:col-span-3 bg-white rounded-xl shadow border p-6 relative">
+          <h3 className="font-bold text-lg text-gray-900 mb-4">About me</h3>
+
+          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
+            </svg>
+          </button>
+
+          <p className="text-gray-700 text-sm leading-relaxed">
+            I am a dedicated Virtual Assistant specializing in administrative
+            support for entrepreneurs and small business owners. With a strong
+            focus on efficiency and organization, I help busy professionals
+            streamline their daily tasks so they can focus on growing their
+            business.
+            <br />
+            <br />
+            What sets me apart I understand the importance of time and
+            productivity in business. By handling routine administrative tasks,
+            I provide my clients with more time to focus on strategic
+            decision-making and scaling their business.
+          </p>
+        </div>
+
+        {/* Languages */}
+        <div className="bg-white rounded-xl shadow border p-6 relative">
+          <h3 className="font-bold text-lg mb-3">Languages</h3>
+
+          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
+            </svg>
+          </button>
+
+          <p className="text-sm text-gray-700">
+            <span className="font-semibold">English</span> · Advanced
+          </p>
+          <p className="text-sm text-gray-700 mt-2">
+            <span className="font-semibold">Swahili</span> · Native
+          </p>
+        </div>
+
+        {/* Phone */}
+        <div className="bg-white rounded-xl shadow border p-6 relative">
+          <h3 className="font-bold text-lg mb-3">Phone Number</h3>
+
+          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
+            </svg>
+          </button>
+
+          <p className="text-sm text-gray-700">
+            <span className="font-semibold">Primary</span> · +254739762594
+          </p>
+
+          <p className="text-sm text-gray-700 mt-2">
+            <span className="font-semibold">WhatsApp</span> · +254740748621
+          </p>
+        </div>
+
+        {/* Social Profiles */}
+        <div className="bg-white rounded-xl shadow border p-6 relative">
+          <h3 className="font-bold text-lg mb-3">Social Profiles</h3>
+
+          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
+            </svg>
+          </button>
+
+          {/* LinkedIn Icon */}
+          <div className="w-10 h-10 bg-blue-600 rounded-md flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 text-white"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M20.447 20.452H17.21v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.0V9h3.112v1.561h.045c.434-.82 1.494-1.683 3.073-1.683 3.287 0 3.894 2.164 3.894 4.977v6.597zM5.337 7.433a1.804 1.804 0 1 1 0-3.608 1.804 1.804 0 0 1 0 3.608zM6.956 20.452H3.718V9h3.238v11.452z" />
+            </svg>
+          </div>
+        </div>
+
+        {/* Interests */}
+        <div className="bg-white rounded-xl shadow border p-6 relative">
+          <h3 className="font-bold text-lg mb-3">Interests</h3>
+
+          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
+            </svg>
+          </button>
+
+          <span className="inline-flex items-center px-4 py-1 rounded-full bg-gray-200 text-gray-800 text-sm">
+            Software developer
+          </span>
+        </div>
+
+        {/* Current Location */}
+        <div className="bg-white rounded-xl shadow border p-6 relative">
+          <h3 className="font-bold text-lg mb-3">Current Location</h3>
+
+          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-600">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
+            </svg>
+          </button>
+
+          <p className="text-sm text-gray-700">
+            <span className="font-semibold">Country of Origin</span> · Kenya
+          </p>
+
+          <p className="text-sm text-gray-700 mt-2">
+            <span className="font-semibold">Residence</span> · Malaba, Kenya
+          </p>
+        </div>
+
+        {/* Personal Info Progress */}
+        <div className="bg-white rounded-xl shadow border p-6">
+          <h3 className="font-bold text-lg mb-6">Personal Info</h3>
+
+          <div className="flex items-center justify-center">
+            <div className="relative w-32 h-32">
+              <div className="absolute inset-0 rounded-full border-[12px] border-purple-500"></div>
+              <div className="absolute inset-0 flex items-center justify-center font-bold text-xl">
+                100%
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 space-y-3 text-sm">
+            <div className="flex items-center gap-2 text-green-600 font-semibold">
+              <span>✔</span> About Me
+            </div>
+            <div className="flex items-center gap-2 text-green-600 font-semibold">
+              <span>✔</span> Languages
+            </div>
+            <div className="flex items-center gap-2 text-green-600 font-semibold">
+              <span>✔</span> Social Profiles
+            </div>
+            <div className="flex items-center gap-2 text-green-600 font-semibold">
+              <span>✔</span> Interests
+            </div>
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 }
