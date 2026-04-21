@@ -1,34 +1,83 @@
 export default function Header() {
   return (
-    <header className="bg-white border-b px-6 py-3 flex justify-between items-center">
-      <div className="flex gap-2">
-        <span className="font-bold">alx</span>
-        <span className="text-gray-500">eHub</span>
-      </div>
+          {/* Header */}
+      <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
+        <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
+        <div className="flex items-center space-x-6">
+          {/* Points */}
+          <span className="text-gray-700 font-semibold">4210 points</span>
 
-      <div className="flex items-center gap-5">
-        <div className="bg-yellow-100 px-3 py-1 rounded-full text-sm">
-          4210 points
+          {/* Notification bell */}
+<div className="relative">
+  <button
+    onClick={() => setShowNotifications(!showNotifications)}
+    className="text-gray-600 hover:text-gray-800 relative"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1" />
+    </svg>
+
+    <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
+  </button>
+
+  {showNotifications && <NotificationMenu />}
+</div>
+
+          {/* 9-dots menu */}
+<div className="relative">
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-gray-600 hover:text-gray-800"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="5" cy="5" r="1.5" />
+      <circle cx="12" cy="5" r="1.5" />
+      <circle cx="19" cy="5" r="1.5" />
+      <circle cx="5" cy="12" r="1.5" />
+      <circle cx="12" cy="12" r="1.5" />
+      <circle cx="19" cy="12" r="1.5" />
+      <circle cx="5" cy="19" r="1.5" />
+      <circle cx="12" cy="19" r="1.5" />
+      <circle cx="19" cy="19" r="1.5" />
+    </svg>
+  </button>
+
+  {/* Dropdown menu */}
+  <NineDotsMenu menuOpen={menuOpen} />
+</div>
+
+          {/* Profile icon */}
+<div className="relative">
+  <button
+    onClick={() => setProfileOpen(!profileOpen)}
+    className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 focus:outline-none"
+  >
+    {/* Round SVG profile icon */}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6 text-gray-700"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 20a8 8 0 0116 0" />
+    </svg>
+  </button>
+
+  {/* Profile dropdown menu connected */}
+  <ProfileMenu menuOpen={profileOpen} />
+</div>
         </div>
-
-        <svg className="w-6 h-6 text-gray-600" fill="none" stroke="currentColor">
-          <path d="M15 17h5l-1.5-2V11a6.5 6.5 0 10-13 0v4L4 17h5" />
-        </svg>
-
-        <svg className="w-6 h-6 text-gray-600" viewBox="0 0 24 24" fill="currentColor">
-          <circle cx="5" cy="5" r="1.5" />
-          <circle cx="12" cy="5" r="1.5" />
-          <circle cx="19" cy="5" r="1.5" />
-          <circle cx="5" cy="12" r="1.5" />
-          <circle cx="12" cy="12" r="1.5" />
-          <circle cx="19" cy="12" r="1.5" />
-          <circle cx="5" cy="19" r="1.5" />
-          <circle cx="12" cy="19" r="1.5" />
-          <circle cx="19" cy="19" r="1.5" />
-        </svg>
-
-        <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
-      </div>
-    </header>
+      </header>
   );
 }
