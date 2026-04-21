@@ -22,4 +22,5 @@ export default [
   route("account-password", "routes/account-password.tsx"),
   route("account-paymentFAQs", "routes/account-paymentFAQs.tsx"),
   route("account-hubattendance", "routes/account-hubattendance.tsx"),
+  route("settings-personal-information", "routes/settings-personal-information.tsx"),
 ] satisfies RouteConfig;
