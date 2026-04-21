@@ -1,5 +1,16 @@
+import { useState } from "react";
+import NotificationMenu from "./NotificationMenu";
+import NineDotsMenu from "./NineDotsMenu";
+import ProfileMenu from "./ProfileMenu";
+
+export default function Header() {
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+
 export default function Header() {
   return (
+         <>
           {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
         <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
@@ -79,5 +90,6 @@ export default function Header() {
 </div>
         </div>
       </header>
+    </>
   );
 }
