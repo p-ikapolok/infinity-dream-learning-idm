@@ -7,11 +7,11 @@ export default function AccountFAQ() {
   const location = useLocation();
 
     const tabs = [
-    { path: "/routes/account-payments", label: "Payments" },
-    { path: "/routes/account-paymentFAQs", label: "Payments FAQ" },
-    { path: "/routes/account-hubattendance", label: "Hub Attendance" },
-    { path: "/routes/account-password", label: "Password" },
-  ];
+  { path: "/account-payments", label: "Payments" },
+  { path: "/account-paymentFAQs", label: "Payments FAQ" },
+  { path: "/account-hubattendance", label: "Hub Attendance" },
+  { path: "/account-password", label: "Password" },
+];
 
   const faqs = [
     "My payment link is not accessible on e-Hub / I don’t see a payment plan",
