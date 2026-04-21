@@ -1,5 +1,6 @@
 export default function Footer() {
   return (
+         <>
           {/* Footer */}
       <footer className="bg-blue-900 text-white px-6 py-10 mt-10">
         <div className="text-center mb-6">
@@ -26,5 +27,6 @@ export default function Footer() {
 
         <p className="text-center text-sm">© 2026 Infinity. All rights reserved.</p>
       </footer>
+     <>
   );
 }
