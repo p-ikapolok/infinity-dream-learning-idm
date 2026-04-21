@@ -23,4 +23,6 @@ export default [
   route("account-paymentFAQs", "routes/account-paymentFAQs.tsx"),
   route("account-hubattendance", "routes/account-hubattendance.tsx"),
   route("settings-personal-information", "routes/settings-personal-information.tsx"),
+  route("settings-education-info", "routes/settings-education-info.tsx"),
+  route("settings-work-info", "routes/settings-work-info.tsx"),
 ] satisfies RouteConfig;
