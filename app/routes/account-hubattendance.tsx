@@ -5,10 +5,10 @@ export default function AccountAttendance() {
   const location = useLocation();
 
   const tabs = [
-    { path: "/account/payments", label: "Payments" },
-    { path: "/account/faq", label: "Payments FAQ" },
-    { path: "/account/attendance", label: "Hub Attendance" },
-    { path: "/account/password", label: "Password" },
+    { path: "/routes/account-payments", label: "Payments" },
+    { path: "/routes/account-paymentFAQs", label: "Payments FAQ" },
+    { path: "/routes/account-hubattendance", label: "Hub Attendance" },
+    { path: "/routes/account-password", label: "Password" },
   ];
 
   return (
