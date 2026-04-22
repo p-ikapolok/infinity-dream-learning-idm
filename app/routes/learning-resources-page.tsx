@@ -61,13 +61,14 @@ function ProfileMenu({ menuOpen }) {
 /* ---------------- MAIN PAGE ---------------- */
 
 export default function EhubFullPage() {
+    const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [profileOpen, setProfileOpen] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
-
+  const [profileOpen, setProfileOpen] = useState(false);
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
-            {/* Header */}
+
+      {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
         <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
         <div className="flex items-center space-x-6">
