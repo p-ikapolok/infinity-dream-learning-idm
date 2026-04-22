@@ -1,52 +1,19 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import { Link } from "react-router";
+import { useNavigate } from "react-router";
+import NineDotsMenu from "../components/NineDotsMenu";
+import NotificationMenu from "../components/NotificationMenu";
+import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 
-function NotificationMenu() {
-  return (
-    <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg border p-4 z-50">
-      <p className="text-gray-700 font-semibold">Notifications</p>
-      <p className="text-sm text-gray-500 mt-2">No new notifications.</p>
-    </div>
-  );
-}
-
-function NineDotsMenu({ menuOpen }) {
-  if (!menuOpen) return null;
-
-  return (
-    <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border p-3 z-50">
-      <ul className="space-y-2 text-gray-700 text-sm">
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Dashboard</li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Learning</li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Community</li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Support</li>
-      </ul>
-    </div>
-  );
-}
-
-function ProfileMenu({ menuOpen }) {
-  if (!menuOpen) return null;
-
-  return (
-    <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border p-3 z-50">
-      <ul className="space-y-2 text-gray-700 text-sm">
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">My Profile</li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Settings</li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">Logout</li>
-      </ul>
-    </div>
-  );
-}
-
-export default function SupportCentrePage() {
+export default function EhubFullPage() {
+    const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
-  const [profileOpen, setProfileOpen] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
-  const [message, setMessage] = useState("");
-
+  const [profileOpen, setProfileOpen] = useState(false);
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
-            {/* Header */}
+    <div className="bg-gray-50 min-h-screen flex flex-col">
+
+      {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
         <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
         <div className="flex items-center space-x-6">
