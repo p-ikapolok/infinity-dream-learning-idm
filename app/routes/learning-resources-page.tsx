@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-
+import { useNavigate } from "react-router";
+import NineDotsMenu from "../components/NineDotsMenu";
+import NotificationMenu from "../components/NotificationMenu";
+import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 
 export default function EhubFullPage() {
     const navigate = useNavigate();
