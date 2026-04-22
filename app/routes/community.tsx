@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu";
@@ -11,83 +13,81 @@ export default function EhubWithCommunity() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-50">
-            {/* Header */}
+      {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
         <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
+
         <div className="flex items-center space-x-6">
           {/* Points */}
           <span className="text-gray-700 font-semibold">4210 points</span>
 
           {/* Notification bell */}
-<div className="relative">
-  <button
-    onClick={() => setShowNotifications(!showNotifications)}
-    className="text-gray-600 hover:text-gray-800 relative"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1" />
-    </svg>
+          <div className="relative">
+            <button
+              onClick={() => setShowNotifications(!showNotifications)}
+              className="text-gray-600 hover:text-gray-800 relative"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1" />
+              </svg>
 
-    <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
-  </button>
+              <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
 
-  {showNotifications && <NotificationMenu />}
-</div>
+            {showNotifications && <NotificationMenu />}
+          </div>
 
           {/* 9-dots menu */}
-<div className="relative">
-  <button
-    onClick={() => setMenuOpen(!menuOpen)}
-    className="text-gray-600 hover:text-gray-800"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <circle cx="5" cy="5" r="1.5" />
-      <circle cx="12" cy="5" r="1.5" />
-      <circle cx="19" cy="5" r="1.5" />
-      <circle cx="5" cy="12" r="1.5" />
-      <circle cx="12" cy="12" r="1.5" />
-      <circle cx="19" cy="12" r="1.5" />
-      <circle cx="5" cy="19" r="1.5" />
-      <circle cx="12" cy="19" r="1.5" />
-      <circle cx="19" cy="19" r="1.5" />
-    </svg>
-  </button>
+          <div className="relative">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-gray-600 hover:text-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="5" cy="5" r="1.5" />
+                <circle cx="12" cy="5" r="1.5" />
+                <circle cx="19" cy="5" r="1.5" />
+                <circle cx="5" cy="12" r="1.5" />
+                <circle cx="12" cy="12" r="1.5" />
+                <circle cx="19" cy="12" r="1.5" />
+                <circle cx="5" cy="19" r="1.5" />
+                <circle cx="12" cy="19" r="1.5" />
+                <circle cx="19" cy="19" r="1.5" />
+              </svg>
+            </button>
 
-  {/* Dropdown menu */}
-  <NineDotsMenu menuOpen={menuOpen} />
-</div>
+            <NineDotsMenu menuOpen={menuOpen} />
+          </div>
 
           {/* Profile icon */}
-<div className="relative">
-  <button
-    onClick={() => setProfileOpen(!profileOpen)}
-    className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 focus:outline-none"
-  >
-    {/* Round SVG profile icon */}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6 text-gray-700"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 20a8 8 0 0116 0" />
-    </svg>
-  </button>
+          <div className="relative">
+            <button
+              onClick={() => setProfileOpen(!profileOpen)}
+              className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 focus:outline-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-gray-700"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20a8 8 0 0116 0" />
+              </svg>
+            </button>
 
-  {/* Profile dropdown menu connected */}
-  <ProfileMenu menuOpen={profileOpen} />
-</div>
+            <ProfileMenu menuOpen={profileOpen} />
+          </div>
         </div>
       </header>
 
@@ -100,7 +100,9 @@ export default function EhubWithCommunity() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4">
           <h2 className="text-2xl font-bold">Welcome to the Hub</h2>
-          <p className="mt-2 text-lg">Your Infinity Dream Learning Journey Starts Here</p>
+          <p className="mt-2 text-lg">
+            Your Infinity Dream Learning Journey Starts Here
+          </p>
           <p className="mt-1">Track your progress, achieve your goals.</p>
         </div>
       </section>
@@ -122,60 +124,183 @@ export default function EhubWithCommunity() {
           <aside className="w-64 bg-white shadow-lg flex flex-col justify-between">
             <div className="p-6 space-y-6 overflow-y-auto">
               <nav className="space-y-2">
-                <a href="#" className="block text-gray-700 hover:text-blue-600">Search</a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">Notifications</a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">Direct messages</a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">Bookmarks</a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">Feed</a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">Events</a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">Leaderboard</a>
+                <a
+                  href="#"
+                  className="block text-gray-700 hover:text-blue-600"
+                >
+                  Search
+                </a>
+                <a
+                  href="#"
+                  className="block text-gray-700 hover:text-blue-600"
+                >
+                  Notifications
+                </a>
+                <a
+                  href="#"
+                  className="block text-gray-700 hover:text-blue-600"
+                >
+                  Direct messages
+                </a>
+                <a
+                  href="#"
+                  className="block text-gray-700 hover:text-blue-600"
+                >
+                  Bookmarks
+                </a>
+                <a
+                  href="#"
+                  className="block text-gray-700 hover:text-blue-600"
+                >
+                  Feed
+                </a>
+                <a
+                  href="#"
+                  className="block text-gray-700 hover:text-blue-600"
+                >
+                  Events
+                </a>
+                <a
+                  href="#"
+                  className="block text-gray-700 hover:text-blue-600"
+                >
+                  Leaderboard
+                </a>
               </nav>
-              {/* Infinity, Welcome, Community, Resources */}
+
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Infinity</h4>
                 <nav className="space-y-2 mt-2">
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Our Community</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Infinity Community</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Infinity Events</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Infinity Announcements</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Infinity Alumni Community</a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Our Community
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Infinity Community
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Infinity Events
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Infinity Announcements
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Infinity Alumni Community
+                  </a>
                 </nav>
               </div>
+
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Welcome</h4>
                 <nav className="space-y-2 mt-2">
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Start Here!</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Welcome Checklist</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Introduce Yourself</a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Start Here!
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Welcome Checklist
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Introduce Yourself
+                  </a>
                 </nav>
               </div>
+
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Community</h4>
                 <nav className="space-y-2 mt-2">
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Announcements</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Member Spotlight</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Share Your Wins</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Interest Groups</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Community Events</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Community Corner</a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Announcements
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Member Spotlight
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Share Your Wins
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Interest Groups
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Community Events
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Community Corner
+                  </a>
                 </nav>
               </div>
+
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Resources</h4>
                 <nav className="space-y-2 mt-2">
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Download Android App</a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">Download iOS App</a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Download Android App
+                  </a>
+                  <a
+                    href="#"
+                    className="block text-gray-700 hover:text-blue-600"
+                  >
+                    Download iOS App
+                  </a>
                 </nav>
               </div>
             </div>
 
             <div className="p-6 border-t">
               <div className="flex items-center space-x-3">
-                <img src="/images/profile.png" alt="Peter Ikapolok" className="w-10 h-10 rounded-full object-cover" />
+                <img
+                  src="/images/profile.png"
+                  alt="Peter Ikapolok"
+                  className="w-10 h-10 rounded-full object-cover"
+                />
                 <div>
                   <p className="text-gray-800 font-semibold">Peter Ikapolok</p>
                   <p className="text-sm text-gray-600">
-                    Virtual Assistant | Specializing in Administrative Support | Helping Entrepreneurs Increase Productivity
+                    Virtual Assistant | Specializing in Administrative Support |
+                    Helping Entrepreneurs Increase Productivity
                   </p>
                 </div>
               </div>
@@ -183,7 +308,7 @@ export default function EhubWithCommunity() {
           </aside>
         )}
 
-        {/* Main Content + Community Header */}
+        {/* Main Content */}
         <div className="flex-1 flex flex-col">
           {/* Community Header */}
           <div className="flex items-center justify-between p-6 bg-white shadow mb-6">
@@ -206,8 +331,10 @@ export default function EhubWithCommunity() {
                   <line x1="3" y1="18" x2="15" y2="18" />
                 </svg>
               </button>
+
               <img src="/images/alx-logo.png" alt="ALX Logo" className="h-8" />
             </div>
+
             <button className="text-gray-600 hover:text-gray-800">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -224,37 +351,66 @@ export default function EhubWithCommunity() {
 
           <main className="px-6 flex-1 overflow-y-auto">
             <h1 className="text-center text-xl font-bold text-gray-800 mb-6">
-              We Are Infinity Dream 
+              We Are Infinity Dream
             </h1>
 
             {/* Video */}
             <div className="mb-6">
               <div className="bg-gray-200 h-48 flex items-center justify-center rounded-lg">
-                <span className="text-gray-600">Welcome to Infinity Dream! (Video)</span>
+                <span className="text-gray-600">
+                  Welcome to Infinity Dream! (Video)
+                </span>
               </div>
             </div>
 
             {/* Mission Text */}
             <article className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-                Africa is a continent brimming with talent, ambition, and a desire to innovate. At Infinity Dream, we believe you hold the key to unlocking its extraordinary potential for progress.
+                Africa is a continent brimming with talent, ambition, and a
+                desire to innovate. At Infinity Dream, we believe you hold the
+                key to unlocking its extraordinary potential for progress.
               </p>
               <p>
-                <strong>Our Mission:</strong> To Create 2 Million Opportunities and Positively Change Lives. We equip young Africans with the skills, connections, and opportunities they need to build fulfilling careers.
+                <strong>Our Mission:</strong> To Create 2 Million Opportunities
+                and Positively Change Lives. We equip young Africans with the
+                skills, connections, and opportunities they need to build
+                fulfilling careers.
               </p>
               <p>
-                <strong>Join a Movement – Led by You.</strong> When you join Infinity Dream, you become part of a vibrant, pan-African community that believes in collaboration and mutual support.
+                <strong>Join a Movement – Led by You.</strong> When you join
+                Infinity Dream, you become part of a vibrant, pan-African
+                community that believes in collaboration and mutual support.
               </p>
               <p>
-                <strong>Your All-Access Fee:</strong> Fueling Your Community Experience. Keep your membership current to unlock exclusive resources, events, and support.
+                <strong>Your All-Access Fee:</strong> Fueling Your Community
+                Experience. Keep your membership current to unlock exclusive
+                resources, events, and support.
               </p>
             </article>
 
             {/* Buttons */}
             <div className="mt-8 flex space-x-4">
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">Programs</button>
-              <button className="px-6 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700">Instagram</button>
-              <button className="px-6 py-2 bg-blue-800 text-white rounded-full hover:bg-blue-900">LinkedIn</button>
+              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">
+                Programs
+              </button>
+
+              <button className="px-6 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700">
+                Instagram
+              </button>
+
+              <button className="px-6 py-2 bg-blue-800 text-white rounded-full hover:bg-blue-900">
+                LinkedIn
+              </button>
+            </div>
+
+            {/* Example Link usage */}
+            <div className="mt-10 text-center">
+              <Link
+                to="/"
+                className="text-blue-600 font-semibold hover:underline"
+              >
+                Go back Home
+              </Link>
             </div>
           </main>
         </div>
@@ -268,13 +424,27 @@ export default function EhubWithCommunity() {
         </div>
 
         <div className="flex flex-wrap justify-center space-x-4 text-sm mb-6">
-          <a href="#" className="hover:underline">Home</a>
-          <a href="#" className="hover:underline">Learning</a>
-          <a href="#" className="hover:underline">Community</a>
-          <a href="#" className="hover:underline">Rewards</a>
-          <a href="#" className="hover:underline">Support</a>
-          <a href="#" className="hover:underline">Privacy policy</a>
-          <a href="#" className="hover:underline">Terms & Conditions</a>
+          <a href="#" className="hover:underline">
+            Home
+          </a>
+          <a href="#" className="hover:underline">
+            Learning
+          </a>
+          <a href="#" className="hover:underline">
+            Community
+          </a>
+          <a href="#" className="hover:underline">
+            Rewards
+          </a>
+          <a href="#" className="hover:underline">
+            Support
+          </a>
+          <a href="#" className="hover:underline">
+            Privacy policy
+          </a>
+          <a href="#" className="hover:underline">
+            Terms & Conditions
+          </a>
         </div>
 
         <div className="flex justify-center space-x-6 mb-6">
