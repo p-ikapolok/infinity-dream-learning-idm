@@ -1,86 +1,147 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router";
 
+/* ---------------- DROPDOWN COMPONENTS ---------------- */
+
+// Notification dropdown
+function NotificationMenu() {
+  return (
+    <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg border p-4 z-50">
+      <p className="text-gray-800 font-semibold">Notifications</p>
+      <p className="text-sm text-gray-500 mt-2">No new notifications.</p>
+    </div>
+  );
+}
+
+// Nine dots dropdown
+function NineDotsMenu({ menuOpen }) {
+  if (!menuOpen) return null;
+
+  return (
+    <div className="absolute right-0 mt-2 w-52 bg-white shadow-lg rounded-lg border p-3 z-50">
+      <ul className="space-y-2 text-gray-700 text-sm">
+        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
+          Dashboard
+        </li>
+        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
+          Learning
+        </li>
+        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
+          Community
+        </li>
+        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
+          Support
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+// Profile dropdown
+function ProfileMenu({ menuOpen }) {
+  if (!menuOpen) return null;
+
+  return (
+    <div className="absolute right-0 mt-2 w-52 bg-white shadow-lg rounded-lg border p-3 z-50">
+      <ul className="space-y-2 text-gray-700 text-sm">
+        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
+          My Profile
+        </li>
+        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
+          Settings
+        </li>
+        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
+          Logout
+        </li>
+      </ul>
+    </div>
+  );
+}
+
+/* ---------------- MAIN PAGE ---------------- */
+
 export default function EhubFullPage() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
-            {/* Header */}
+      {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
         <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
+
         <div className="flex items-center space-x-6">
           {/* Points */}
           <span className="text-gray-700 font-semibold">4210 points</span>
 
           {/* Notification bell */}
-<div className="relative">
-  <button
-    onClick={() => setShowNotifications(!showNotifications)}
-    className="text-gray-600 hover:text-gray-800 relative"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1" />
-    </svg>
+          <div className="relative">
+            <button
+              onClick={() => setShowNotifications(!showNotifications)}
+              className="text-gray-600 hover:text-gray-800 relative"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1" />
+              </svg>
 
-    <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
-  </button>
+              <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
 
-  {showNotifications && <NotificationMenu />}
-</div>
+            {showNotifications && <NotificationMenu />}
+          </div>
 
           {/* 9-dots menu */}
-<div className="relative">
-  <button
-    onClick={() => setMenuOpen(!menuOpen)}
-    className="text-gray-600 hover:text-gray-800"
-  >
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <circle cx="5" cy="5" r="1.5" />
-      <circle cx="12" cy="5" r="1.5" />
-      <circle cx="19" cy="5" r="1.5" />
-      <circle cx="5" cy="12" r="1.5" />
-      <circle cx="12" cy="12" r="1.5" />
-      <circle cx="19" cy="12" r="1.5" />
-      <circle cx="5" cy="19" r="1.5" />
-      <circle cx="12" cy="19" r="1.5" />
-      <circle cx="19" cy="19" r="1.5" />
-    </svg>
-  </button>
+          <div className="relative">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-gray-600 hover:text-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="5" cy="5" r="1.5" />
+                <circle cx="12" cy="5" r="1.5" />
+                <circle cx="19" cy="5" r="1.5" />
+                <circle cx="5" cy="12" r="1.5" />
+                <circle cx="12" cy="12" r="1.5" />
+                <circle cx="19" cy="12" r="1.5" />
+                <circle cx="5" cy="19" r="1.5" />
+                <circle cx="12" cy="19" r="1.5" />
+                <circle cx="19" cy="19" r="1.5" />
+              </svg>
+            </button>
 
-  {/* Dropdown menu */}
-  <NineDotsMenu menuOpen={menuOpen} />
-</div>
+            <NineDotsMenu menuOpen={menuOpen} />
+          </div>
 
           {/* Profile icon */}
-<div className="relative">
-  <button
-    onClick={() => setProfileOpen(!profileOpen)}
-    className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 focus:outline-none"
-  >
-    {/* Round SVG profile icon */}
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6 text-gray-700"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 20a8 8 0 0116 0" />
-    </svg>
-  </button>
+          <div className="relative">
+            <button
+              onClick={() => setProfileOpen(!profileOpen)}
+              className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 focus:outline-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-gray-700"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20a8 8 0 0116 0" />
+              </svg>
+            </button>
 
-  {/* Profile dropdown menu connected */}
-  <ProfileMenu menuOpen={profileOpen} />
-</div>
+            <ProfileMenu menuOpen={profileOpen} />
+          </div>
         </div>
       </header>
 
@@ -93,7 +154,9 @@ export default function EhubFullPage() {
         />
         <div className="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white px-4">
           <h2 className="text-2xl font-bold">Welcome to the Hub</h2>
-          <p className="mt-2 text-lg">Your Infinity Learning Journey Starts Here</p>
+          <p className="mt-2 text-lg">
+            Your Infinity Learning Journey Starts Here
+          </p>
           <p className="mt-1">Track your progress, achieve your goals.</p>
         </div>
       </section>
@@ -113,6 +176,7 @@ export default function EhubFullPage() {
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-bold text-gray-800">Current Programs</h3>
         </div>
+
         <div className="bg-white shadow rounded-lg p-6 text-center">
           <h4 className="text-gray-800 font-semibold">No Programs Yet</h4>
           <p className="text-gray-600 mt-2">
@@ -126,58 +190,71 @@ export default function EhubFullPage() {
 
       {/* Past Programs */}
       <section className="px-6 py-10">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Past Programs</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          Past Programs
+        </h2>
+
         <div className="space-y-6">
           {[
             {
               title: "Professional Foundations",
               status: "✅ Completed",
-              statusColor: "green-600",
+              statusColor: "green",
               desc: "Learn key leadership and professional skills that will help you navigate and succeed in the workplace.",
             },
             {
               title: "AI Career Essentials",
               status: "✅ Completed",
-              statusColor: "green-600",
+              statusColor: "green",
               desc: "Develop key professional and technical skills using AI technology that will help you succeed in today’s digital workplace.",
             },
             {
               title: "Freelancer Academy – 4 weeks online",
               status: "🔴 Withdrawn",
-              statusColor: "red-600",
+              statusColor: "red",
               desc: "This program was created for talented, skilled individuals who want to learn how to monetize their skills. This is an online program so you can be located anywhere in the world.",
             },
             {
               title: "Front-End Web Development",
               status: "✅ Completed",
-              statusColor: "green-600",
+              statusColor: "green",
               desc: "Learn to code and level up your web development skills. You’ll learn HTML, CSS, and Javascript through hands-on projects.",
             },
             {
               title: "Back-End Web Development",
               status: "🔴 Withdrawn",
-              statusColor: "red-600",
+              statusColor: "red",
               desc: "Become a back-end pro and build powerful apps from the ground up. You’ll learn Python and SQL for data management.",
             },
             {
               title: "Back-End Development",
               status: "❌ Failed",
-              statusColor: "red-600",
+              statusColor: "red",
               desc: "Learn Python and frameworks like Django to develop robust back-end systems and dynamic web applications.",
             },
             {
               title: "Virtual Assistant",
               status: "✅ Completed",
-              statusColor: "green-600",
+              statusColor: "green",
               desc: "Gain practical experience to develop the right skill sets, tools, and mindsets to thrive as a VA in a rapidly evolving global workplace.",
             },
           ].map((prog, idx) => (
             <div key={idx} className="bg-white shadow rounded-lg p-6">
-              <h3 className={`text-lg font-semibold text-gray-800 flex items-center`}>
-                {prog.title}{" "}
-                <span className={`ml-2 text-${prog.statusColor}`}>{prog.status}</span>
+              <h3 className="text-lg font-semibold text-gray-800 flex items-center">
+                {prog.title}
+                <span
+                  className={`ml-2 ${
+                    prog.statusColor === "green"
+                      ? "text-green-600"
+                      : "text-red-600"
+                  }`}
+                >
+                  {prog.status}
+                </span>
               </h3>
+
               <p className="text-gray-600 mt-2">{prog.desc}</p>
+
               <button className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">
                 Continue
               </button>
@@ -216,16 +293,39 @@ export default function EhubFullPage() {
               duration: "10 Weeks",
             },
           ].map((prog, idx) => (
-            <div key={idx} className="bg-white shadow rounded-lg overflow-hidden flex flex-col">
-              <img src={prog.img} alt={prog.title} className="h-40 w-full object-cover" />
+            <div
+              key={idx}
+              className="bg-white shadow rounded-lg overflow-hidden flex flex-col"
+            >
+              <img
+                src={prog.img}
+                alt={prog.title}
+                className="h-40 w-full object-cover"
+              />
+
               <div className="p-6 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold text-gray-800">{prog.title}</h3>
+                <h3 className="text-lg font-semibold text-gray-800">
+                  {prog.title}
+                </h3>
+
                 <p className="text-gray-600 mt-2 flex-grow">{prog.desc}</p>
-                <p className="mt-3 text-sm text-gray-500">Start Date: {prog.start}</p>
-                <p className="text-sm text-gray-500">Duration: {prog.duration}</p>
+
+                <p className="mt-3 text-sm text-gray-500">
+                  Start Date: {prog.start}
+                </p>
+
+                <p className="text-sm text-gray-500">
+                  Duration: {prog.duration}
+                </p>
+
                 <div className="mt-4 flex space-x-3">
-                  <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50">View Details</button>
-                  <button className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">Enroll Now</button>
+                  <button className="px-4 py-2 border border-blue-600 text-blue-600 rounded-full hover:bg-blue-50">
+                    View Details
+                  </button>
+
+                  <button className="px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">
+                    Enroll Now
+                  </button>
                 </div>
               </div>
             </div>
@@ -241,21 +341,33 @@ export default function EhubFullPage() {
 
       {/* Explore eHub / Assistance */}
       <section className="px-6 py-10">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">Need Assistance with Your Course?</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          Need Assistance with Your Course?
+        </h2>
+
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-blue-600 text-white rounded-lg p-6 flex flex-col">
             <h3 className="text-lg font-semibold">Support</h3>
             <p className="mt-2 flex-grow">
-              Get instant help on administrative issues from Finley, our AI assistant, or contact our support team.
+              Get instant help on administrative issues from Finley, our AI
+              assistant, or contact our support team.
             </p>
-            <button className="mt-4 px-6 py-2 bg-white text-blue-600 rounded-full hover:bg-gray-100">Continue</button>
+
+            <button className="mt-4 px-6 py-2 bg-white text-blue-600 rounded-full hover:bg-gray-100">
+              Continue
+            </button>
           </div>
+
           <div className="bg-blue-600 text-white rounded-lg p-6 flex flex-col">
             <h3 className="text-lg font-semibold">Withdraw</h3>
             <p className="mt-2 flex-grow">
-              Withdrawing from your program will end it permanently. You will need to reapply.
+              Withdrawing from your program will end it permanently. You will
+              need to reapply.
             </p>
-            <button className="mt-4 px-6 py-2 bg-white text-blue-600 rounded-full hover:bg-gray-100">Continue</button>
+
+            <button className="mt-4 px-6 py-2 bg-white text-blue-600 rounded-full hover:bg-gray-100">
+              Continue
+            </button>
           </div>
         </div>
       </section>
@@ -269,23 +381,43 @@ export default function EhubFullPage() {
 
         {/* Navigation Links */}
         <div className="flex flex-wrap justify-center space-x-4 text-sm mb-6">
-          <a href="#" className="hover:underline">Home</a>
-          <a href="#" className="hover:underline">Learning</a>
-          <a href="#" className="hover:underline">Community</a>
-          <a href="#" className="hover:underline">Rewards</a>
-          <a href="#" className="hover:underline">Support</a>
-          <a href="#" className="hover:underline">Privacy policy</a>
-          <a href="#" className="hover:underline">Terms & Conditions</a>
+          <a href="#" className="hover:underline">
+            Home
+          </a>
+          <a href="#" className="hover:underline">
+            Learning
+          </a>
+          <a href="#" className="hover:underline">
+            Community
+          </a>
+          <a href="#" className="hover:underline">
+            Rewards
+          </a>
+          <a href="#" className="hover:underline">
+            Support
+          </a>
+          <a href="#" className="hover:underline">
+            Privacy policy
+          </a>
+          <a href="#" className="hover:underline">
+            Terms & Conditions
+          </a>
         </div>
 
         {/* Social Icons */}
         <div className="flex justify-center space-x-6 mb-6">
           <img src="/icons/linkedin.png" alt="LinkedIn" className="w-6 h-6" />
           <img src="/icons/facebook.png" alt="Facebook" className="w-6 h-6" />
-          <img src="/icons/instagram.png" alt="Instagram" className="w-6 h-6" />
+          <img
+            src="/icons/instagram.png"
+            alt="Instagram"
+            className="w-6 h-6"
+          />
         </div>
 
-        <p className="text-center text-sm">© 2026 Infinity. All rights reserved.</p>
+        <p className="text-center text-sm">
+          © 2026 Infinity. All rights reserved.
+        </p>
       </footer>
     </div>
   );
