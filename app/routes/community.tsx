@@ -6,10 +6,11 @@ import NotificationMenu from "../components/NotificationMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 
 export default function CommunityFullPage() {
+    const [message, setMessage] = useState("");
     const navigate = useNavigate();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [profileOpen, setProfileOpen] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [showNotifications, setShowNotifications] = useState(false);
+    const [profileOpen, setProfileOpen] = useState(false);
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
 
