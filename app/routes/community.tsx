@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-
 import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu";
@@ -124,165 +122,100 @@ export default function EhubWithCommunity() {
           <aside className="w-64 bg-white shadow-lg flex flex-col justify-between">
             <div className="p-6 space-y-6 overflow-y-auto">
               <nav className="space-y-2">
-                <a
-                  href="#"
-                  className="block text-gray-700 hover:text-blue-600"
-                >
+                <a href="#" className="block text-gray-700 hover:text-blue-600">
                   Search
                 </a>
-                <a
-                  href="#"
-                  className="block text-gray-700 hover:text-blue-600"
-                >
+                <a href="#" className="block text-gray-700 hover:text-blue-600">
                   Notifications
                 </a>
-                <a
-                  href="#"
-                  className="block text-gray-700 hover:text-blue-600"
-                >
+                <a href="#" className="block text-gray-700 hover:text-blue-600">
                   Direct messages
                 </a>
-                <a
-                  href="#"
-                  className="block text-gray-700 hover:text-blue-600"
-                >
+                <a href="#" className="block text-gray-700 hover:text-blue-600">
                   Bookmarks
                 </a>
-                <a
-                  href="#"
-                  className="block text-gray-700 hover:text-blue-600"
-                >
+                <a href="#" className="block text-gray-700 hover:text-blue-600">
                   Feed
                 </a>
-                <a
-                  href="#"
-                  className="block text-gray-700 hover:text-blue-600"
-                >
+                <a href="#" className="block text-gray-700 hover:text-blue-600">
                   Events
                 </a>
-                <a
-                  href="#"
-                  className="block text-gray-700 hover:text-blue-600"
-                >
+                <a href="#" className="block text-gray-700 hover:text-blue-600">
                   Leaderboard
                 </a>
               </nav>
 
+              {/* Infinity */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Infinity</h4>
                 <nav className="space-y-2 mt-2">
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Our Community
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Infinity Community
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Infinity Events
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Infinity Announcements
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Infinity Alumni Community
                   </a>
                 </nav>
               </div>
 
+              {/* Welcome */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Welcome</h4>
                 <nav className="space-y-2 mt-2">
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Start Here!
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Welcome Checklist
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Introduce Yourself
                   </a>
                 </nav>
               </div>
 
+              {/* Community */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Community</h4>
                 <nav className="space-y-2 mt-2">
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Announcements
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Member Spotlight
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Share Your Wins
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Interest Groups
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Community Events
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Community Corner
                   </a>
                 </nav>
               </div>
 
+              {/* Resources */}
               <div>
                 <h4 className="text-sm font-semibold text-gray-800">Resources</h4>
                 <nav className="space-y-2 mt-2">
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Download Android App
                   </a>
-                  <a
-                    href="#"
-                    className="block text-gray-700 hover:text-blue-600"
-                  >
+                  <a href="#" className="block text-gray-700 hover:text-blue-600">
                     Download iOS App
                   </a>
                 </nav>
@@ -370,17 +303,20 @@ export default function EhubWithCommunity() {
                 desire to innovate. At Infinity Dream, we believe you hold the
                 key to unlocking its extraordinary potential for progress.
               </p>
+
               <p>
                 <strong>Our Mission:</strong> To Create 2 Million Opportunities
                 and Positively Change Lives. We equip young Africans with the
                 skills, connections, and opportunities they need to build
                 fulfilling careers.
               </p>
+
               <p>
                 <strong>Join a Movement – Led by You.</strong> When you join
                 Infinity Dream, you become part of a vibrant, pan-African
                 community that believes in collaboration and mutual support.
               </p>
+
               <p>
                 <strong>Your All-Access Fee:</strong> Fueling Your Community
                 Experience. Keep your membership current to unlock exclusive
@@ -401,16 +337,6 @@ export default function EhubWithCommunity() {
               <button className="px-6 py-2 bg-blue-800 text-white rounded-full hover:bg-blue-900">
                 LinkedIn
               </button>
-            </div>
-
-            {/* Example Link usage */}
-            <div className="mt-10 text-center">
-              <Link
-                to="/"
-                className="text-blue-600 font-semibold hover:underline"
-              >
-                Go back Home
-              </Link>
             </div>
           </main>
         </div>
