@@ -69,7 +69,7 @@ export default function EducationInfo() {
       {/* TABS */}
       <div className="mt-6 flex gap-8 text-sm font-semibold text-gray-600">
         <NavLink
-          to="/personal-information"
+          to="/settings-personal-information"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
@@ -78,7 +78,7 @@ export default function EducationInfo() {
         </NavLink>
 
         <NavLink
-          to="/education-info"
+          to="/settings-education-info"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
@@ -87,7 +87,7 @@ export default function EducationInfo() {
         </NavLink>
 
         <NavLink
-          to="/work-info"
+          to="/settings-work-info"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
