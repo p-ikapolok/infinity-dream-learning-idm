@@ -1,64 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
 
-/* ---------------- DROPDOWN COMPONENTS ---------------- */
-
-// Notification dropdown
-function NotificationMenu() {
-  return (
-    <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg border p-4 z-50">
-      <p className="text-gray-800 font-semibold">Notifications</p>
-      <p className="text-sm text-gray-500 mt-2">No new notifications.</p>
-    </div>
-  );
-}
-
-// Nine dots dropdown
-function NineDotsMenu({ menuOpen }) {
-  if (!menuOpen) return null;
-
-  return (
-    <div className="absolute right-0 mt-2 w-52 bg-white shadow-lg rounded-lg border p-3 z-50">
-      <ul className="space-y-2 text-gray-700 text-sm">
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
-          Dashboard
-        </li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
-          Learning
-        </li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
-          Community
-        </li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
-          Support
-        </li>
-      </ul>
-    </div>
-  );
-}
-
-// Profile dropdown
-function ProfileMenu({ menuOpen }) {
-  if (!menuOpen) return null;
-
-  return (
-    <div className="absolute right-0 mt-2 w-52 bg-white shadow-lg rounded-lg border p-3 z-50">
-      <ul className="space-y-2 text-gray-700 text-sm">
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
-          My Profile
-        </li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
-          Settings
-        </li>
-        <li className="hover:bg-gray-100 p-2 rounded cursor-pointer">
-          Logout
-        </li>
-      </ul>
-    </div>
-  );
-}
-
-/* ---------------- MAIN PAGE ---------------- */
 
 export default function EhubFullPage() {
     const navigate = useNavigate();
