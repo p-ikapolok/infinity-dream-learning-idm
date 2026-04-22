@@ -5,7 +5,7 @@ import NineDotsMenu from "../components/NineDotsMenu";
 import NotificationMenu from "../components/NotificationMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 
-export default function EhubFullPage() {
+export default function SupportFullPage() {
     const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
