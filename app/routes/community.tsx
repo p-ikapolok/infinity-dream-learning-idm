@@ -6,7 +6,7 @@ import NotificationMenu from "../components/NotificationMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 
 export default function CommunityFullPage() {
-    const [message, setMessage] = useState("");
+    const [sidebarOpen, setSidebarOpen] = useState(true);
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
     const [showNotifications, setShowNotifications] = useState(false);
