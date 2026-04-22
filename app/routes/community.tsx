@@ -1,17 +1,19 @@
-import { useState } from "react";
-import NotificationMenu from "../components/NotificationMenu";
+import React, { useState } from "react";
+import { Link } from "react-router";
+import { useNavigate } from "react-router";
 import NineDotsMenu from "../components/NineDotsMenu";
-import ProfileMenu from "../components/ProfileMenu";
+import NotificationMenu from "../components/NotificationMenu";
+import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 
-export default function EhubWithCommunity() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [showNotifications, setShowNotifications] = useState(false);
+export default function EhubFullPage() {
+    const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
-
   return (
-    <div className="flex flex-col min-h-screen bg-gray-50">
-            {/* Header */}
+    <div className="bg-gray-50 min-h-screen flex flex-col">
+
+      {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
         <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
         <div className="flex items-center space-x-6">
