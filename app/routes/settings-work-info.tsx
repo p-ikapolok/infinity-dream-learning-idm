@@ -7,7 +7,7 @@ export default function WorkInfo() {
       {/* TABS ONLY */}
       <div className="mt-8 flex gap-8 text-sm font-semibold text-gray-600">
         <NavLink
-          to="/personal-information"
+          to="/settings-personal-information"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
@@ -16,7 +16,7 @@ export default function WorkInfo() {
         </NavLink>
 
         <NavLink
-          to="/education-info"
+          to="/settings-education-info"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
@@ -25,7 +25,7 @@ export default function WorkInfo() {
         </NavLink>
 
         <NavLink
-          to="/work-info"
+          to="/settings-work-info"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
