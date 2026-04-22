@@ -7,7 +7,7 @@ export default function EducationInfo() {
       {/* BANNER */}
       <div className="mt-8 bg-white rounded-xl shadow border overflow-hidden relative">
         <div className="h-44 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 relative">
-          {/* globe circle */}
+          {/* globe */}
           <div className="absolute top-6 right-6 w-20 h-20 rounded-full border-4 border-white/40 flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -29,14 +29,13 @@ export default function EducationInfo() {
           <p className="text-sm opacity-90">Graphic designer</p>
         </div>
 
-        {/* buttons right */}
+        {/* buttons */}
         <div className="absolute bottom-6 right-8 flex items-center gap-3">
           <button className="px-4 py-2 rounded-lg bg-blue-100 text-blue-700 font-semibold text-sm border border-blue-200">
             Copy link
           </button>
 
           <button className="w-10 h-10 rounded-lg bg-blue-700 text-white flex items-center justify-center">
-            {/* edit */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -52,7 +51,6 @@ export default function EducationInfo() {
         <div className="pt-14 pb-6 px-8">
           <div className="flex items-center gap-2">
             <h3 className="text-xl font-bold text-gray-900">Peter ikapolok</h3>
-
             <div className="w-6 h-6 bg-blue-600 text-white flex items-center justify-center rounded-sm text-xs font-bold">
               in
             </div>
@@ -100,15 +98,14 @@ export default function EducationInfo() {
         </span>
       </div>
 
-      {/* EXACT GRID */}
-      <div className="mt-6 grid grid-cols-3 gap-6 pb-12">
-        {/* EDUCATION MAIN (span 2 cols) */}
-        <div className="col-span-2 bg-white rounded-xl shadow border p-6 relative h-[260px] flex flex-col items-center justify-center text-center">
+      {/* LOCKED GRID */}
+      <div className="mt-6 grid grid-cols-3 grid-rows-[320px_180px] gap-6 pb-12">
+        {/* Education Main */}
+        <div className="col-start-1 col-span-2 row-start-1 bg-white rounded-xl shadow border p-6 relative flex flex-col items-center justify-center text-center">
           <h3 className="absolute top-6 left-6 font-bold text-lg text-gray-900">
             Education
           </h3>
 
-          {/* plus icon */}
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +117,6 @@ export default function EducationInfo() {
             </svg>
           </button>
 
-          {/* center icon */}
           <div className="w-16 h-12 bg-gray-200 rounded-lg flex items-center justify-center border mb-4">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -147,8 +143,8 @@ export default function EducationInfo() {
           </button>
         </div>
 
-        {/* EDUCATION PROGRESS (right) */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 h-[460px]">
+        {/* Education Progress */}
+        <div className="col-start-3 col-span-1 row-start-1 bg-white rounded-xl shadow border p-6">
           <h3 className="font-bold text-lg mb-6">Education</h3>
 
           <div className="flex items-center justify-center">
@@ -173,28 +169,24 @@ export default function EducationInfo() {
           </div>
         </div>
 
-        {/* PREVIOUS ENROLLMENTS (span 2 cols like screenshot row) */}
-        <div className="col-span-2 bg-white rounded-xl shadow border p-6 h-[140px]">
+        {/* Previous Enrollments */}
+        <div className="col-start-1 col-span-1 row-start-2 bg-white rounded-xl shadow border p-6">
           <h3 className="font-bold text-lg mb-4">Previous Enrollments</h3>
 
-          <div className="flex items-center justify-between">
-            <p className="text-gray-700 text-sm">
-              Have you enrolled in an ALX course before?
-            </p>
+          <p className="text-gray-700 text-sm mb-4">
+            Have you enrolled in an ALX course before?
+          </p>
 
-            <div className="flex items-center gap-3">
-              {/* toggle */}
-              <div className="w-12 h-6 bg-gray-300 rounded-full relative border">
-                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 left-1 shadow border"></div>
-              </div>
-
-              <span className="text-gray-700 text-sm font-semibold">No</span>
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-6 bg-gray-300 rounded-full relative border">
+              <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 left-1 shadow border"></div>
             </div>
+            <span className="text-gray-700 text-sm font-semibold">No</span>
           </div>
         </div>
 
-        {/* ACHIEVEMENT */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 relative h-[140px]">
+        {/* Achievement */}
+        <div className="col-start-2 col-span-1 row-start-2 bg-white rounded-xl shadow border p-6 relative">
           <h3 className="font-bold text-lg mb-4">Achievement</h3>
 
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
