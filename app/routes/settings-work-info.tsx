@@ -4,10 +4,10 @@ import Layout from "../components/layout";
 export default function WorkInfo() {
   return (
     <Layout>
-      {/* TABS ONLY */}
+      {/* TABS */}
       <div className="mt-8 flex gap-8 text-sm font-semibold text-gray-600">
         <NavLink
-          to="/settings-personal-information"
+          to="/personal-information"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
@@ -16,7 +16,7 @@ export default function WorkInfo() {
         </NavLink>
 
         <NavLink
-          to="/settings-education-info"
+          to="/education-info"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
@@ -25,7 +25,7 @@ export default function WorkInfo() {
         </NavLink>
 
         <NavLink
-          to="/settings-work-info"
+          to="/work-info"
           className={({ isActive }) =>
             isActive ? "text-blue-700" : "hover:text-blue-700"
           }
@@ -38,15 +38,14 @@ export default function WorkInfo() {
         </span>
       </div>
 
-      {/* EXACT GRID */}
-      <div className="mt-6 grid grid-cols-3 gap-6 pb-12">
-        {/* EXPERIENCE MAIN (span 3 cols like screenshot top) */}
-        <div className="col-span-3 bg-white rounded-xl shadow border p-6 relative h-[260px] flex flex-col items-center justify-center text-center">
+      {/* LOCKED GRID */}
+      <div className="mt-6 grid grid-cols-3 grid-rows-[280px_150px_90px_120px_280px_150px] gap-6 pb-12">
+        {/* Experience */}
+        <div className="col-start-1 col-span-3 row-start-1 bg-white rounded-xl shadow border p-6 relative flex flex-col items-center justify-center text-center">
           <h3 className="absolute top-6 left-6 font-bold text-lg text-gray-900">
             Experience
           </h3>
 
-          {/* plus */}
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +58,6 @@ export default function WorkInfo() {
           </button>
 
           <div className="w-16 h-12 bg-gray-200 rounded-lg flex items-center justify-center border mb-4">
-            {/* briefcase */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-7 h-7 text-gray-500"
@@ -84,12 +82,11 @@ export default function WorkInfo() {
           </button>
         </div>
 
-        {/* LINKEDIN */}
-        <div className="col-span-2 bg-white rounded-xl shadow border p-6 relative h-[140px]">
+        {/* LinkedIn */}
+        <div className="col-start-1 col-span-2 row-start-2 bg-white rounded-xl shadow border p-6 relative">
           <h3 className="font-bold text-lg mb-4">LinkedIn profile</h3>
 
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
-            {/* pencil */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -105,8 +102,8 @@ export default function WorkInfo() {
           </p>
         </div>
 
-        {/* EMPLOYMENT STATUS */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 relative h-[140px]">
+        {/* Employment */}
+        <div className="col-start-3 col-span-1 row-start-2 bg-white rounded-xl shadow border p-6 relative">
           <h3 className="font-bold text-lg mb-4">Employment status</h3>
 
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -123,20 +120,20 @@ export default function WorkInfo() {
           <p className="text-red-600 text-sm font-semibold">Please select</p>
         </div>
 
-        {/* YEARS OF EXPERIENCE */}
-        <div className="col-span-3 bg-white rounded-xl shadow border p-6 h-[90px] flex flex-col justify-center">
+        {/* Years Experience */}
+        <div className="col-start-1 col-span-3 row-start-3 bg-white rounded-xl shadow border p-6 flex flex-col justify-center">
           <h3 className="font-bold text-lg mb-1">Years of experience</h3>
           <p className="text-gray-700 text-sm">0 years · 0 months</p>
         </div>
 
-        {/* EXPERIENCE IN TECH */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 h-[120px]">
+        {/* Experience in Tech */}
+        <div className="col-start-1 col-span-1 row-start-4 bg-white rounded-xl shadow border p-6">
           <h3 className="font-bold text-lg mb-2">Experience in Tech</h3>
           <p className="text-gray-700 text-sm">0 years · 0 months</p>
         </div>
 
-        {/* LOOKING FOR JOB */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 h-[120px]">
+        {/* Looking for job */}
+        <div className="col-start-2 col-span-1 row-start-4 bg-white rounded-xl shadow border p-6">
           <h3 className="font-bold text-lg mb-2">Looking for a job?</h3>
           <p className="text-gray-700 text-sm mb-3">
             Are you looking for a job?
@@ -147,8 +144,8 @@ export default function WorkInfo() {
           </div>
         </div>
 
-        {/* TOP CAREER GOAL */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 relative h-[120px]">
+        {/* Career Goal */}
+        <div className="col-start-3 col-span-1 row-start-4 bg-white rounded-xl shadow border p-6 relative">
           <h3 className="font-bold text-lg mb-2">Top career goal</h3>
 
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -163,14 +160,13 @@ export default function WorkInfo() {
           </button>
         </div>
 
-        {/* SKILLS MAIN (span 3 cols) */}
-        <div className="col-span-3 bg-white rounded-xl shadow border p-6 relative h-[260px] flex flex-col items-center justify-center text-center">
+        {/* Skills */}
+        <div className="col-start-1 col-span-3 row-start-5 bg-white rounded-xl shadow border p-6 relative flex flex-col items-center justify-center text-center">
           <h3 className="absolute top-6 left-6 font-bold text-lg text-gray-900">
             Skills
           </h3>
 
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
-            {/* pencil */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -182,7 +178,6 @@ export default function WorkInfo() {
           </button>
 
           <div className="w-16 h-12 bg-gray-200 rounded-lg flex items-center justify-center border mb-4">
-            {/* lightning */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-7 h-7 text-gray-500"
@@ -206,8 +201,8 @@ export default function WorkInfo() {
           </button>
         </div>
 
-        {/* PROFILE & PROJECTS */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 relative h-[140px]">
+        {/* Profile & Projects */}
+        <div className="col-start-1 col-span-1 row-start-6 bg-white rounded-xl shadow border p-6 relative">
           <h3 className="font-bold text-lg mb-2">Profile & Projects</h3>
 
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -222,8 +217,8 @@ export default function WorkInfo() {
           </button>
         </div>
 
-        {/* RESUME */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 relative h-[140px]">
+        {/* Resume */}
+        <div className="col-start-2 col-span-1 row-start-6 bg-white rounded-xl shadow border p-6 relative">
           <h3 className="font-bold text-lg mb-2">Resume</h3>
 
           <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -250,8 +245,8 @@ export default function WorkInfo() {
           </div>
         </div>
 
-        {/* WORK INFO PROGRESS */}
-        <div className="col-span-1 bg-white rounded-xl shadow border p-6 h-[320px]">
+        {/* Work Info Progress */}
+        <div className="col-start-3 col-span-1 row-start-6 bg-white rounded-xl shadow border p-6">
           <h3 className="font-bold text-lg mb-6">Work Info</h3>
 
           <div className="flex items-center justify-center">
