@@ -1,17 +1,17 @@
 import { NavLink } from "react-router-dom";
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 export default function EducationInfo() {
   return (
     <Layout>
       {/* BANNER */}
       <div className="mt-8 bg-white rounded-xl shadow border overflow-hidden relative">
-        <div className="h-44 bg-gradient-to-r from-blue-600 via-blue-500 to-blue-700 relative">
-          {/* right globe circle */}
-          <div className="absolute top-5 right-6 w-20 h-20 rounded-full border-4 border-white/40 flex items-center justify-center">
+        <div className="h-44 bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 relative">
+          {/* globe circle */}
+          <div className="absolute top-6 right-6 w-20 h-20 rounded-full border-4 border-white/40 flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-8 h-8 text-white"
+              className="w-9 h-9 text-white"
               viewBox="0 0 24 24"
               fill="currentColor"
             >
@@ -20,23 +20,23 @@ export default function EducationInfo() {
           </div>
         </div>
 
-        {/* profile circle */}
+        {/* profile image */}
         <div className="absolute -bottom-10 left-8 w-28 h-28 rounded-full border-4 border-white bg-gray-200 shadow"></div>
 
-        {/* name section */}
+        {/* name overlay */}
         <div className="absolute bottom-4 left-44 text-white">
           <h2 className="text-2xl font-bold">Peter Ikapolok</h2>
           <p className="text-sm opacity-90">Graphic designer</p>
         </div>
 
-        {/* buttons */}
+        {/* buttons right */}
         <div className="absolute bottom-6 right-8 flex items-center gap-3">
           <button className="px-4 py-2 rounded-lg bg-blue-100 text-blue-700 font-semibold text-sm border border-blue-200">
             Copy link
           </button>
 
-          <button className="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center">
-            {/* Edit icon */}
+          <button className="w-10 h-10 rounded-lg bg-blue-700 text-white flex items-center justify-center">
+            {/* edit */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
@@ -48,7 +48,7 @@ export default function EducationInfo() {
           </button>
         </div>
 
-        {/* info below banner */}
+        {/* bottom info */}
         <div className="pt-14 pb-6 px-8">
           <div className="flex items-center gap-2">
             <h3 className="text-xl font-bold text-gray-900">Peter ikapolok</h3>
@@ -66,12 +66,12 @@ export default function EducationInfo() {
         </div>
       </div>
 
-      {/* NAV TABS */}
+      {/* TABS */}
       <div className="mt-6 flex gap-8 text-sm font-semibold text-gray-600">
         <NavLink
           to="/personal-information"
           className={({ isActive }) =>
-            isActive ? "text-blue-600" : "hover:text-blue-600"
+            isActive ? "text-blue-700" : "hover:text-blue-700"
           }
         >
           Personal Information
@@ -80,7 +80,7 @@ export default function EducationInfo() {
         <NavLink
           to="/education-info"
           className={({ isActive }) =>
-            isActive ? "text-blue-600" : "hover:text-blue-600"
+            isActive ? "text-blue-700" : "hover:text-blue-700"
           }
         >
           Education Info
@@ -89,23 +89,27 @@ export default function EducationInfo() {
         <NavLink
           to="/work-info"
           className={({ isActive }) =>
-            isActive ? "text-blue-600" : "hover:text-blue-600"
+            isActive ? "text-blue-700" : "hover:text-blue-700"
           }
         >
           Work Info
         </NavLink>
 
-        <span className="hover:text-blue-600 cursor-pointer">
+        <span className="hover:text-blue-700 cursor-pointer">
           Demographic Info
         </span>
       </div>
 
-      {/* BODY GRID */}
-      <div className="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-6 pb-12">
-        {/* EDUCATION BIG CARD */}
-        <div className="lg:col-span-2 bg-white rounded-xl shadow border p-6 relative flex flex-col items-center justify-center text-center min-h-[270px]">
+      {/* EXACT GRID */}
+      <div className="mt-6 grid grid-cols-3 gap-6 pb-12">
+        {/* EDUCATION MAIN (span 2 cols) */}
+        <div className="col-span-2 bg-white rounded-xl shadow border p-6 relative h-[260px] flex flex-col items-center justify-center text-center">
+          <h3 className="absolute top-6 left-6 font-bold text-lg text-gray-900">
+            Education
+          </h3>
+
           {/* plus icon */}
-          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-600">
+          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-6 h-6"
@@ -116,9 +120,8 @@ export default function EducationInfo() {
             </svg>
           </button>
 
-          {/* icon placeholder */}
+          {/* center icon */}
           <div className="w-16 h-12 bg-gray-200 rounded-lg flex items-center justify-center border mb-4">
-            {/* small card icon */}
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-7 h-7 text-gray-500"
@@ -130,69 +133,71 @@ export default function EducationInfo() {
             </svg>
           </div>
 
-          <h3 className="text-lg font-bold text-gray-900 mb-3">Education</h3>
-
-          <p className="text-blue-600 font-semibold text-sm mb-2">
+          <p className="text-blue-700 font-semibold text-sm mb-2">
             You didn't add your Education level yet...
           </p>
 
-          <p className="text-gray-600 text-sm mb-6 max-w-md">
+          <p className="text-gray-600 text-sm mb-5 max-w-md">
             Share your education to stand out and catch the attention of
             relevant employers
           </p>
 
-          <button className="px-6 py-2 rounded-lg border border-blue-300 text-blue-700 bg-blue-50 font-semibold text-sm">
+          <button className="px-6 py-2 rounded-full border border-blue-300 text-blue-700 bg-blue-50 font-semibold text-sm">
             Add Education
           </button>
         </div>
 
-        {/* EDUCATION PROGRESS CARD */}
-        <div className="bg-white rounded-xl shadow border p-6 flex flex-col justify-center min-h-[270px]">
+        {/* EDUCATION PROGRESS (right) */}
+        <div className="col-span-1 bg-white rounded-xl shadow border p-6 h-[460px]">
           <h3 className="font-bold text-lg mb-6">Education</h3>
 
           <div className="flex items-center justify-center">
-            <div className="relative w-28 h-28">
-              <div className="absolute inset-0 rounded-full border-[10px] border-gray-300"></div>
-              <div className="absolute inset-0 flex items-center justify-center font-bold text-xl text-gray-800">
+            <div className="relative w-32 h-32">
+              <div className="absolute inset-0 rounded-full border-[14px] border-gray-300"></div>
+              <div className="absolute inset-0 flex items-center justify-center font-bold text-xl text-gray-900">
                 0%
               </div>
             </div>
           </div>
 
-          <div className="mt-6 space-y-3 text-sm text-gray-700">
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full border border-gray-500"></span>
+          <div className="mt-10 space-y-4 text-sm text-gray-700">
+            <div className="flex items-center gap-3">
+              <span className="w-4 h-4 rounded-full border border-gray-600"></span>
               Education
             </div>
-            <div className="flex items-center gap-2">
-              <span className="w-3 h-3 rounded-full border border-gray-500"></span>
+
+            <div className="flex items-center gap-3">
+              <span className="w-4 h-4 rounded-full border border-gray-600"></span>
               Achievement
             </div>
           </div>
         </div>
 
-        {/* PREVIOUS ENROLLMENTS */}
-        <div className="bg-white rounded-xl shadow border p-6 min-h-[140px]">
+        {/* PREVIOUS ENROLLMENTS (span 2 cols like screenshot row) */}
+        <div className="col-span-2 bg-white rounded-xl shadow border p-6 h-[140px]">
           <h3 className="font-bold text-lg mb-4">Previous Enrollments</h3>
 
-          <p className="text-gray-700 text-sm mb-4">
-            Have you enrolled in an ALX course before?
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-gray-700 text-sm">
+              Have you enrolled in an ALX course before?
+            </p>
 
-          <div className="flex items-center gap-3">
-            {/* Toggle */}
-            <div className="w-12 h-6 bg-gray-300 rounded-full relative border">
-              <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 left-1 shadow border"></div>
+            <div className="flex items-center gap-3">
+              {/* toggle */}
+              <div className="w-12 h-6 bg-gray-300 rounded-full relative border">
+                <div className="w-5 h-5 bg-white rounded-full absolute top-0.5 left-1 shadow border"></div>
+              </div>
+
+              <span className="text-gray-700 text-sm font-semibold">No</span>
             </div>
-            <span className="text-gray-700 text-sm font-semibold">No</span>
           </div>
         </div>
 
         {/* ACHIEVEMENT */}
-        <div className="bg-white rounded-xl shadow border p-6 relative min-h-[140px]">
+        <div className="col-span-1 bg-white rounded-xl shadow border p-6 relative h-[140px]">
           <h3 className="font-bold text-lg mb-4">Achievement</h3>
 
-          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-600">
+          <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-5 h-5"
