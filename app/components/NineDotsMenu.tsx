@@ -7,15 +7,25 @@ export default function EhubNineDotsDropdown({ menuOpen }: { menuOpen: boolean }
     <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-6 grid grid-cols-2 gap-6 z-50">
       
       {/* Learning */}
-      <div className="flex flex-col items-center">
-        <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full">
-          <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-            <path d="M12 4L3 9l9 5 9-5-9-5z"/>
-            <path d="M3 14l9 5 9-5"/>
-          </svg>
-        </div>
-        <span className="mt-2 text-gray-700 font-medium">Learning</span>
-      </div>
+<Link
+  to="/learning"
+  className="flex flex-col items-center"
+  onClick={() => setMenuOpen(false)} // optional: closes dropdown after click
+>
+  <div className="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full">
+    <svg
+      className="w-6 h-6 text-blue-600"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      viewBox="0 0 24 24"
+    >
+      <path d="M12 4L3 9l9 5 9-5-9-5z" />
+      <path d="M3 14l9 5 9-5" />
+    </svg>
+  </div>
+  <span className="mt-2 text-gray-700 font-medium">Learning</span>
+</Link>
 
       {/* Community */}
 <Link
