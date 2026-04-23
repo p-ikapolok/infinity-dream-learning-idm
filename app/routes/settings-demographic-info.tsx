@@ -72,7 +72,7 @@ export default function DemographicInfo() {
             Work Info
           </NavLink>
 
-          <NavLink to="/demographic-info" className={({ isActive }) => (isActive ? "text-blue-700" : "hover:text-blue-700")}>
+          <NavLink to="/settings-demographic-info" className={({ isActive }) => (isActive ? "text-blue-700" : "hover:text-blue-700")}>
             Demographic Info
           </NavLink>
         </div>
