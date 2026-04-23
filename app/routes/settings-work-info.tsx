@@ -101,9 +101,12 @@ export default function WorkInfo() {
           Work Info
         </NavLink>
 
-        <span className="hover:text-blue-700 cursor-pointer">
-          Demographic Info
-        </span>
+                    <NavLink to="/demographic-info" className={({ isActive})} =>
+             isActive ? "text-blue-700" : "hover:text-blue-700"
+            }
+           >
+             Demographic Info
+            </NavLink>
       </div>
 
       {/* CONTENT AREA */}
