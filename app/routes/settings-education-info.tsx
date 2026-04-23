@@ -102,7 +102,7 @@ export default function EducationInfo() {
         </NavLink>
 
         <NavLink
-  to="/demographic-info"
+  to="/settings-demographic-info"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : "hover:text-blue-700"
   }
