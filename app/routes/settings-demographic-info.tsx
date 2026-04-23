@@ -57,19 +57,19 @@ export default function DemographicInfo() {
 
           {/* Tabs */}
           <div className="flex gap-10 mt-8 border-b border-gray-200">
-            <NavLink to="/personal-info" className={tabClass}>
+            <NavLink to="/settings-personal-info" className={tabClass}>
               Personal Information
             </NavLink>
 
-            <NavLink to="/education-info" className={tabClass}>
+            <NavLink to="/settings-education-info" className={tabClass}>
               Education Info
             </NavLink>
 
-            <NavLink to="/work-info" className={tabClass}>
+            <NavLink to="/settings-work-info" className={tabClass}>
               Work Info
             </NavLink>
 
-            <NavLink to="/demographic-info" className={tabClass}>
+            <NavLink to="/settings-demographic-info" className={tabClass}>
               Demographic Info
             </NavLink>
           </div>
