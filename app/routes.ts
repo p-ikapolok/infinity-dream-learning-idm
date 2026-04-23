@@ -25,4 +25,5 @@ export default [
   route("settings-personal-information", "routes/settings-personal-information.tsx"),
   route("settings-education-info", "routes/settings-education-info.tsx"),
   route("settings-work-info", "routes/settings-work-info.tsx"),
+  route("settings-demographic-info", "routes/settings-demographic-info.tsx"),
 ] satisfies RouteConfig;
