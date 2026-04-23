@@ -83,7 +83,14 @@ export default function PersonalInformation() {
         <NavLink to="/settings-work-info" className={({ isActive }) => (isActive ? "text-blue-700" : "hover:text-blue-700")}>
           Work Info
         </NavLink>
-        <span className="hover:text-blue-700 cursor-pointer">Demographic Info</span>
+        <NavLink
+  to="/demographic-info"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : "hover:text-blue-700"
+  }
+>
+  Demographic Info
+</NavLink>
       </div>
 
       {/* CONTENT AREA (EXACT LIKE SCREENSHOT) */}
