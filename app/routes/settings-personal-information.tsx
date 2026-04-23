@@ -91,7 +91,7 @@ export default function PersonalInformation() {
   {/* LEFT SIDE */}
   <div className="space-y-6">
     {/* ABOUT ME */}
-    <div className="bg-white rounded-xl shadow border p-6 relative h-[220px]">
+    <div className="bg-white rounded-xl shadow border p-6 relative min-h-[220px]">
       <h3 className="font-bold text-lg text-gray-900 mb-4">About me</h3>
 
       <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -114,7 +114,7 @@ export default function PersonalInformation() {
     {/* ROW 2 (3 CARDS) */}
     <div className="grid grid-cols-3 gap-6">
       {/* Languages */}
-      <div className="bg-white rounded-xl shadow border p-6 relative h-[140px]">
+      <div className="bg-white rounded-xl shadow border p-6 relative min-h-[140px]">
         <h3 className="font-bold text-lg mb-3">Languages</h3>
 
         <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -132,7 +132,7 @@ export default function PersonalInformation() {
       </div>
 
       {/* Phone */}
-      <div className="bg-white rounded-xl shadow border p-6 relative h-[140px]">
+      <div className="bg-white rounded-xl shadow border p-6 relative min-h-[140px]">
         <h3 className="font-bold text-lg mb-3">Phone Number</h3>
 
         <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -150,7 +150,7 @@ export default function PersonalInformation() {
       </div>
 
       {/* Social */}
-      <div className="bg-white rounded-xl shadow border p-6 relative h-[140px]">
+      <div className="bg-white rounded-xl shadow border p-6 relative min-h-[140px]">
         <h3 className="font-bold text-lg mb-3">Social Profiles</h3>
 
         <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -170,7 +170,7 @@ export default function PersonalInformation() {
     {/* ROW 3 (2 CARDS) */}
     <div className="grid grid-cols-2 gap-6">
       {/* Interests */}
-      <div className="bg-white rounded-xl shadow border p-6 relative h-[140px]">
+      <div className="bg-white rounded-xl shadow border p-6 relative min-h-[140px]">
         <h3 className="font-bold text-lg mb-3">Interests</h3>
 
         <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -185,7 +185,7 @@ export default function PersonalInformation() {
       </div>
 
       {/* Location */}
-      <div className="bg-white rounded-xl shadow border p-6 relative h-[140px]">
+      <div className="bg-white rounded-xl shadow border p-6 relative min-h-[140px]">
         <h3 className="font-bold text-lg mb-3">Current Location</h3>
 
         <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
@@ -205,7 +205,7 @@ export default function PersonalInformation() {
   </div>
 
   {/* RIGHT SIDE (PROGRESS CARD) */}
-  <div className="bg-white rounded-xl shadow border p-6 h-[520px]">
+  <div className="bg-white rounded-xl shadow border p-6 min-h-[520px]">
     <h3 className="font-bold text-lg mb-6">Personal Info</h3>
 
     <div className="flex items-center justify-center">
@@ -219,7 +219,10 @@ export default function PersonalInformation() {
 
     <div className="mt-10 space-y-4 text-sm">
       {["About Me", "Languages", "Social Profiles", "Interests"].map((t) => (
-        <div key={t} className="flex items-center gap-3 text-green-600 font-semibold">
+        <div
+          key={t}
+          className="flex items-center gap-3 text-green-600 font-semibold"
+        >
           <span className="w-5 h-5 rounded-full bg-green-600 flex items-center justify-center text-white text-xs">
             ✓
           </span>
