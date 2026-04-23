@@ -91,7 +91,6 @@ export default function DemographicInfo() {
 >
   Demographic Info
 </NavLink>
-      </div>
           </div>
 
           {/* Grid */}
