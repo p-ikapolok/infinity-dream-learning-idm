@@ -55,23 +55,26 @@ export default function DemographicInfo() {
             </div>
           </div>
 
-          {/* Tabs */}
-          <div className="flex gap-10 mt-8 border-b border-gray-200">
-            <NavLink to="/settings-personal-info" className={tabClass}>
-              Personal Information
-            </NavLink>
-
-            <NavLink to="/settings-education-info" className={tabClass}>
-              Education Info
-            </NavLink>
-
-            <NavLink to="/settings-work-info" className={tabClass}>
-              Work Info
-            </NavLink>
-
-            <NavLink to="/settings-demographic-info" className={tabClass}>
-              Demographic Info
-            </NavLink>
+                {/* TABS */}
+      <div className="mt-6 flex gap-8 text-sm font-semibold text-gray-600">
+        <NavLink to="/settings-personal-information" className={({ isActive }) => (isActive ? "text-blue-700" : "hover:text-blue-700")}>
+          Personal Information
+        </NavLink>
+        <NavLink to="/settings-education-info" className={({ isActive }) => (isActive ? "text-blue-700" : "hover:text-blue-700")}>
+          Education Info
+        </NavLink>
+        <NavLink to="/settings-work-info" className={({ isActive }) => (isActive ? "text-blue-700" : "hover:text-blue-700")}>
+          Work Info
+        </NavLink>
+        <NavLink
+  to="/demographic-info"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : "hover:text-blue-700"
+  }
+>
+  Demographic Info
+</NavLink>
+      </div>
           </div>
 
           {/* Grid */}
