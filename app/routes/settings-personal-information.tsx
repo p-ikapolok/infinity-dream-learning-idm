@@ -10,6 +10,15 @@ import InterestsModal from "../components/InterestsModal";
 import CurrentLocationModal from "../components/CurrentLocationModal";
 
 export default function PersonalInformation() {
+const profile = {
+  name: "Peter Ikapolok",
+  location: "Kenya",
+  status: "Open to Opportunities"
+};
+
+const onEdit = () => {
+  console.log("Edit clicked");
+};
 const [openAbout, setOpenAbout] = useState(false);
 const [openLanguages, setOpenLanguages] = useState(false);
 const [openPhone, setOpenPhone] = useState(false);
