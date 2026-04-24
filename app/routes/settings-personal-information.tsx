@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Layout from "../components/layout";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import AboutModal from "../components/AboutModal";
 import EditLanguageModal from "../components/EditLanguageModal";
@@ -17,6 +16,19 @@ const profile = {
   status: "Open to Opportunities"
 };
 
+// STATE
+const [coverImage, setCoverImage] = useState<string | null>(null);
+const [copied, setCopied] = useState(false);
+
+// MODAL STATES
+const [openAbout, setOpenAbout] = useState(false);
+const [openLanguages, setOpenLanguages] = useState(false);
+const [openPhone, setOpenPhone] = useState(false);
+const [openSocial, setOpenSocial] = useState(false);
+const [openInterests, setOpenInterests] = useState(false);
+const [openLocation, setOpenLocation] = useState(false);
+
+// CLEANUP (important for memory)
 useEffect(() => {
   return () => {
     if (coverImage) {
@@ -25,21 +37,24 @@ useEffect(() => {
   };
 }, [coverImage]);
 
-const [coverImage, setCoverImage] = useState<string | null>(null);
+// HANDLE COVER IMAGE
 const handleCoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const file = e.target.files?.[0];
   if (file) {
     const imageUrl = URL.createObjectURL(file);
     setCoverImage(imageUrl);
 
-    // reset input so same file can be selected again
+    // allow reselecting same file
     e.target.value = "";
   }
 };
+
+// HANDLE COPY
 const handleCopy = async () => {
   try {
     await navigator.clipboard.writeText(window.location.href);
   } catch {
+    // fallback
     const textArea = document.createElement("textarea");
     textArea.value = window.location.href;
     document.body.appendChild(textArea);
@@ -51,39 +66,10 @@ const handleCopy = async () => {
   setCopied(true);
   setTimeout(() => setCopied(false), 2000);
 };
-const [coverImage, setCoverImage] = useState(null);
 
-const handleCoverChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const imageUrl = URL.createObjectURL(file);
-    setCoverImage(imageUrl);
-  }
-};
+// EDIT BUTTON
 const onEdit = () => {
   console.log("Edit clicked");
-};
-const [openAbout, setOpenAbout] = useState(false);
-const [openLanguages, setOpenLanguages] = useState(false);
-const [openPhone, setOpenPhone] = useState(false);
-const [openSocial, setOpenSocial] = useState(false);
-const [openInterests, setOpenInterests] = useState(false);
-const [openLocation, setOpenLocation] = useState(false);
-const [copied, setCopied] = useState(false);
-
-const handleCopy = async () => {
-  try {
-    await navigator.clipboard.writeText(window.location.href);
-
-    setCopied(true);
-
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-
-  } catch (err) {
-    console.log("Copy failed", err);
-  }
 };
 
 return (
