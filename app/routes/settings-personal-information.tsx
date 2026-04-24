@@ -9,28 +9,8 @@ import SocialProfileModal from "../components/SocialProfileModal";
 import InterestsModal from "../components/InterestsModal";
 import CurrentLocationModal from "../components/CurrentLocationModal";
 
-type Profile = {
-  name: string;
-  location: string;
-  status: string;
-};
-
 export default function PersonalInformation({
-  profile,
-  onEdit
-}: {
-  profile: Profile;
-  onEdit: () => void;
-}) {
-  const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href);
-      console.log("Link copied");
-    } catch {
-      console.log("Copy failed");
-    }
-  };
-
+  
   const [openAbout, setOpenAbout] = useState(false);
   const [openLanguages, setOpenLanguages] = useState(false);
   const [openPhone, setOpenPhone] = useState(false);
