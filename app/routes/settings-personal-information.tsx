@@ -8,6 +8,7 @@ import PhoneModal from "../components/PhoneModal";
 import SocialProfileModal from "../components/SocialProfileModal";
 import InterestsModal from "../components/InterestsModal";
 import CurrentLocationModal from "../components/CurrentLocationModal";
+import BasicInfoModal from "../components/BasicInfoModal";
 
 export default function PersonalInformation() {
 const profile = {
