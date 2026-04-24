@@ -277,7 +277,7 @@ export default function PersonalInformation() {
 {openAbout && <AboutModal onClose={() => setOpenAbout(false)} />}
 
 {openLanguages && (
-  <LanguagesModal onClose={() => setOpenLanguages(false)} />
+  <EditLanguageModal onClose={() => setOpenLanguages(false)} />
 )}
 
 {openPhone && <PhoneModal onClose={() => setOpenPhone(false)} />}
