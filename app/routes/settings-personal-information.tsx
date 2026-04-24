@@ -16,6 +16,22 @@ const [openPhone, setOpenPhone] = useState(false);
 const [openSocial, setOpenSocial] = useState(false);
 const [openInterests, setOpenInterests] = useState(false);
 const [openLocation, setOpenLocation] = useState(false);
+const [copied, setCopied] = useState(false);
+
+const handleCopy = async () => {
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+
+    setCopied(true);
+
+    setTimeout(() => {
+      setCopied(false);
+    }, 2000);
+
+  } catch (err) {
+    console.log("Copy failed", err);
+  }
+};
 
 return (
 <Layout>
