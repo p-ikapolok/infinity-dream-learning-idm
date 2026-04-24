@@ -20,8 +20,7 @@ export default function PersonalInformation({
 
   return (
     <Layout>
-        return (
-    <Layout>
+
       {/* BANNER */}
 <div className="mt-8 bg-white rounded-xl shadow border relative">
   {/* Cover */}
