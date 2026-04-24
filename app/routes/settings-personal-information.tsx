@@ -374,7 +374,10 @@ className="absolute top-6 right-6 text-gray-500 hover:text-blue-700"
 </div>
 
   </div>  
-</div>  {openAbout && <AboutModal onClose={() => setOpenAbout(false)} />}
+</div>  
+{openBasicInfo && <BasicInfoModal on close={() => setOpenBasicInfo(false)} />}
+
+{openAbout && <AboutModal onClose={() => setOpenAbout(false)} />}
 
 {openLanguages && (
 <EditLanguageModal onClose={() => setOpenLanguages(false)} />
