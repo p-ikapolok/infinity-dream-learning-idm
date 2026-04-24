@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NotificationMenu from "./NotificationMenu";
+import NineDotsMenu from "./NineDotsMenu";
 import ProfileMenu from "./ProfileMenu";
 
 export default function Header() {
