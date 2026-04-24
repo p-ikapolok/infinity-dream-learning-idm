@@ -1,8 +1,24 @@
+import { useRef, useState } from "react";
+
 type Props = {
   onClose: () => void;
 };
 
 export default function BasicInfoModal({ onClose }: Props) {
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [image, setImage] = useState<string>("/avatar.jpg");
+
+  const handleClickUpload = () => {
+    fileInputRef.current?.click();
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setImage(URL.createObjectURL(file));
+    }
+  };
+
   return (
     <div
       className="fixed inset-0 bg-black/40 flex items-center justify-center z-50"
@@ -14,7 +30,7 @@ export default function BasicInfoModal({ onClose }: Props) {
         className="bg-white w-[750px] rounded-xl shadow-lg p-6"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
+        {/* HEADER */}
         <div className="flex justify-between mb-4">
           <div>
             <h2 className="text-lg font-semibold">Basic Info</h2>
@@ -23,67 +39,86 @@ export default function BasicInfoModal({ onClose }: Props) {
             </p>
           </div>
 
+          {/* CLOSE SVG ICON */}
           <button onClick={onClose}>
             <svg
               className="w-5 h-5 text-gray-500"
+              viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <path d="M6 18L18 6M6 6l12 12" />
+              <path d="M18 6L6 18" />
+              <path d="M6 6l12 12" />
             </svg>
           </button>
         </div>
 
-        {/* Top Section */}
-        <div className="flex gap-6 mb-6">
-          {/* Avatar */}
+        {/* TOP SECTION */}
+        <div className="flex gap-6 mb-6 items-center">
+
+          {/* PROFILE IMAGE */}
           <img
-            src="/avatar.jpg"
-            className="w-24 h-24 rounded-full object-cover"
+            src={image}
+            className="w-20 h-20 rounded-full object-cover border"
             alt="Profile"
           />
 
-          {/* Upload */}
+          {/* UPLOAD BOX */}
           <div className="flex-1 border-2 border-dashed rounded-lg flex flex-col items-center justify-center p-6 text-center">
+
+            {/* hidden input */}
+            <input
+              type="file"
+              ref={fileInputRef}
+              className="hidden"
+              accept="image/*"
+              onChange={handleFileChange}
+            />
+
+            {/* UPLOAD SVG ICON */}
             <svg
-              className="w-8 h-8 text-gray-400 mb-2"
+              className="w-10 h-10 text-gray-400 mb-2"
+              viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
-              <path d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1" />
-              <path d="M12 12V3m0 0l-3 3m3-3l3 3" />
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <path d="M7 10l5-5 5 5" />
+              <path d="M12 5v12" />
             </svg>
 
             <p className="text-sm text-gray-600">
-              <span className="text-blue-600 cursor-pointer">
+              <span
+                onClick={handleClickUpload}
+                className="text-blue-600 cursor-pointer"
+              >
                 Click to upload
               </span>{" "}
               or drag and drop
             </p>
+
             <p className="text-xs text-gray-400">
               PNG, JPG or JPEG
             </p>
           </div>
         </div>
 
-        {/* Inputs */}
+        {/* FORM */}
         <div className="grid grid-cols-3 gap-4 mb-4">
           <div>
             <label className="text-sm">First Name*</label>
-            <input
-              className="w-full border rounded-md p-2 mt-1"
-              defaultValue="Peter"
-            />
+            <input className="w-full border rounded-md p-2 mt-1" defaultValue="Peter" />
           </div>
 
           <div>
             <label className="text-sm">Last Name*</label>
-            <input
-              className="w-full border rounded-md p-2 mt-1"
-              defaultValue="Ikapolok"
-            />
+            <input className="w-full border rounded-md p-2 mt-1" defaultValue="Ikapolok" />
           </div>
 
           <div>
@@ -96,18 +131,12 @@ export default function BasicInfoModal({ onClose }: Props) {
 
         <div className="mb-6">
           <label className="text-sm">Title</label>
-          <input
-            className="w-full border rounded-md p-2 mt-1"
-            defaultValue="Mr"
-          />
+          <input className="w-full border rounded-md p-2 mt-1" defaultValue="Mr" />
         </div>
 
-        {/* Buttons */}
+        {/* BUTTONS */}
         <div className="flex justify-end gap-3">
-          <button
-            onClick={onClose}
-            className="border px-5 py-2 rounded-full"
-          >
+          <button onClick={onClose} className="border px-5 py-2 rounded-full">
             Cancel
           </button>
 
