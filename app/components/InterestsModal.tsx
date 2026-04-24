@@ -1,7 +1,19 @@
-export default function InterestsModal({ onClose }) {
+type Props = {
+  onClose: () => void;
+};
+
+export default function InterestsModal({ onClose }: Props) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <div className="w-full max-w-4xl bg-white rounded-2xl shadow-2xl border border-gray-200 relative p-8">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="w-full max-w-4xl bg-white rounded-2xl shadow-2xl border border-gray-200 relative p-8"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close */}
         <button
           onClick={onClose}
@@ -56,7 +68,10 @@ export default function InterestsModal({ onClose }) {
             Cancel
           </button>
 
-          <button className="px-10 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700">
+          <button
+            onClick={() => console.log("Saved interests")}
+            className="px-10 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700"
+          >
             Save
           </button>
         </div>
