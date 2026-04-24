@@ -1,7 +1,12 @@
+import { useNavigate } from "react-router";
+
 export default function NineDotsMenu() {
+  const navigate = useNavigate();
+
   const items = [
     {
       label: "Learning",
+      path: "/learning",
       icon: (
         <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8">
           <path d="M2 7l8-4 8 4-8 4-8-4z" />
@@ -11,6 +16,7 @@ export default function NineDotsMenu() {
     },
     {
       label: "Community",
+      path: "/community",
       icon: (
         <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8">
           <circle cx="7" cy="7" r="3" />
@@ -22,6 +28,7 @@ export default function NineDotsMenu() {
     },
     {
       label: "Rewards",
+      path: "/rewards",
       icon: (
         <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8">
           <path d="M6 3h8v3a4 4 0 01-8 0V3z" />
@@ -32,6 +39,7 @@ export default function NineDotsMenu() {
     },
     {
       label: "Support",
+      path: "/support",
       icon: (
         <svg width="20" height="20" fill="none" stroke="currentColor" strokeWidth="1.8">
           <circle cx="10" cy="10" r="8" />
@@ -46,7 +54,11 @@ export default function NineDotsMenu() {
     <div className="w-[520px] bg-white rounded-[20px] shadow-[0_8px_30px_rgba(0,0,0,0.08)] px-[40px] py-[32px]">
       <div className="grid grid-cols-3 gap-y-[32px] gap-x-[40px]">
         {items.map((item, i) => (
-          <div key={i} className="flex flex-col items-center">
+          <div
+            key={i}
+            onClick={() => navigate(item.path)}
+            className="flex flex-col items-center cursor-pointer hover:opacity-80 transition"
+          >
             <div className="w-[56px] h-[56px] rounded-full border border-[#E5E7EB] flex items-center justify-center text-gray-700 mb-[10px]">
               {item.icon}
             </div>
