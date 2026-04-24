@@ -39,6 +39,12 @@ return (
 {/* BANNER */}
 <div className="mt-8 bg-white rounded-xl shadow border relative">
 
+{copied && (
+  <div className="fixed top-5 right-5 bg-black text-white px-4 py-2 rounded-lg shadow-lg text-sm z-50">
+    Profile link copied ✔
+  </div>
+)}
+
   {/* COVER */}
   <div className="h-44 rounded-t-xl bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 relative overflow-hidden">
 
