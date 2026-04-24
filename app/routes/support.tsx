@@ -38,7 +38,11 @@ export default function SupportFullPage() {
     <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
   </button>
 
-  {showNotifications && <NotificationMenu />}
+  {showNotifications && (
+  <div className="absolute right-0 mt-3 z-50">
+    <NotificationMenu />
+  </div>
+)}
 </div>
 
           {/* 9-dots menu */}
@@ -92,7 +96,11 @@ export default function SupportFullPage() {
   </button>
 
   {/* Profile dropdown menu connected */}
-  <ProfileMenu menuOpen={profileOpen} />
+  {profileOpen && (
+  <div className="absolute right-0 mt-3 z-50">
+    <ProfileMenu />
+  </div>
+)}
 </div>
         </div>
       </header>
