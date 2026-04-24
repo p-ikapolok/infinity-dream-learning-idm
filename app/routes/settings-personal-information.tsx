@@ -10,14 +10,16 @@ import InterestsModal from "../components/InterestsModal";
 import CurrentLocationModal from "../components/CurrentLocationModal";
 
 export default function PersonalInformation() {
+  const [openAbout, setOpenAbout] = useState(false);
+  const [openLanguages, setOpenLanguages] = useState(false);
+  const [openPhone, setOpenPhone] = useState(false);
+  const [openSocial, setOpenSocial] = useState(false);
+  const [openInterests, setOpenInterests] = useState(false);
+  const [openLocation, setOpenLocation] = useState(false);
+
   return (
-     const [openAbout, setOpenAbout] = useState(false);
-     const [openLanguages, setOpenLanguages] = useState(false);
-     const [openPhone, setOpenPhone] = useState(false);
-     const [openSocial, setOpenSocial] = useState(false);
-     const [openInterests, setOpenInterests] = useState(false);
-     const [openLocation, setOpenLocation] = useState(false);
     <Layout>
+
       {/* BANNER */}
 <div className="mt-8 bg-white rounded-xl shadow border relative">
   {/* Cover */}
@@ -287,7 +289,7 @@ export default function PersonalInformation() {
 )}
 
 {openLocation && (
-  <LocationModal onClose={() => setOpenLocation(false)} />
+  <CurrentLocationModal onClose={() => setOpenLocation(false)} />
 )}
     </Layout>
   );
