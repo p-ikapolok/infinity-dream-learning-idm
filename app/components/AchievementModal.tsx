@@ -1,7 +1,13 @@
 export default function AchievementModal({ onClose }: any) {
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div className="bg-white w-[650px] rounded-xl shadow-lg p-6">
+    <div
+  className="fixed inset-0 bg-black/30 flex items-center justify-center z-50"
+  onClick={onClose}
+>
+  <div
+    className="bg-white w-[650px] rounded-xl shadow-lg p-6"
+    onClick={(e) => e.stopPropagation()}
+  >
 
         {/* Header */}
         <div className="flex justify-between mb-4">
