@@ -55,26 +55,24 @@ return (
 )}
 
   {/* COVER */}
-  <div className="h-44 rounded-t-xl bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 relative overflow-hidden">
+<div className="h-44 rounded-t-xl bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 relative overflow-hidden">
 
-    {/* CONTACT INFO (ICONS IMPROVED) */}
-    <div className="absolute bottom-6 right-6 text-white text-xs space-y-2">
+  {/* UPDATE COVER BUTTON */}
+  <button
+    className="absolute top-4 right-4 bg-white/90 text-blue-700 px-3 py-1 rounded-md text-sm font-semibold shadow hover:bg-white flex items-center gap-2"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-4 h-4"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M4 5h16v14H4V5zm2 2v10h12V7H6zm3 2h6v2H9V9zm0 4h6v2H9v-2z" />
+    </svg>
+    Update cover
+  </button>
 
-      <div className="flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 5a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.59a1 1 0 0 1-.25 1.01l-2.2 2.19z"/>
-        </svg>
-        <span>+254739762594</span>
-      </div>
-
-      <div className="flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
-        </svg>
-        <span>ikapolokpeter@gmail.com</span>
-      </div>
-
-    </div>
+</div>
 
     {/* NAME */}
     <div className="absolute left-44 top-12 text-white">
