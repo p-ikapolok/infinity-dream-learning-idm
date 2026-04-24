@@ -82,34 +82,14 @@ return (
       <p className="text-sm opacity-90">{profile.status}</p>
     </div>
 
-    {/* BUTTONS */}
-    <div className="absolute right-6 top-24 flex gap-3">
-
-      <button
-        onClick={handleCopy}
-        className="px-4 py-2 rounded-lg bg-white/90 text-blue-700 font-semibold text-sm border border-blue-200 hover:bg-white"
-      >
-        Copy link
-      </button>
-
-      <button
-        onClick={onEdit}
-        className="w-10 h-10 rounded-lg bg-white text-blue-700 flex items-center justify-center shadow"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/>
-          <path d="M20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
-        </svg>
-      </button>
-
-    </div>
-  </div>
-
   {/* PROFILE IMAGE */}
   <div className="absolute left-8 top-24 w-28 h-28 rounded-full border-4 border-white bg-gray-300 shadow" />
 
   {/* PROFILE INFO */}
-  <div className="pt-16 pb-6 px-8">
+<div className="pt-16 pb-6 px-8 flex justify-between items-start">
+
+  {/* LEFT SIDE */}
+  <div>
 
     <div className="flex items-center gap-2">
       <h3 className="text-xl font-bold text-gray-900">{profile.name}</h3>
@@ -126,6 +106,30 @@ return (
     </div>
 
   </div>
+
+  {/* RIGHT SIDE BUTTONS (NEW POSITION) */}
+  <div className="flex gap-2 items-start">
+
+    <button
+      onClick={handleCopy}
+      className="px-4 py-2 rounded-lg bg-white/90 text-blue-700 font-semibold text-sm border border-blue-200 hover:bg-white"
+    >
+      Copy link
+    </button>
+
+    <button
+      onClick={onEdit}
+      className="w-10 h-10 rounded-lg bg-white text-blue-700 flex items-center justify-center shadow"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/>
+        <path d="M20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+      </svg>
+    </button>
+
+  </div>
+
+</div>
 
 </div>
 
