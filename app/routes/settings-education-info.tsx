@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import Layout from "../components/layout";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function EducationInfo() {
     const profile = {
@@ -8,6 +9,14 @@ export default function EducationInfo() {
   location: "Kenya",
   status: "Open to Opportunities"
 };
+
+useEffect(() => {
+  return () => {
+    if (coverImage) {
+      URL.revokeObjectURL(coverImage);
+    }
+  };
+}, [coverImage]);
 
 const [coverImage, setCoverImage] = useState<string | null>(null);
 const handleCoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
