@@ -16,6 +16,15 @@ const profile = {
   status: "Open to Opportunities"
 };
 
+const [coverImage, setCoverImage] = useState(null);
+
+const handleCoverChange = (e) => {
+  const file = e.target.files[0];
+  if (file) {
+    const imageUrl = URL.createObjectURL(file);
+    setCoverImage(imageUrl);
+  }
+};
 const onEdit = () => {
   console.log("Edit clicked");
 };
