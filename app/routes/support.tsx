@@ -67,7 +67,11 @@ export default function SupportFullPage() {
   </button>
 
   {/* Dropdown menu */}
-  <NineDotsMenu menuOpen={menuOpen} />
+  {menuOpen && (
+  <div className="absolute right-0 mt-3 z-50">
+    <NineDotsMenu />
+  </div>
+)}
 </div>
 
           {/* Profile icon */}
