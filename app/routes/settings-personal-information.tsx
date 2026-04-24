@@ -83,12 +83,14 @@ return (
   {/* PROFILE IMAGE */}
   <div className="absolute left-8 top-24 w-28 h-28 rounded-full border-4 border-white bg-gray-300 shadow" />
 
-  {/* PROFILE INFO */}
+  {/* PROFILE IMAGE */}
+<div className="absolute left-8 top-32 w-28 h-28 rounded-full border-4 border-white bg-gray-300 shadow" />
+
+{/* PROFILE INFO ROW */}
 <div className="pt-16 pb-6 px-8 flex justify-between items-start">
 
   {/* LEFT SIDE */}
   <div>
-
     <div className="flex items-center gap-2">
       <h3 className="text-xl font-bold text-gray-900">{profile.name}</h3>
 
@@ -102,10 +104,9 @@ return (
     <div className="mt-2 inline-flex items-center px-4 py-1 rounded-full border border-green-400 bg-green-50 text-green-700 text-sm font-semibold">
       {profile.status}
     </div>
-
   </div>
 
-  {/* RIGHT SIDE BUTTONS (NEW POSITION) */}
+  {/* RIGHT SIDE BUTTONS */}
   <div className="flex gap-2 items-start">
 
     <button
@@ -126,7 +127,6 @@ return (
     </button>
 
   </div>
-
 </div>
 
 </div>
