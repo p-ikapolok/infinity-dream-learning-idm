@@ -375,24 +375,32 @@ className="absolute top-6 right-6 text-gray-500 hover:text-blue-700"
 
   </div>  
 </div>  
-{openBasicInfo && <BasicInfoModal on close={() => setOpenBasicInfo(false)} />}
-
-{openAbout && <AboutModal onClose={() => setOpenAbout(false)} />}
-
-{openLanguages && (
-<EditLanguageModal onClose={() => setOpenLanguages(false)} />
+{openBasicInfo && (
+  <BasicInfoModal onClose={() => setOpenBasicInfo(false)} />
 )}
 
-{openPhone && <PhoneModal onClose={() => setOpenPhone(false)} />}
+{openAbout && (
+  <AboutModal onClose={() => setOpenAbout(false)} />
+)}
 
-{openSocial && <SocialProfileModal onClose={() => setOpenSocial(false)} />}
+{openLanguages && (
+  <EditLanguageModal onClose={() => setOpenLanguages(false)} />
+)}
+
+{openPhone && (
+  <PhoneModal onClose={() => setOpenPhone(false)} />
+)}
+
+{openSocial && (
+  <SocialProfileModal onClose={() => setOpenSocial(false)} />
+)}
 
 {openInterests && (
-<InterestsModal onClose={() => setOpenInterests(false)} />
+  <InterestsModal onClose={() => setOpenInterests(false)} />
 )}
 
 {openLocation && (
-<CurrentLocationModal onClose={() => setOpenLocation(false)} />
+  <CurrentLocationModal onClose={() => setOpenLocation(false)} />
 )}
 </Layout>
 );
