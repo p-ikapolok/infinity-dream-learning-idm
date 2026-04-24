@@ -5,7 +5,7 @@ import { useState } from "react";
 import AboutModal from "../components/AboutModal";
 import EditLanguageModal from "../components/EditLanguageModal";
 import PhoneModal from "../components/PhoneModal";
-import SocialModal from "../components/SocialModal";
+import SocialProfileModal from "../components/SocialProfileModal";
 import InterestsModal from "../components/InterestsModal";
 import CurrentLocationModal from "../components/CurrentLocationModal";
 
@@ -282,7 +282,7 @@ export default function PersonalInformation() {
 
 {openPhone && <PhoneModal onClose={() => setOpenPhone(false)} />}
 
-{openSocial && <SocialModal onClose={() => setOpenSocial(false)} />}
+{openSocial && <SocialProfileModal onClose={() => setOpenSocial(false)} />}
 
 {openInterests && (
   <InterestsModal onClose={() => setOpenInterests(false)} />
