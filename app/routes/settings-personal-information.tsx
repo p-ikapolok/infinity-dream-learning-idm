@@ -1,5 +1,13 @@
 import { NavLink } from "react-router-dom";
 import Layout from "../components/layout";
+import { useState } from "react";
+
+import AboutModal from "../components/AboutModal";
+import LanguagesModal from "../components/LanguagesModal";
+import PhoneModal from "../components/PhoneModal";
+import SocialModal from "../components/SocialModal";
+import InterestsModal from "../components/InterestsModal";
+import LocationModal from "../components/LocationModal";
 
 export default function PersonalInformation() {
   return (
