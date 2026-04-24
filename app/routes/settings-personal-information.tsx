@@ -271,6 +271,24 @@ export default function PersonalInformation() {
     </div>
   </div>
 </div>
+
+{openAbout && <AboutModal onClose={() => setOpenAbout(false)} />}
+
+{openLanguages && (
+  <LanguagesModal onClose={() => setOpenLanguages(false)} />
+)}
+
+{openPhone && <PhoneModal onClose={() => setOpenPhone(false)} />}
+
+{openSocial && <SocialModal onClose={() => setOpenSocial(false)} />}
+
+{openInterests && (
+  <InterestsModal onClose={() => setOpenInterests(false)} />
+)}
+
+{openLocation && (
+  <LocationModal onClose={() => setOpenLocation(false)} />
+)}
     </Layout>
   );
 }
