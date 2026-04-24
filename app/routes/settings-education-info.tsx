@@ -1,7 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Layout from "../components/layout";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 export default function EducationInfo() {
     const profile = {
@@ -10,6 +9,11 @@ export default function EducationInfo() {
   status: "Open to Opportunities"
 };
 
+// STATE (declare first)
+const [coverImage, setCoverImage] = useState<string | null>(null);
+const [copied, setCopied] = useState(false);
+
+// CLEANUP (after state)
 useEffect(() => {
   return () => {
     if (coverImage) {
@@ -18,7 +22,7 @@ useEffect(() => {
   };
 }, [coverImage]);
 
-const [coverImage, setCoverImage] = useState<string | null>(null);
+// HANDLE COVER IMAGE CHANGE
 const handleCoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   const file = e.target.files?.[0];
   if (file) {
@@ -29,10 +33,13 @@ const handleCoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.value = "";
   }
 };
+
+// HANDLE COPY LINK
 const handleCopy = async () => {
   try {
     await navigator.clipboard.writeText(window.location.href);
   } catch {
+    // fallback
     const textArea = document.createElement("textarea");
     textArea.value = window.location.href;
     document.body.appendChild(textArea);
@@ -45,31 +52,9 @@ const handleCopy = async () => {
   setTimeout(() => setCopied(false), 2000);
 };
 
-const handleCoverChange = (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    const imageUrl = URL.createObjectURL(file);
-    setCoverImage(imageUrl);
-  }
-};
+// EDIT BUTTON
 const onEdit = () => {
   console.log("Edit clicked");
-};
-const [copied, setCopied] = useState(false);
-
-const handleCopy = async () => {
-  try {
-    await navigator.clipboard.writeText(window.location.href);
-
-    setCopied(true);
-
-    setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-
-  } catch (err) {
-    console.log("Copy failed", err);
-  }
 };
 
 return (
