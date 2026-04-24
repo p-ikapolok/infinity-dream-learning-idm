@@ -1,7 +1,19 @@
-export default function CurrentLocationModal({ onClose }) {
+type Props = {
+  onClose: () => void;
+};
+
+export default function CurrentLocationModal({ onClose }: Props) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
-      <div className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl border border-gray-200 relative p-8">
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+    >
+      <div
+        className="w-full max-w-5xl bg-white rounded-2xl shadow-2xl border border-gray-200 relative p-8"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Close */}
         <button
           onClick={onClose}
@@ -18,7 +30,9 @@ export default function CurrentLocationModal({ onClose }) {
         </button>
 
         {/* Header */}
-        <h2 className="text-2xl font-bold text-gray-900">Current Location</h2>
+        <h2 className="text-2xl font-bold text-gray-900">
+          Current Location
+        </h2>
 
         {/* Grid Inputs */}
         <div className="mt-8 grid grid-cols-3 gap-8">
@@ -94,7 +108,10 @@ export default function CurrentLocationModal({ onClose }) {
             Cancel
           </button>
 
-          <button className="px-10 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700">
+          <button
+            onClick={() => console.log("Saved location")}
+            className="px-10 py-2 rounded-full bg-blue-600 text-white font-semibold hover:bg-blue-700"
+          >
             Save
           </button>
         </div>
