@@ -41,6 +41,7 @@ export default function PersonalInformation({
 
   return (
     <Layout>
+<section className="bg-white border border-gray-200 rounded-lg max-w-3xl mx-auto overflow-hidden">
 
       {/* Banner */}
       <div className="h-[170px] bg-[#0f172a] relative flex items-center justify-center">
@@ -101,6 +102,7 @@ export default function PersonalInformation({
           </span>
         </div>
       </div>
+    </section>
 
       {/* TABS */}
       <div className="mt-6 flex gap-8 text-sm font-semibold text-gray-600">
