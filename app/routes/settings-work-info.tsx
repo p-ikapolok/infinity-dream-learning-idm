@@ -20,12 +20,6 @@ const handleCoverChange = (e) => {
 const onEdit = () => {
   console.log("Edit clicked");
 };
-const [openAbout, setOpenAbout] = useState(false);
-const [openLanguages, setOpenLanguages] = useState(false);
-const [openPhone, setOpenPhone] = useState(false);
-const [openSocial, setOpenSocial] = useState(false);
-const [openInterests, setOpenInterests] = useState(false);
-const [openLocation, setOpenLocation] = useState(false);
 const [copied, setCopied] = useState(false);
 
 const handleCopy = async () => {
