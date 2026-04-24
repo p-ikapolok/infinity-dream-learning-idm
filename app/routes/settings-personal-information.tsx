@@ -21,6 +21,7 @@ const [coverImage, setCoverImage] = useState<string | null>(null);
 const [copied, setCopied] = useState(false);
 
 // MODAL STATES
+const [openBasicInfo, setOpenBasicInfo] = useState(false);
 const [openAbout, setOpenAbout] = useState(false);
 const [openLanguages, setOpenLanguages] = useState(false);
 const [openPhone, setOpenPhone] = useState(false);
