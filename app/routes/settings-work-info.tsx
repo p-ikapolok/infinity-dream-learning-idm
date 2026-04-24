@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import Layout from "../components/layout";
+import { useState } from "react";
 
 export default function WorkInfo() {
   const profile = {
