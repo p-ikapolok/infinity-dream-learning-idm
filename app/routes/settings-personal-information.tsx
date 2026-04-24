@@ -15,7 +15,23 @@ type Profile = {
   location: string;
   status: string;
 };
-export default function PersonalInformation() {
+export default function PersonalInformation({
+  profile,
+  onEdit
+}: {
+  profile: Profile;
+  onEdit: () => void;
+}) => {
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      // replace with toast if you have one
+      console.log("Link copied");
+    } catch {
+      console.log("Copy failed");
+    }
+  };
   const [openAbout, setOpenAbout] = useState(false);
   const [openLanguages, setOpenLanguages] = useState(false);
   const [openPhone, setOpenPhone] = useState(false);
