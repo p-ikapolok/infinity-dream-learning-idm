@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 import { useState } from "react";
 
 import AboutModal from "../components/AboutModal";
-import LanguagesModal from "../components/LanguagesModal";
+import EditLanguageModal from "../components/EditLanguageModal";
 import PhoneModal from "../components/PhoneModal";
 import SocialModal from "../components/SocialModal";
 import InterestsModal from "../components/InterestsModal";
