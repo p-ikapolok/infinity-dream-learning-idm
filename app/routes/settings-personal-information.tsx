@@ -9,6 +9,12 @@ import SocialProfileModal from "../components/SocialProfileModal";
 import InterestsModal from "../components/InterestsModal";
 import CurrentLocationModal from "../components/CurrentLocationModal";
 
+
+type Profile = {
+  name: string;
+  location: string;
+  status: string;
+};
 export default function PersonalInformation() {
   const [openAbout, setOpenAbout] = useState(false);
   const [openLanguages, setOpenLanguages] = useState(false);
