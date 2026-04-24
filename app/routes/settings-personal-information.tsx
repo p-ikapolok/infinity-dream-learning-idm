@@ -80,10 +80,11 @@ return (
 
 <div className="mt-2 inline-flex items-center px-4 py-1 rounded-full border border-green-400 bg-green-50 text-green-700 text-sm font-semibold">  
   Open to Opportunities  
-</div>
-
+   </div>
   </div>  
-</div>  {/* TABS */}  
+</div>  
+
+{/* TABS */}  
   <div className="mt-6 flex gap-8 text-sm font-semibold text-gray-600">  
     <NavLink to="/settings-personal-information" className={({ isActive }) => (isActive ? "text-blue-700" : "hover:text-blue-700")}>  
       Personal Information  
