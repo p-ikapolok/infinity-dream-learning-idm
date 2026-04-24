@@ -9,7 +9,32 @@ export default function EducationInfo() {
   status: "Open to Opportunities"
 };
 
-const [coverImage, setCoverImage] = useState(null);
+const [coverImage, setCoverImage] = useState<string | null>(null);
+const handleCoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const file = e.target.files?.[0];
+  if (file) {
+    const imageUrl = URL.createObjectURL(file);
+    setCoverImage(imageUrl);
+
+    // reset input so same file can be selected again
+    e.target.value = "";
+  }
+};
+const handleCopy = async () => {
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+  } catch {
+    const textArea = document.createElement("textarea");
+    textArea.value = window.location.href;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+  }
+
+  setCopied(true);
+  setTimeout(() => setCopied(false), 2000);
+};
 
 const handleCoverChange = (e) => {
   const file = e.target.files[0];
