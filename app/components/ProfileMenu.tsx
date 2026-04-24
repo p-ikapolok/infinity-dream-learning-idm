@@ -50,7 +50,7 @@ export default function ProfileMenu({ menuOpen }: ProfileMenuProps) {
 
       {/* Settings */}
       <button
-        onClick={() => navigate("/account-paymwnt")}
+        onClick={() => navigate("/account-payments")}
         className="flex items-center space-x-2 w-full text-left text-gray-700 hover:text-blue-600"
       >
         <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
