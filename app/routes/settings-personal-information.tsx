@@ -206,7 +206,10 @@ export default function PersonalInformation() {
       <div className="bg-white rounded-xl shadow border p-6 relative min-h-[140px]">
         <h3 className="font-bold text-lg mb-3">Interests</h3>
 
-        <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
+        <button
+  onClick={() => setOpenInterests(true)}
+  className="absolute top-6 right-6 text-gray-500 hover:text-blue-700"
+>
           <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
           </svg>
@@ -221,7 +224,10 @@ export default function PersonalInformation() {
       <div className="bg-white rounded-xl shadow border p-6 relative min-h-[140px]">
         <h3 className="font-bold text-lg mb-3">Current Location</h3>
 
-        <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
+        <button
+  onClick={() => setOpenLocation(true)}
+  className="absolute top-6 right-6 text-gray-500 hover:text-blue-700"
+>
           <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z" />
           </svg>
