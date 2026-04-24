@@ -7,7 +7,7 @@ import LanguagesModal from "../components/LanguagesModal";
 import PhoneModal from "../components/PhoneModal";
 import SocialModal from "../components/SocialModal";
 import InterestsModal from "../components/InterestsModal";
-import LocationModal from "../components/LocationModal";
+import CurrentLocationModal from "../components/CurrentLocationModal";
 
 export default function PersonalInformation() {
   return (
