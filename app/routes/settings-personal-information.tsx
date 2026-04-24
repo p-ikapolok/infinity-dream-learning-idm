@@ -65,24 +65,41 @@ return (
   )}
 
   {/* COVER */}
-  <div className="h-44 rounded-t-xl bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 relative overflow-hidden">
+<div
+  className="h-44 rounded-t-xl relative overflow-hidden bg-gray-200"
+  style={{
+    backgroundImage: coverImage ? `url(${coverImage})` : undefined,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
 
-    {/* UPDATE COVER BUTTON */}
-    <button
-      className="absolute top-4 right-4 bg-white/90 text-blue-700 px-3 py-1 rounded-md text-sm font-semibold shadow hover:bg-white flex items-center gap-2"
+  {/* HIDDEN FILE INPUT */}
+  <input
+    type="file"
+    accept="image/*"
+    id="coverUpload"
+    className="hidden"
+    onChange={handleCoverChange}
+  />
+
+  {/* EDIT (PENCIL) BUTTON */}
+  <label
+    htmlFor="coverUpload"
+    className="absolute top-4 right-4 bg-white p-2 rounded-full shadow cursor-pointer hover:bg-gray-100"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-5 h-5 text-blue-700"
+      viewBox="0 0 24 24"
+      fill="currentColor"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        className="w-4 h-4"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-      >
-        <path d="M4 5h16v14H4V5zm2 2v10h12V7H6zm3 2h6v2H9V9zm0 4h6v2H9v-2z" />
-      </svg>
-      Update cover
-    </button>
+      <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25z"/>
+      <path d="M20.71 7.04a1.003 1.003 0 0 0 0-1.42l-2.34-2.34a1.003 1.003 0 0 0-1.42 0l-1.83 1.83 3.75 3.75 1.84-1.82z"/>
+    </svg>
+  </label>
 
-  </div>
+</div>
 
   {/* PROFILE IMAGE (ONLY ONE) */}
   <div className="absolute left-8 top-32 w-28 h-28 rounded-full border-4 border-white bg-gray-300 shadow" />
