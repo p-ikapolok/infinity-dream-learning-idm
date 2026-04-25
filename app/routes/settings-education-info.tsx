@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import { useState, useEffect } from "react";
 import BasicInfoModal from "../components/BasicInfoModal";
@@ -213,8 +214,9 @@ return (
       </h3>
 
       <button
+  type="button"
   onClick={() => setOpenEducation(true)}
-  className="absolute top-6 right-6 text-gray-500 hover:text-blue-700"
+  className="absolute top-6 right-6 text-gray-500 hover:text-blue-700 z-10"
 >
         <svg
           xmlns="http://www.w3.org/2000/svg"
