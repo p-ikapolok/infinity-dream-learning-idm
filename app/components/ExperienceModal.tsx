@@ -1,7 +1,20 @@
 import { useState } from "react";
 
-export const ExperienceModal = ({ onClose }: { onClose: () => void }) => {
-  const [form, setForm] = useState({
+type Props = {
+  onClose: () => void;
+};
+
+type FormState = {
+  title: string;
+  company: string;
+  type: string;
+  start: string;
+  end: string;
+  description: string;
+};
+
+export const ExperienceModal = ({ onClose }: Props) => {
+  const [form, setForm] = useState<FormState>({
     title: "",
     company: "",
     type: "",
@@ -10,7 +23,9 @@ export const ExperienceModal = ({ onClose }: { onClose: () => void }) => {
     description: ""
   });
 
-  const handleChange = (e: any) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
