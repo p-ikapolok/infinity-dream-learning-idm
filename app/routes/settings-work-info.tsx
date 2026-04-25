@@ -330,7 +330,8 @@ onClick={() => setOpenEmployment(true)}className="absolute top-6 right-6 text-gr
       <div className="bg-white rounded-xl shadow border p-6 relative min-h-[120px]">
         <h3 className="font-bold text-lg mb-2">Top career goal</h3>
 
-        <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
+        <button 
+onClick={() => setOpenCareerGoal(true)}className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5"
@@ -349,7 +350,8 @@ onClick={() => setOpenEmployment(true)}className="absolute top-6 right-6 text-gr
         Skills
       </h3>
 
-      <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
+      <button 
+onClick={() => setOpenSkills(true)}className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-5 h-5"
