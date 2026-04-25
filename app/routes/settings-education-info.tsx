@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import { useState, useEffect } from "react";
 import BasicInfoModal from "../components/BasicInfoModal";
-import EducationModal from "../components/EducationModal";
+import { EducationModal } from "../components/EducationModal";
 import AchievementModal from "../components/AchievementModal";
 
 export default function EducationInfo() {
