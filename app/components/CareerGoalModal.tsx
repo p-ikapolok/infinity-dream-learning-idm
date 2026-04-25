@@ -29,7 +29,9 @@ export default function CareerGoalModal({ onClose }) {
         <input className="w-full h-[44px] border border-[#E5E7EB] rounded-[10px] px-[12px]" />
 
         <div className="flex justify-end gap-[12px] mt-[24px]">
-          <button className="border px-[18px] py-[8px] rounded-full">Cancel</button>
+          <button onClick={onClose} className="border px-[18px] py-[8px] rounded-full">
+  Cancel
+</button>
           <button className="bg-[#3B82F6] text-white px-[18px] py-[8px] rounded-full">Save</button>
         </div>
       </div>
