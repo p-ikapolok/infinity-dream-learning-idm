@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 import Layout from "../components/layout";
 import { useState, useEffect } from "react";
 import BasicInfoModal from "../components/BasicInfoModal";
-import ExperienceModal from "../components/ExperienceModal";
+import { ExperienceModal } from "../components/ExperienceModal";
 import LinkedInModal from "../components/LinkedInModal";
 import EmploymentModal from "../components/EmploymentModal";
 import SkillsModal from "../components/SkillsModal";
