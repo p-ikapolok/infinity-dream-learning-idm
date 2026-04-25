@@ -101,6 +101,7 @@ export default function Header() {
     <ProfileMenu menuOpen={profileOpen} />
   </div>
 )}
+     </div>
         </div>
       </header>
     </>
