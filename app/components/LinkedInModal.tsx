@@ -4,9 +4,12 @@ const CloseIcon = () => (
   </svg>
 );
 
-export default function LinkedInModal() {
+export default function LinkedInModal({ onClose }) {
   return (
-    <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
+    <div
+  className="fixed inset-0 bg-black/30 flex items-center justify-center"
+  onClick={onClose}
+>
       <div className="w-[600px] bg-white rounded-[16px] px-[24px] py-[20px] shadow-xl relative">
 
         <button className="absolute right-[16px] top-[16px] text-gray-400">
