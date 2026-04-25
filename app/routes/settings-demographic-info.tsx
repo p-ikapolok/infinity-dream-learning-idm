@@ -227,6 +227,14 @@ return (
 {openBasicInfo && (
   <BasicInfoModal onClose={() => setOpenBasicInfo(false)} />
 )}
+
+{openDiversity && (
+  <DiversityModal onClose={() => setOpenDiversity(false)} />
+)}
+
+{openHumanitarian && (
+  <HumanitarianModal onClose={() => setOpenHumanitarian(false)} />
+)}
     </Layout>
   );
 }
