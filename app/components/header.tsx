@@ -12,7 +12,7 @@ export default function Header() {
   return (
     <>
       {/* Header */}
-      <header className="flex justify-between items-center px-6 py-4 bg-white shadow">
+      <header className="relative flex justify-between items-center px-6 py-4 bg-white shadow">
         <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
 
         <div className="flex items-center space-x-6">
@@ -78,7 +78,11 @@ export default function Header() {
           {/* Profile icon */}
           <div className="relative">
             <button
-              onClick={() => setProfileOpen(!profileOpen)}
+              onClick={() => {
+  setProfileOpen(!profileOpen);
+  setMenuOpen(false);
+  setShowNotifications(false);
+}}
               className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 focus:outline-none"
             >
               <svg
