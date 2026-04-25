@@ -15,6 +15,12 @@ export default function WorkInfo() {
   status: "Open to Opportunities"
 };
 
+const [openExperience, setOpenExperience] = useState(false);
+const [openLinkedIn, setOpenLinkedIn] = useState(false);
+const [openEmployment, setOpenEmployment] = useState(false);
+const [openSkills, setOpenSkills] = useState(false);
+const [openCareerGoal, setOpenCareerGoal] = useState(false);
+
 const [openBasicInfo, setOpenBasicInfo] = useState(false);
 
 // STATE (declare first)
