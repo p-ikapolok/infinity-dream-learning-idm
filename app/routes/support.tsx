@@ -99,7 +99,6 @@ export default function SupportFullPage() {
   <div className="absolute right-0 mt-3 z-50">
   <ProfileMenu menuOpen={profileOpen} />
 </div>
-</div>
         </div>
       </header>
 
