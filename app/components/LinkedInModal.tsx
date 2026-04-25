@@ -15,9 +15,12 @@ export default function LinkedInModal({ onClose }) {
   onClick={(e) => e.stopPropagation()}
 >
 
-        <button className="absolute right-[16px] top-[16px] text-gray-400">
-          <CloseIcon />
-        </button>
+        <button
+  onClick={onClose}
+  className="px-[18px] py-[8px] rounded-full border border-[#D1D5DB]"
+>
+  Cancel
+</button>
 
         <h2 className="text-[16px] font-semibold mb-[16px]">
           LinkedIn profile
