@@ -15,9 +15,12 @@ export default function SkillsModal({ onClose }) {
   onClick={(e) => e.stopPropagation()}
 >
 
-        <button className="absolute right-[16px] top-[16px] text-gray-400">
-          <CloseIcon />
-        </button>
+        <button
+  onClick={onClose}
+  className="absolute right-[16px] top-[16px] text-gray-400"
+>
+  <CloseIcon />
+</button>
 
         <h2 className="text-[16px] font-semibold">Skills</h2>
 
@@ -31,7 +34,9 @@ export default function SkillsModal({ onClose }) {
         />
 
         <div className="flex justify-end gap-[12px] mt-[24px]">
-          <button className="border px-[18px] py-[8px] rounded-full">Cancel</button>
+          <button onClick={onClose} className="border px-[18px] py-[8px] rounded-full">
+  Cancel
+</button>
           <button className="bg-[#3B82F6] text-white px-[18px] py-[8px] rounded-full">Save</button>
         </div>
       </div>
