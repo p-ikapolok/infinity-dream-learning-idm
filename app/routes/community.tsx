@@ -96,7 +96,9 @@ export default function CommunityFullPage() {
   </button>
 
   {/* Profile dropdown menu connected */}
+  <div className="absolute right-0 mt-3 z-50">
   <ProfileMenu menuOpen={profileOpen} />
+</div>
 </div>
         </div>
       </header>
