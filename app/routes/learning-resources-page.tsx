@@ -96,9 +96,12 @@ export default function LearningResourcesFullPage() {
   </button>
 
   {/* Profile dropdown menu connected */}
+    {profileOpen && (
   <div className="absolute right-0 mt-3 z-50">
-  <ProfileMenu menuOpen={profileOpen} />
-</div>
+    <ProfileMenu menuOpen={profileOpen} />
+  </div>
+)}
+   </div>
         </div>
       </header>
 
