@@ -2,6 +2,7 @@ import { useState } from "react";
 import NotificationMenu from "./NotificationMenu";
 import NineDotsMenu from "./NineDotsMenu";
 import ProfileMenu from "./ProfileMenu";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Header() {
   const [showNotifications, setShowNotifications] = useState(false);
@@ -36,7 +37,11 @@ export default function Header() {
               <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
             </button>
 
-            {showNotifications && <NotificationMenu />}
+            {showNotifications && (
+  <div className="absolute right-0 mt-3 z-50">
+    <NotificationMenu />
+  </div>
+)}
           </div>
 
           {/* 9-dots menu */}
@@ -63,7 +68,11 @@ export default function Header() {
               </svg>
             </button>
 
-            <NineDotsMenu menuOpen={menuOpen} />
+            {menuOpen && (
+  <div className="absolute right-0 mt-3 z-50">
+    <NineDotsMenu />
+  </div>
+)}
           </div>
 
           {/* Profile icon */}
@@ -83,7 +92,11 @@ export default function Header() {
               </svg>
             </button>
 
-            <ProfileMenu menuOpen={profileOpen} />
+            {profileOpen && (
+  <div className="absolute right-0 mt-3 z-50">
+    <ProfileMenu />
+  </div>
+)}
           </div>
         </div>
       </header>
