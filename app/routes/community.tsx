@@ -105,7 +105,6 @@ export default function CommunityFullPage() {
     <ProfileMenu menuOpen={profileOpen} />
   </div>
 )}
-   </div>
         </div>
       </header>
 
