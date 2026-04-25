@@ -488,6 +488,26 @@ onClick={() => setOpenSkills(true)}className="absolute top-6 right-6 text-gray-5
 {openBasicInfo && (
   <BasicInfoModal onClose={() => setOpenBasicInfo(false)} />
 )}
+
+{openExperience && (
+  <ExperienceModal onClose={() => setOpenExperience(false)} />
+)}
+
+{openLinkedIn && (
+  <LinkedInModal onClose={() => setOpenLinkedIn(false)} />
+)}
+
+{openEmployment && (
+  <EmploymentModal onClose={() => setOpenEmployment(false)} />
+)}
+
+{openCareerGoal && (
+  <CareerGoalModal onClose={() => setOpenCareerGoal(false)} />
+)}
+
+{openSkills && (
+  <SkillsModal onClose={() => setOpenSkills(false)} />
+)}
     </Layout>
   );
 }
