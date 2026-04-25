@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router-dom";
 import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
@@ -38,7 +37,11 @@ export default function EhubPage() {
     <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
   </button>
 
-  {showNotifications && <NotificationMenu />}
+  {showNotifications && (
+  <div className="absolute right-0 mt-3 z-50">
+    <NotificationMenu />
+  </div>
+)}
 </div>
 
           {/* 9-dots menu */}
@@ -66,7 +69,11 @@ export default function EhubPage() {
   </button>
 
   {/* Dropdown menu */}
-  <NineDotsMenu menuOpen={menuOpen} />
+  {menuOpen && (
+  <div className="absolute right-0 mt-3 z-50">
+    <NineDotsMenu />
+  </div>
+)}
 </div>
 
           {/* Profile icon */}
@@ -88,8 +95,11 @@ export default function EhubPage() {
   </button>
 
   {/* Profile dropdown menu connected */}
-  <ProfileMenu menuOpen={profileOpen} />
-</div>
+  {profileOpen && (
+  <div className="absolute right-0 mt-3 z-50">
+    <ProfileMenu />
+  </div>
+)}
         </div>
       </header>
 
