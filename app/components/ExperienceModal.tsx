@@ -30,7 +30,10 @@ export const ExperienceModal = ({ onClose }: Props) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center">
+    <div
+  className="fixed inset-0 bg-black/50 flex items-center justify-center"
+  onClick={onClose}
+>
       <div className="bg-white w-[640px] rounded-lg p-6 relative">
 
         {/* Close */}
