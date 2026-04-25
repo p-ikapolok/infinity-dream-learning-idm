@@ -101,6 +101,7 @@ export default function EhubPage() {
   </div>
 )}
         </div>
+      </div>
       </header>
 
       {/* Banner */}
