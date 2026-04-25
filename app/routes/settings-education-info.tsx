@@ -267,7 +267,10 @@ onClick={() => setOpenEducation(true)}className="absolute top-6 right-6 text-gra
       <div className="bg-white rounded-xl shadow border p-6 relative min-h-[180px]">
         <h3 className="font-bold text-lg mb-4">Achievement</h3>
 
-        <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
+        <button
+  onClick={() => setOpenAchievement(true)}
+  className="absolute top-6 right-6 text-gray-500 hover:text-blue-700"
+>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5"
@@ -317,6 +320,14 @@ onClick={() => setOpenEducation(true)}className="absolute top-6 right-6 text-gra
 </div>
 {openBasicInfo && (
   <BasicInfoModal onClose={() => setOpenBasicInfo(false)} />
+)}
+
+{openEducation && (
+  <EducationModal onClose={() => setOpenEducation(false)} />
+)}
+
+{openAchievement && (
+  <AchievementModal onClose={() => setOpenAchievement(false)} />
 )}
     </Layout>
   );
