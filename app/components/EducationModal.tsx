@@ -12,6 +12,11 @@ export const EducationModal = ({ onClose }: { onClose: () => void }) => {
     end: ""
   });
 
+const handleSave = () => {
+  console.log("Saved data:", form);
+  onClose();
+};
+
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
@@ -55,7 +60,12 @@ export const EducationModal = ({ onClose }: { onClose: () => void }) => {
 
         <div className="flex justify-end gap-3">
           <button onClick={onClose} className="text-gray-600 px-4 py-2">Cancel</button>
-          <button className="bg-[#0a66c2] text-white px-5 py-2 rounded-full">Save</button>
+          <button
+  onClick={handleSave}
+  className="bg-[#0a66c2] text-white px-5 py-2 rounded-full"
+>
+  Save
+</button>
         </div>
       </div>
     </div>
