@@ -95,11 +95,9 @@ export default function EhubPage() {
   </button>
 
   {/* Profile dropdown menu connected */}
-  {profileOpen && (
   <div className="absolute right-0 mt-3 z-50">
-    <ProfileMenu />
-  </div>
-)}
+  <ProfileMenu menuOpen={profileOpen} />
+</div>
         </div>
       </div>
       </header>
