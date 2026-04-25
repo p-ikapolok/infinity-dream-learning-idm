@@ -104,6 +104,8 @@ export default function EhubPage() {
     <ProfileMenu menuOpen={profileOpen} />
   </div>
 )}
+   </div>
+    </div>
       </header>
 
       {/* Banner */}
