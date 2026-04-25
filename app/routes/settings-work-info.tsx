@@ -263,7 +263,8 @@ return (
       <div className="col-span-2 bg-white rounded-xl shadow border p-6 relative min-h-[150px]">
         <h3 className="font-bold text-lg mb-4">LinkedIn profile</h3>
 
-        <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
+        <button
+onClick={() => setOpenLinkedIn(true)} className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="w-5 h-5"
