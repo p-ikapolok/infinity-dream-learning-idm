@@ -105,7 +105,6 @@ export default function LearningResourcesFullPage() {
     <ProfileMenu menuOpen={profileOpen} />
   </div>
 )}
-   </div>
         </div>
       </header>
 
