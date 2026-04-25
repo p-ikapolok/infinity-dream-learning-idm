@@ -2,6 +2,8 @@ import { NavLink } from "react-router-dom";
 import Layout from "../components/layout";
 import { useState, useEffect } from "react";
 import BasicInfoModal from "../components/BasicInfoModal";
+import DiversityModal from "../components/DiversityModal";
+import HumanitarianModal from "../components/HumanitarianModal";
 
 export default function DemographicInfo() {
     const profile = {
@@ -9,6 +11,9 @@ export default function DemographicInfo() {
   location: "Kenya",
   status: "Open to Opportunities"
 };
+
+const [openDiversity, setOpenDiversity] = useState(false);
+const [openHumanitarian, setOpenHumanitarian] = useState(false);
 
 const [openBasicInfo, setOpenBasicInfo] = useState(false);
 
