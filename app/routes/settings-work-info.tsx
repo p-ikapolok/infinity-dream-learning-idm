@@ -213,7 +213,10 @@ return (
   {/* LEFT SIDE */}
   <div className="space-y-6">
     {/* Experience */}
-    <div className="bg-white rounded-xl shadow border p-6 relative min-h-[280px] flex flex-col items-center justify-center text-center">
+    <button
+  onClick={() => setOpenExperience(true)}
+  className="absolute top-6 right-6 text-gray-500 hover:text-blue-700"
+>
       <h3 className="absolute top-6 left-6 font-bold text-lg text-gray-900">
         Experience
       </h3>
