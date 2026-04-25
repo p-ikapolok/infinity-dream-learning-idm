@@ -207,7 +207,8 @@ return (
         Education
       </h3>
 
-      <button className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
+      <button 
+onClick={() => setOpenEducation(true)}className="absolute top-6 right-6 text-gray-500 hover:text-blue-700">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-6 h-6"
