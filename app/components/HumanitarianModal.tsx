@@ -6,10 +6,19 @@ const CloseIcon = () => (
 
 export default function HumanitarianModal({ onClose }) {
   return (
-    <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
-      <div className="w-[600px] bg-white rounded-[16px] px-[24px] py-[20px] shadow-xl relative">
-
-        <button className="absolute right-[16px] top-[16px] text-gray-400">
+    <div
+      className="fixed inset-0 bg-black/30 flex items-center justify-center"
+      onClick={onClose}
+    >
+      <div
+        className="w-[620px] bg-white rounded-[16px] px-[24px] py-[20px] shadow-xl space-y-[12px] relative"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* CLOSE BUTTON */}
+        <button
+          onClick={onClose}
+          className="absolute right-[16px] top-[16px] text-gray-400 hover:text-gray-700"
+        >
           <CloseIcon />
         </button>
 
