@@ -105,6 +105,7 @@ export default function SupportFullPage() {
     <ProfileMenu menuOpen={profileOpen} />
   </div>
 )}
+       </div>
         </div>
       </header>
 
