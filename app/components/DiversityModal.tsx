@@ -4,7 +4,7 @@ const CloseIcon = () => (
   </svg>
 );
 
-export default function DiversityModal() {
+export default function DiversityModal({ onClose }) {
   return (
     <div className="fixed inset-0 bg-black/30 flex items-center justify-center">
       <div className="w-[620px] bg-white rounded-[16px] px-[24px] py-[20px] shadow-xl space-y-[12px] relative">
