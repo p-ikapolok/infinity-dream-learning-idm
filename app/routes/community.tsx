@@ -19,7 +19,7 @@ export default function CommunityFullPage() {
         <div className="flex items-center space-x-6">
           {/* Points */}
           <span
-  onClick={() => navigate("/rewards")}
+  onClick={() => navigate("/RewardsPage")}
   className="text-gray-700 font-semibold cursor-pointer hover:text-blue-600"
 >
   4210 points
