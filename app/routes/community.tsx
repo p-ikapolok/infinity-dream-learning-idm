@@ -18,7 +18,12 @@ export default function CommunityFullPage() {
         <h1 className="text-xl font-bold text-gray-800">Infinity Hub</h1>
         <div className="flex items-center space-x-6">
           {/* Points */}
-          <span className="text-gray-700 font-semibold">4210 points</span>
+          <span
+  onClick={() => navigate("/rewards")}
+  className="text-gray-700 font-semibold cursor-pointer hover:text-blue-600"
+>
+  4210 points
+</span>
 
           {/* Notification bell */}
 <div className="relative">
