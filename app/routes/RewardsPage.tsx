@@ -21,13 +21,12 @@ const RewardsPage: React.FC = () => {
 
         <div className="flex items-center gap-4 text-gray-700">
 
-          {/* POINTS */}
-          <div className="hidden sm:flex items-center gap-2 bg-[#fff7e6] border border-[#f3d9a4] px-3 py-1 rounded-full text-sm">
+          <div className="hidden sm:flex items-center gap-2 bg-[#fff7e6] border border-[#f3d9a4] px-3 py-1 rounded-full">
             <CoinIcon />
             <span className="font-semibold text-gray-800">4210 points</span>
           </div>
 
-          {/* NOTIFICATION */}
+          {/* Notifications */}
           <div className="relative">
             <button onClick={() => setShowNotifications(!showNotifications)}>
               <BellIcon />
@@ -35,7 +34,7 @@ const RewardsPage: React.FC = () => {
             {showNotifications && <Dropdown><NotificationMenu /></Dropdown>}
           </div>
 
-          {/* GRID */}
+          {/* Grid */}
           <div className="relative">
             <button onClick={() => setMenuOpen(!menuOpen)}>
               <NineDotsIcon />
@@ -43,7 +42,7 @@ const RewardsPage: React.FC = () => {
             {menuOpen && <Dropdown><NineDotsMenu /></Dropdown>}
           </div>
 
-          {/* PROFILE */}
+          {/* Profile */}
           <div className="relative">
             <button onClick={() => setProfileOpen(!profileOpen)}>
               <div className="w-8 h-8 rounded-full bg-gray-300" />
@@ -75,7 +74,7 @@ const RewardsPage: React.FC = () => {
       <div className="bg-[#ff4d4f] text-white px-4 md:px-6 py-3 flex gap-3 items-center">
         <CoinIcon />
         <span>
-          With personalised expiry dates, you can now see when your Legacy Points are set to expire.
+          With personalised expiry dates, you can now see when your Legacy Points are set to expire. Go ahead and plan your next redemption!
         </span>
       </div>
 
@@ -91,11 +90,11 @@ const RewardsPage: React.FC = () => {
 
           <div className="flex items-center gap-2 bg-white border px-4 py-2 rounded-lg text-gray-700">
             <ClockIcon />
-            0 Legacy Points expiring this month
+            <span>0 Legacy Points expiring this month</span>
           </div>
         </div>
 
-        {/* INFO */}
+        {/* INFO CARD */}
         <div className="bg-white rounded-xl mt-6 p-6 shadow-sm text-center">
           <h2 className="text-xl font-semibold text-[#0d3b66]">
             Make the Most of Your Legacy Points
@@ -105,7 +104,7 @@ const RewardsPage: React.FC = () => {
             Legacy Points is designed to support and celebrate your progress on your learning journey.
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6 text-gray-700">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
 
             <InfoItem icon={<CoinIcon large />} title="Earn Points" />
             <InfoItem icon={<GraduateIcon />} title="Graduate" />
@@ -116,8 +115,65 @@ const RewardsPage: React.FC = () => {
         </div>
       </div>
 
+      {/* ================= WAYS ================= */}
+      <SectionWrapper title="Ways to Earn Legacy Points?">
+
+        <SectionTitle text="Complete your ALX Programme" />
+        <PointsRow pts="250 pts">Complete your ALX Programme on-time (eligible for 1-time redemption per ALX Programme).</PointsRow>
+        <PointsRow pts="100 pts">Submission of the first milestone and test on-time for your ALX Programme.</PointsRow>
+        <PointsRow pts="50 pts">Submission of each weekly ALX Programme milestone and test on-time.</PointsRow>
+
+        <BoostBox />
+
+        <SectionTitle text="Engage with the ALX Community" />
+        <PointsRow pts="250 pts">Host an event online or in-person (per event)</PointsRow>
+        <PointsRow pts="150 pts"><span className="text-blue-500">Onboard to The Portal</span></PointsRow>
+        <PointsRow pts="25 pts">Attend In-person event</PointsRow>
+        <PointsRow pts="10 pts">Attend a Virtual Event</PointsRow>
+        <PointsRow pts="10 pts"><span className="text-blue-500">Post</span> in the Community</PointsRow>
+        <PointsRow pts="5 pts"><span className="text-blue-500">Comment</span></PointsRow>
+
+        <SectionTitle text="Shape your career" />
+        <PointsRow pts="250 pts"><span className="text-blue-500">Upload your CV</span></PointsRow>
+        <PointsRow pts="250 pts">Complete Survey</PointsRow>
+        <PointsRow pts="150 pts"><span className="text-blue-500">LinkedIn URL</span></PointsRow>
+
+      </SectionWrapper>
+
+      {/* ================= REWARDS ================= */}
+      <div className="px-4 md:px-6 pb-10">
+        <h2 className="text-xl font-semibold text-[#0d3b66] mb-4">Rewards</h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {Array.from({ length: 8 }).map((_, i) => (
+            <RewardCard key={i} />
+          ))}
+        </div>
+      </div>
+
+      {/* ================= ACTIVITY ================= */}
+      <div className="px-4 md:px-6 pb-10">
+        <h2 className="text-xl font-semibold text-[#0d3b66] mb-4">Your Activity</h2>
+
+        <div className="bg-white rounded-xl shadow-sm overflow-hidden">
+          <div className="p-4 border-b font-semibold">Your transaction history</div>
+
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="flex justify-between p-4 border-b text-sm">
+              <span>2026-03-06</span>
+              <span className="text-green-600">250</span>
+              <span>Impact Survey – thank you for your feedback!</span>
+            </div>
+          ))}
+
+          <button className="w-full bg-blue-600 text-white py-3">
+            Load More
+          </button>
+        </div>
+      </div>
+
       {/* ================= FOOTER ================= */}
-      <div className="bg-[#0d3b66] text-white px-6 py-10 mt-10">
+      <div className="bg-[#0d3b66] text-white px-6 py-10">
         <h3 className="text-lg font-semibold">alx eHub</h3>
         <p className="text-sm mt-2 opacity-80">
           The community of those who Do Hard Things.
@@ -144,7 +200,7 @@ const RewardsPage: React.FC = () => {
 
 export default RewardsPage;
 
-{/* ================= COMPONENTS ================= */}
+/* ================= COMPONENTS ================= */
 
 const Dropdown = ({ children }: any) => (
   <div className="absolute right-0 mt-3 bg-white shadow-lg rounded-lg p-2 z-50">
@@ -159,7 +215,50 @@ const InfoItem = ({ icon, title }: any) => (
   </div>
 );
 
-{/* ================= SVG ICONS (FIXED) ================= */}
+const SectionWrapper = ({ title, children }: any) => (
+  <div className="px-4 md:px-6 pb-10">
+    <div className="bg-white rounded-xl p-6 shadow-sm">
+      <h2 className="text-xl font-semibold text-[#0d3b66] mb-4">{title}</h2>
+      {children}
+    </div>
+  </div>
+);
+
+const SectionTitle = ({ text }: any) => (
+  <div className="bg-[#eef2f7] inline-block px-4 py-2 rounded-full mt-6 mb-3">
+    {text}
+  </div>
+);
+
+const PointsRow = ({ pts, children }: any) => (
+  <div className="flex gap-6 py-2 border-b text-sm">
+    <div className="w-20">{pts}</div>
+    <div>{children}</div>
+  </div>
+);
+
+const BoostBox = () => (
+  <div className="bg-[#eef5fb] rounded-lg p-5 mt-5 flex gap-4">
+    <BoostIcon />
+    <div>
+      <h3 className="font-semibold">Earn up to 50 Extra Legacy Points with Graded Boosts!</h3>
+      <p className="text-sm text-gray-600">Maximise your rewards!</p>
+    </div>
+  </div>
+);
+
+const RewardCard = () => (
+  <div className="bg-white rounded-xl p-4 shadow-sm">
+    <div className="text-xs bg-yellow-100 inline-block px-2 py-1 rounded">
+      1500+ pts
+    </div>
+    <button className="mt-4 w-full bg-blue-600 text-white py-2 rounded-full">
+      Redeem Reward
+    </button>
+  </div>
+);
+
+/* ================= SVG ICONS ================= */
 
 const BellIcon = () => (
   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -178,11 +277,7 @@ const NineDotsIcon = () => (
 );
 
 const CoinIcon = ({ large }: any) => (
-  <svg
-    className={large ? "w-12 h-12" : "w-5 h-5"}
-    fill="currentColor"
-    viewBox="0 0 24 24"
-  >
+  <svg className={large ? "w-12 h-12" : "w-5 h-5"} fill="currentColor" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="10" />
   </svg>
 );
@@ -195,19 +290,25 @@ const ClockIcon = () => (
 );
 
 const GraduateIcon = () => (
-  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+  <svg className="w-12 h-12 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
     <path d="M2 12l10-5 10 5-10 5z" />
   </svg>
 );
 
 const GiftIcon = () => (
-  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+  <svg className="w-12 h-12 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
     <rect x="4" y="10" width="16" height="10" />
   </svg>
 );
 
 const MedalIcon = () => (
-  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+  <svg className="w-12 h-12 text-yellow-500" fill="currentColor" viewBox="0 0 24 24">
     <circle cx="12" cy="12" r="6" />
+  </svg>
+);
+
+const BoostIcon = () => (
+  <svg className="w-12 h-12 text-blue-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" />
   </svg>
 );
