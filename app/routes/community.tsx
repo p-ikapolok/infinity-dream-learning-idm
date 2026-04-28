@@ -3,8 +3,10 @@ import { useNavigate, Link } from "react-router-dom";
 import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
+import SearchModal from "../components/SearchModal";
 
 export default function CommunityFullPage() {
+    const [searchOpen, setSearchOpen] = useState(false);
     const [sidebarOpen, setSidebarOpen] = useState(true);
     const navigate = useNavigate();
     const [menuOpen, setMenuOpen] = useState(false);
