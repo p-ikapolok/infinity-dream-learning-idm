@@ -466,9 +466,79 @@ const DotIcon = () => (
           </div>
 
           <main className="px-6 flex-1 overflow-y-auto">
-            <h1 className="text-center text-xl font-bold text-gray-800 mb-6">
-              We Are Infinity Dream
-            </h1>
+
+            {/* COMMUNITY HEADER */}
+<div className="bg-white border-b px-6 py-4 flex items-center justify-between">
+
+  {/* LEFT: logo + title */}
+  <div className="flex items-center gap-3">
+    <span className="text-gray-400 font-semibold text-sm">alx</span>
+    <h2 className="text-lg font-semibold text-gray-800">
+      Our Community
+    </h2>
+  </div>
+
+  {/* RIGHT ICONS */}
+  <div className="flex items-center gap-4">
+    
+    {/* sparkle button */}
+    <button className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200">
+      <svg
+        className="w-5 h-5 text-purple-500"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5z" />
+      </svg>
+    </button>
+
+    {/* three dots */}
+    <button className="text-gray-500 hover:text-gray-700">
+      <svg
+        className="w-6 h-6"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <circle cx="6" cy="12" r="1.5" />
+        <circle cx="12" cy="12" r="1.5" />
+        <circle cx="18" cy="12" r="1.5" />
+      </svg>
+    </button>
+
+  </div>
+</div>
+
+
+{/* BANNER */}
+<div className="relative w-full h-64 overflow-hidden">
+
+  {/* BACKGROUND IMAGE */}
+  <img
+    src="/images/alx-banner.png" // replace with your exact image
+    className="w-full h-full object-cover"
+  />
+
+  {/* OVERLAY (blue gradient like screenshot) */}
+  <div className="absolute inset-0 bg-gradient-to-r from-blue-900/70 to-blue-500/30"></div>
+
+  {/* CONTENT */}
+  <div className="absolute inset-0 flex flex-col justify-center px-10">
+
+    {/* small logo */}
+    <span className="text-white text-lg font-bold mb-4 opacity-90">
+      alx
+    </span>
+
+    {/* MAIN TEXT */}
+    <h1 className="text-white text-4xl font-bold tracking-wide">
+      We Are ALX
+    </h1>
+
+    {/* underline */}
+    <div className="mt-3 w-40 h-1 bg-green-400 rounded"></div>
+
+  </div>
+</div>
 
             {/* Video */}
             <div className="mb-6">
