@@ -422,7 +422,7 @@ const CommentIcon = () => (
                 <Badge>32</Badge>
               </SectionItem>
 
-              <SectionItem icon={<HeartIcon />} text="Community Corner">
+              <SectionItem icon={<HeartIconFilled />} text="Community Corner">
                 <Badge>25</Badge>
               </SectionItem>
             </Section>
