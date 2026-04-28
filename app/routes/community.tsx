@@ -367,7 +367,11 @@ const CommentIcon = () => (
 
             {/* MAIN NAV */}
             <nav className="space-y-4 text-gray-700 text-sm">
-              <NavItem icon={<SearchIcon />} text="Search" />
+              <NavItem
+  icon={<SearchIcon />}
+  text="Search"
+  onClick={() => setSearchOpen(true)}
+/>
 
               <NavItem icon={<BellIcon />} text="Notifications">
                 <Badge red>2</Badge>
