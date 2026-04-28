@@ -20,6 +20,29 @@ export default function CommunityFullPage() {
   </div>
 );
 
+const InstagramIcon = () => (
+  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+    <rect x="3" y="3" width="18" height="18" rx="5" />
+    <circle cx="12" cy="12" r="4" fill="white"/>
+    <circle cx="17" cy="7" r="1.2" fill="white"/>
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+    <rect width="24" height="24" rx="4"/>
+    <rect x="5" y="9" width="3" height="10" fill="white"/>
+    <circle cx="6.5" cy="6.5" r="1.5" fill="white"/>
+    <path d="M11 9h3v2c.5-1 2-2 4-2 3 0 5 2 5 6v4h-3v-4c0-2-1-3-2.5-3S15 13 15 15v4h-3z" fill="white"/>
+  </svg>
+);
+
+const XIcon = () => (
+  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M4 4l16 16M20 4L4 20" stroke="white" strokeWidth="2"/>
+  </svg>
+);
+
 const Section = ({ title, children }) => (
   <div>
     <div className="flex items-center justify-between text-gray-500 text-xs mb-2">
@@ -540,57 +563,105 @@ const DotIcon = () => (
   </div>
 </div>
 
-            {/* Video */}
-            <div className="mb-6">
-              <div className="bg-gray-200 h-48 flex items-center justify-center rounded-lg">
-                <span className="text-gray-600">
-                  Welcome to Infinity Dream! (Video)
-                </span>
-              </div>
-            </div>
+            {/* VIDEO SECTION */}
+<div className="bg-white rounded-lg shadow p-4 mb-6">
 
-            {/* Mission Text */}
-            <article className="space-y-4 text-gray-700 leading-relaxed">
-              <p>
-                Africa is a continent brimming with talent, ambition, and a
-                desire to innovate. At Infinity Dream, we believe you hold the
-                key to unlocking its extraordinary potential for progress.
-              </p>
+  <div className="relative w-full h-[360px] rounded-lg overflow-hidden">
+    
+    <img
+      src="/images/alx-video-thumbnail.png"
+      className="w-full h-full object-cover"
+    />
 
-              <p>
-                <strong>Our Mission:</strong> To Create 2 Million Opportunities
-                and Positively Change Lives. We equip young Africans with the
-                skills, connections, and opportunities they need to build
-                fulfilling careers.
-              </p>
+    {/* overlay play button */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center shadow-lg">
+        <svg
+          className="w-8 h-8 text-white"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <polygon points="8,5 19,12 8,19" />
+        </svg>
+      </div>
+    </div>
 
-              <p>
-                <strong>Join a Movement – Led by You.</strong> When you join
-                Infinity Dream, you become part of a vibrant, pan-African
-                community that believes in collaboration and mutual support.
-              </p>
+    {/* top-left label */}
+    <div className="absolute top-3 left-3 flex items-center gap-2 bg-black/60 px-3 py-1 rounded">
+      <span className="text-white text-xs font-semibold">Welcome to ALX!</span>
+    </div>
 
-              <p>
-                <strong>Your All-Access Fee:</strong> Fueling Your Community
-                Experience. Keep your membership current to unlock exclusive
-                resources, events, and support.
-              </p>
-            </article>
+  </div>
 
-            {/* Buttons */}
-            <div className="mt-8 flex space-x-4">
-              <button className="px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700">
-                Programs
-              </button>
+</div>
 
-              <button className="px-6 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700">
-                Instagram
-              </button>
 
-              <button className="px-6 py-2 bg-blue-800 text-white rounded-full hover:bg-blue-900">
-                LinkedIn
-              </button>
-            </div>
+{/* TEXT CONTENT */}
+<div className="bg-white rounded-lg shadow p-6 space-y-5 text-gray-700 leading-relaxed">
+
+  <p>
+    Africa is a continent brimming with talent, ambition, and a desire to innovate. At ALX, we believe that Africa’s young people – that means you! – hold the key to unlocking its extraordinary potential for progress. We envision a future where technology empowers millions to build better lives, create innovative businesses, and drive economic growth across the continent – and <strong>you play a key role in bringing that vision to life.</strong>
+  </p>
+
+  <h3 className="font-bold text-gray-900 text-lg">
+    Our Mission: To Create 2 Million Opportunities and Positively Change 2 Million Futures.
+  </h3>
+
+  <p>
+    ALX is on a mission to develop the skills and talent needed to power Africa’s digital future. We seek to equip 2 million young Africans with the skills, connections, and opportunities they need to build fulfilling tech careers by 2035. Our goal is to empower 2 million talented individuals to build brighter futures for themselves and contribute to a thriving Africa.
+  </p>
+
+  <h3 className="font-bold text-gray-900 text-lg">
+    Join a Movement – Led by You.
+  </h3>
+
+  <p>
+    When you join ALX, you become part of a vibrant, pan-African community that believes in the power of shared learning, collaboration, and mutual support. Your talents, your insights, your passion – they all contribute to something bigger than ourselves. ALX isn’t just about individual success stories; it’s about a collective movement towards a common goal.
+  </p>
+
+  <p>
+    Join us and connect with fellow innovators as we build the future of Africa – together.
+  </p>
+
+  <h3 className="font-bold text-gray-900 text-lg">
+    Your All-Access Fee: Fueling Your Community Experience
+  </h3>
+
+  <p>
+    To ensure you continue to unlock the full value of the community experience – <strong>uninterrupted access to peer connections, exclusive learning resources, inspiring events, and dedicated support</strong> – please keep your all-access fee payments current. Think of it as your key to maximizing your ALX journey and continuing to thrive in our vibrant community.
+  </p>
+
+  <p className="font-medium">
+    Ready to join the movement? Connect with us and let’s build the future of tech in Africa, together! #LifeAtALX.
+  </p>
+
+</div>
+
+
+{/* BUTTONS */}
+<div className="flex flex-wrap gap-4 mt-6">
+
+  <button className="flex items-center gap-2 px-5 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800">
+    <span className="font-semibold">alx</span>
+    Programs
+  </button>
+
+  <button className="flex items-center gap-2 px-5 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800">
+    <InstagramIcon />
+    Instagram
+  </button>
+
+  <button className="flex items-center gap-2 px-5 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800">
+    <LinkedInIcon />
+    LinkedIn
+  </button>
+
+  <button className="flex items-center gap-2 px-5 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800">
+    <XIcon />
+    X
+  </button>
+
+</div>
           </main>
         </div>
       </div>
