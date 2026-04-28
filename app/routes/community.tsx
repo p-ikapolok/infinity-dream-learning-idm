@@ -358,7 +358,7 @@ const CommentIcon = () => (
       <div className="flex flex-1 min-h-[500px]">
         {/* Sidebar */}
          {sidebarOpen && (
-        <aside className="w-72 bg-white border-r h-full flex flex-col justify-between">
+        <aside className="w-72 bg-white border-r flex flex-col h-full">
 
           {/* TOP */}
           <div className="overflow-y-auto px-4 py-4 space-y-6">
