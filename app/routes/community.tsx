@@ -705,7 +705,7 @@ const CommentIcon = () => (
 
       <div className="flex items-center gap-6 text-gray-500 text-sm">
         <div className="flex items-center gap-1">
-          <HeartIcon />
+          <HeartIconOutlined />
           <span>131</span>
         </div>
 
