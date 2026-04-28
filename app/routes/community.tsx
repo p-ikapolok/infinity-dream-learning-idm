@@ -180,11 +180,14 @@ const UsersIcon = () => (
   </svg>
 );
 
-const HeartIcon = () => (
+const HeartIconFilled = () => (
   <svg className="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 24 24">
     <path d="M12 21s-7-5-9-9a5 5 0 019-6 5 5 0 019 6c-2 4-9 9-9 9z" />
   </svg>
-    <svg
+);
+
+const HeartIconOutlined = () => (
+  <svg
     className="w-4 h-4"
     fill="none"
     stroke="currentColor"
