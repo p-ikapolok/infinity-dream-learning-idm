@@ -355,10 +355,10 @@ const CommentIcon = () => (
       </section>
 
       {/* Community Section */}
-      <div className="flex flex-1 min-h-[500px]">
+      <div className="flex flex-1 items-stretch">
         {/* Sidebar */}
          {sidebarOpen && (
-        <aside className="w-72 bg-white border-r flex flex-col h-screen">
+        <aside className="w-72 bg-white border-r flex flex-col">
 
           {/* TOP */}
           <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
