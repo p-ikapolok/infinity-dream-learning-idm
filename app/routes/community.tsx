@@ -12,8 +12,9 @@ export default function CommunityFullPage() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showNotifications, setShowNotifications] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
-    const NavItem = ({ icon, text, children }) => (
-  <div className="flex items-center justify-between group cursor-pointer">
+    const NavItem = ({ icon, text, children, onClick }) => (
+  <div onClick={onClick} 
+className="flex items-center justify-between group cursor-pointer">
     <div className="flex items-center gap-3 group-hover:text-black">
       <span className="w-5 h-5">{icon}</span>
       <span>{text}</span>
