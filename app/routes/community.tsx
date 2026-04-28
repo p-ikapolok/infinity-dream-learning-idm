@@ -10,6 +10,173 @@ export default function CommunityFullPage() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [showNotifications, setShowNotifications] = useState(false);
     const [profileOpen, setProfileOpen] = useState(false);
+    const NavItem = ({ icon, text, children }) => (
+  <div className="flex items-center justify-between group cursor-pointer">
+    <div className="flex items-center gap-3 group-hover:text-black">
+      <span className="w-5 h-5">{icon}</span>
+      <span>{text}</span>
+    </div>
+    {children}
+  </div>
+);
+
+const Section = ({ title, children }) => (
+  <div>
+    <div className="flex items-center justify-between text-gray-500 text-xs mb-2">
+      <span>{title} ⌄</span>
+      <span>•••</span>
+    </div>
+    <div className="space-y-1">{children}</div>
+  </div>
+);
+
+const SectionItem = ({ icon, text, children, active }) => (
+  <div
+    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer ${
+      active
+        ? "bg-blue-500 text-white"
+        : "hover:bg-gray-100 text-gray-700"
+    }`}
+  >
+    <div className="flex items-center gap-3">
+      <span className="w-4 h-4">{icon}</span>
+      <span className="text-sm">{text}</span>
+    </div>
+    {children}
+  </div>
+);
+
+const Badge = ({ children, red }) => (
+  <span
+    className={`text-xs px-2 py-0.5 rounded-full ${
+      red ? "bg-red-500 text-white" : "bg-gray-200 text-gray-700"
+    }`}
+  >
+    {children}
+  </span>
+);
+
+/* ================= SVG ICONS ================= */
+
+const SearchIcon = () => (
+  <svg className="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <circle cx="11" cy="11" r="7" />
+    <line x1="20" y1="20" x2="16.5" y2="16.5" />
+  </svg>
+);
+
+const BellIcon = () => (
+  <svg className="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M18 16H6l-1 1h14l-1-1z" />
+    <path d="M6 16V11a6 6 0 0112 0v5" />
+    <path d="M10 18a2 2 0 004 0" />
+  </svg>
+);
+
+const MessageIcon = () => (
+  <svg className="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M21 15a4 4 0 01-4 4H8l-5 3V7a4 4 0 014-4h10a4 4 0 014 4z" />
+  </svg>
+);
+
+const BookmarkIcon = () => (
+  <svg className="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M6 3h12v18l-6-4-6 4z" />
+  </svg>
+);
+
+const HomeIcon = () => (
+  <svg className="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M3 10l9-7 9 7" />
+    <path d="M5 10v10h14V10" />
+  </svg>
+);
+
+const CalendarIcon = () => (
+  <svg className="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <rect x="3" y="5" width="18" height="16" rx="2" />
+    <line x1="3" y1="10" x2="21" y2="10" />
+    <line x1="8" y1="3" x2="8" y2="7" />
+    <line x1="16" y1="3" x2="16" y2="7" />
+  </svg>
+);
+
+const ChartIcon = () => (
+  <svg className="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <rect x="4" y="10" width="3" height="10" />
+    <rect x="10" y="6" width="3" height="14" />
+    <rect x="16" y="3" width="3" height="17" />
+  </svg>
+);
+
+const TrophyIcon = () => (
+  <svg className="w-4 h-4 fill-current text-yellow-500" viewBox="0 0 24 24">
+    <path d="M7 4h10v3a5 5 0 01-10 0V4z" />
+    <rect x="10" y="14" width="4" height="3" />
+  </svg>
+);
+
+const FlagIcon = () => (
+  <svg className="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 24 24">
+    <path d="M4 3v18" stroke="currentColor" strokeWidth="1.5" fill="none"/>
+    <path d="M4 4h10l-2 4 2 4H4z" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg className="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="10" />
+    <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" fill="none"/>
+  </svg>
+);
+
+const UserIcon = () => (
+  <svg className="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 24 24">
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4 20a8 8 0 0116 0" />
+  </svg>
+);
+
+const MegaphoneIcon = () => (
+  <svg className="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 24 24">
+    <path d="M3 11v2a2 2 0 002 2h2l5 4V5l-5 4H5a2 2 0 00-2 2z" />
+  </svg>
+);
+
+const StarIcon = () => (
+  <svg className="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 24 24">
+    <path d="M12 2l3 6 6 .9-4.5 4.4 1 6.7L12 18l-5.5 3 1-6.7L3 8.9 9 8z" />
+  </svg>
+);
+
+const UsersIcon = () => (
+  <svg className="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 24 24">
+    <circle cx="9" cy="8" r="3" />
+    <circle cx="17" cy="10" r="2.5" />
+    <path d="M2 20a7 7 0 0114 0" />
+  </svg>
+);
+
+const HeartIcon = () => (
+  <svg className="w-4 h-4 fill-current text-indigo-500" viewBox="0 0 24 24">
+    <path d="M12 21s-7-5-9-9a5 5 0 019-6 5 5 0 019 6c-2 4-9 9-9 9z" />
+  </svg>
+);
+
+const ExternalIcon = () => (
+  <svg className="w-4 h-4 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path d="M14 3h7v7" />
+    <path d="M10 14L21 3" />
+    <path d="M21 14v7h-7" />
+    <path d="M3 10v11h11" />
+  </svg>
+);
+
+const DotIcon = () => (
+  <svg className="w-3 h-3 fill-current" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="5" />
+  </svg>
+);
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
 
@@ -143,127 +310,101 @@ export default function CommunityFullPage() {
       {/* Community Section */}
       <div className="flex flex-1 min-h-[500px]">
         {/* Sidebar */}
-        {sidebarOpen && (
-          <aside className="w-64 bg-white shadow-lg flex flex-col justify-between">
-            <div className="p-6 space-y-6 overflow-y-auto">
-              <nav className="space-y-2">
-                <a href="#" className="block text-gray-700 hover:text-blue-600">
-                  Search
-                </a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">
-                  Notifications
-                </a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">
-                  Direct messages
-                </a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">
-                  Bookmarks
-                </a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">
-                  Feed
-                </a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">
-                  Events
-                </a>
-                <a href="#" className="block text-gray-700 hover:text-blue-600">
-                  Leaderboard
-                </a>
-              </nav>
+         {sidebarOpen && (
+        <aside className="w-72 bg-white border-r h-full flex flex-col justify-between">
 
-              {/* Infinity */}
-              <div>
-                <h4 className="text-sm font-semibold text-gray-800">Infinity</h4>
-                <nav className="space-y-2 mt-2">
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Our Community
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Infinity Community
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Infinity Events
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Infinity Announcements
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Infinity Alumni Community
-                  </a>
-                </nav>
-              </div>
+          {/* TOP */}
+          <div className="overflow-y-auto px-4 py-4 space-y-6">
 
-              {/* Welcome */}
-              <div>
-                <h4 className="text-sm font-semibold text-gray-800">Welcome</h4>
-                <nav className="space-y-2 mt-2">
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Start Here!
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Welcome Checklist
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Introduce Yourself
-                  </a>
-                </nav>
-              </div>
+            {/* MAIN NAV */}
+            <nav className="space-y-4 text-gray-700 text-sm">
+              <NavItem icon={<SearchIcon />} text="Search" />
 
-              {/* Community */}
-              <div>
-                <h4 className="text-sm font-semibold text-gray-800">Community</h4>
-                <nav className="space-y-2 mt-2">
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Announcements
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Member Spotlight
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Share Your Wins
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Interest Groups
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Community Events
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Community Corner
-                  </a>
-                </nav>
-              </div>
+              <NavItem icon={<BellIcon />} text="Notifications">
+                <Badge red>2</Badge>
+              </NavItem>
 
-              {/* Resources */}
-              <div>
-                <h4 className="text-sm font-semibold text-gray-800">Resources</h4>
-                <nav className="space-y-2 mt-2">
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Download Android App
-                  </a>
-                  <a href="#" className="block text-gray-700 hover:text-blue-600">
-                    Download iOS App
-                  </a>
-                </nav>
-              </div>
+              <NavItem icon={<MessageIcon />} text="Direct messages" />
+
+              <NavItem icon={<BookmarkIcon />} text="Bookmarks" />
+
+              <NavItem icon={<HomeIcon />} text="Feed" />
+
+              <NavItem icon={<CalendarIcon />} text="Events" />
+
+              <NavItem icon={<ChartIcon />} text="Leaderboard" />
+            </nav>
+
+            {/* INFINITY */}
+            <Section title="Infinity">
+              <SectionItem active icon={<DotIcon />} text="Our Community" />
+              <SectionItem icon={<TrophyIcon />} text="Infinity Community" />
+              <SectionItem icon={<CalendarIcon />} text="Infinity Events" />
+              <SectionItem icon={<BellIcon />} text="Infinity Announcements" />
+              <SectionItem icon={<UsersIcon />} text="Infinity Alumni Community" />
+            </Section>
+
+            {/* WELCOME */}
+            <Section title="Welcome">
+              <SectionItem icon={<FlagIcon />} text="Start Here!">
+                <Badge>1</Badge>
+              </SectionItem>
+
+              <SectionItem icon={<CheckIcon />} text="Welcome Checklist" />
+
+              <SectionItem icon={<UserIcon />} text="Introduce Yourself">
+                <Badge>99+</Badge>
+              </SectionItem>
+            </Section>
+
+            {/* COMMUNITY */}
+            <Section title="Community">
+              <SectionItem icon={<MegaphoneIcon />} text="Announcements">
+                <Badge>12</Badge>
+              </SectionItem>
+
+              <SectionItem icon={<UserIcon />} text="Member Spotlight" />
+
+              <SectionItem icon={<StarIcon />} text="Share Your Wins">
+                <Badge>99+</Badge>
+              </SectionItem>
+
+              <SectionItem icon={<UsersIcon />} text="Interest Groups" />
+
+              <SectionItem icon={<CalendarIcon />} text="Community Events">
+                <Badge>32</Badge>
+              </SectionItem>
+
+              <SectionItem icon={<HeartIcon />} text="Community Corner">
+                <Badge>25</Badge>
+              </SectionItem>
+            </Section>
+
+            {/* RESOURCES */}
+            <Section title="Resources">
+              <SectionItem icon={<ExternalIcon />} text="Download Android App" />
+              <SectionItem icon={<ExternalIcon />} text="Download iOS App" />
+            </Section>
+
+          </div>
+
+          {/* PROFILE */}
+          <div className="border-t p-4 flex items-start gap-3">
+            <img
+              src="/images/profile.png"
+              alt="Peter Ikapolok"
+              className="w-10 h-10 rounded-full object-cover"
+            />
+            <div className="text-sm">
+              <p className="font-semibold text-gray-800">Peter Ikapolok</p>
+              <p className="text-gray-500 text-xs leading-tight">
+                Virtual Assistant | Specializing in Administrative Support |
+                Helping Entrepreneurs Increase Productivity
+              </p>
             </div>
+          </div>
 
-            <div className="p-6 border-t">
-              <div className="flex items-center space-x-3">
-                <img
-                  src="/images/profile.png"
-                  alt="Peter Ikapolok"
-                  className="w-10 h-10 rounded-full object-cover"
-                />
-                <div>
-                  <p className="text-gray-800 font-semibold">Peter Ikapolok</p>
-                  <p className="text-sm text-gray-600">
-                    Virtual Assistant | Specializing in Administrative Support |
-                    Helping Entrepreneurs Increase Productivity
-                  </p>
-                </div>
-              </div>
-            </div>
-          </aside>
+        </aside>  
         )}
 
         {/* Main Content */}
