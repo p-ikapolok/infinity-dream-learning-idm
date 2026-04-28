@@ -663,27 +663,57 @@ const CommentIcon = () => (
 
 
 {/* BUTTONS */}
-<div className="flex flex-wrap gap-4 mt-6">
+<div className="flex justify-center items-center gap-5 mt-8 flex-wrap">
 
-  <button className="flex items-center gap-2 px-5 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800">
-    <span className="font-semibold">alx</span>
-    Programs
-  </button>
+  {/* ALX */}
+  <a
+    href="https://www.alxafrica.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-6 py-3 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition shadow-sm"
+  >
+    <span className="font-semibold">ALX</span>
+    <span>Programs</span>
+  </a>
 
-  <button className="flex items-center gap-2 px-5 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800">
-    <InstagramIcon />
-    Instagram
-  </button>
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-6 py-3 bg-gradient-to-tr from-pink-500 via-red-500 to-yellow-500 text-white rounded-full hover:scale-105 transition shadow-sm"
+  >
+    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+      <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5.8A4.2 4.2 0 1112 16a4.2 4.2 0 010-8.2zm5.5-1.3a1 1 0 110 2 1 1 0 010-2zM12 9a3 3 0 100 6 3 3 0 000-6z"/>
+    </svg>
+    <span>Instagram</span>
+  </a>
 
-  <button className="flex items-center gap-2 px-5 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800">
-    <LinkedInIcon />
-    LinkedIn
-  </button>
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-6 py-3 bg-[#0A66C2] text-white rounded-full hover:bg-[#004182] transition shadow-sm"
+  >
+    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+      <path d="M6.94 6.5A1.94 1.94 0 115 4.56 1.94 1.94 0 016.94 6.5zM5.2 8.5h3.5V19H5.2zm6 0h3.36v1.44h.05c.47-.9 1.6-1.84 3.3-1.84 3.53 0 4.18 2.32 4.18 5.34V19h-3.5v-4.86c0-1.16 0-2.66-1.62-2.66s-1.87 1.27-1.87 2.58V19h-3.5z"/>
+    </svg>
+    <span>LinkedIn</span>
+  </a>
 
-  <button className="flex items-center gap-2 px-5 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800">
-    <XIcon />
-    X
-  </button>
+  {/* X */}
+  <a
+    href="https://x.com/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition shadow-sm"
+  >
+    <svg viewBox="0 0 24 24" className="w-5 h-5 fill-current">
+      <path d="M18.9 2H22l-7.5 8.6L23 22h-6.6l-5.2-6.8L4.9 22H2l8-9.2L1 2h6.7l4.7 6.2L18.9 2zm-2.3 18h1.8L7.6 4H5.6l11 16z"/>
+    </svg>
+    <span>X</span>
+  </a>
 
 </div>
 
