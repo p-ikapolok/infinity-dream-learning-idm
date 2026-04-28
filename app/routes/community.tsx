@@ -436,7 +436,7 @@ const CommentIcon = () => (
           </div>
 
           {/* PROFILE */}
-<div className="border-t p-4 mt-20 flex items-center gap-3">
+<div className="border-t p-4 mt-auto flex items-center gap-3">
 
   {/* FULLY ROUND SVG AVATAR */}
   <svg
