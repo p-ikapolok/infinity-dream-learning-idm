@@ -361,7 +361,7 @@ const CommentIcon = () => (
         <aside className="w-72 bg-white border-r flex flex-col h-full">
 
           {/* TOP */}
-          <div className="overflow-y-auto px-4 py-4 space-y-6">
+          <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
 
             {/* MAIN NAV */}
             <nav className="space-y-4 text-gray-700 text-sm">
