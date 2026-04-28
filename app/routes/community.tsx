@@ -498,18 +498,22 @@ const CommentIcon = () => (
               <img src="/images/alx-logo.png" alt="ALX Logo" className="h-8" />
             </div>
 
-            <button className="text-gray-600 hover:text-gray-800">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="w-6 h-6"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="12" cy="5" r="1.5" />
-                <circle cx="12" cy="12" r="1.5" />
-                <circle cx="12" cy="19" r="1.5" />
-              </svg>
-            </button>
+            {/* PROFILE ICON */}
+<div
+  onClick={() => setProfileOpen(!profileOpen)}
+  className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition shadow-sm cursor-pointer"
+>
+  <svg
+    viewBox="0 0 24 24"
+    className="w-6 h-6 text-gray-700"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+  >
+    <circle cx="12" cy="8" r="4" />
+    <path d="M4 20a8 8 0 0116 0" />
+  </svg>
+</div>
           </div>
 
           <main className="px-6 flex-1 overflow-y-auto">
