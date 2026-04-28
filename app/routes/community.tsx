@@ -389,20 +389,26 @@ const DotIcon = () => (
           </div>
 
           {/* PROFILE */}
-<div className="border-t p-4 mt-6 flex items-start gap-3">
+<div className="border-t p-4 mt-10 flex items-center gap-3">
 
-  {/* SVG AVATAR */}
-  <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-6 h-6 text-gray-600"
-      fill="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <circle cx="12" cy="8" r="4" />
-      <path d="M4 20a8 8 0 0116 0" />
-    </svg>
-  </div>
+  {/* FULLY ROUND SVG AVATAR */}
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-10 h-10"
+    viewBox="0 0 24 24"
+  >
+    {/* Outer full circle */}
+    <circle cx="12" cy="12" r="12" fill="#E5E7EB" />
+
+    {/* Head */}
+    <circle cx="12" cy="9" r="3.5" fill="#6B7280" />
+
+    {/* Shoulders */}
+    <path
+      d="M6 18a6 6 0 0112 0"
+      fill="#6B7280"
+    />
+  </svg>
 
   {/* TEXT */}
   <div className="text-sm">
