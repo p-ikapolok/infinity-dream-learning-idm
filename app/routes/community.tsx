@@ -389,20 +389,31 @@ const DotIcon = () => (
           </div>
 
           {/* PROFILE */}
-          <div className="border-t p-4 flex items-start gap-3">
-            <img
-              src="/images/profile.png"
-              alt="Peter Ikapolok"
-              className="w-10 h-10 rounded-full object-cover"
-            />
-            <div className="text-sm">
-              <p className="font-semibold text-gray-800">Peter Ikapolok</p>
-              <p className="text-gray-500 text-xs leading-tight">
-                Virtual Assistant | Specializing in Administrative Support |
-                Helping Entrepreneurs Increase Productivity
-              </p>
-            </div>
-          </div>
+<div className="border-t p-4 mt-6 flex items-start gap-3">
+
+  {/* SVG AVATAR */}
+  <div className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      className="w-6 h-6 text-gray-600"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <circle cx="12" cy="8" r="4" />
+      <path d="M4 20a8 8 0 0116 0" />
+    </svg>
+  </div>
+
+  {/* TEXT */}
+  <div className="text-sm">
+    <p className="font-semibold text-gray-800">Peter Ikapolok</p>
+    <p className="text-gray-500 text-xs leading-tight">
+      Virtual Assistant | Specializing in Administrative Support |
+      Helping Entrepreneurs Increase Productivity
+    </p>
+  </div>
+
+</div>
 
         </aside>  
         )}
