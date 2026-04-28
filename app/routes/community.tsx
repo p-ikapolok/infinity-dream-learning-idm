@@ -662,6 +662,73 @@ const DotIcon = () => (
   </button>
 
 </div>
+
+     {/* CARDS GRID */}
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
+  {/* CARD 1 */}
+  <div className="bg-white rounded-xl shadow-sm overflow-hidden border">
+    
+    <img
+      src="/images/graduation.png"
+      className="w-full h-44 object-cover"
+    />
+
+    <div className="p-4 space-y-3">
+      <p className="text-gray-800 font-medium">
+        🎓 Wellness Wednesday: It’s Graduation Week — Let’s Finish...
+      </p>
+
+      <div className="flex items-center gap-6 text-gray-500 text-sm">
+        <div className="flex items-center gap-1">
+          <HeartIcon />
+          <span>131</span>
+        </div>
+
+        <div className="flex items-center gap-1">
+          <CommentIcon />
+          <span>0</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+  {/* CARD 2 */}
+  <div className="bg-white rounded-xl shadow-sm overflow-hidden border">
+    
+    <img
+      src="/images/success-kit.png"
+      className="w-full h-44 object-cover"
+    />
+
+    <div className="p-4">
+      <p className="text-gray-800 font-medium flex items-center gap-2">
+        🏆 ALX Success Kit
+      </p>
+    </div>
+
+  </div>
+
+
+  {/* CARD 3 */}
+  <div className="bg-white rounded-xl shadow-sm overflow-hidden border">
+    
+    <img
+      src="/images/alx-hubs.png"
+      className="w-full h-44 object-cover"
+    />
+
+    <div className="p-4">
+      <p className="text-gray-800 font-medium flex items-center gap-2">
+        🌍 ALX Hubs!
+      </p>
+    </div>
+
+  </div>
+
+</div>
           </main>
         </div>
       </div>
