@@ -1,17 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-export default function SearchModal({ isOpen, onClose }) {
-  // Close on ESC key
-  useEffect(() => {
-    const handleEsc = (e) => {
-      if (e.key === "Escape") onClose();
-    };
+type SearchModalProps = {
+  isOpen: boolean;
+  onClose: () => void;
+};
 
-    window.addEventListener("keydown", handleEsc);
-    return () => window.removeEventListener("keydown", handleEsc);
-  }, [onClose]);
-
-  // Don't render if closed
+export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
   if (!isOpen) return null;
 
   return (
@@ -19,24 +13,15 @@ export default function SearchModal({ isOpen, onClose }) {
       className="fixed inset-0 z-50 flex items-start justify-center bg-black/30 backdrop-blur-sm"
       onClick={onClose}
     >
-      {/* MODAL BOX */}
+      {/* MODAL */}
       <div
         className="mt-24 w-[90%] max-w-2xl bg-white rounded-xl shadow-xl p-6"
         onClick={(e) => e.stopPropagation()}
       >
         {/* SEARCH INPUT */}
         <div className="flex items-center gap-3 border rounded-lg px-4 py-3 text-gray-500">
-          {/* ICON */}
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <circle cx="11" cy="11" r="7" />
-            <line x1="20" y1="20" x2="16.5" y2="16.5" />
-          </svg>
+          
+          <SearchIcon />
 
           <input
             type="text"
@@ -48,19 +33,10 @@ export default function SearchModal({ isOpen, onClose }) {
 
         {/* EMPTY STATE */}
         <div className="flex flex-col items-center justify-center text-center py-16">
-          {/* BIG ICON */}
-          <svg
-            className="w-10 h-10 text-gray-400 mb-4"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            viewBox="0 0 24 24"
-          >
-            <circle cx="11" cy="11" r="7" />
-            <line x1="20" y1="20" x2="16.5" y2="16.5" />
-          </svg>
 
-          <h2 className="text-lg font-semibold text-gray-800">
+          <SearchLargeIcon />
+
+          <h2 className="text-lg font-semibold text-gray-800 mt-2">
             Search the community
           </h2>
 
@@ -68,8 +44,38 @@ export default function SearchModal({ isOpen, onClose }) {
             Try searching for keywords in posts, comments, events,
             lessons, spaces and more...
           </p>
+
         </div>
       </div>
     </div>
   );
 }
+
+
+/* ================= ICONS ================= */
+
+const SearchIcon = () => (
+  <svg
+    className="w-5 h-5"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+  >
+    <circle cx="11" cy="11" r="7" />
+    <line x1="20" y1="20" x2="16.5" y2="16.5" />
+  </svg>
+);
+
+const SearchLargeIcon = () => (
+  <svg
+    className="w-10 h-10 text-gray-400 mb-4"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    viewBox="0 0 24 24"
+  >
+    <circle cx="11" cy="11" r="7" />
+    <line x1="20" y1="20" x2="16.5" y2="16.5" />
+  </svg>
+);
