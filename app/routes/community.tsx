@@ -830,6 +830,15 @@ viewBox="0 0 24 24">
 
         <p className="text-center text-sm">© 2026 Infinity. All rights reserved.</p>
       </footer>
+
+<SearchModal
+  isOpen={searchOpen}
+  onClose={() => setSearchOpen(false)}
+/>
+
+{searchOpen && (
+  <SearchModal onClose={() => setSearchOpen(false)} />
+)}
     </div>
   );
 }
