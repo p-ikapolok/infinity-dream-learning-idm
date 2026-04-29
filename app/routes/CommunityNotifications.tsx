@@ -430,7 +430,7 @@ isActive ? "text-blue-700" : ""
 </NavLink>  
         </nav>  
 
-        {/* INFINITY */}  
+        {/* INFINITY */} 
         <Section title="Infinity">  
           <SectionItem active icon={<DotIcon />} text="Our Community" />  
           <SectionItem icon={<TrophyIcon />} text="Infinity Community" />  
