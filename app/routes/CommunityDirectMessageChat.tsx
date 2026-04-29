@@ -6,6 +6,27 @@ import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 import SearchModal from "../components/SearchModal";
 
 export default function CommunityNotificationsPage() {
+
+  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([
+    { id: 1, text: "Hey 👋", sender: "them" },
+    { id: 2, text: "Are you coming today?", sender: "them" },
+    { id: 3, text: "Yes, I will be there!", sender: "me" },
+  ]);
+
+  const [isTyping, setIsTyping] = useState(true);
+
+  const sendMessage = () => {
+    if (!message.trim()) return;
+
+    setMessages([
+      ...messages,
+      { id: Date.now(), text: message, sender: "me" },
+    ]);
+
+    setMessage("");
+  };
+
   const { id } = useParams();
 
 console.log(id); // tells you which chat was clicked
@@ -565,89 +586,140 @@ viewBox="0 0 24 24"
   </svg>  
 </div>  
           </div>  
-      <div className="flex-1 bg-gray-50 min-h-screen">
+      <div className="flex flex-col h-screen bg-gray-100">
 
-      {/* Header */}
-      <div className="bg-white border-b px-6 py-4">
-        <h1 className="text-lg font-semibold text-gray-800">
-          Notifications
-        </h1>
-      </div>
+      {/* ================= HEADER ================= */}
+      <div className="bg-green-600 text-white px-4 py-3 flex items-center justify-between shadow">
 
-      {/* Tabs */}
-      <div className="bg-white border-b px-6">
-        <div className="flex items-center justify-between">
+        {/* LEFT */}
+        <div className="flex items-center gap-3">
+          {/* Avatar */}
+          <div className="relative">
+            <div className="w-10 h-10 rounded-full bg-gray-300"></div>
 
-          {/* Left Tabs */}
-          <div className="flex space-x-6 text-sm">
-            {tabs.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setActiveTab(tab)}
-                className={`py-3 border-b-2 transition ${
-                  activeTab === tab
-                    ? "border-gray-800 text-gray-900 font-medium"
-                    : "border-transparent text-gray-500 hover:text-gray-800"
-                }`}
-              >
-                {tab}
-              </button>
-            ))}
+            {/* ONLINE INDICATOR */}
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 border-2 border-white rounded-full"></span>
           </div>
 
-          {/* Right Icons */}
-          <div className="flex items-center gap-4 text-gray-500">
-
-            {/* Check icon */}
-<button className="hover:text-gray-700">
-  <svg
-    className="w-5 h-5"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.8"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    {/* back check */}
-    <path d="M4 13l3 3 6-8" />
-
-    {/* front check */}
-    <path d="M10 13l3 3 7-9" />
-  </svg>
-</button>
-
-            {/* Settings icon */}
-            <button className="hover:text-gray-700">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                viewBox="0 0 24 24"
-              >
-                <circle cx="12" cy="12" r="3" />
-                <path d="M19.4 15a1.7 1.7 0 000-6l2-1-2-3-2.3 1a6.5 6.5 0 00-3-1.7L13 2h-2l-.6 2.3a6.5 6.5 0 00-3 1.7L5 5 3 8l2 1a1.7 1.7 0 000 6l-2 1 2 3 2.3-1a6.5 6.5 0 003 1.7L11 22h2l.6-2.3a6.5 6.5 0 003-1.7L19 19l2-3-2-1z" />
-              </svg>
-            </button>
+          {/* Name + typing */}
+          <div>
+            <h2 className="font-semibold">User {id}</h2>
+            <p className="text-xs text-green-200">
+              {isTyping ? "typing..." : "online"}
+            </p>
           </div>
+        </div>
+
+        {/* RIGHT ACTIONS */}
+        <div className="flex items-center gap-4">
+
+          {/* AUDIO CALL */}
+          <button onClick={() => console.log("Audio Call")}>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.09 4.18 2 2 0 014.06 2h3a2 2 0 012 1.72c.12.9.37 1.78.72 2.6a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.48-1.48a2 2 0 012.11-.45c.82.35 1.7.6 2.6.72A2 2 0 0122 16.92z" />
+            </svg>
+          </button>
+
+          {/* VIDEO CALL */}
+          <button onClick={() => console.log("Video Call")}>
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="white"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+            >
+              <rect x="2" y="7" width="15" height="10" rx="2" />
+              <polygon points="17 12 22 9 22 15 17 12" />
+            </svg>
+          </button>
 
         </div>
       </div>
 
-      {/* Empty State */}
-      <div className="flex flex-col items-center justify-center text-center h-[70vh] text-gray-500">
-        <h2 className="text-lg font-semibold text-gray-700">
-          No notifications
-        </h2>
-        <p className="text-sm mt-1">
-          Notifications will show up here.
-        </p>
+      {/* ================= CHAT BODY ================= */}
+      <div className="flex-1 overflow-y-auto px-4 py-3 space-y-3">
+
+        {messages.map((msg) => (
+          <div
+            key={msg.id}
+            className={`flex ${
+              msg.sender === "me" ? "justify-end" : "justify-start"
+            }`}
+          >
+            <div
+              className={`px-4 py-2 rounded-lg max-w-[70%] text-sm ${
+                msg.sender === "me"
+                  ? "bg-green-500 text-white"
+                  : "bg-white text-gray-800"
+              }`}
+            >
+              {msg.text}
+            </div>
+          </div>
+        ))}
+
+        {/* TYPING INDICATOR */}
+        {isTyping && (
+          <div className="flex justify-start">
+            <div className="bg-white px-4 py-2 rounded-lg flex gap-1">
+              <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></span>
+              <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-150"></span>
+              <span className="w-2 h-2 bg-gray-400 rounded-full animate-bounce delay-300"></span>
+            </div>
+          </div>
+        )}
+
+      </div>
+
+      {/* ================= INPUT AREA ================= */}
+      <div className="bg-white px-3 py-2 flex items-center gap-2 border-t">
+
+        {/* INPUT */}
+        <input
+          type="text"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Type a message"
+          className="flex-1 px-4 py-2 rounded-full bg-gray-100 focus:outline-none"
+        />
+
+        {/* RECORD BUTTON */}
+        <button onClick={() => console.log("Record audio")}>
+          <svg
+            className="w-6 h-6 text-gray-600"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" />
+            <path d="M19 10v2a7 7 0 01-14 0v-2" />
+            <line x1="12" y1="19" x2="12" y2="23" />
+            <line x1="8" y1="23" x2="16" y2="23" />
+          </svg>
+        </button>
+
+        {/* SEND BUTTON */}
+        <button onClick={sendMessage}>
+          <svg
+            className="w-6 h-6 text-green-600"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path d="M2 21l21-9L2 3v7l15 2-15 2z" />
+          </svg>
+        </button>
+
       </div>
 
     </div>
-</div>
-</div>
 
       {/* Footer */}  
       <footer className="bg-blue-900 text-white px-6 py-10 mt-10">  
