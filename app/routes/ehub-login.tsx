@@ -1,7 +1,20 @@
 import { useState } from "react";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function EhubLogin() {
+  const handleLogin = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  if (email && password) {
+    // Save login state
+    localStorage.setItem("isLoggedIn", "true");
+
+    // Go to loading screen FIRST
+    navigate("/ehub-loading");
+  } else {
+    alert("Please enter your email and password.");
+  }
+};
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
