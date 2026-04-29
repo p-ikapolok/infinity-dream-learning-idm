@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { useNavigate, Link, NavLink } from "react-router-dom";
+import { useNavigate, Link, NavLink, useParams } from "react-router-dom";
 import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 import SearchModal from "../components/SearchModal";
 
 export default function CommunityNotificationsPage() {
+  const { id } = useParams();
+
+console.log(id); // tells you which chat was clicked
+
   const [activeTab, setActiveTab] = useState("Inbox");
 
   const tabs = ["Inbox", "Mentions", "Following", "All", "Archived"];
