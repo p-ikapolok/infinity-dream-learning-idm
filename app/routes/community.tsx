@@ -375,7 +375,14 @@ const CommentIcon = () => (
   </NavItem>
 </NavLink>
 
-              <NavItem icon={<MessageIcon />} text="Direct messages" />
+              <NavLink
+  to="/direct-messages"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+  <NavItem icon={<MessageIcon />} text="Direct messages" />
+</NavLink>
 
               <NavItem icon={<BookmarkIcon />} text="Bookmarks" />
 
