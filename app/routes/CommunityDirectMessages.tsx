@@ -5,7 +5,46 @@ import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 import SearchModal from "../components/SearchModal";
 
-export default function CommunityFullPage() {
+export default function DirectMessagingPage() {
+  const messages = [
+    {
+      name: "Abel Kayakih",
+      date: "Apr 9",
+      message:
+        "Hey Peter! We have just opened applications for the ALX...",
+      avatar: "/avatars/user1.jpg",
+      unread: false,
+    },
+    {
+      name: "Talent Readiness - ALX",
+      date: "Aug 22, 2025",
+      message:
+        "Peter Ikapolok Welcome to the ALX Data Programs. Take a...",
+      avatar: "/avatars/user2.jpg",
+      unread: false,
+    },
+    {
+      name: "Samir Ayub Khan",
+      date: "Aug 13, 2025",
+      message: "Hi Peter! You've made it! Welcome to the ALX alumni...",
+      avatar: "/avatars/user3.jpg",
+      unread: true,
+    },
+    {
+      name: "Isdor, Pauline, Grace + 4",
+      date: "Mar 24, 2025",
+      message: "You: Thank you George",
+      avatar: "/avatars/user4.jpg",
+      unread: false,
+    },
+    {
+      name: "PEER GROUP ALX",
+      date: "Mar 9, 2025",
+      message: "You: https://sandtech.jotform.com/250612101775044",
+      avatar: "/avatars/user5.jpg",
+      unread: false,
+    },
+  ];
 const [searchOpen, setSearchOpen] = useState(false);
 const [sidebarOpen, setSidebarOpen] = useState(true);
 const navigate = useNavigate();
@@ -521,7 +560,94 @@ viewBox="0 0 24 24"
     <path d="M4 20a8 8 0 0116 0" />  
   </svg>  
 </div>  
-          </div>   
+          </div> 
+     <div className="min-h-screen bg-white">
+      {/* HEADER */}
+      <div className="flex items-center justify-between px-6 py-4 border-b">
+        <h1 className="text-lg font-semibold text-gray-800">
+          Direct Messaging
+        </h1>
+
+        <div className="flex items-center gap-4 text-gray-500">
+          {/* Check icon */}
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M4 12l4 4 6-8" />
+            <path d="M10 12l4 4 6-8" />
+          </svg>
+
+          {/* Plus icon */}
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.8"
+            viewBox="0 0 24 24"
+          >
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+        </div>
+      </div>
+
+      {/* TABS */}
+      <div className="flex items-center gap-6 px-6 pt-3 border-b text-sm">
+        <button className="pb-2 border-b-2 border-black font-medium text-gray-900">
+          Inbox
+        </button>
+
+        <button className="pb-2 text-gray-500 flex items-center gap-2">
+          Unread
+          <span className="text-xs bg-gray-200 px-2 py-0.5 rounded-full">
+            1
+          </span>
+        </button>
+      </div>
+
+      {/* MESSAGE LIST */}
+      <div>
+        {messages.map((msg, index) => (
+          <div
+            key={index}
+            className="flex items-center justify-between px-6 py-4 border-b hover:bg-gray-50 cursor-pointer"
+          >
+            <div className="flex items-center gap-3">
+              {/* Avatar */}
+              <img
+                src={msg.avatar}
+                alt={msg.name}
+                className="w-10 h-10 rounded-full object-cover"
+              />
+
+              {/* Text */}
+              <div>
+                <div className="flex items-center gap-2">
+                  <p className="text-sm font-semibold text-gray-800">
+                    {msg.name}
+                  </p>
+                  <span className="text-xs text-gray-400">
+                    {msg.date}
+                  </span>
+                </div>
+
+                <p className="text-sm text-gray-500 truncate max-w-md">
+                  {msg.message}
+                </p>
+              </div>
+            </div>
+
+            {/* Unread dot */}
+            {msg.unread && (
+              <div className="w-2.5 h-2.5 bg-blue-500 rounded-full"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>  
       
 </div>
 </div>
