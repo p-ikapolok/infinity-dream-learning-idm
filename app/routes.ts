@@ -27,4 +27,5 @@ export default [
   route("settings-work-info", "routes/settings-work-info.tsx"),
   route("settings-demographic-info", "routes/settings-demographic-info.tsx"),
   route("RewardsPage", "routes/RewardsPage.tsx"),
+  route("CommunityNotifications", "routes/CommunityNotifications.tsx"),
 ] satisfies RouteConfig;
