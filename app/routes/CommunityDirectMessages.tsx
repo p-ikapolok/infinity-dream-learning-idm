@@ -652,8 +652,6 @@ viewBox="0 0 24 24"
   ))}
 </div>
       </div>
-    </div>  
-      
 </div>
 </div>
 
