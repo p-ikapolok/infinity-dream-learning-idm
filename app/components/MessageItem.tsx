@@ -5,7 +5,7 @@ export default function MessageItem({ msg }) {
 
   return (
     <div
-      onClick={() => navigate(`/CommunityDirectMessageChat/${msg.id}`)}
+      onClick={() => navigate(`/message/${msg.id}`)}
       className="flex items-start gap-3 p-3 rounded-lg cursor-pointer hover:bg-gray-100 transition active:scale-[0.98]"
     >
       {/* Avatar */}
