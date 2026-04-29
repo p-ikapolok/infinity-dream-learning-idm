@@ -4,6 +4,7 @@ import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 import SearchModal from "../components/SearchModal";
+import MessageItem from "../components/MessageItem";
 
 export default function CommunityNotificationsPage() {
   const [activeTab, setActiveTab] = useState("Inbox");
@@ -692,6 +693,10 @@ onClose={() => setSearchOpen(false)}
 {searchOpen && (
 <SearchModal onClose={() => setSearchOpen(false)} />
 )}
+
+{messages.map((msg) => (
+  <MessageItem key={msg.id} msg={msg} />
+))}
 
 </div>
 );
