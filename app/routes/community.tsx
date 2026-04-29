@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, NavLink } from "react-router-dom";
 import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
@@ -374,9 +374,16 @@ const CommentIcon = () => (
   onClick={() => setSearchOpen(true)}
 />
 
-              <NavItem icon={<BellIcon />} text="Notifications">
-                <Badge red>2</Badge>
-              </NavItem>
+              <NavLink
+  to="/community-notifications"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+  <NavItem icon={<BellIcon />} text="Notifications">
+    <Badge red>2</Badge>
+  </NavItem>
+</NavLink>
 
               <NavItem icon={<MessageIcon />} text="Direct messages" />
 
@@ -847,3 +854,5 @@ viewBox="0 0 24 24">
     </div>
   );
 }
+
+
