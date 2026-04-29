@@ -351,16 +351,6 @@ className="text-gray-700 font-semibold cursor-pointer hover:text-blue-600"
     </div>  
   </section>  
 
-  {/* Greeting */}  
-  <section className="px-6 py-6">  
-    <h2 className="text-xl font-semibold text-gray-800">  
-      Welcome back, Peter!  
-    </h2>  
-    <p className="text-gray-600 mt-1">  
-      Let's turn those lessons into action.  
-    </p>  
-  </section>  
-
   {/* Community Section */}  
   <div className="flex flex-1 items-stretch">  
     {/* Sidebar */}  
