@@ -737,6 +737,10 @@ onClose={() => setSearchOpen(false)}
 <SearchModal onClose={() => setSearchOpen(false)} />
 )}
 
+{messages.map((msg) => (
+  <MessageItem key={msg.id} msg={msg} />
+))}
+
 </div>
 );
 }
