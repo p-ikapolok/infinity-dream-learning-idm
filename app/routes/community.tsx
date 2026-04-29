@@ -372,9 +372,9 @@ const CommentIcon = () => (
     isActive ? "text-blue-700" : ""
   }
 >
-  <NavItem icon={<BellIcon />} text="Notifications">
+  <SectionItem icon={<BellIcon />} text="Notifications">
     <Badge red>2</Badge>
-  </NavItem>
+  </SectionItem>
 </NavLink>
 
               <NavLink
@@ -383,7 +383,7 @@ const CommentIcon = () => (
     isActive ? "text-blue-700" : ""
   }
 >
-  <NavItem icon={<MessageIcon />} text="Direct messages" />
+  <SectionItem icon={<MessageIcon />} text="Direct messages" />
 </NavLink>
 
               <NavLink
