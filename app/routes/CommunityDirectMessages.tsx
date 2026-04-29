@@ -97,22 +97,23 @@ const Section = ({ title, children }) => (
   </div>  
 );  
 
-const SectionItem = ({ icon, text, children, active }) => (
-
-  <div  
-    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer ${  
-      active  
-        ? "bg-blue-500 text-white"  
-        : "hover:bg-gray-100 text-gray-700"  
-    }`}  
-  >  
-    <div className="flex items-center gap-3">  
-      <span className="w-4 h-4">{icon}</span>  
-      <span className="text-sm">{text}</span>  
-    </div>  
-    {children}  
-  </div>  
-);  
+const SectionItem = ({ icon, text, children, active, onClick }) => (
+  <div onClick={onClick}
+    className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer transition active:scale-95 ${
+      active
+        ? "bg-blue-500 text-white"
+        : "hover:bg-gray-100 text-gray-700"
+    }`}
+  >
+    <div className="flex items-center gap-3">
+      <span className="w-4 h-4">{icon}</span>
+      <span className="text-sm">{text}</span>
+    </div>
+   <div onClick={(e) => e.stopPropagation()}>
+    {children}
+  </div>
+  </div>
+);
 
 const Badge = ({ children, red }) => (
   <span
