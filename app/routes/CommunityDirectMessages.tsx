@@ -651,7 +651,6 @@ viewBox="0 0 24 24"
     <MessageItem key={index} msg={msg} index={index} />
   ))}
 </div>
-        ))}
       </div>
     </div>  
       
