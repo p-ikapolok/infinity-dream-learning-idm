@@ -5,7 +5,7 @@ import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 import SearchModal from "../components/SearchModal";
 
-export default function DirectMessagingPage() {
+export default function CommunityDirectMessages() {
   const messages = [
     {
       name: "Abel Kayakih",
