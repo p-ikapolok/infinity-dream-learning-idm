@@ -716,27 +716,6 @@ viewBox="0 0 24 24"
     </svg>
   </button>
 
-  {/* INPUT */}
-  <input
-    type="text"
-    value={message}
-    onChange={(e) => setMessage(e.target.value)}
-    placeholder="Type a message"
-    className="flex-1 px-4 py-2 rounded-full bg-gray-100 focus:outline-none"
-  />
-
-  {/* MIC */}
-  <button onClick={() => console.log("Record audio")}>
-    {/* your mic svg */}
-  </button>
-
-  {/* SEND */}
-  <button onClick={sendMessage}>
-    {/* your send svg */}
-  </button>
-
-</div>
-
         {/* INPUT */}
         <input
           type="text"
