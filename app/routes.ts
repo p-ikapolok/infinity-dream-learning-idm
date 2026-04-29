@@ -29,5 +29,5 @@ export default [
   route("RewardsPage", "routes/RewardsPage.tsx"),
   route("CommunityNotifications", "routes/CommunityNotifications.tsx"),
   route("CommunityDirectMessages", "routes/CommunityDirectMessages.tsx"),
-  route("EhubLoadingScreen", "routes/EhubLoadingScreen.tsx),
+  route("EhubLoadingScreen", "routes/EhubLoadingScreen.tsx"),
 ] satisfies RouteConfig;
