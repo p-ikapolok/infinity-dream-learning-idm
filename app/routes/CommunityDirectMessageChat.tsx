@@ -680,7 +680,6 @@ viewBox="0 0 24 24"
 
       {/* ================= INPUT AREA ================= */}
       <div className="bg-white px-3 py-2 flex items-center gap-2 border-t">
-     <div className="bg-white px-3 py-2 flex items-center gap-2 border-t">
 
   {/* EMOJI */}
   <button>
