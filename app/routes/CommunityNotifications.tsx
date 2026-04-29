@@ -5,7 +5,7 @@ import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu";
 import SearchModal from "../components/SearchModal";
 
-export default function NotificationsPage() {
+export default function CommunityNotifications() {
   const navigate = useNavigate();
 
   const [searchOpen, setSearchOpen] = useState(false);
