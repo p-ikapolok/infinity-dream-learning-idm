@@ -7,7 +7,7 @@ export default function EhubLoadingScreen() {
   // Auto redirect after 3 seconds
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/dashboard"); // change to your main page
+      navigate("/ehub"); // change to your main page
     }, 3000);
 
     return () => clearTimeout(timer);
