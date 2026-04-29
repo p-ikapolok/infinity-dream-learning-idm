@@ -560,3 +560,139 @@ viewBox="0 0 24 24"
     <path d="M4 20a8 8 0 0116 0" />  
   </svg>  
 </div>  
+          </div>  
+      <div className="flex-1 bg-gray-50 min-h-screen">
+
+      {/* Header */}
+      <div className="bg-white border-b px-6 py-4">
+        <h1 className="text-lg font-semibold text-gray-800">
+          Notifications
+        </h1>
+      </div>
+
+      {/* Tabs */}
+      <div className="bg-white border-b px-6">
+        <div className="flex items-center justify-between">
+
+          {/* Left Tabs */}
+          <div className="flex space-x-6 text-sm">
+            {tabs.map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`py-3 border-b-2 transition ${
+                  activeTab === tab
+                    ? "border-gray-800 text-gray-900 font-medium"
+                    : "border-transparent text-gray-500 hover:text-gray-800"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          {/* Right Icons */}
+          <div className="flex items-center gap-4 text-gray-500">
+
+            {/* Check icon */}
+<button className="hover:text-gray-700">
+  <svg
+    className="w-5 h-5"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    {/* back check */}
+    <path d="M4 13l3 3 6-8" />
+
+    {/* front check */}
+    <path d="M10 13l3 3 7-9" />
+  </svg>
+</button>
+
+            {/* Settings icon */}
+            <button className="hover:text-gray-700">
+              <svg
+                className="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M19.4 15a1.7 1.7 0 000-6l2-1-2-3-2.3 1a6.5 6.5 0 00-3-1.7L13 2h-2l-.6 2.3a6.5 6.5 0 00-3 1.7L5 5 3 8l2 1a1.7 1.7 0 000 6l-2 1 2 3 2.3-1a6.5 6.5 0 003 1.7L11 22h2l.6-2.3a6.5 6.5 0 003-1.7L19 19l2-3-2-1z" />
+              </svg>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Empty State */}
+      <div className="flex flex-col items-center justify-center text-center h-[70vh] text-gray-500">
+        <h2 className="text-lg font-semibold text-gray-700">
+          No notifications
+        </h2>
+        <p className="text-sm mt-1">
+          Notifications will show up here.
+        </p>
+      </div>
+
+    </div>
+</div>
+</div>
+
+      {/* Footer */}  
+      <footer className="bg-blue-900 text-white px-6 py-10 mt-10">  
+        <div className="text-center mb-6">  
+          <h2 className="text-xl font-bold">infinity Hub</h2>  
+          <p className="mt-2">The community of those who value time.</p>  
+        </div>  <div className="flex flex-wrap justify-center space-x-4 text-sm mb-6">  
+      <a href="#" className="hover:underline">  
+        Home  
+      </a>  
+      <a href="#" className="hover:underline">  
+        Learning  
+      </a>  
+      <a href="#" className="hover:underline">  
+        Community  
+      </a>  
+      <a href="#" className="hover:underline">  
+        Rewards  
+      </a>  
+      <a href="#" className="hover:underline">  
+        Support  
+      </a>  
+      <a href="#" className="hover:underline">  
+        Privacy policy  
+      </a>  
+      <a href="#" className="hover:underline">  
+        Terms & Conditions  
+      </a>  
+    </div>  
+
+    <div className="flex justify-center space-x-6 mb-6">  
+      <img src="/icons/x.png" alt="X" className="w-6 h-6" />  
+      <img src="/icons/linkedin.png" alt="LinkedIn" className="w-6 h-6" />  
+      <img src="/icons/facebook.png" alt="Facebook" className="w-6 h-6" />  
+      <img src="/icons/instagram.png" alt="Instagram" className="w-6 h-6" />  
+    </div>  
+
+    <p className="text-center text-sm">© 2026 Infinity. All rights reserved.</p>  
+  </footer>
+
+<SearchModal
+isOpen={searchOpen}
+onClose={() => setSearchOpen(false)}
+/>
+
+{searchOpen && (
+<SearchModal onClose={() => setSearchOpen(false)} />
+)}
+
+</div>
+);
+}
