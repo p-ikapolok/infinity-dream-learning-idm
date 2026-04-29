@@ -559,17 +559,23 @@ viewBox="0 0 24 24"
           <div className="flex items-center gap-4 text-gray-500">
             
             {/* Check icon */}
-            <button className="hover:text-gray-700">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.8"
-                viewBox="0 0 24 24"
-              >
-                <path d="M5 13l4 4L19 7" />
-              </svg>
-            </button>
+<button className="hover:text-gray-700">
+  <svg
+    className="w-5 h-5"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    {/* back check */}
+    <path d="M4 13l3 3 6-8" />
+
+    {/* front check */}
+    <path d="M10 13l3 3 7-9" />
+  </svg>
+</button>
 
             {/* Settings icon */}
             <button className="hover:text-gray-700">
