@@ -22,7 +22,9 @@ className="flex items-center justify-between group cursor-pointer">
     </div>  
     {children}  
   </div>  
-);  const InstagramIcon = () => (
+);  
+
+const InstagramIcon = () => (
 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
 <rect x="3" y="3" width="18" height="18" rx="5" />
 <circle cx="12" cy="12" r="4" fill="white"/>
@@ -54,7 +56,9 @@ const Section = ({ title, children }) => (
     </div>  
     <div className="space-y-1">{children}</div>  
   </div>  
-);  const SectionItem = ({ icon, text, children, active }) => (
+);  
+
+const SectionItem = ({ icon, text, children, active }) => (
 
   <div  
     className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer ${  
@@ -69,16 +73,19 @@ const Section = ({ title, children }) => (
     </div>  
     {children}  
   </div>  
-);  const Badge = ({ children, red }) => (
-<span
-className={text-xs px-2 py-0.5 rounded-full ${   red ? "bg-red-500 text-white" : "bg-gray-200 text-gray-700"   }}
+);  
 
-> 
+const Badge = ({ children, red }) => (
+  <span
+    className={`text-xs px-2 py-0.5 rounded-full ${
+      red ? "bg-red-500 text-white" : "bg-gray-200 text-gray-700"
+    }`}
+  >
+    {children}
+  </span>
+);  
 
-{children}
-
-  </span>  
-);  /* ================= SVG ICONS ================= */
+/* ================= SVG ICONS ================= */
 
 const SearchIcon = () => (
 <svg className="w-5 h-5 stroke-[1.6]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
