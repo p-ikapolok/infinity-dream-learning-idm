@@ -580,5 +580,7 @@ onClose={() => setSearchOpen(false)}
 <SearchModal onClose={() => setSearchOpen(false)} />
 )}
 </div>
+</div>
+</div>
 );
 }
