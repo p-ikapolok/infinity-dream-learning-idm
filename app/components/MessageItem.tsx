@@ -1,9 +1,13 @@
-export default function MessageItem({messages.map((msg, index) => (
-  <div
-    key={index}
-    onClick={() => navigate(`/CommunityDirectMessageChat/${index}`)}
-    className="flex items-center justify-between px-6 py-4 border-b hover:bg-gray-50 cursor-pointer"
-  >
+import { useNavigate } from "react-router-dom";
+
+export default function MessageItem({ msg, index }) {
+  const navigate = useNavigate();
+
+  return (
+    <div
+      onClick={() => navigate(`/CommunityDirectMessageChat/${index}`)}
+      className="flex items-center justify-between px-6 py-4 border-b hover:bg-gray-50 cursor-pointer"
+    >
       <div className="flex items-center gap-3">
         <img
           src={msg.avatar}
