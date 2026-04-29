@@ -399,7 +399,7 @@ className="text-gray-700 font-semibold cursor-pointer hover:text-blue-600"
 
         {/* MAIN NAV */}  
         <nav className="space-y-4 text-gray-700 text-sm">  
-          <NavItem
+          <SectionItem
 
 icon={<SearchIcon />}
 text="Search"
@@ -415,9 +415,9 @@ isActive ? "text-blue-700" : ""
 
 > 
 
-<NavItem icon={<BellIcon />} text="Notifications">
+<SectionItem icon={<BellIcon />} text="Notifications">
 <Badge red>2</Badge>
-</NavItem>
+</SectionItem>
 </NavLink>
 
               <NavLink
@@ -426,7 +426,7 @@ isActive ? "text-blue-700" : ""
     isActive ? "text-blue-700" : ""
   }
 >
-  <NavItem icon={<MessageIcon />} text="Direct messages" />
+  <SectionItem icon={<MessageIcon />} text="Direct messages" />
 </NavLink>
 
               <NavLink
@@ -435,7 +435,7 @@ isActive ? "text-blue-700" : ""
     isActive ? "text-blue-700" : ""
   }
 >
-  <NavItem icon={<BookmarkIcon />} text="Bookmarks" />
+  <SectionItem icon={<BookmarkIcon />} text="Bookmarks" />
 </NavLink>
 
 <NavLink
@@ -444,7 +444,7 @@ isActive ? "text-blue-700" : ""
     isActive ? "text-blue-700" : ""
   }
 >
-  <NavItem icon={<HomeIcon />} text="Feed" />
+  <SectionItem icon={<HomeIcon />} text="Feed" />
 </NavLink>
 
 <NavLink
@@ -453,7 +453,7 @@ isActive ? "text-blue-700" : ""
     isActive ? "text-blue-700" : ""
   }
 >
-  <NavItem icon={<CalendarIcon />} text="Events" />
+  <SectionItem icon={<CalendarIcon />} text="Events" />
 </NavLink>
 
 <NavLink
@@ -462,7 +462,7 @@ isActive ? "text-blue-700" : ""
     isActive ? "text-blue-700" : ""
   }
 >
-  <NavItem icon={<ChartIcon />} text="Leaderboard" />
+  <SectionItem icon={<ChartIcon />} text="Leaderboard" />
 </NavLink>    
         </nav>  
 
