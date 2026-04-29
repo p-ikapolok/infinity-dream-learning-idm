@@ -531,7 +531,11 @@ viewBox="0 0 24 24"
     <path d="M4 20a8 8 0 0116 0" />  
   </svg>  
 </div>  
-          </div>  
+          </div>   
+      
+</div>
+</div>
+
       {/* Footer */}  
       <footer className="bg-blue-900 text-white px-6 py-10 mt-10">  
         <div className="text-center mb-6">  
@@ -579,8 +583,7 @@ onClose={() => setSearchOpen(false)}
 {searchOpen && (
 <SearchModal onClose={() => setSearchOpen(false)} />
 )}
-</div>
-</div>
+
 </div>
 );
 }
