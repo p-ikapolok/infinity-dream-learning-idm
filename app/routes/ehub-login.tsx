@@ -19,19 +19,6 @@ export default function EhubLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Simulate login validation
-    if (email && password) {
-      // Here you can add real authentication logic
-      // After successful login, redirect to dashboard
-      navigate("/ehub"); // <-- make sure your route points to ehub.tsx
-    } else {
-      alert("Please enter your email and password.");
-    }
-  };
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
