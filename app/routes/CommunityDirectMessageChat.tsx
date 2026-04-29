@@ -720,7 +720,6 @@ viewBox="0 0 24 24"
       </div>
      </div>
     </div>
-   </div>
 
       {/* Footer */}  
       <footer className="bg-blue-900 text-white px-6 py-10 mt-10">  
