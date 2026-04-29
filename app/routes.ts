@@ -28,4 +28,5 @@ export default [
   route("settings-demographic-info", "routes/settings-demographic-info.tsx"),
   route("RewardsPage", "routes/RewardsPage.tsx"),
   route("CommunityNotifications", "routes/CommunityNotifications.tsx"),
+  route("CommunityDirectMessages", "routes/CommunityDirectMessages.tsx"),
 ] satisfies RouteConfig;
