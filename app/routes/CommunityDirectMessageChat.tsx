@@ -680,6 +680,62 @@ viewBox="0 0 24 24"
 
       {/* ================= INPUT AREA ================= */}
       <div className="bg-white px-3 py-2 flex items-center gap-2 border-t">
+     <div className="bg-white px-3 py-2 flex items-center gap-2 border-t">
+
+  {/* EMOJI */}
+  <button>
+    <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+      <line x1="9" y1="9" x2="9.01" y2="9" />
+      <line x1="15" y1="9" x2="15.01" y2="9" />
+    </svg>
+  </button>
+
+  {/* ATTACH (PAPERCLIP) */}
+  <button>
+    <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <path d="M21 12.5V7a5 5 0 00-10 0v10a3 3 0 006 0V8" />
+    </svg>
+  </button>
+
+  {/* CAMERA */}
+  <button>
+    <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <path d="M23 19V7a2 2 0 00-2-2h-3l-2-2H8L6 5H3a2 2 0 00-2 2v12a2 2 0 002 2h18a2 2 0 002-2z" />
+      <circle cx="12" cy="13" r="4" />
+    </svg>
+  </button>
+
+  {/* PHOTO */}
+  <button>
+    <svg className="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <circle cx="8.5" cy="8.5" r="1.5" />
+      <path d="M21 15l-5-5L5 21" />
+    </svg>
+  </button>
+
+  {/* INPUT */}
+  <input
+    type="text"
+    value={message}
+    onChange={(e) => setMessage(e.target.value)}
+    placeholder="Type a message"
+    className="flex-1 px-4 py-2 rounded-full bg-gray-100 focus:outline-none"
+  />
+
+  {/* MIC */}
+  <button onClick={() => console.log("Record audio")}>
+    {/* your mic svg */}
+  </button>
+
+  {/* SEND */}
+  <button onClick={sendMessage}>
+    {/* your send svg */}
+  </button>
+
+</div>
 
         {/* INPUT */}
         <input
