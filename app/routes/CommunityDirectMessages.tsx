@@ -4,6 +4,7 @@ import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
 import SearchModal from "../components/SearchModal";
+import MessageItem from "../components/MessageItem";
 
 export default function CommunityDirectMessages() {
   const messages = [
