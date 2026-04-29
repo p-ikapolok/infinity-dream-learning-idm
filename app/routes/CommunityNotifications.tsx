@@ -383,15 +383,50 @@ isActive ? "text-blue-700" : ""
 </NavItem>
 </NavLink>
 
-<NavItem icon={<MessageIcon />} text="Direct messages" />  
+              <NavLink
+  to="/CommunityDirectMessages"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+  <NavItem icon={<MessageIcon />} text="Direct messages" />
+</NavLink>
 
-          <NavItem icon={<BookmarkIcon />} text="Bookmarks" />  
+              <NavLink
+  to="/bookmarks"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+  <NavItem icon={<BookmarkIcon />} text="Bookmarks" />
+</NavLink>
 
-          <NavItem icon={<HomeIcon />} text="Feed" />  
+<NavLink
+  to="/feed"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+  <NavItem icon={<HomeIcon />} text="Feed" />
+</NavLink>
 
-          <NavItem icon={<CalendarIcon />} text="Events" />  
+<NavLink
+  to="/events"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+  <NavItem icon={<CalendarIcon />} text="Events" />
+</NavLink>
 
-          <NavItem icon={<ChartIcon />} text="Leaderboard" />  
+<NavLink
+  to="/leaderboard"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+  <NavItem icon={<ChartIcon />} text="Leaderboard" />
+</NavLink>  
         </nav>  
 
         {/* INFINITY */}  
