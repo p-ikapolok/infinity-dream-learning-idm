@@ -10,7 +10,7 @@ export default function EhubLogin() {
     localStorage.setItem("isLoggedIn", "true");
 
     // Go to loading screen FIRST
-    navigate("/ehub-loading");
+    navigate("/EhubLoadingScreen");
   } else {
     alert("Please enter your email and password.");
   }
