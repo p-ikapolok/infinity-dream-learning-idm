@@ -376,7 +376,7 @@ const CommentIcon = () => (
 </NavLink>
 
               <NavLink
-  to="/direct-messages"
+  to="/CommunityDirectMessages"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
