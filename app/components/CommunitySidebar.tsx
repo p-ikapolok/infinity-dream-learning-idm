@@ -1,4 +1,4 @@
-export default function Banner() {
+export default function CommunitySidebar() {
 const [searchOpen, setSearchOpen] = useState(false);
 const [sidebarOpen, setSidebarOpen] = useState(true);
 const navigate = useNavigate();
