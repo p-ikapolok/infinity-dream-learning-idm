@@ -1,4 +1,15 @@
 export default function Banner() {
+const Section = ({ title, children }) => (
+
+  <div>  
+    <div className="flex items-center justify-between text-gray-500 text-xs mb-2">  
+      <span>{title} ⌄</span>  
+      <span>•••</span>  
+    </div>  
+    <div className="space-y-1">{children}</div>  
+  </div>  
+);  
+
   return (
      {/* Banner */}  
   <section className="relative">  
