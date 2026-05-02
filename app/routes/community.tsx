@@ -387,7 +387,7 @@ const CommentIcon = () => (
 </NavLink>
 
               <NavLink
-  to="/bookmarks"
+  to="/CommunityBookmarks"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
@@ -396,7 +396,7 @@ const CommentIcon = () => (
 </NavLink>
 
 <NavLink
-  to="/CommunityBookmarks"
+  to="/feeds"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
