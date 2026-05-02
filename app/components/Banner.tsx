@@ -11,6 +11,7 @@ const Section = ({ title, children }) => (
 );  
 
   return (
+<>
      {/* Banner */}  
   <section className="relative">  
     <img  
@@ -26,5 +27,6 @@ const Section = ({ title, children }) => (
       <p className="mt-1">Track your progress, achieve your goals.</p>  
     </div>  
   </section>  
+ </>
   );
 }
