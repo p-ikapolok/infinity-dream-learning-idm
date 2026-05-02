@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Header from "./feader";
+import Header from "./header";
 import Banner from "./Banner";
 import CommunityHeader from "./CommunityHeader";
 import Sidebar from "./CommunitySidebar";
