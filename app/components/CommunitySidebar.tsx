@@ -206,6 +206,7 @@ viewBox="0 0 24 24"
 );  
 
   return (
+   <>
      {sidebarOpen && (  
     <aside className="w-72 bg-white border-r flex flex-col">  
 
@@ -372,4 +373,5 @@ viewBox="0 0 24 24"
     </div>  
    </aside>   
   );
+</>
 }
