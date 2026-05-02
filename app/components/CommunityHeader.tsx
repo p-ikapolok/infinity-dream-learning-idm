@@ -1,7 +1,5 @@
 export default function CommunityHeader() {
   return (
-<>
-           {/* Community Header */}  
       <div className="flex items-center justify-between p-6 bg-white shadow mb-6">  
         <div className="flex items-center gap-4">  
           <button  
@@ -44,6 +42,5 @@ export default function CommunityHeader() {
        </svg>  
       </div>  
      </div> 
-</>
   );
 }
