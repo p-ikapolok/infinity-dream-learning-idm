@@ -336,7 +336,9 @@ className="text-gray-700 font-semibold cursor-pointer hover:text-blue-600"
 )}  
       </div>  
         </div>  
-      </header>  {/* Banner */}  
+      </header> 
+
+ {/* Banner */}  
   <section className="relative">  
     <img  
       src="/images/banner.png"  
