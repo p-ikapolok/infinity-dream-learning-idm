@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
-import Header from "../components/Header";
-import Banner from "../components/Banner";
-import CommunityHeader from "../components/CommunityHeader";
-import Sidebar from "../components/Sidebar";
-import Footer from "../components/Footer";
+import Header from "./Header";
+import Banner from "./Banner";
+import CommunityHeader from "./CommunityHeader";
+import Sidebar from "./Sidebar";
+import Footer from "./Footer";
 
 type Props = {
   children: ReactNode;
@@ -18,7 +18,6 @@ export default function CommunityLayout({
 }: Props) {
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col">
-
       {/* HEADER 1 */}
       <Header />
 
@@ -33,7 +32,6 @@ export default function CommunityLayout({
 
       {/* MAIN AREA */}
       <div className="flex flex-1 items-stretch">
-
         {/* SIDEBAR */}
         {sidebarOpen && <Sidebar />}
 
@@ -41,12 +39,10 @@ export default function CommunityLayout({
         <div className="flex-1 flex flex-col">
           {children}
         </div>
-
       </div>
 
       {/* FOOTER */}
       <Footer />
-
     </div>
   );
 }
