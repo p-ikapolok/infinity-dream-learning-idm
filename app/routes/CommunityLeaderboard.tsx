@@ -26,7 +26,6 @@ const LEADERBOARD_DATA = [
 ];
 
 export default function CommunityLeaderboard() {
-   const [sidebarOpen, setSidebarOpen] = useState(true);
  const [timeframe, setTimeframe] = useState<'This Week' | 'This Month' | 'All Time'>('This Month');
 
   // Helper function to render the correct rank indicator
