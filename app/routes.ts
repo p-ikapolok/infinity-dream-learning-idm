@@ -39,5 +39,5 @@ export default [
   
   // Engagement & Content
   route("CommunityEvents", "routes/CommunityEvents.tsx"),
-  route("CommunityAnnouncements", "routes/CommunityAnnouncements.tsx"),
+  route("CommunityAnnouncement", "routes/CommunityAnnouncement.tsx"),
 ] satisfies RouteConfig;
