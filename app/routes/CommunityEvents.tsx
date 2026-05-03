@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CommunityLayout from '../components/CommunityLayout';
+import CreateEventModal from '../components/CreateEventModal';
 
 // --- Embedded SVGs ---
 const CalendarIcon = () => (
@@ -88,6 +89,14 @@ const MOCK_EVENTS: EventData[] = [
 ];
 
 export default function CommunityEvents() {
+const [isEventModalOpen, setIsEventModalOpen] = useState(false);
+
+  const handleCreateEvent = (eventData: any) => {
+    console.log("New Event Scheduled!", eventData);
+    // In the future, this will POST to your backend and refresh the events list
+    setIsEventModalOpen(false);
+  };
+
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [filter, setFilter] = useState<'All' | 'Upcoming' | 'My RSVPs'>('All');
   const [events, setEvents] = useState<EventData[]>(MOCK_EVENTS);
@@ -118,6 +127,23 @@ export default function CommunityEvents() {
             <h1 className="text-2xl font-semibold text-gray-900 tracking-tight">Community Events</h1>
             <p className="text-gray-500 mt-1 text-sm">Discover workshops, Q&A sessions, and peer study groups.</p>
           </div>
+
+{/*  THE SCHEDULE EVENT BUTTON */}
+        <button 
+          onClick={() => setIsEventModalOpen(true)}
+          className="flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors shadow-sm"
+        >
+          {/* Calendar + SVG */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+            <line x1="12" y1="14" x2="12" y2="18"></line>
+            <line x1="10" y1="16" x2="14" y2="16"></line>
+          </svg>
+          Schedule Event
+        </button>
           
           {/* Pill Filter Navigation */}
           <div className="flex items-center gap-1 bg-gray-50 p-1 rounded-full border border-gray-100 w-max self-start md:self-auto">
@@ -217,6 +243,11 @@ export default function CommunityEvents() {
             </div>
           )}
         </div>
+   <CreateEventModal 
+        isOpen={isEventModalOpen}
+        onClose={() => setIsEventModalOpen(false)}
+        onSubmit={handleCreateEvent}
+      />
       </div>
     </CommunityLayout>
   );
