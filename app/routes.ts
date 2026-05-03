@@ -37,4 +37,5 @@ export default [
   route("CommunityAnnouncement", "routes/CommunityAnnouncement.tsx"),
   route("CommunityEvents", "routes/CommunityEvents.tsx"),
   route("CommunitySpotlight", "routes/CommunitySpotlight.tsx"),
+  route("CommunityProfile", "routes/CommunityProfile.tsx"),
 ] satisfies RouteConfig;
