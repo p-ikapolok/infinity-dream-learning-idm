@@ -46,6 +46,7 @@ const INITIAL_GROUPS: Group[] = [
 ];
 
 export default function InterestGroups() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [groups, setGroups] = useState<Group[]>(INITIAL_GROUPS);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [filter, setFilter] = useState<'All Groups' | 'My Groups'>('All Groups');
@@ -69,7 +70,10 @@ export default function InterestGroups() {
   });
 
   return (
-    <CommunityLayout>
+    <CommunityLayout
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+>
       <div className="flex flex-col h-full bg-white animate-in fade-in slide-in-from-bottom-4 duration-500 rounded-lg">
         
         {/* Header Section */}
