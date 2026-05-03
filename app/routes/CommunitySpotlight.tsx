@@ -72,10 +72,14 @@ const SPOTLIGHT_MEMBERS: SpotlightMember[] = [
 ];
 
 export default function CommunitySpotlight() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [filter, setFilter] = useState<'This Month' | 'All Time'>('This Month');
 
   return (
-    <CommunityLayout>
+    <CommunityLayout
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+>
       <div className="flex flex-col h-full bg-white animate-in fade-in slide-in-from-bottom-4 duration-500 rounded-lg">
         
         {/* Header Section */}
