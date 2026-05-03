@@ -330,8 +330,8 @@ CalendarIcon />} text="Infinity Events" />
   }
 >
           <SectionItem icon={<UsersIcon />} text="Infinity Alumni Community" />  
+     </NavLink>
         </Section>  
-    </NavLink>
 
         {/* WELCOME */}  
         <Section title="Welcome"> 
@@ -364,8 +364,8 @@ CalendarIcon />} text="Infinity Events" />
           <SectionItem icon={<UserIcon />} text="Introduce Yourself">  
             <Badge>99+</Badge>  
           </SectionItem>  
+       </NavLink>
         </Section>  
-   </NavLink>
 
         {/* COMMUNITY */}  
         <Section title="Community">  
@@ -430,8 +430,8 @@ CalendarIcon />} text="Infinity Events" />
           <SectionItem icon={<HeartIconFilled />} text="Community Corner">  
             <Badge>25</Badge>  
           </SectionItem>  
-        </Section>  
      </NavLink>
+        </Section>  
 
         {/* RESOURCES */}  
         <Section title="Resources">  
