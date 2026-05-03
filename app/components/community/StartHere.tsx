@@ -28,7 +28,6 @@ const UserPlusIcon = () => (
 
 export default function StartHere() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   return (
     <CommunityLayout
   sidebarOpen={sidebarOpen}
