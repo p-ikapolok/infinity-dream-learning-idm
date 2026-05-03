@@ -386,7 +386,7 @@ const CommentIcon = () => (
   <SectionItem icon={<MessageIcon />} text="Direct messages" />
 </NavLink>
 
-              <NavLink
+                            <NavLink
   to="/CommunityBookmarks"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
@@ -405,7 +405,7 @@ const CommentIcon = () => (
 </NavLink>
 
 <NavLink
-  to="/events"
+  to="/CommunityEvents"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
@@ -414,58 +414,163 @@ const CommentIcon = () => (
 </NavLink>
 
 <NavLink
-  to="/leaderboard"
+  to="/CommunityLeaderboard"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
 >
   <SectionItem icon={<ChartIcon />} text="Leaderboard" />
-</NavLink>
-            </nav>
+</NavLink>  
+        </nav>  
 
-            {/* INFINITY */}
-            <Section title="Infinity">
-              <SectionItem active icon={<DotIcon />} text="Our Community" />
-              <SectionItem icon={<TrophyIcon />} text="Infinity Community" />
-              <SectionItem icon={<CalendarIcon />} text="Infinity Events" />
-              <SectionItem icon={<BellIcon />} text="Infinity Announcements" />
-              <SectionItem icon={<UsersIcon />} text="Infinity Alumni Community" />
-            </Section>
+        {/* INFINITY */} 
+        <Section title="Infinity"> 
 
-            {/* WELCOME */}
-            <Section title="Welcome">
-              <SectionItem icon={<FlagIcon />} text="Start Here!">
-                <Badge>1</Badge>
-              </SectionItem>
+        <NavLink
+  to="/OurCommunity"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+> 
+          <SectionItem active icon={<DotIcon />} text="Our Community" />  
+ </NavLink>
 
-              <SectionItem icon={<CheckIcon />} text="Welcome Checklist" />
+        <NavLink
+  to="/InfinityCommunity"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<TrophyIcon />} text="Infinity Community" />  
+       </NavLink>
 
-              <SectionItem icon={<UserIcon />} text="Introduce Yourself">
-                <Badge>99+</Badge>
-              </SectionItem>
-            </Section>
+      <NavLink
+  to="/InfinityEvents"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<
+CalendarIcon />} text="Infinity Events" /> 
+   </NavLink>
 
-            {/* COMMUNITY */}
-            <Section title="Community">
-              <SectionItem icon={<MegaphoneIcon />} text="Announcements">
-                <Badge>12</Badge>
-              </SectionItem>
+      <NavLink
+  to="/InfinityAnnouncements"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+> 
+          <SectionItem icon={<BellIcon />} text="Infinity Announcements" />  
+  </NavLink>
 
-              <SectionItem icon={<UserIcon />} text="Member Spotlight" />
+      <NavLink
+  to="/InfinityAlimniCommunity"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<UsersIcon />} text="Infinity Alumni Community" />  
+     </NavLink>
+        </Section>  
 
-              <SectionItem icon={<StarIcon />} text="Share Your Wins">
-                <Badge>99+</Badge>
-              </SectionItem>
+        {/* WELCOME */}  
+        <Section title="Welcome"> 
+    <NavLink
+  to="/StartHere"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+> 
+          <SectionItem icon={<FlagIcon />} text="Start Here!">  
+            <Badge>1</Badge>  
+          </SectionItem>  
+      </NavLink>
 
-              <SectionItem icon={<UsersIcon />} text="Interest Groups" />
+<NavLink
+  to="/WelcomeChecklist"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<CheckIcon />} text="Welcome Checklist" /> 
+      </NavLink>
 
-              <SectionItem icon={<CalendarIcon />} text="Community Events">
-                <Badge>32</Badge>
-              </SectionItem>
+<NavLink
+  to="/IntroduceYourself"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<UserIcon />} text="Introduce Yourself">  
+            <Badge>99+</Badge>  
+          </SectionItem>  
+       </NavLink>
+        </Section>  
 
-              <SectionItem icon={<HeartIconFilled />} text="Community Corner">
-                <Badge>25</Badge>
-              </SectionItem>
+        {/* COMMUNITY */}  
+        <Section title="Community">  
+
+<NavLink
+  to="/CommunityAnnouncement"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<MegaphoneIcon />} text="Announcements">  
+            <Badge>12</Badge>  
+          </SectionItem>  
+      </NavLink>
+
+<NavLink
+  to="/CommunitySpotlight"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<UserIcon />} text="Member Spotlight" />  
+    </NavLink>
+
+<NavLink
+  to="/ShareYourWins"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<StarIcon />} text="Share Your Wins">  
+            <Badge>99+</Badge>  
+          </SectionItem>  
+      </NavLink>
+
+<NavLink
+  to="/InterestGroups"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<UsersIcon />} text="Interest Groups" />  
+     </NavLink>
+
+<NavLink
+  to="/CommunityEvents"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<CalendarIcon />} text="Community Events">  
+            <Badge>32</Badge>  
+          </SectionItem>  
+     </NavLink>
+
+<NavLink
+  to="/CommunityCorner"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<HeartIconFilled />} text="Community Corner">  
+            <Badge>25</Badge>  
+          </SectionItem>  
+     </NavLink>
             </Section>
 
             {/* RESOURCES */}
