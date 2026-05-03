@@ -35,11 +35,11 @@ export default [
   route("CommunityFeed", "routes/CommunityFeed.tsx"),
   route("CommunityMembers", "routes/CommunityMembers.tsx"),
   // Directory & Spotlight
-  route("CommunityMembers", "components/CommunityMembers.tsx"),
-  route("CommunitySpotlight", "components/CommunitySpotlight.tsx"),
-  route("CommunityProfile", "components/CommunityProfile.tsx"),
+  route("CommunityMembers", "routes/CommunityMembers.tsx"),
+  route("CommunitySpotlight", "routes/CommunitySpotlight.tsx"),
+  route("CommunityProfile", "routes/CommunityProfile.tsx"),
   
   // Engagement & Content
-  route("CommunityEvents", "components/community/CommunityEvents.tsx"),
-  route("CommunityAnnouncements", "components/CommunityAnnouncements.tsx"),
+  route("CommunityEvents", "routes/CommunityEvents.tsx"),
+  route("CommunityAnnouncements", "routes/CommunityAnnouncements.tsx"),
 ] satisfies RouteConfig;
