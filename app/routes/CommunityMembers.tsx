@@ -57,7 +57,7 @@ const MOCK_MEMBERS = [
 const FILTERS = ["All", "Instructor", "Student", "Alumni"];
 
 export default function CommunityMembers() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("All");
 
