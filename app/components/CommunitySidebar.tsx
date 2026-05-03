@@ -402,7 +402,7 @@ CalendarIcon />} text="Infinity Events" />
       </NavLink>
 
 <NavLink
-  to="/InterestGroup"
+  to="/InterestGroups"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
