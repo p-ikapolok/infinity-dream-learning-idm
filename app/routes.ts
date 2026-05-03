@@ -36,8 +36,6 @@ export default [
   route("CommunityMembers", "routes/CommunityMembers.tsx"),
   route("CommunitySpotlight", "routes/CommunitySpotlight.tsx"),
   route("CommunityProfile", "routes/CommunityProfile.tsx"),
-  
-  // Engagement & Content
   route("CommunityEvents", "routes/CommunityEvents.tsx"),
   route("CommunityAnnouncement", "routes/CommunityAnnouncement.tsx"),
 ] satisfies RouteConfig;
