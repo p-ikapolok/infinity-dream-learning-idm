@@ -33,7 +33,7 @@ const MOCK_POSTS = [
 ];
 
 export default function CommunityFeed() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [postContent, setPostContent] = useState("");
 
   return (
