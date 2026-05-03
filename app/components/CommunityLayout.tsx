@@ -25,7 +25,7 @@ return (
   <Banner />  
 
    {/* MAIN AREA */}
-<div className="flex flex-1 items-stretch">
+<div className="flex flex-1 min-h-0">
 
   {/* SIDEBAR */}
   <aside
