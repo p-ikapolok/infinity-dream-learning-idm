@@ -9,19 +9,8 @@ type Props = {
   children: ReactNode;
 };
 
-type Props = {
-children: ReactNode;
-sidebarOpen: boolean;
-setSidebarOpen: (value: boolean) => void;
-};
-
-export default function CommunityLayout({
-children,
-sidebarOpen,
-setSidebarOpen,
-}: Props) {
-
-const [sidebarOpen, setSidebarOpen] = useState(true);
+export default function CommunityLayout({ children }: Props) {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
 return (
 <div className="bg-gray-50 h-screen flex flex-col overflow-hidden">
