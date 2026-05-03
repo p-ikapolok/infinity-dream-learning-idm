@@ -89,7 +89,6 @@ const MOCK_EVENTS: EventData[] = [
 
 export default function CommunityEvents() {
   const [filter, setFilter] = useState<'All' | 'Upcoming' | 'My RSVPs'>('All');
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [events, setEvents] = useState<EventData[]>(MOCK_EVENTS);
 
   const toggleRsvp = (id: string) => {
