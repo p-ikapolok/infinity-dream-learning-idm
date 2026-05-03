@@ -28,18 +28,22 @@ return (
 <div className="flex flex-1 items-stretch">
 
   {/* SIDEBAR */}
-  {sidebarOpen && <Sidebar />}
+  <aside
+    className={`bg-white border-r transition-all duration-300 ${
+      sidebarOpen ? "w-72" : "w-0 overflow-hidden"
+    }`}
+  >
+    <Sidebar />
+  </aside>
 
   {/* RIGHT SIDE */}
   <div className="flex-1 flex flex-col">
 
-    {/* HEADER 2 */}
     <CommunityHeader
       sidebarOpen={sidebarOpen}
       setSidebarOpen={setSidebarOpen}
     />
 
-    {/* PAGE CONTENT */}
     {children}
 
   </div>
