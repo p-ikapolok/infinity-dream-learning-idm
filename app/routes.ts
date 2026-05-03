@@ -32,4 +32,6 @@ export default [
   route("EhubLoadingScreen", "routes/EhubLoadingScreen.tsx"),
   route("CommunityDirectMessageChat/:id", "routes/CommunityDirectMessageChat.tsx"),
   route("CommunityBookmarks", "routes/CommunityBookmarks.tsx"),
+  route("CommunityFeed", "routes/CommunityFeed.tsx"),
+  route("CommunityMembers", "routes/CommunityMembers.tsx"),
 ] satisfies RouteConfig;
