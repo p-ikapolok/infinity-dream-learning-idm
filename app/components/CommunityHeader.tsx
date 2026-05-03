@@ -1,4 +1,15 @@
-export default function CommunityHeader() {
+type Props = {
+  sidebarOpen: boolean;
+  setSidebarOpen: (value: boolean) => void;
+};
+
+export default function CommunityHeader({
+  sidebarOpen,
+  setSidebarOpen,
+}: Props) {
+
+const [profileOpen, setProfileOpen] = useState(false);
+
   return (
       <div className="flex items-center justify-between p-6 bg-white shadow mb-6">  
         <div className="flex items-center gap-4">  
