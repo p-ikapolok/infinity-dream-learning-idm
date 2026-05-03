@@ -265,7 +265,7 @@ isActive ? "text-blue-700" : ""
 </NavLink>
 
 <NavLink
-  to="/events"
+  to="/CommunityEvents"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
@@ -274,7 +274,7 @@ isActive ? "text-blue-700" : ""
 </NavLink>
 
 <NavLink
-  to="/leaderboard"
+  to="/CommunityLeaderboard"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
