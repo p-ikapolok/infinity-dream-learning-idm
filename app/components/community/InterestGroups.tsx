@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CommunityLayout from '../CommunityLayout';
+import CreateGroupModal from '../CreateGroupModal';
 
 // --- Embedded SVGs ---
 const SearchIcon = () => (
@@ -46,6 +47,12 @@ const INITIAL_GROUPS: Group[] = [
 ];
 
 export default function InterestGroups() {
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const handleCreateGroup = (groupData: any) => {
+    console.log("New Group Created!", groupData);
+    // Here we will eventually update the local list and send to backend
+    setIsCreateModalOpen(false); 
+  };
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [groups, setGroups] = useState<Group[]>(INITIAL_GROUPS);
   const [filter, setFilter] = useState<'All Groups' | 'My Groups'>('All Groups');
@@ -85,6 +92,19 @@ export default function InterestGroups() {
               <h1 className="text-2xl font-semibold text-gray-900 tracking-tight">Interest Groups</h1>
               <p className="text-gray-500 mt-1 text-sm">Find your tribe, join discussions, and learn together.</p>
             </div>
+
+       <button 
+          onClick={() => setIsCreateModalOpen(true)}
+          className="flex items-center px-5 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-full hover:bg-blue-700 transition-colors"
+        >
+          {/* Plus SVG */}
+          <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Create Group
+        </button>
+
           </div>
         </div>
 
@@ -177,6 +197,12 @@ export default function InterestGroups() {
             </div>
           )}
         </div>
+
+<CreateGroupModal 
+        isOpen={isCreateModalOpen} 
+        onClose={() => setIsCreateModalOpen(false)} 
+        onSubmit={handleCreateGroup} 
+      />
         
       </div>
     </CommunityLayout>
