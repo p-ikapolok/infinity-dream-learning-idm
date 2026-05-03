@@ -1,6 +1,5 @@
 export default function CommunitySidebar() {
 const [searchOpen, setSearchOpen] = useState(false);
-const [sidebarOpen, setSidebarOpen] = useState(true);
 const navigate = useNavigate();
 const [menuOpen, setMenuOpen] = useState(false);
 const [showNotifications, setShowNotifications] = useState(false);
