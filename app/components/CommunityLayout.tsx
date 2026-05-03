@@ -24,23 +24,27 @@ export default function CommunityLayout({
       {/* BANNER */}
       <Banner />
        
-       {/* SIDEBAR */}
-        {sidebarOpen && <Sidebar />}
+       {/* MAIN AREA */}
+<div className="flex flex-1 items-stretch">
 
-      {/* HEADER 2 (Community Header) */}
-      <CommunityHeader
-        sidebarOpen={sidebarOpen}
-        setSidebarOpen={setSidebarOpen}
-      />
+  {/* SIDEBAR */}
+  {sidebarOpen && <Sidebar />}
 
-      {/* MAIN AREA */}
-      <div className="flex flex-1 items-stretch"> 
+  {/* RIGHT SIDE */}
+  <div className="flex-1 flex flex-col">
 
-        {/* PAGE CONTENT */}
-        <div className="flex-1 flex flex-col">
-          {children}
-        </div>
-      </div>
+    {/* HEADER 2 */}
+    <CommunityHeader
+      sidebarOpen={sidebarOpen}
+      setSidebarOpen={setSidebarOpen}
+    />
+
+    {/* PAGE CONTENT */}
+    {children}
+
+  </div>
+
+</div>
 
       {/* FOOTER */}
       <Footer />
