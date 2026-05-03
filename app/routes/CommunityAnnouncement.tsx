@@ -64,6 +64,7 @@ const MOCK_ANNOUNCEMENTS: Announcement[] = [
 ];
 
 export default function CommunityAnnouncements() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [filter, setFilter] = useState<'All' | 'Platform' | 'Content'>('All');
 
   const filteredAnnouncements = MOCK_ANNOUNCEMENTS.filter(ann => {
@@ -72,7 +73,10 @@ export default function CommunityAnnouncements() {
   });
 
   return (
-    <CommunityLayout>
+    <CommunityLayout
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+>
       <div className="flex flex-col h-full bg-white animate-in fade-in slide-in-from-bottom-4 duration-500 rounded-lg">
         
         {/* Header Section */}
