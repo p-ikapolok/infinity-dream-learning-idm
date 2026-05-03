@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CommunityLayout from "../components/CommunityLayout";
+import CreatePostModal from '../components/CreatePostModal';
 
 // --- Mock Data ---
 const MOCK_POSTS = [
@@ -33,6 +34,13 @@ const MOCK_POSTS = [
 ];
 
 export default function CommunityFeed() {
+  const [isPostModalOpen, setIsPostModalOpen] = useState(false);
+
+  const handleCreatePost = (postData: any) => {
+    console.log("New Post Created!", postData);
+    // Future: Append this post to the top of the feed array
+    setIsPostModalOpen(false);
+  };
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [postContent, setPostContent] = useState("");
 
@@ -42,6 +50,25 @@ export default function CommunityFeed() {
   setSidebarOpen={setSidebarOpen}
 >
       <div className="max-w-3xl mx-auto p-4 md:p-6 space-y-6">
+
+        {/* THE CREATE POST TRIGGER BOX */}
+      <div className="bg-white p-4 rounded-2xl shadow-sm border border-gray-100 flex items-center gap-4">
+        {/* User Avatar */}
+        <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-blue-500 to-emerald-400 flex-shrink-0 border-2 border-white shadow-sm"></div>
+        
+        {/* Trigger Button that looks like an input */}
+        <button 
+          onClick={() => setIsPostModalOpen(true)}
+          className="flex-1 bg-gray-50 hover:bg-gray-100 transition-colors text-left text-gray-500 px-5 py-3 rounded-full text-sm border border-gray-200"
+        >
+          Share a win, ask a question, or start a discussion...
+        </button>
+
+        {/* Quick Action Icons */}
+        <button onClick={() => setIsPostModalOpen(true)} className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-colors hidden sm:block">
+           <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+        </button>
+      </div>
         
         {/* --- Create Post Section --- */}
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 sm:p-5">
@@ -149,6 +176,12 @@ export default function CommunityFeed() {
             </article>
           ))}
         </div>
+    <CreatePostModal 
+        isOpen={isPostModalOpen}
+        onClose={() => setIsPostModalOpen(false)}
+        onSubmit={handleCreatePost}
+        defaultChannel="General" // You can pass dynamically based on what page the user is on!
+      />
       </div>
     </CommunityLayout>
   );
