@@ -256,7 +256,7 @@ isActive ? "text-blue-700" : ""
 </NavLink>
 
 <NavLink
-  to="/feed"
+  to="/CommunityFeed"
   className={({ isActive }) =>
     isActive ? "text-blue-700" : ""
   }
