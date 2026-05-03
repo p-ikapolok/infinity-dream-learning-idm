@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CommunityLayout from '@/layouts/CommunityLayout';
+import CommunityLayout from '../Components/CommunityLayout';
 
 // --- Embedded SVGs ---
 const CalendarIcon = () => (
