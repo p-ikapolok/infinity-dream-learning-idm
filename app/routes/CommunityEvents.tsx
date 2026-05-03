@@ -88,6 +88,7 @@ const MOCK_EVENTS: EventData[] = [
 ];
 
 export default function CommunityEvents() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [filter, setFilter] = useState<'All' | 'Upcoming' | 'My RSVPs'>('All');
   const [events, setEvents] = useState<EventData[]>(MOCK_EVENTS);
 
@@ -105,7 +106,10 @@ export default function CommunityEvents() {
   });
 
   return (
-    <CommunityLayout>
+    <CommunityLayout
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+>
       <div className="flex flex-col h-full bg-white animate-in fade-in slide-in-from-bottom-4 duration-500 rounded-lg">
         
         {/* Header Section */}
