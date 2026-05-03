@@ -1,6 +1,4 @@
-import { useState } from "react";
-import type { ReactNode } from "react";
-
+import { ReactNode } from "react";
 import Header from "./header";
 import Banner from "./Banner";
 import CommunityHeader from "./CommunityHeader";
@@ -8,45 +6,49 @@ import Sidebar from "./CommunitySidebar";
 import Footer from "./footer";
 
 type Props = {
-  children: ReactNode;
+children: ReactNode;
+sidebarOpen: boolean;
+setSidebarOpen: (value: boolean) => void;
 };
 
-export default function CommunityLayout({ children }: Props) {
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+export default function CommunityLayout({
+children,
+sidebarOpen,
+setSidebarOpen,
+}: Props) {
+return (
+<div className="bg-gray-50 min-h-screen flex flex-col">
+{/* HEADER 1 */}
+<Header />
 
-  return (
-    <div className="bg-gray-50 min-h-screen flex flex-col">
-      {/* HEADER */}
-      <Header />
+{/* BANNER */}  
+  <Banner />  
 
-      {/* BANNER */}
-      <Banner />
+   {/* MAIN AREA */}
+<div className="flex flex-1 items-stretch">
 
-      {/* MAIN AREA */}
-      <div className="flex flex-1 items-stretch">
-        
-        {/* SIDEBAR */}
-        {sidebarOpen && <Sidebar />}
+  {/* SIDEBAR */}
+  {sidebarOpen && <Sidebar />}
 
-        {/* RIGHT SIDE */}
-        <div className="flex-1 flex flex-col">
+  {/* RIGHT SIDE */}
+  <div className="flex-1 flex flex-col">
 
-          {/* COMMUNITY HEADER */}
-          <CommunityHeader
-            sidebarOpen={sidebarOpen}
-            setSidebarOpen={setSidebarOpen}
-          />
+    {/* HEADER 2 */}
+    <CommunityHeader
+      sidebarOpen={sidebarOpen}
+      setSidebarOpen={setSidebarOpen}
+    />
 
-          {/* PAGE CONTENT */}
-          <main className="flex-1">
-            {children}
-          </main>
+    {/* PAGE CONTENT */}
+    {children}
 
-        </div>
-      </div>
+  </div>
 
-      {/* FOOTER */}
-      <Footer />
-    </div>
-  );
+</div>
+
+  {/* FOOTER */}  
+  <Footer />  
+</div>
+
+);
 }
