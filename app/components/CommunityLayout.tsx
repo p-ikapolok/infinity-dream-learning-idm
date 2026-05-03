@@ -23,6 +23,9 @@ export default function CommunityLayout({
 
       {/* BANNER */}
       <Banner />
+       
+       {/* SIDEBAR */}
+        {sidebarOpen && <Sidebar />}
 
       {/* HEADER 2 (Community Header) */}
       <CommunityHeader
@@ -31,9 +34,7 @@ export default function CommunityLayout({
       />
 
       {/* MAIN AREA */}
-      <div className="flex flex-1 items-stretch">
-        {/* SIDEBAR */}
-        {sidebarOpen && <Sidebar />}
+      <div className="flex flex-1 items-stretch"> 
 
         {/* PAGE CONTENT */}
         <div className="flex-1 flex flex-col">
