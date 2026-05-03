@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CommunityLayout from '../CommunityLayout';
+import CommunityLayout from '../components/CommunityLayout';
 
 // --- Embedded SVGs ---
 const MedalIcon = ({ color }: { color: string }) => (
