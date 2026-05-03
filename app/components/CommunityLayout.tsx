@@ -1,4 +1,3 @@
-Is this ok
 import { ReactNode } from "react";
 import Header from "./header";
 import Banner from "./Banner";
