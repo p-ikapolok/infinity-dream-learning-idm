@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import CommunityLayout from '../CommunityLayout'; // Corrected path to components folder
+import CommunityLayout from '../Components/CommunityLayout'; // Corrected path to components folder
 
 // --- Embedded SVGs ---
 const TrophyIcon = () => (
