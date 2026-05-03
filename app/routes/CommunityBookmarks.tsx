@@ -40,7 +40,7 @@ const MOCK_BOOKMARKS = [
 const CATEGORIES = ["All", "Article", "Course", "Discussion", "Resource"];
 
 export default function CommunityBookmarks() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
