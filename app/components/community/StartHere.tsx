@@ -28,8 +28,12 @@ const UserPlusIcon = () => (
 
 export default function StartHere() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   return (
-    <CommunityLayout>
+    <CommunityLayout
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+>
       <div className="flex flex-col h-full bg-white animate-in fade-in slide-in-from-bottom-4 duration-500 rounded-lg overflow-y-auto">
         
         {/* Welcome Hero Block */}
