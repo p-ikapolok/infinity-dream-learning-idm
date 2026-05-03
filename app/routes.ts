@@ -40,4 +40,6 @@ export default [
   route("CommunityProfile", "routes/CommunityProfile.tsx"),
   route("CommunityProfile", "routes/CommunityProfile.tsx"),
   route("CommunityLeaderboard", "routes/CommunityLeaderboard.tsx"),
+route("StartHere", "components/community/StartHere.tsx"),
+route("WelcomeChecklist", "components/community/WelcomeChecklist.tsx"),
 ] satisfies RouteConfig;
