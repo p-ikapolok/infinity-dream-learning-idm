@@ -32,7 +32,7 @@ const MOCK_ACTIVITY = [
 ];
 
 export default function CommunityProfile() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState(INITIAL_PROFILE);
   const [editForm, setEditForm] = useState(INITIAL_PROFILE);
