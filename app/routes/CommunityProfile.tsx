@@ -1,5 +1,6 @@
 import { useState } from "react";
 import CommunityLayout from "../components/CommunityLayout";
+import EditProfileModal from '../components/EditProfileModal';
 
 // --- Mock Data ---
 const INITIAL_PROFILE = {
@@ -32,6 +33,23 @@ const MOCK_ACTIVITY = [
 ];
 
 export default function CommunityProfile() {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  
+  // Mock data - eventually this comes from your database!
+  const [userProfile, setUserProfile] = useState({
+    name: "Alex Developer",
+    headline: "Frontend Enthusiast learning React & Node",
+    bio: "Hey there! I'm transitioning into tech after 5 years in marketing. Excited to connect with others building cool SaaS products.",
+    location: "Austin, TX",
+    website: "https://github.com/alexdev"
+  });
+
+  const handleSaveProfile = (updatedData: any) => {
+    console.log("Profile Updated!", updatedData);
+    // Update local state so the UI reflects changes instantly
+    setUserProfile({ ...userProfile, ...updatedData });
+  };
+
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState(INITIAL_PROFILE);
@@ -69,6 +87,40 @@ export default function CommunityProfile() {
                 {/* Online Indicator */}
                 <div className="absolute bottom-2 right-2 w-5 h-5 bg-green-500 border-4 border-white rounded-full"></div>
               </div>
+
+{/* THE EDIT PROFILE BUTTON */}
+            <button 
+              onClick={() => setIsEditModalOpen(true)}
+              className="flex items-center px-4 py-2 bg-white border border-gray-300 text-gray-700 text-sm font-medium rounded-full hover:bg-gray-50 transition-colors"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+              Edit Profile
+            </button>
+          </div>
+
+          {/* Profile Info */}
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">{userProfile.name}</h1>
+            <p className="text-gray-500 font-medium">{userProfile.headline}</p>
+            
+            <div className="flex items-center gap-4 mt-3 text-sm text-gray-500">
+              <span className="flex items-center">
+                <svg className="w-4 h-4 mr-1" /* Location SVG */ viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                {userProfile.location}
+              </span>
+              <span className="flex items-center text-blue-600 hover:underline cursor-pointer">
+                <svg className="w-4 h-4 mr-1" /* Link SVG */ viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                {userProfile.website}
+              </span>
+            </div>
+            
+            <p className="mt-4 text-gray-700 leading-relaxed max-w-2xl">
+              {userProfile.bio}
+            </p>
+
 
               {!isEditing ? (
                 <button 
@@ -230,6 +282,12 @@ export default function CommunityProfile() {
           </div>
           
         </div>
+   <EditProfileModal 
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        onSubmit={handleSaveProfile}
+        initialData={userProfile} // Pass the current data in so the form is pre-filled
+      />
       </div>
     </CommunityLayout>
   );
