@@ -17,7 +17,7 @@ sidebarOpen,
 setSidebarOpen,
 }: Props) {
 return (
-<div className="bg-gray-50 min-h-screen flex flex-col">
+<div className="bg-gray-50 h-screen flex flex-col overflow-hidden">
 {/* HEADER 1 */}
 <Header />
 
