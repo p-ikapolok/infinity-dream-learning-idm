@@ -31,7 +31,6 @@ const TASKS = [
 export default function WelcomeChecklist() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const [completedTasks, setCompletedTasks] = useState<string[]>([]);
-  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const toggleTask = (id: string) => {
     setCompletedTasks(prev => 
