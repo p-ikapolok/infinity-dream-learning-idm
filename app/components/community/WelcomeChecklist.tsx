@@ -29,6 +29,7 @@ const TASKS = [
 ];
 
 export default function WelcomeChecklist() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [completedTasks, setCompletedTasks] = useState<string[]>([]);
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
@@ -41,7 +42,10 @@ export default function WelcomeChecklist() {
   const progressPercentage = Math.round((completedTasks.length / TASKS.length) * 100);
 
   return (
-    <CommunityLayout>
+    <CommunityLayout
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+>
       <div className="flex flex-col h-full bg-white animate-in fade-in slide-in-from-bottom-4 duration-500 rounded-lg overflow-y-auto">
         
         {/* Header & Progress Bar */}
