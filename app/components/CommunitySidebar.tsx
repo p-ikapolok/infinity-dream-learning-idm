@@ -334,43 +334,108 @@ CalendarIcon />} text="Infinity Events" />
     </NavLink>
 
         {/* WELCOME */}  
-        <Section title="Welcome">  
+        <Section title="Welcome"> 
+    <NavLink
+  to="/StartHere"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+> 
           <SectionItem icon={<FlagIcon />} text="Start Here!">  
             <Badge>1</Badge>  
           </SectionItem>  
+      </NavLink>
 
-          <SectionItem icon={<CheckIcon />} text="Welcome Checklist" />  
+<NavLink
+  to="/WelcomeChecklist"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<CheckIcon />} text="Welcome Checklist" /> 
+      </NavLink>
 
+<NavLink
+  to="/IntroduceYourself"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<UserIcon />} text="Introduce Yourself">  
             <Badge>99+</Badge>  
           </SectionItem>  
         </Section>  
+   </NavLink>
 
         {/* COMMUNITY */}  
         <Section title="Community">  
+
+<NavLink
+  to="/CommunityAnnouncement"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<MegaphoneIcon />} text="Announcements">  
             <Badge>12</Badge>  
           </SectionItem>  
+      </NavLink>
 
+<NavLink
+  to="/CommunitySpotlight"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<UserIcon />} text="Member Spotlight" />  
+    </NavLink>
 
+<NavLink
+  to="/ShareYourWins"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<StarIcon />} text="Share Your Wins">  
             <Badge>99+</Badge>  
           </SectionItem>  
+      </NavLink>
 
+<NavLink
+  to="/InterestGroup"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<UsersIcon />} text="Interest Groups" />  
+     </NavLink>
 
+<NavLink
+  to="/CommunityEvents"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<CalendarIcon />} text="Community Events">  
             <Badge>32</Badge>  
           </SectionItem>  
+     </NavLink>
 
+<NavLink
+  to="/CommunityCorner"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<HeartIconFilled />} text="Community Corner">  
             <Badge>25</Badge>  
           </SectionItem>  
         </Section>  
+     </NavLink>
 
         {/* RESOURCES */}  
         <Section title="Resources">  
+
           <SectionItem icon={<ExternalIcon />} text="Download Android App" />  
           <SectionItem icon={<ExternalIcon />} text="Download iOS App" />  
         </Section>  
