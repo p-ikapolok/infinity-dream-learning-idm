@@ -32,7 +32,6 @@ const MOCK_ACTIVITY = [
 ];
 
 export default function CommunityProfile() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [profile, setProfile] = useState(INITIAL_PROFILE);
   const [editForm, setEditForm] = useState(INITIAL_PROFILE);
@@ -48,7 +47,7 @@ export default function CommunityProfile() {
   };
 
   return (
-    <CommunityLayout sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}>
+    <CommunityLayout>
       <div className="max-w-5xl mx-auto p-4 md:p-6 lg:p-8">
         
         {/* --- Header / Cover Section --- */}
