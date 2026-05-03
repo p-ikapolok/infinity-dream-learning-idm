@@ -284,13 +284,54 @@ isActive ? "text-blue-700" : ""
         </nav>  
 
         {/* INFINITY */} 
-        <Section title="Infinity">  
+        <Section title="Infinity"> 
+
+        <NavLink
+  to="/OurCommunity"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+> 
           <SectionItem active icon={<DotIcon />} text="Our Community" />  
+ </NavLink>
+
+        <NavLink
+  to="/InfinityCommunity"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<TrophyIcon />} text="Infinity Community" />  
-          <SectionItem icon={<CalendarIcon />} text="Infinity Events" />  
+       </NavLink>
+
+      <NavLink
+  to="/InfinityEvents"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
+          <SectionItem icon={<
+CalendarIcon />} text="Infinity Events" /> 
+   </NavLink>
+
+      <NavLink
+  to="/InfinityAnnouncements"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+> 
           <SectionItem icon={<BellIcon />} text="Infinity Announcements" />  
+  </NavLink>
+
+      <NavLink
+  to="/InfinityAlimniCommunity"
+  className={({ isActive }) =>
+    isActive ? "text-blue-700" : ""
+  }
+>
           <SectionItem icon={<UsersIcon />} text="Infinity Alumni Community" />  
         </Section>  
+    </NavLink>
 
         {/* WELCOME */}  
         <Section title="Welcome">  
