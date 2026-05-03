@@ -73,6 +73,7 @@ const SPOTLIGHT_MEMBERS: SpotlightMember[] = [
 
 export default function CommunitySpotlight() {
   const [filter, setFilter] = useState<'This Month' | 'All Time'>('This Month');
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
     <CommunityLayout>
