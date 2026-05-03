@@ -66,8 +66,6 @@ const MOCK_ANNOUNCEMENTS: Announcement[] = [
 export default function CommunityAnnouncements() {
   const [filter, setFilter] = useState<'All' | 'Platform' | 'Content'>('All');
 
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
   const filteredAnnouncements = MOCK_ANNOUNCEMENTS.filter(ann => {
     if (filter === 'All') return true;
     return ann.category === filter;
