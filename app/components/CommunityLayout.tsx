@@ -6,6 +6,10 @@ import Sidebar from "./CommunitySidebar";
 import Footer from "./footer";
 
 type Props = {
+  children: ReactNode;
+};
+
+type Props = {
 children: ReactNode;
 sidebarOpen: boolean;
 setSidebarOpen: (value: boolean) => void;
@@ -16,6 +20,9 @@ children,
 sidebarOpen,
 setSidebarOpen,
 }: Props) {
+
+const [sidebarOpen, setSidebarOpen] = useState(true);
+
 return (
 <div className="bg-gray-50 h-screen flex flex-col overflow-hidden">
 {/* HEADER 1 */}
