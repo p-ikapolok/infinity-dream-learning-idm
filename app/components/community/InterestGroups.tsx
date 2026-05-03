@@ -47,6 +47,7 @@ const INITIAL_GROUPS: Group[] = [
 
 export default function InterestGroups() {
   const [groups, setGroups] = useState<Group[]>(INITIAL_GROUPS);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const [filter, setFilter] = useState<'All Groups' | 'My Groups'>('All Groups');
   const [searchQuery, setSearchQuery] = useState('');
 
