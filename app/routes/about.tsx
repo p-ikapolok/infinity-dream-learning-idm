@@ -18,3 +18,17 @@ export default function About() {
     </div>
   );
 }
+
+
+
+
+
+
+const [sidebarOpen, setSidebarOpen] = useState(true);
+
+<CommunityLayout
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+>
+  <YourPage />
+</CommunityLayout>
