@@ -26,6 +26,7 @@ const LEADERBOARD_DATA = [
 ];
 
 export default function CommunityLeaderboard() {
+ const [sidebarOpen, setSidebarOpen] = useState(true);
  const [timeframe, setTimeframe] = useState<'This Week' | 'This Month' | 'All Time'>('This Month');
 
   // Helper function to render the correct rank indicator
@@ -37,7 +38,10 @@ export default function CommunityLeaderboard() {
   };
 
   return (
-    <CommunityLayout>
+    <CommunityLayout
+  sidebarOpen={sidebarOpen}
+  setSidebarOpen={setSidebarOpen}
+>
       <div className="flex flex-col h-full bg-white animate-in fade-in slide-in-from-bottom-4 duration-500 rounded-lg">
         
         {/* Header Section */}
