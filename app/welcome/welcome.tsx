@@ -99,13 +99,7 @@ export default function Welcome() {
                   </p>
 
                   <div className="flex gap-4 mt-8">
-                    <Link
-                      to="/learning-login"
-                      className="bg-coral-600 text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition"
-                    >
-                      Start Learning
-                    </Link>
-
+                    
                     <Link
                       to="/ehub-login"
                       className="border border-white text-white px-6 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-700 transition"
