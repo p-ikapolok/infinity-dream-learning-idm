@@ -79,13 +79,6 @@ export default function PublicNavbar() {
               {link.name}
             </Link>
           ))}
-          <Link
-            to="/login"
-            onClick={() => setMenuOpen(false)}
-            className="text-lg font-semibold"
-          >
-            Log In
-          </Link>
         </div>
       )}
     </header>
