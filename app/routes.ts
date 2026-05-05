@@ -42,4 +42,5 @@ export default [
   route("StartHere", "components/community/StartHere.tsx"),
   route("WelcomeChecklist", "components/community/WelcomeChecklist.tsx"),
   route("InterestGroups", "components/community/InterestGroups.tsx"),
+  route("PublicPage", "routes/PublicPage.tsx"),
 ] satisfies RouteConfig;
