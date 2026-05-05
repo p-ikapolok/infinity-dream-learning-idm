@@ -48,7 +48,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
-export default function Welcome() {
+export default function Welcome({ children }: { children?: React.ReactNode }) {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
