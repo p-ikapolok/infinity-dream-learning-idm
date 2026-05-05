@@ -1,4 +1,7 @@
-import PublicNavbar from '../components/PublicNavbar';
+import type { Route } from "./+types/home";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router";
+import PublicNavbar from "../components/PublicNavbar";
 
 export default function AboutPage() {
   return (
