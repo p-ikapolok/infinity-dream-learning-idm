@@ -7,9 +7,9 @@ export default function PublicNavbar() {
 
   const desktopLinks = [
     { name: "Programs", href: "/PublicPage" },
-    { name: "AI Data & Tech", href: "/programs/#ai" },
-    { name: "Creative", href: "/programs/#creative" },
-    { name: "Entrepreneurship", href: "/programs/#business" },
+    { name: "AI Data & Tech", href: "/programs/aipage" },
+    { name: "Creative", href: "/programs/creative" },
+    { name: "Entrepreneurship", href: "/programs/business" },
     { name: "About", href: "/about" },
     { name: "All Access", href: "/pricing" },
     { name: "Support", href: "/support" },
