@@ -40,4 +40,7 @@ export default [
   route("WelcomeChecklist", "components/community/WelcomeChecklist.tsx"),
   route("InterestGroups", "components/community/InterestGroups.tsx"),
   route("PublicPage", "routes/PublicPage.tsx"),
+  route("aipage", "routes/aipage.tsx"),
+  route("creative", "routes/creative.tsx"),
+  route("business", "routes/business.tsx"),
 ] satisfies RouteConfig;
