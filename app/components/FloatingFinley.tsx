@@ -22,7 +22,7 @@ export default function FloatingFinley() {
             </div>
             {/* Expand to Full Page Icon */}
             <Link 
-              to="/support" 
+              to="/PublicSupport" 
               className="text-blue-200 hover:text-white transition-colors"
               title="Open full support page"
             >
