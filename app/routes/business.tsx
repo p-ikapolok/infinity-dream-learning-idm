@@ -111,7 +111,7 @@ export default function EntrepreneurshipPage() {
                   <h3 className="text-xl font-bold mb-3 group-hover:text-green-600 dark:group-hover:text-green-400 transition-colors">{prog.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">{prog.description}</p>
                   {/* Funnels to pricing */}
-                  <Link to="/pricing" className="block w-full text-center py-3 bg-gray-50 dark:bg-gray-950 text-green-600 dark:text-green-400 font-semibold rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-green-600 hover:text-white dark:hover:bg-green-600 dark:hover:text-white dark:hover:border-green-600 transition-all">
+                  <Link to="/CourseViewPage" className="block w-full text-center py-3 bg-gray-50 dark:bg-gray-950 text-green-600 dark:text-green-400 font-semibold rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-green-600 hover:text-white dark:hover:bg-green-600 dark:hover:text-white dark:hover:border-green-600 transition-all">
                     View Details
                   </Link>
                 </div>
