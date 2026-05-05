@@ -110,8 +110,6 @@ export default function ProgramsPage() {
                 <div className="h-80" />
               </div>
             </section>
-          </div>
-        </div>
 
       <div className="max-w-6xl mx-auto px-4 pb-24 space-y-24">
         
