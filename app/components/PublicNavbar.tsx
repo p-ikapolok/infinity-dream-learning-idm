@@ -12,7 +12,7 @@ export default function PublicNavbar() {
     { name: "Entrepreneurship", href: "/business" },
     { name: "About", href: "/about" },
     { name: "All Access", href: "/pricing" },
-    { name: "Support", href: "/support" },
+    { name: "Support", href: "/PublicSupport" },
   ];
 
   return (
