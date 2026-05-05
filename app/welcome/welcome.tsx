@@ -48,7 +48,7 @@ function FAQItem({ question, answer }: { question: string; answer: string }) {
   );
 }
 
-export default function Welcome({ children }: { children?: React.ReactNode }) {
+export default function Welcome() {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
@@ -67,11 +67,9 @@ export default function Welcome({ children }: { children?: React.ReactNode }) {
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
-    <div className="relative">
-      {children}
-      <FloatingFinley />
     </div>
     <div className={darkMode ? "dark min-h-screen" : "min-h-screen"}>
+       <FloatingFinley />
       <div className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
 
         {/* HEADER + HERO */}
