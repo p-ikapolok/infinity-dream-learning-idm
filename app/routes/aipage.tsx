@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import PublicNavbar from "../components/PublicNavbar";
+import FloatingFinley from "../components/FloatingFinley";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -60,6 +61,7 @@ export default function AITechPage() {
 
   return (
     <div className={darkMode ? "dark min-h-screen" : "min-h-screen"}>
+       <FloatingFinley />
       <div className="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-500 font-sans pb-10">
         
         {/* HERO */}
