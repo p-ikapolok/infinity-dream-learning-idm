@@ -4,7 +4,6 @@ export default [
   index("routes/home.tsx"), // home "/"
 
   route("about", "routes/about.tsx"),
-  route("all-access", "routes/all-access.tsx"),
   route("ehub", "routes/ehub.tsx"),
   route("learning", "routes/learning.tsx"),
   route("community", "routes/community.tsx"),
