@@ -207,7 +207,7 @@ export default function ProgramsPage() {
                   
                   {/* Action Button */}
                   <Link 
-                    to="/pricing" 
+                    to="/CourseViewPage" 
                     className="block w-full text-center py-2.5 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 font-semibold rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors"
                   >
                     View Details
