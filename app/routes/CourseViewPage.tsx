@@ -190,7 +190,7 @@ export default function CourseDetailsPage() {
               </ul>
 
               <button 
-                onClick={() => navigate("/apply")}
+                onClick={() => navigate("/ApplicationPage")}
                 className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl transition-all shadow-lg hover:shadow-blue-500/30 flex justify-center items-center gap-2"
               >
                 Start Application
