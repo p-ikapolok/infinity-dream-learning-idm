@@ -5,7 +5,7 @@ import PublicNavbar from "../components/PublicNavbar";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Infinity Dream Learning" },
+    { title: "Infinity Dream Learning | Programs" },
     {
       name: "description",
       content:
@@ -14,44 +14,10 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-function FAQItem({ question, answer }: { question: string; answer: string }) {
-  const [open, setOpen] = useState(false);
-  const contentRef = useRef<HTMLDivElement>(null);
-
-  return (
-    <div className="border rounded-lg p-4 cursor-pointer transition hover:shadow-lg">
-      <div
-        className="flex justify-between items-center"
-        onClick={() => setOpen(!open)}
-      >
-        <h3 className="font-semibold">{question}</h3>
-        <span
-          className={`text-xl transform transition-transform duration-300 ${
-            open ? "rotate-180" : "rotate-0"
-          }`}
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </span>
-      </div>
-      <div
-        ref={contentRef}
-        style={{
-          maxHeight: open ? `${contentRef.current?.scrollHeight}px` : "0px",
-          transition: "max-height 0.3s ease",
-          overflow: "hidden",
-        }}
-      >
-        <p className="mt-2 text-gray-600 dark:text-gray-300">{answer}</p>
-      </div>
-    </div>
-  );
-}
-
 export default function ProgramsPage() {
   const [darkMode, setDarkMode] = useState(false);
 
+  // Dark mode persistence
   useEffect(() => {
     if (typeof window !== "undefined") {
       const savedMode = localStorage.getItem("darkMode");
@@ -67,41 +33,69 @@ export default function ProgramsPage() {
 
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
-  // A reusable SVG Checkmark component for the lists
-  const CheckIcon = () => (
-    <svg className="w-5 h-5 text-blue-600 dark:text-blue-400 mr-3 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-    </svg>
-  );
-
-  // Dashboard List Data
+  // Expanded Data to show the 4-column grid layout
   const programs = [
     {
-      id: "ai",
-      category: "AI, Data & Tech",
-      title: "Artificial Intelligence & Data Engineering",
-      description: "Dive into machine learning, data engineering, and generative AI. Build intelligent systems and master the algorithms shaping tomorrow's technology landscape.",
-      skills: ["Machine Learning Foundations", "Large Language Models (LLMs)", "Data Engineering & Python"],
+      id: "ai-ml",
+      category: "AI & Tech",
+      title: "Machine Learning Foundations",
+      description: "Master the core algorithms of ML using Python and build predictive models.",
+      image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=800",
     },
     {
-      id: "creative",
+      id: "data-eng",
+      category: "AI & Tech",
+      title: "Data Engineering Pipeline",
+      description: "Learn to design, build, and maintain scalable data architectures.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800",
+    },
+    {
+      id: "ui-ux",
       category: "Creative",
-      title: "Digital Design & UI/UX Mastery",
-      description: "Design intuitive, beautiful, and user-centric digital experiences. Learn the principles of interaction, typography, and visual storytelling.",
-      skills: ["UI/UX & Figma Mastery", "Design Systems", "Interactive Prototyping"],
+      title: "UI/UX & Figma Mastery",
+      description: "Design intuitive digital experiences and learn visual storytelling.",
+      image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=800",
     },
     {
-      id: "business",
+      id: "startup",
       category: "Entrepreneurship",
-      title: "Startup & Venture Fundamentals",
-      description: "Transform innovative ideas into scalable businesses. Learn market positioning, growth marketing, and how to lead high-performing teams.",
-      skills: ["Startup Fundamentals", "Growth Marketing & SEO", "Venture Finance & Fundraising"],
+      title: "Startup Fundamentals",
+      description: "From idea validation to MVP. Launch your business with confidence.",
+      image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=800",
+    },
+    {
+      id: "gen-ai",
+      category: "AI & Tech",
+      title: "Generative AI & LLMs",
+      description: "Build applications powered by massive language models and AI.",
+      image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=800",
+    },
+    {
+      id: "web-dev",
+      category: "AI & Tech",
+      title: "Full-Stack Web Dev",
+      description: "Learn React, Node.js, and databases to build modern web applications.",
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800",
+    },
+    {
+      id: "3d-design",
+      category: "Creative",
+      title: "3D Motion & Animation",
+      description: "Bring your designs to life using industry-standard 3D software.",
+      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800",
+    },
+    {
+      id: "growth",
+      category: "Entrepreneurship",
+      title: "Growth Marketing & SEO",
+      description: "Scale your startup using data-driven marketing and user acquisition.",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800",
     }
   ];
 
   return (
     <div className={darkMode ? "dark min-h-screen" : "min-h-screen"}>
-      <div className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500 font-sans">
+      <div className="bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-500 font-sans pb-10">
 
         {/* HEADER + HERO */}
         <div
@@ -119,144 +113,139 @@ export default function ProgramsPage() {
 
             {/* HERO */}
             <section className="py-24 px-6">
-              <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-                <div>
-                  <h1 className="text-5xl md:text-6xl font-extrabold leading-tight tracking-tight">
-                    Learn Tech Skills <br />
-                    Build Real Projects <br />
-                    <span className="text-blue-400">Grow Creatively</span>
-                  </h1>
-
-                  <p className="mt-6 text-xl text-gray-300 leading-relaxed max-w-lg">
-                    A creative and tech learning platform with real-world programs,
-                    community, and career support.
-                  </p>
-                </div>
+              <div className="max-w-7xl mx-auto text-center md:text-left">
+                <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight">
+                  Learn Tech Skills <br className="hidden md:block" />
+                  Build Real Projects <br className="hidden md:block" />
+                  <span className="text-blue-400">Grow Creatively</span>
+                </h1>
+                <p className="mt-6 text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl">
+                  Explore our massive catalog of premium programs designed to accelerate your career in AI, Design, and Business.
+                </p>
               </div>
             </section>
           </div>
         </div>
 
-        {/* DASHBOARD NAVIGATION HEADER */}
-        <div className="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950 sticky top-0 z-40">
-          <div className="max-w-7xl mx-auto px-6 py-4 flex flex-wrap gap-6 items-center text-sm font-semibold text-gray-500 dark:text-gray-400">
-            <span className="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1">All Programs</span>
-            <a href="#ai" className="hover:text-gray-900 dark:hover:text-white transition-colors">AI & Tech</a>
-            <a href="#creative" className="hover:text-gray-900 dark:hover:text-white transition-colors">Creative</a>
-            <a href="#business" className="hover:text-gray-900 dark:hover:text-white transition-colors">Entrepreneurship</a>
+        {/* DASHBOARD TOOLBAR: NAVIGATION + SEARCH/FILTER */}
+        <div className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 sticky top-0 z-40 shadow-sm">
+          <div className="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            
+            {/* Left: Category Navigation */}
+            <div className="flex flex-wrap gap-6 items-center text-sm font-semibold text-gray-500 dark:text-gray-400">
+              <button className="text-blue-600 dark:text-blue-400 border-b-2 border-blue-600 dark:border-blue-400 pb-1">All Programs</button>
+              <button className="hover:text-gray-900 dark:hover:text-white transition-colors">AI & Tech</button>
+              <button className="hover:text-gray-900 dark:hover:text-white transition-colors">Creative</button>
+              <button className="hover:text-gray-900 dark:hover:text-white transition-colors">Entrepreneurship</button>
+            </div>
+
+            {/* Right: Search & Filter */}
+            <div className="flex items-center gap-3 w-full md:w-auto">
+              
+              {/* Search Bar */}
+              <div className="relative w-full md:w-64">
+                <svg className="w-4 h-4 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                <input 
+                  type="text" 
+                  placeholder="Search programs..." 
+                  className="w-full pl-9 pr-4 py-2 bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-blue-500 rounded-lg text-sm text-gray-900 dark:text-white outline-none transition-all"
+                />
+              </div>
+
+              {/* Filter Button */}
+              <button className="flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg text-sm font-semibold hover:bg-gray-200 dark:hover:bg-gray-700 transition border border-transparent dark:border-gray-700">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+                <span className="hidden sm:inline">Filter</span>
+              </button>
+
+            </div>
           </div>
         </div>
 
-        {/* PROFESSIONAL DASHBOARD LIST SECTION */}
-        <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="mb-10">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Program Directory</h2>
-            <p className="text-gray-500 dark:text-gray-400 mt-2">Select a track below to explore the curriculum and get full access.</p>
-          </div>
-
-          <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl shadow-sm overflow-hidden">
-            {programs.map((program, index) => (
+        {/* PROGRAM GRID SECTION */}
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          
+          {/* 
+             Grid Layout Configuration:
+             - Mobile: 1 column (grid-cols-1)
+             - Small Tablet: 2 columns (sm:grid-cols-2)
+             - Desktop: 4 columns (lg:grid-cols-4)
+          */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {programs.map((program) => (
               <div 
                 key={program.id} 
-                id={program.id}
-                className={`p-8 md:p-10 flex flex-col lg:flex-row gap-8 items-start lg:items-center hover:bg-blue-50/50 dark:hover:bg-gray-800/50 transition-colors ${
-                  index !== programs.length - 1 ? 'border-b border-gray-200 dark:border-gray-800' : ''
-                }`}
+                className="bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-sm hover:shadow-xl transition-all overflow-hidden flex flex-col group"
               >
-                {/* Left: Track Info */}
-                <div className="lg:w-5/12">
-                  <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400 mb-4 uppercase tracking-wider">
+                {/* Card Image */}
+                <div className="relative h-44 w-full overflow-hidden">
+                  <img 
+                    src={program.image} 
+                    alt={program.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  {/* Category Badge over image */}
+                  <div className="absolute top-3 left-3 bg-white/90 dark:bg-black/80 backdrop-blur-sm text-gray-900 dark:text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
                     {program.category}
-                  </span>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{program.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  </div>
+                </div>
+
+                {/* Card Content */}
+                <div className="p-5 flex flex-col flex-grow">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                    {program.title}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 flex-grow line-clamp-3">
                     {program.description}
                   </p>
-                </div>
-
-                {/* Middle: Skills Included */}
-                <div className="lg:w-4/12">
-                  <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-200 uppercase tracking-wide mb-4">Core Skills</h4>
-                  <ul className="space-y-3">
-                    {program.skills.map((skill, i) => (
-                      <li key={i} className="flex items-center text-gray-700 dark:text-gray-300 font-medium">
-                        <CheckIcon /> {skill}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Right: Action */}
-                <div className="lg:w-3/12 flex w-full lg:justify-end">
-                  <Link to="/pricing" className="w-full lg:w-auto text-center px-8 py-3.5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 transition-colors shadow-md">
-                    View Program
+                  
+                  {/* Action Button */}
+                  <Link 
+                    to="/pricing" 
+                    className="block w-full text-center py-2.5 bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 font-semibold rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors"
+                  >
+                    View Details
                   </Link>
                 </div>
               </div>
             ))}
           </div>
+          
+          {/* Load More Button */}
+          <div className="mt-12 flex justify-center">
+            <button className="px-8 py-3 bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800 transition shadow-sm">
+              Load More Programs
+            </button>
+          </div>
+
         </div>
 
         {/* FOOTER */}
-        <footer className="bg-blue-950 dark:bg-black text-white pt-16 pb-8 px-6">
+        <footer className="bg-blue-950 dark:bg-black text-white pt-16 pb-8 px-6 mt-10">
           <div className="max-w-7xl mx-auto grid md:grid-cols-5 gap-10">
-
             {/* Brand */}
-            <div>
-              <h3 className="text-xl font-bold mb-4">
-                Infinity Dream Learning
-              </h3>
-
+            <div className="md:col-span-1">
+              <h3 className="text-xl font-bold mb-4">Infinity Dream Learning</h3>
               <p className="text-gray-300 text-sm leading-relaxed mb-4">
-                Learn tech skills, build real-world projects, and grow your
-                creative career with a modern learning experience.
+                Learn tech skills, build real-world projects, and grow your creative career.
               </p>
-
               {/* Socials (REAL SVG ICONS) */}
               <div className="flex gap-4">
-                {/* Globe */}
-                <span className="cursor-pointer hover:text-gray-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    <path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"
-                      d="M3 12h18M12 3a15 15 0 010 18" />
-                  </svg>
+                <span className="cursor-pointer hover:text-blue-400 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /><path strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" d="M3 12h18M12 3a15 15 0 010 18" /></svg>
                 </span>
-
-                {/* X (Twitter) */}
-                <span className="cursor-pointer hover:text-gray-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
-                    viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18 2L6 22h2l12-20h-2z" />
-                  </svg>
+                <span className="cursor-pointer hover:text-blue-400 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2L6 22h2l12-20h-2z" /></svg>
                 </span>
-
-                {/* Instagram */}
-                <span className="cursor-pointer hover:text-gray-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <rect x="3" y="3" width="18" height="18" rx="5" ry="5" strokeWidth="2" />
-                    <circle cx="12" cy="12" r="4" strokeWidth="2" />
-                    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" />
-                  </svg>
+                <span className="cursor-pointer hover:text-blue-400 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="18" height="18" rx="5" ry="5" strokeWidth="2" /><circle cx="12" cy="12" r="4" strokeWidth="2" /><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" /></svg>
                 </span>
-
-                {/* Facebook */}
-                <span className="cursor-pointer hover:text-gray-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
-                    viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M22 12a10 10 0 10-11.5 9.9v-7H8v-3h2.5V9.5C10.5 7 11.9 5.8 14.2 5.8c1.1 0 2.3.2 2.3.2v2.5h-1.3c-1.3 0-1.7.8-1.7 1.6V12H17l-.5 3h-2v7A10 10 0 0022 12z"/>
-                  </svg>
-                </span>
-
-                {/* LinkedIn */}
-                <span className="cursor-pointer hover:text-gray-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5"
-                    viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.1c.6-1.1 2-2.2 4.1-2.2 4.4 0 5.2 2.9 5.2 6.7V24h-5v-7.3c0-1.7 0-3.9-2.4-3.9s-2.8 1.8-2.8 3.7V24h-5V8z"/>
-                  </svg>
+                <span className="cursor-pointer hover:text-blue-400 transition-colors">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.1c.6-1.1 2-2.2 4.1-2.2 4.4 0 5.2 2.9 5.2 6.7V24h-5v-7.3c0-1.7 0-3.9-2.4-3.9s-2.8 1.8-2.8 3.7V24h-5V8z"/></svg>
                 </span>
               </div>
             </div>
@@ -297,47 +286,21 @@ export default function ProgramsPage() {
             {/* Newsletter */}
             <div>
               <h4 className="font-semibold mb-4">Stay Updated</h4>
-              <p className="text-gray-300 text-sm mb-3">
-                Get updates on new programs and opportunities.
-              </p>
-
+              <p className="text-gray-300 text-sm mb-3">Get updates on new programs.</p>
               <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Your email"
-                  className="px-3 py-2 text-sm rounded-l-md w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500"
-                />
-                <button className="bg-blue-600 hover:bg-blue-500 transition-colors px-4 py-2 rounded-r-md text-sm font-semibold">
-                  Join
-                </button>
+                <input type="email" placeholder="Your email" className="px-3 py-2 text-sm rounded-l-md w-full text-black focus:outline-none focus:ring-2 focus:ring-blue-500"/>
+                <button className="bg-blue-600 hover:bg-blue-500 transition-colors px-4 py-2 rounded-r-md text-sm font-semibold">Join</button>
               </div>
-
-              <p className="text-gray-400 text-xs mt-3">
-                support@infinitydreamlearning.com
-              </p>
             </div>
-
           </div>
 
           {/* Bottom */}
           <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-
-            <p className="text-gray-400 text-sm">
-              © 2026 Infinity Dream Learning. All rights reserved.
-            </p>
-
-            {/* Toggle */}
-            <div
-              className="relative flex items-center w-14 h-5 bg-gray-600 dark:bg-gray-800 rounded-full cursor-pointer"
-              onClick={toggleDarkMode}
-            >
-              <div
-                className={`absolute top-0.5 w-4 h-4 bg-white rounded-full transition-transform ${
-                  darkMode ? "translate-x-9" : "translate-x-0"
-                }`}
-              />
+            <p className="text-gray-400 text-sm">© 2026 Infinity Dream Learning. All rights reserved.</p>
+            {/* Dark Mode Toggle */}
+            <div className="relative flex items-center w-14 h-6 bg-gray-700 rounded-full cursor-pointer p-1" onClick={toggleDarkMode}>
+              <div className={`w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 ${darkMode ? "translate-x-8" : "translate-x-0"}`} />
             </div>
-
           </div>
         </footer>
 
