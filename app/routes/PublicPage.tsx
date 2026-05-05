@@ -1,4 +1,4 @@
-import PublicNavbar from '@/components/PublicNavbar';
+import PublicNavbar from '../components/PublicNavbar';
 import Link from 'next/link';
 
 export default function ProgramsPage() {
