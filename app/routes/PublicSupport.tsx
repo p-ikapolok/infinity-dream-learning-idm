@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import PublicNavbar from "../components/PublicNavbar";
 
