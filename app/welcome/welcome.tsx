@@ -67,7 +67,6 @@ export default function Welcome() {
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
-    </div>
     <div className={darkMode ? "dark min-h-screen" : "min-h-screen"}>
        <FloatingFinley />
       <div className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
