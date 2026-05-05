@@ -2,6 +2,7 @@ import type { Route } from "./+types/home";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import PublicNavbar from "../components/PublicNavbar";
+import FloatingFinley from "./components/FloatingFinley";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -66,6 +67,10 @@ export default function Welcome() {
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
+    <div className="relative">
+      {children}
+      <FloatingFinley />
+    </div>
     <div className={darkMode ? "dark min-h-screen" : "min-h-screen"}>
       <div className="bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-500">
 
