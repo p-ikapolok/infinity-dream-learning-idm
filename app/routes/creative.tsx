@@ -111,7 +111,7 @@ export default function CreativePage() {
                   <h3 className="text-xl font-bold mb-3 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">{prog.title}</h3>
                   <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 flex-grow">{prog.description}</p>
                   {/* Funnels to pricing */}
-                  <Link to="/pricing" className="block w-full text-center py-3 bg-gray-50 dark:bg-gray-950 text-pink-600 dark:text-pink-400 font-semibold rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-pink-600 hover:text-white dark:hover:bg-pink-600 dark:hover:text-white dark:hover:border-pink-600 transition-all">
+                  <Link to="/CourseViewPage" className="block w-full text-center py-3 bg-gray-50 dark:bg-gray-950 text-pink-600 dark:text-pink-400 font-semibold rounded-xl border border-gray-200 dark:border-gray-800 hover:bg-pink-600 hover:text-white dark:hover:bg-pink-600 dark:hover:text-white dark:hover:border-pink-600 transition-all">
                     View Details
                   </Link>
                 </div>
