@@ -1,5 +1,7 @@
-import PublicNavbar from '../components/PublicNavbar';
-import Link from 'next/link';
+import type { Route } from "./+types/home";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router";
+import PublicNavbar from "../components/PublicNavbar";
 
 export default function ProgramsPage() {
   // A reusable SVG Checkmark component for the lists
