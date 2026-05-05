@@ -2,7 +2,7 @@ import type { Route } from "./+types/home";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router";
 import PublicNavbar from "../components/PublicNavbar";
-import FloatingFinley from "./components/FloatingFinley";
+import FloatingFinley from "../components/FloatingFinley";
 
 export function meta({}: Route.MetaArgs) {
   return [
