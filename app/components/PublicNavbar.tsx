@@ -6,7 +6,7 @@ export default function PublicNavbar() {
   const [activeLink, setActiveLink] = useState("Programs");
 
   const desktopLinks = [
-    { name: "Programs", href: "/" },
+    { name: "Programs", href: "/PublicPage" },
     { name: "AI Data & Tech", href: "/programs/ai" },
     { name: "Creative", href: "/programs/creative" },
     { name: "Entrepreneurship", href: "/programs/business" },
