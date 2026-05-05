@@ -1,4 +1,4 @@
-import PublicNavbar from '@/components/PublicNavbar';
+import PublicNavbar from '../components/PublicNavbar';
 
 export default function PricingPage() {
   return (
