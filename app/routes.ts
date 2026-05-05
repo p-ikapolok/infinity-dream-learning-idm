@@ -44,4 +44,6 @@ export default [
   route("creative", "routes/creative.tsx"),
   route("business", "routes/business.tsx"),
   route("PublicSupport", "routes/PublicSupport.tsx"),
+  route("ApplicationPage", "routes/ApplicationPage.tsx"),
+  route("CourseViewPage", "routes/CourseViewPage.tsx"),
 ] satisfies RouteConfig;
