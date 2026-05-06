@@ -708,7 +708,7 @@ viewBox="0 0 24 24">
 
   {/* BACKGROUND IMAGE */}
   <img
-    src="/images/alx-banner.png" // replace with your exact image
+    src="/images/infinity-banner.png" // replace with your exact image
     className="w-full h-full object-cover"
   />
 
@@ -720,12 +720,12 @@ viewBox="0 0 24 24">
 
     {/* small logo */}
     <span className="text-white text-lg font-bold mb-4 opacity-90">
-      alx
+      infinity
     </span>
 
     {/* MAIN TEXT */}
     <h1 className="text-white text-4xl font-bold tracking-wide">
-      We Are ALX
+      We Are Infinity Dream 
     </h1>
 
     {/* underline */}
@@ -740,7 +740,7 @@ viewBox="0 0 24 24">
   <div className="relative w-full h-[360px] rounded-lg overflow-hidden">
     
     <img
-      src="/images/alx-video-thumbnail.png"
+      src="/images/Infinity Dream-video-thumbnail.png"
       className="w-full h-full object-cover"
     />
 
@@ -759,7 +759,7 @@ viewBox="0 0 24 24">
 
     {/* top-left label */}
     <div className="absolute top-3 left-3 flex items-center gap-2 bg-black/60 px-3 py-1 rounded">
-      <span className="text-white text-xs font-semibold">Welcome to ALX!</span>
+      <span className="text-white text-xs font-semibold">Welcome to Infinity Dream!</span>
     </div>
 
   </div>
@@ -771,7 +771,7 @@ viewBox="0 0 24 24">
 <div className="bg-white rounded-lg shadow p-6 space-y-5 text-gray-700 leading-relaxed">
 
   <p>
-    Africa is a continent brimming with talent, ambition, and a desire to innovate. At ALX, we believe that Africa’s young people – that means you! – hold the key to unlocking its extraordinary potential for progress. We envision a future where technology empowers millions to build better lives, create innovative businesses, and drive economic growth across the continent – and <strong>you play a key role in bringing that vision to life.</strong>
+    Africa is a continent brimming with talent, ambition, and a desire to innovate. At Infinity Dream, we believe that Africa’s young people – that means you! – hold the key to unlocking its extraordinary potential for progress. We envision a future where technology empowers millions to build better lives, create innovative businesses, and drive economic growth across the continent – and <strong>you play a key role in bringing that vision to life.</strong>
   </p>
 
   <h3 className="font-bold text-gray-900 text-lg">
@@ -779,7 +779,7 @@ viewBox="0 0 24 24">
   </h3>
 
   <p>
-    ALX is on a mission to develop the skills and talent needed to power Africa’s digital future. We seek to equip 2 million young Africans with the skills, connections, and opportunities they need to build fulfilling tech careers by 2035. Our goal is to empower 2 million talented individuals to build brighter futures for themselves and contribute to a thriving Africa.
+    Infinity Dream  is on a mission to develop the skills and talent needed to power Africa’s digital future. We seek to equip 2 million young Africans with the skills, connections, and opportunities they need to build fulfilling tech careers by 2035. Our goal is to empower 2 million talented individuals to build brighter futures for themselves and contribute to a thriving Africa.
   </p>
 
   <h3 className="font-bold text-gray-900 text-lg">
@@ -787,7 +787,7 @@ viewBox="0 0 24 24">
   </h3>
 
   <p>
-    When you join ALX, you become part of a vibrant, pan-African community that believes in the power of shared learning, collaboration, and mutual support. Your talents, your insights, your passion – they all contribute to something bigger than ourselves. ALX isn’t just about individual success stories; it’s about a collective movement towards a common goal.
+    When you join Infinity Dream, you become part of a vibrant, pan-African community that believes in the power of shared learning, collaboration, and mutual support. Your talents, your insights, your passion – they all contribute to something bigger than ourselves. Infinity Dream isn’t just about individual success stories; it’s about a collective movement towards a common goal.
   </p>
 
   <p>
@@ -799,11 +799,11 @@ viewBox="0 0 24 24">
   </h3>
 
   <p>
-    To ensure you continue to unlock the full value of the community experience – <strong>uninterrupted access to peer connections, exclusive learning resources, inspiring events, and dedicated support</strong> – please keep your all-access fee payments current. Think of it as your key to maximizing your ALX journey and continuing to thrive in our vibrant community.
+    To ensure you continue to unlock the full value of the community experience – <strong>uninterrupted access to peer connections, exclusive learning resources, inspiring events, and dedicated support</strong> – please keep your all-access fee payments current. Think of it as your key to maximizing your Infinity Dream journey and continuing to thrive in our vibrant community.
   </p>
 
   <p className="font-medium">
-    Ready to join the movement? Connect with us and let’s build the future of tech in Africa, together! #LifeAtALX.
+    Ready to join the movement? Connect with us and let’s build the future of tech in Africa, together! #LifeAtInfinityDream.
   </p>
 
 </div>
@@ -812,14 +812,14 @@ viewBox="0 0 24 24">
 {/* BUTTONS */}
 <div className="flex justify-center items-center gap-5 mt-8 flex-wrap">
 
-  {/* ALX */}
+  {/* Infinity Dream*/}
   <a
-    href="https://www.alxafrica.com/"
+    href="https://www.infinitydresm.com/"
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-center gap-2 px-6 py-3 bg-blue-900 text-white rounded-full hover:bg-blue-800 transition shadow-sm"
   >
-    <span className="font-semibold">ALX</span>
+    <span className="font-semibold">Infinity Dream</span>
     <span>Programs</span>
   </a>
 
@@ -906,7 +906,7 @@ viewBox="0 0 24 24">
 
     <div className="p-4">
       <p className="text-gray-800 font-medium flex items-center gap-2">
-        🏆 ALX Success Kit
+        🏆 Infinity Dream Success Kit
       </p>
     </div>
 
@@ -917,13 +917,13 @@ viewBox="0 0 24 24">
   <div className="bg-white rounded-xl shadow-sm overflow-hidden border">
     
     <img
-      src="/images/alx-hubs.png"
+      src="/images/infinity-hubs.png"
       className="w-full h-44 object-cover"
     />
 
     <div className="p-4">
       <p className="text-gray-800 font-medium flex items-center gap-2">
-        🌍 ALX Hubs!
+        🌍 Infinity Dream Hubs!
       </p>
     </div>
 
