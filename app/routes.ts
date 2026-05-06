@@ -46,4 +46,25 @@ export default [
   route("PublicSupport", "routes/PublicSupport.tsx"),
   route("ApplicationPage", "routes/ApplicationPage.tsx"),
   route("CourseViewPage", "routes/CourseViewPage.tsx"),
+
+route("ai", "app/ai/learning-portal-dashboard.tsx", [
+  index("app/ai/ai-path.tsx"),
+
+  route("path", "app/ai/ai-path.tsx"),
+  route("agents", "app/ai/ai-agents.tsx"),
+
+  route("lesson", "app/ai/ai-lesson.tsx"),
+  route("code", "app/ai/ai-code.tsx"),
+  route("project", "app/ai/ai-project.tsx"),
+
+  route("quiz", "app/ai/ai-quiz.tsx"),
+  route("grading", "app/ai/ai-grading.tsx"),
+  route("feedback", "app/ai/ai-feedback.tsx"),
+
+  route("plagiarism", "app/ai/ai-plagiarism.tsx"),
+  route("detection", "app/ai/ai-detection.tsx"),
+
+  route("chat", "app/ai/ai-chat.tsx"),
+  route("voice", "app/ai/ai-voice.tsx"),
+]),
 ] satisfies RouteConfig;
