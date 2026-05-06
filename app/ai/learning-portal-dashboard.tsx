@@ -130,7 +130,7 @@ export default function LearningPortalDashboard() {
                 <p className="text-blue-100 text-lg mb-8 leading-relaxed">
                   Your AI Copilot has reviewed yesterday's structural entropy analysis. Today, we are focusing on minimizing the error function mathematically: <br />
                   <span className="inline-block mt-4 font-mono bg-black/20 px-4 py-2 rounded-lg border border-white/10">
-                    $ \frac{\partial E}{\partial w_{ij}} = \delta_j o_i $
+                    {$ \frac{\partial E}{\partial w_{ij}} = \delta_j o_i $}
                   </span>
                 </p>
                 <button className="bg-white text-blue-700 hover:bg-gray-50 px-6 py-3 rounded-xl font-bold transition-colors shadow-sm flex items-center gap-2">
