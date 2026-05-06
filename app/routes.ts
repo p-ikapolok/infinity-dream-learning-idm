@@ -46,4 +46,32 @@ export default [
   route("PublicSupport", "routes/PublicSupport.tsx"),
   route("ApplicationPage", "routes/ApplicationPage.tsx"),
   route("CourseViewPage", "routes/CourseViewPage.tsx"),
+
+// --- DEEP AI LEARNING ECOSYSTEM ---
+  // The Master Dashboard acts as the Layout wrapper for everything inside the array
+  route("ai", "ai/learning-portal-dashboard.tsx", [
+    // Default view when visiting "/ai"
+    index("ai/ai-path.tsx"), 
+
+    // Engine 1: The Navigator
+    route("path", "ai/ai-path.tsx"),
+    route("agents", "ai/ai-agents.tsx"),
+
+    // Engine 2: The Studio
+    route("lesson", "ai/ai-lesson.tsx"),
+    route("code", "ai/ai-code.tsx"),
+    route("project", "ai/ai-project.tsx"),
+
+    // Engine 3: The Evaluator
+    route("quiz", "ai/ai-quiz.tsx"),
+    route("grading", "ai/ai-grading.tsx"),
+    route("feedback", "ai/ai-feedback.tsx"),
+
+    // Engine 4: The Guardian
+    route("plagiarism", "ai/ai-plagiarism.tsx"),
+    route("detection", "ai/ai-detection.tsx"),
+
+    // Engine 5: The Communicator
+    route("chat", "ai/ai-chat.tsx"),
+    route("voice", "ai/ai-voice.tsx"),
 ] satisfies RouteConfig;
