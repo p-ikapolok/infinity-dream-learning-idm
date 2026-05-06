@@ -47,24 +47,24 @@ export default [
   route("ApplicationPage", "routes/ApplicationPage.tsx"),
   route("CourseViewPage", "routes/CourseViewPage.tsx"),
 
-route("ai", "app/ai/learning-portal-dashboard.tsx", [
+route("ai", "ai/learning-portal-dashboard.tsx", [
   //  default page for /ai
-  index("app/ai/ai-path.tsx"),
+  index("ai/ai-path.tsx"),
 
   // Engine routes (all unique files)
-  route("agents", "app/ai/ai-agents.tsx"),
-  route("lesson", "app/ai/ai-lesson.tsx"),
-  route("code", "app/ai/ai-code.tsx"),
-  route("project", "app/ai/ai-project.tsx"),
+  route("agents", "ai/ai-agents.tsx"),
+  route("lesson", "ai/ai-lesson.tsx"),
+  route("code", "ai/ai-code.tsx"),
+  route("project", "ai/ai-project.tsx"),
 
-  route("quiz", "app/ai/ai-quiz.tsx"),
-  route("grading", "app/ai/ai-grading.tsx"),
-  route("feedback", "app/ai/ai-feedback.tsx"),
+  route("quiz", "ai/ai-quiz.tsx"),
+  route("grading", "ai/ai-grading.tsx"),
+  route("feedback", "ai/ai-feedback.tsx"),
 
-  route("plagiarism", "app/ai/ai-plagiarism.tsx"),
-  route("detection", "app/ai/ai-detection.tsx"),
+  route("plagiarism", "ai/ai-plagiarism.tsx"),
+  route("detection", "ai/ai-detection.tsx"),
 
-  route("chat", "app/ai/ai-chat.tsx"),
-  route("voice", "app/ai/ai-voice.tsx"),
+  route("chat", "ai/ai-chat.tsx"),
+  route("voice", "ai/ai-voice.tsx"),
 ]),
 ] satisfies RouteConfig;
