@@ -128,7 +128,7 @@ const RewardsPage: React.FC = () => {
 
         <BoostBox />
 
-        <SectionTitle text="Engage with the ALX Community" />
+        <SectionTitle text="Engage with the Infinity Dream Community" />
         <PointsRow pts="250 pts">Host an event online or in-person (per event)</PointsRow>
         <PointsRow pts="150 pts"><span className="text-blue-500">Onboard to The Portal</span> (eligible for 1-time redemption)</PointsRow>
         <PointsRow pts="25 pts">Attend In-person event (per event)</PointsRow>
@@ -251,7 +251,7 @@ const ActivitySection = () => (
 
 const Footer = () => (
   <div className="bg-[#0d3b66] text-white px-6 py-10">
-    <h3 className="text-lg font-semibold">alx eHub</h3>
+    <h3 className="text-lg font-semibold">infinity dream Hub</h3>
     <p className="text-sm mt-2 opacity-80">
       The community of those who Value Time.
     </p>
