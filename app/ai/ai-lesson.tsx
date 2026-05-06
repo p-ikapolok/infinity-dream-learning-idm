@@ -59,7 +59,7 @@ export default function AILesson() {
                 The algorithm updates the parameters iteratively. For a parameter $\theta_j$, the update rule is defined as:
               </p>
               <div className="bg-white dark:bg-black p-4 rounded-lg font-mono text-center overflow-x-auto border border-gray-100 dark:border-gray-800">
-                {$\theta_j := \theta_j - \alpha \frac{\partial}{\partial \theta_j} J(\theta)$}
+                {"$ \\theta_j := \\theta_j - \\alpha \\frac{\\partial}{\\partial \\theta_j} J(\\theta) $"}
               </div>
               <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
                 Here, $\alpha$ represents the learning rate, which dictates the size of the steps we take towards the minimum.
