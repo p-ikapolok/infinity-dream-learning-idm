@@ -49,7 +49,7 @@ export default [
 
 // --- DEEP AI LEARNING ECOSYSTEM ---
   // The Master Dashboard acts as the Layout wrapper for everything inside the array
-  route("ai", "ai/learning-portal-dashboard.tsx", 
+  route("ai", "ai/learning-portal-dashboard.tsx"), 
     // Default view when visiting "/ai"
     index("ai/ai-path.tsx"), 
 
