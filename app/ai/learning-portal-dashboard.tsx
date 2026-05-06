@@ -120,6 +120,7 @@ export default function LearningPortalDashboard() {
         {/* Dynamic Viewport Content */}
         <div className="flex-1 overflow-y-auto p-8">
           <div className="max-w-6xl mx-auto space-y-8">
+   <Outlet />
             
             {/* Hero Welcome Widget */}
             <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-700 p-10 text-white shadow-xl">
