@@ -26,7 +26,7 @@ export default function AIFeedback() {
             Excellent work! Your implementation of the Mean Squared Error correctly computes the derivative. 
             Your code perfectly matches the analytical gradient: <br />
             <span className="inline-block mt-3 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-md font-mono text-sm border border-gray-200 dark:border-gray-700">
-              $ \frac{\partial C}{\partial w} = \frac{1}{n} \sum_{x} x(\sigma(z) - y) $
+              {$ \frac{\partial C}{\partial w} = \frac{1}{n} \sum_{x} x(\sigma(z) - y) $}
             </span>
           </p>
         </div>
