@@ -48,11 +48,11 @@ export default [
   route("CourseViewPage", "routes/CourseViewPage.tsx"),
 
 route("ai", "app/ai/learning-portal-dashboard.tsx", [
+  //  default page for /ai
   index("app/ai/ai-path.tsx"),
 
-  route("path", "app/ai/ai-path.tsx"),
+  // Engine routes (all unique files)
   route("agents", "app/ai/ai-agents.tsx"),
-
   route("lesson", "app/ai/ai-lesson.tsx"),
   route("code", "app/ai/ai-code.tsx"),
   route("project", "app/ai/ai-project.tsx"),
