@@ -14,7 +14,7 @@ const RewardsPage: React.FC = () => {
       {/* ================= HEADER ================= */}
       <div className="flex justify-between items-center px-4 md:px-6 py-3 bg-white border-b">
         <div className="flex items-center gap-2">
-          <span className="font-bold text-lg md:text-xl text-black">alx</span>
+          <span className="font-bold text-lg md:text-xl text-black">Infinity Dream</span>
           <span className="text-gray-600 text-sm md:text-lg">Rewards</span>
         </div>
 
@@ -103,7 +103,7 @@ const RewardsPage: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
 
             <InfoItem icon={<EarnIcon />} title="Earn Points"
-              desc="Complete course milestones, engage with the ALX Community and shape your career to stack up points!" />
+              desc="Complete course milestones, engage with the Infinity Dream Community and shape your career to stack up points!" />
 
             <InfoItem icon={<GraduateIcon />} title="Graduate"
               desc="Complete your specialisation course to unlock reward redemption!" />
@@ -121,10 +121,10 @@ const RewardsPage: React.FC = () => {
       {/* ================= WAYS ================= */}
       <SectionWrapper title="Ways to Earn Legacy Points?">
 
-        <SectionTitle text="Complete your ALX Programme" />
-        <PointsRow pts="250 pts">Complete your ALX Programme on-time (eligible for 1-time redemption per ALX Programme).</PointsRow>
-        <PointsRow pts="100 pts">Submission of the first milestone and test on-time for your ALX Programme (eligible for 1-time redemption per ALX Programme).</PointsRow>
-        <PointsRow pts="50 pts">Submission of each weekly ALX Programme milestone and test on-time.</PointsRow>
+        <SectionTitle text="Complete your Infinity Dream Programme" />
+        <PointsRow pts="250 pts">Complete your Infinity Dream Programme on-time (eligible for 1-time redemption per Infinity Dream Programme).</PointsRow>
+        <PointsRow pts="100 pts">Submission of the first milestone and test on-time for your Infinity Dream Programme (eligible for 1-time redemption per Infinity Dream Programme).</PointsRow>
+        <PointsRow pts="50 pts">Submission of each weekly Infinity Dream Programme milestone and test on-time.</PointsRow>
 
         <BoostBox />
 
@@ -138,7 +138,7 @@ const RewardsPage: React.FC = () => {
 
         <SectionTitle text="Shape your career" />
         <PointsRow pts="250 pts"><span className="text-blue-500">Upload your CV</span> to your profile</PointsRow>
-        <PointsRow pts="250 pts">Share how ALX has helped you advance your career or grow your business (Eligible every 90 days, up to 4 times per year)</PointsRow>
+        <PointsRow pts="250 pts">Share how Infinity Dream has helped you advance your career or grow your business (Eligible every 90 days, up to 4 times per year)</PointsRow>
         <PointsRow pts="150 pts"><span className="text-blue-500">LinkedIn URL</span> to Profile</PointsRow>
 
       </SectionWrapper>
@@ -253,7 +253,7 @@ const Footer = () => (
   <div className="bg-[#0d3b66] text-white px-6 py-10">
     <h3 className="text-lg font-semibold">alx eHub</h3>
     <p className="text-sm mt-2 opacity-80">
-      The community of those who Do Hard Things.
+      The community of those who Value Time.
     </p>
 
     <div className="flex flex-wrap gap-6 mt-6 text-sm">
