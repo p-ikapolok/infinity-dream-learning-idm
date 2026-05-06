@@ -74,4 +74,5 @@ export default [
     // Engine 5: The Communicator
     route("chat", "ai/ai-chat.tsx"),
     route("voice", "ai/ai-voice.tsx"),
+]),
 ] satisfies RouteConfig;
