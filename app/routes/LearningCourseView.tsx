@@ -5,6 +5,7 @@ import LearningLayout from '../components/LearningLayout';
 export default function CourseTopicsView() {
   // State to manage which topic accordion is open
   const [expandedTopic, setExpandedTopic] = useState<string | null>("numbers");
+  const [collapsed, setCollapsed] = useState(false);
 
   // Mock data structure based on the sketch
   const courseData = {
