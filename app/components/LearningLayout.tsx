@@ -2,7 +2,7 @@ import Sidebar from "./LearningSidebar";
 import Header from "./LearningHeader";
 import Footer from "./LearningFooter";
 
-export default function DashboardLayout({
+export default function LearningLayout({
   children,
   collapsed,
   setCollapsed,
