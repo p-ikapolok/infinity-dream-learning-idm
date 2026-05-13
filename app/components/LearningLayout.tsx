@@ -7,6 +7,8 @@ export default function LearningLayout({
   collapsed,
   setCollapsed,
 }) {
+
+const [collapsed, setCollapsed] = useState(false);
   return (
     <div className="flex bg-gray-100 min-h-screen">
 
