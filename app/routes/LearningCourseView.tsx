@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import LearningLayout from '../components/LearningLayout';
 
 // You can save this as CourseViewPage.tsx or a dedicated module component
 export default function CourseTopicsView() {
