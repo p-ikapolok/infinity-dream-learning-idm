@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
-export default function SidebarItem({ icon, label, active, collapsed }) {
+export default function SidebarItem({ icon, label, collapsed, to }) {
    const location = useLocation();
 
    const active = location.pathname === to;
