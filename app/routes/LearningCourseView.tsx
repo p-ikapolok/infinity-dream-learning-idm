@@ -49,6 +49,10 @@ export default function CourseTopicsView() {
   };
 
   return (
+    <LearningLayout
+      collapsed={collapsed}
+      setCollapsed={setCollapsed}
+    >
     <div className="w-full max-w-4xl mx-auto p-6 text-slate-800 dark:text-slate-200">
       {/* Top Banner Context */}
       <div className="mb-2 text-sm font-bold tracking-widest text-blue-600 dark:text-blue-400 uppercase">
@@ -160,5 +164,6 @@ export default function CourseTopicsView() {
         </div>
       </div>
     </div>
+   </LearningLayout>
   );
 }
