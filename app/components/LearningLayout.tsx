@@ -1,6 +1,6 @@
-import Sidebar from "../components/LearningSidebar";
-import Header from "../components/LearningHeader";
-import Footer from "../components/LearningFooter";
+import Sidebar from "./LearningSidebar";
+import Header from "./LearningHeader";
+import Footer from "./LearningFooter";
 
 export default function DashboardLayout({
   children,
