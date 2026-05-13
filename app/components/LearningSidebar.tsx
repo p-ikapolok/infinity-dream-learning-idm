@@ -19,13 +19,13 @@ import {
   HiLightBulb,
 } from "react-icons/hi2";
 
-
-
-
-
+export default function LearningSidebar() {
+  const [search, setSearch] = useState("");
   const [collapsed, setCollapsed] = useState(false);
-const [search, setSearch] = useState("");
-      {/* SIDEBAR */}
+
+  return (
+      <>
+          {/* SIDEBAR */}
       <aside className={`bg-white border-r relative transition-all duration-300 ${
         collapsed ? "w-20" : "w-64"
       }`}>
@@ -80,6 +80,10 @@ const [search, setSearch] = useState("");
           </div>
         </div>
       </aside>
+</>
+  );
+}
+
 function SidebarItem({ icon, label, active, collapsed }) {
   return (
     <div className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer ${
