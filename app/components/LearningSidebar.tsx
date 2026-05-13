@@ -26,6 +26,7 @@ export default function LearningSidebar() {
 
   return (
       <>
+   <Sidebar collapsed={collapsed} />
           {/* SIDEBAR */}
       <aside className={`bg-white border-r relative transition-all duration-300 ${
         collapsed ? "w-20" : "w-64"
