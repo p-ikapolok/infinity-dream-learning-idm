@@ -20,9 +20,8 @@ import {
 } from "react-icons/hi2";
 import SidebarItem from "./SidebarItem";
 
-export default function LearningSidebar() {
+export default function LearningSidebar({ collapsed }) {
   const [search, setSearch] = useState("");
-  const [collapsed, setCollapsed] = useState(false);
 
   return (
       <>
