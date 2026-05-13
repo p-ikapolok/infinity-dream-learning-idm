@@ -1,4 +1,7 @@
 export default function SidebarItem({ icon, label, active, collapsed }) {
+   const location = useLocation();
+
+   const active = location.pathname === to;
   return (
   <Link
       to={to}
