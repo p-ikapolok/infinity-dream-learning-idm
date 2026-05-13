@@ -24,6 +24,9 @@ import SidebarItem from "./SidebarItem";
 export default function LearningSidebar() {
   const [search, setSearch] = useState("");
   const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation();
+
+  const active = location.pathname === to;
 
   return (
       <>
