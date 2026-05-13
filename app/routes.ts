@@ -15,6 +15,7 @@ export default [
   route("/learning-login", "routes/learning-login.tsx"),
   route("/signup", "routes/signup.tsx"),
   route("/learning-resources-page", "routes/learning-resources-page.tsx"),
+  route("LearningCourseView", "routes/LearningCourseView.tsx"),
   route("account-payments", "routes/account-payments.tsx"),
   route("account-password", "routes/account-password.tsx"),
   route("account-paymentFAQs", "routes/account-paymentFAQs.tsx"),
