@@ -18,6 +18,7 @@ import {
   HiBookOpen,
   HiLightBulb,
 } from "react-icons/hi2";
+import SidebarItem from "./SidebarItem";
 
 export default function LearningSidebar() {
   const [search, setSearch] = useState("");
