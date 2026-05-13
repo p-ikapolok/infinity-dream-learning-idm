@@ -288,7 +288,7 @@ const [search, setSearch] = useState("");
 }
 
 /* SIDEBAR ITEM */
-function SidebarItem({ icon, label, active, collapsed }) {
+function SidebarItem({ icon, label, collapsed, to }) {
   const location = useLocation();
 
   const active = location.pathname === to;
