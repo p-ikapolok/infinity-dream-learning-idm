@@ -60,17 +60,75 @@ export default function LearningSidebar() {
         {/* NAV */}
         <nav className="mt-6 space-y-1 px-3">
 
-          <SidebarItem collapsed={collapsed} icon={<HiHome size={18} />} label="Home" active />
-          <SidebarItem collapsed={collapsed} icon={<HiOutlineSquares2X2 size={18} />} label="My Planning" />
-          <SidebarItem collapsed={collapsed} icon={<HiFolder size={18} />} label="Projects" />
-          <SidebarItem collapsed={collapsed} icon={<HiCheckCircle size={18} />} label="Evaluation quizzes" />
-          <SidebarItem collapsed={collapsed} icon={<HiBookOpen size={18} />} label="My courses" />
-          <SidebarItem collapsed={collapsed} icon={<HiLightBulb size={18} />} label="Concepts" />
+                    <SidebarItem
+    to="/"
+    collapsed={collapsed}
+    icon={<HiHome size={18} />}
+    label="Home"
+  />
 
-          <SidebarItem collapsed={collapsed} icon={<SiZoom size={18} />} label="Conference rooms" />
-          <SidebarItem collapsed={collapsed} icon={<SiCodesandbox size={18} />} label="Sandboxes" />
-          <SidebarItem collapsed={collapsed} icon={<SiYoutube size={18} />} label="Video on demand" />
-          <SidebarItem collapsed={collapsed} icon={<FaDiscord size={18} />} label="Discord" />
+  <SidebarItem
+    to="/planning"
+    collapsed={collapsed}
+    icon={<HiOutlineSquares2X2 size={18} />}
+    label="My Planning"
+  />
+
+  <SidebarItem
+    to="/projects"
+    collapsed={collapsed}
+    icon={<HiFolder size={18} />}
+    label="Projects"
+  />
+
+  <SidebarItem
+    to="/quizzes"
+    collapsed={collapsed}
+    icon={<HiCheckCircle size={18} />}
+    label="Evaluation quizzes"
+  />
+
+  <SidebarItem
+    to="/courses"
+    collapsed={collapsed}
+    icon={<HiBookOpen size={18} />}
+    label="My courses"
+  />
+
+  <SidebarItem
+    to="/LearningCourseView"
+    collapsed={collapsed}
+    icon={<HiLightBulb size={18} />}
+    label="Concepts"
+  />
+
+  <SidebarItem
+    to="/conference"
+    collapsed={collapsed}
+    icon={<SiZoom size={18} />}
+    label="Conference rooms"
+  />
+
+  <SidebarItem
+    to="/sandboxes"
+    collapsed={collapsed}
+    icon={<SiCodesandbox size={18} />}
+    label="Sandboxes"
+  />
+
+  <SidebarItem
+    to="/videos"
+    collapsed={collapsed}
+    icon={<SiYoutube size={18} />}
+    label="Video on demand"
+  />
+
+  <SidebarItem
+    to="/discord"
+    collapsed={collapsed}
+    icon={<FaDiscord size={18} />}
+    label="Discord"
+  />
         </nav>
 
         {/* PROFILE */}
