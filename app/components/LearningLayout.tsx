@@ -4,8 +4,6 @@ import Footer from "./LearningFooter";
 
 export default function LearningLayout({
   children,
-  collapsed,
-  setCollapsed,
 }) {
 
 const [collapsed, setCollapsed] = useState(false);
