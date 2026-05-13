@@ -22,6 +22,9 @@ import {
 
 export default function InfinityLearningDashboard() {
   const [collapsed, setCollapsed] = useState(false);
+const location = useLocation();
+
+const active = location.pathname === to;
 
   const scores = [
     { title: "AiCE – AI Career Essentials", validated: true, score: "79.28%" },
