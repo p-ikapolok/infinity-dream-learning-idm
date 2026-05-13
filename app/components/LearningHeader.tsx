@@ -11,10 +11,6 @@ export default function Header({ collapsed, setCollapsed }) {
 
   return (
     <>
-    <Header
-  collapsed={collapsed}
-  setCollapsed={setCollapsed}
-/>
               {/* HEADER */}
         <header className="bg-white border-b px-6 py-3 flex items-center justify-between">
 
