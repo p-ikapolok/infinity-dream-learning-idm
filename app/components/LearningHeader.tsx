@@ -24,7 +24,7 @@ export default function Header({ collapsed, setCollapsed }) {
 
             {/* HAMBURGER TOGGLE */}
             <button
-              onClick={() => setCollapsed(!collapsed)}
+              onClick={() => setCollapsed(prev=> !prev)}
               className="p-2 rounded-md hover:bg-gray-100"
             >
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
