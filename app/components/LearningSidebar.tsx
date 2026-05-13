@@ -60,7 +60,7 @@ export default function LearningSidebar({ collapsed }) {
         <nav className="mt-6 space-y-1 px-3">
 
                     <SidebarItem
-    to="/"
+    to="/learning"
     collapsed={collapsed}
     icon={<HiHome size={18} />}
     label="Home"
