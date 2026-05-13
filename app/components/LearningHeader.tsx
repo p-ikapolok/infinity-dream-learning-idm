@@ -4,7 +4,7 @@ import NineDotsMenu from "./NineDotsMenu";
 import ProfileMenu from "./ProfileMenu";
 import { useNavigate, Link } from "react-router-dom";
 
-export default function Header() {
+export default function Header({ collapsed, setCollapsed }) {
   const [showNotifications, setShowNotifications] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
