@@ -104,7 +104,7 @@ const [search, setSearch] = useState("");
   />
 
   <SidebarItem
-    to="/concepts"
+    to="/LearningCourseView"
     collapsed={collapsed}
     icon={<HiLightBulb size={18} />}
     label="Concepts"
