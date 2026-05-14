@@ -182,10 +182,24 @@ export default function GlobalDashboard() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6">
               {mainSubjects.map((subject) => (
-                <div 
-                  key={subject.id} 
-                  className="group flex flex-col p-5 rounded-2xl bg-white border border-slate-100 hover:border-slate-200 hover:bg-slate-50/50 transition-all cursor-pointer"
-                >
+                <div
+  key={subject.id}
+  role="button"
+  tabIndex={0}
+  onClick={() => navigate(`/subjects/${subject.id}`)}
+  onKeyDown={(e) => {
+    if (e.key === "Enter") {
+      navigate(`/subjects/${subject.id}`);
+    }
+  }}
+  className="
+    group flex flex-col p-5 rounded-2xl
+    bg-white border border-slate-100
+    hover:border-slate-200 hover:bg-slate-50/50
+    transition-all cursor-pointer
+    active:scale-[0.98]
+  "
+>
                   <div className="flex items-center gap-4 mb-5">
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${subject.bg} ${subject.color}`}>
                       {React.createElement(Icons[subject.icon], { className: "w-6 h-6" })}
