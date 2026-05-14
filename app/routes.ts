@@ -47,6 +47,7 @@ export default [
   route("PublicSupport", "routes/PublicSupport.tsx"),
   route("ApplicationPage", "routes/ApplicationPage.tsx"),
   route("CourseViewPage", "routes/CourseViewPage.tsx"),
+  route("Topic learning", "routes/TopicLearning.tsx"),
 
 route("ai", "ai/learning-portal-dashboard.tsx", [
   //  default page for /ai
