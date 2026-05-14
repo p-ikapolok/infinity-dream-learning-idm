@@ -27,7 +27,7 @@ export default function LearningSidebar({ collapsed }) {
       <>
           {/* SIDEBAR */}
       <aside className={`bg-white border-r h-full flex flex-col transition-all duration-300 ${
-  collapsed ? "w-20" : "w-64"
+  collapsed ? "w-16" : "w-52"
 }`}>
 
         {/* SIDEBAR HEADER */}
