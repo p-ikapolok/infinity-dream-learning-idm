@@ -13,7 +13,7 @@ export default [
   route("Projects", "routes/Projects.tsx"),
   route("MyCourse", "routes/MyCourse.tsx"),
   route("DiscordIntergration", "routes/DiscordIntergration.tsx"),
-  route("VideosOnDemand", "routes/VideosOnDemand.tsx"),
+  route("VideoOnDemand", "routes/VideoOnDemand.tsx"),
   route("Sandboxes", "routes/Sandboxes.tsx"),
 
   route("pricing", "routes/pricing.tsx"),
