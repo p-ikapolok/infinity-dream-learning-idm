@@ -14,6 +14,7 @@ export default [
   route("MyCourse", "routes/MyCourse.tsx"),
   route("DiscordIntergration", "routes/DiscordIntergration.tsx"),
   route("VideosOnDemand", "routes/VideosOnDemand.tsx"),
+  route("Sandboxes", "routes/Sandboxes.tsx"),
 
   route("pricing", "routes/pricing.tsx"),
   route("checkout", "routes/checkout.tsx"),
