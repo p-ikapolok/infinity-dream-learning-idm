@@ -163,7 +163,13 @@ const handleSubtopicClick = (
                     {isExpanded && (
                       <div className="flex flex-col gap-3 mt-3 ml-6">
                         {topic.subtopics.map((subtopic, index) => (
-                          <div key={index} className="flex items-center gap-3 group cursor-pointer hover:opacity-80">
+                          <button
+  key={index}
+  onClick={() =>
+    handleSubtopicClick(topic.id, subtopic)
+  }
+  className="flex items-center gap-3 group cursor-pointer hover:bg-slate-100 p-2 rounded-lg transition text-left"
+>
                             {/* Thinner blue vertical line for subtopics */}
                             <div className="w-1 h-5 bg-blue-400 rounded-full" />
                             <span className="text-md text-slate-600 font-medium">
@@ -171,7 +177,7 @@ const handleSubtopicClick = (
                             </span>
                           </div>
                         ))}
-                      </div>
+                      </button>
                     )}
                   </div>
                 );
