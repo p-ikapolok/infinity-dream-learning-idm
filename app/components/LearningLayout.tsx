@@ -3,11 +3,9 @@ import Sidebar from "./LearningSidebar";
 import Header from "./LearningHeader";
 import Footer from "./LearningFooter";
 
-export default function LearningLayout({
-  children,
-}) {
+export default function LearningLayout({ children }) {
+  const [collapsed, setCollapsed] = useState(false);
 
-const [collapsed, setCollapsed] = useState(false);
   return (
     <div className="flex h-screen overflow-hidden bg-gray-100">
 
@@ -15,7 +13,7 @@ const [collapsed, setCollapsed] = useState(false);
       <Sidebar collapsed={collapsed} />
 
       {/* MAIN AREA */}
-      <div className="flex-1 flex flex-col min-h-screen">
+      <div className="flex-1 flex flex-col h-full overflow-hidden">
 
         {/* HEADER */}
         <Header
@@ -24,12 +22,13 @@ const [collapsed, setCollapsed] = useState(false);
         />
 
         {/* PAGE CONTENT */}
-        <main className="flex-1 p-6">
+        <main className="flex-1 overflow-y-auto p-6">
           {children}
         </main>
 
         {/* FOOTER */}
         <Footer />
+
       </div>
     </div>
   );
