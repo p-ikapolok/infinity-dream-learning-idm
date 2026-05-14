@@ -88,7 +88,7 @@ export default function InfinityDashboard() {
 
   return (
     <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
-      <div className="w-full h-full p-8 bg-slate-50 flex flex-col gap-6 overflow-y-auto">
+      <div className="flex-1 p-8 bg-slate-50 flex flex-col gap-6 overflow-y-auto">
 
         {/* SCROLLABLE DASHBOARD AREA */}
         <main className="flex-1 overflow-y-auto p-6 lg:p-10 scroll-smooth">
