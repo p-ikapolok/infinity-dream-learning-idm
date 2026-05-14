@@ -272,4 +272,56 @@ export default function GlobalDashboard() {
             <section className="w-full mt-4">
               <div className="mb-6">
                 <h2 className="text-xl font-bold text-slate-900">Additional Learning Paths</h2>
-                <p className="text-sm text-slate
+                <p className="text-sm text-slate-500 mt-1">Short courses outside your main curriculum.</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {optionalCourses.map((course) => (
+                  <div key={course.id} className="bg-slate-50/70 p-5 rounded-2xl flex flex-col md:flex-row items-center gap-5 hover:bg-slate-100/50 transition-colors cursor-pointer">
+                    <div className="flex-1 w-full">
+                      <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">{course.pathway}</div>
+                      <h3 className="font-bold text-slate-800 text-base mb-3">{course.name}</h3>
+                      <div className="flex items-center gap-3">
+                        <div className="h-1.5 flex-1 bg-slate-200 rounded-full overflow-hidden">
+                          <div className="h-full bg-slate-700 rounded-full" style={{ width: `${course.progress}%` }}></div>
+                        </div>
+                        <span className="text-xs font-semibold text-slate-500">{course.progress}%</span>
+                      </div>
+                    </div>
+                    <button className="w-full md:w-auto px-4 py-2 bg-white text-slate-700 text-sm font-semibold rounded-lg shadow-sm border border-slate-200 hover:text-slate-900 shrink-0">
+                      Resume
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+{/* ==========================================
+              SECTION 7: SCHOOL MOTTO / MISSION / VISION
+              ========================================== */}
+          <section className="w-full py-16 mt-8 flex flex-col items-center justify-center text-center">
+            <div className="max-w-2xl mx-auto space-y-6">
+              <div className="inline-block px-4 py-1.5 bg-blue-50 text-blue-700 font-bold text-xs uppercase tracking-widest rounded-full mb-2">
+                Infinity Dream Learning
+              </div>
+              <h2 className="text-2xl font-serif text-slate-800 italic">
+                "{schoolInfo.motto}"
+              </h2>
+              <div className="h-px w-16 bg-slate-200 mx-auto"></div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-sm text-slate-500">
+                <div>
+                  <h4 className="font-bold text-slate-700 uppercase tracking-widest mb-2 text-xs">Our Mission</h4>
+                  <p className="leading-relaxed">{schoolInfo.mission}</p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-700 uppercase tracking-widest mb-2 text-xs">Our Vision</h4>
+                  <p className="leading-relaxed">{schoolInfo.vision}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>
+      </div>
+    </LearningLayout>
+  );
+}
