@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import LearningLayout from "../components/LearningLayout";
 
 // Mock data array to demonstrate navigation between subtopics
@@ -32,6 +33,7 @@ const lessonData = [
 ];
 
 export default function TopicLearning() {
+  const { topicId, subtopic } = useParams();
   const [collapsed, setCollapsed] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
