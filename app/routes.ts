@@ -5,7 +5,7 @@ export default [
 
   route("about", "routes/about.tsx"),
   route("ehub", "routes/ehub.tsx"),
-  route("subjects/:subjectId", "routes/learning.tsx"),
+  route("learning", "routes/learning.tsx"),
   route("community", "routes/community.tsx"),
   route("support", "routes/support.tsx"),
   route("EvaluationQuizzers", "routes/EvaluationQuizzers.tsx"),
@@ -25,7 +25,7 @@ export default [
   route("/signup", "routes/signup.tsx"),
   route("/learning-resources-page", "routes/learning-resources-page.tsx"),
   route(
-  "subjects/:subjectId/:topicId/:subtopic",
+  "subjects/:subjectId",
   "routes/LearningCourseView.tsx"
 ),
   route("account-payments", "routes/account-payments.tsx"),
