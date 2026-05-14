@@ -9,7 +9,7 @@ export default function LearningLayout({
 
 const [collapsed, setCollapsed] = useState(false);
   return (
-    <div className="flex bg-gray-100 min-h-screen">
+    <div className="flex h-screen overflow-hidden bg-gray-100">
 
       {/* SIDEBAR */}
       <Sidebar collapsed={collapsed} />
