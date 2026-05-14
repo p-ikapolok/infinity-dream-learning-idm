@@ -1,5 +1,5 @@
 import React from "react";
-import LearningLayout from "./LearningLayout"; // Adjust import path as needed
+import LearningLayout from '../components/LearningLayout'; // Adjust import path as needed
 
 // ==========================================
 // MOCK DATA (GLOBAL SCOPE ONLY)
