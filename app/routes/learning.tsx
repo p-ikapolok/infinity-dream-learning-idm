@@ -126,7 +126,7 @@ const [search, setSearch] = useState("");
   />
 
   <SidebarItem
-    to="/VideosOnDemand"
+    to="/VideoOnDemand"
     collapsed={collapsed}
     icon={<SiYoutube size={18} />}
     label="Video on demand"
