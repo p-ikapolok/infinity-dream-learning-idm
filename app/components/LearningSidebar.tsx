@@ -67,28 +67,28 @@ export default function LearningSidebar({ collapsed }) {
   />
 
   <SidebarItem
-    to="/planning"
+    to="/MyPlanning"
     collapsed={collapsed}
     icon={<HiOutlineSquares2X2 size={18} />}
     label="My Planning"
   />
 
   <SidebarItem
-    to="/projects"
+    to="/Projects"
     collapsed={collapsed}
     icon={<HiFolder size={18} />}
     label="Projects"
   />
 
   <SidebarItem
-    to="/quizzes"
+    to="/EvaluationQuizzers"
     collapsed={collapsed}
     icon={<HiCheckCircle size={18} />}
     label="Evaluation quizzes"
   />
 
   <SidebarItem
-    to="/courses"
+    to="/MyCourse"
     collapsed={collapsed}
     icon={<HiBookOpen size={18} />}
     label="My courses"
@@ -109,21 +109,21 @@ export default function LearningSidebar({ collapsed }) {
   />
 
   <SidebarItem
-    to="/sandboxes"
+    to="/Sandboxes"
     collapsed={collapsed}
     icon={<SiCodesandbox size={18} />}
     label="Sandboxes"
   />
 
   <SidebarItem
-    to="/videos"
+    to="/VideosOnDemand"
     collapsed={collapsed}
     icon={<SiYoutube size={18} />}
     label="Video on demand"
   />
 
   <SidebarItem
-    to="/discord"
+    to="/DiscordIntergration"
     collapsed={collapsed}
     icon={<FaDiscord size={18} />}
     label="Discord"
