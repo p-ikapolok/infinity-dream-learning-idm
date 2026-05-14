@@ -12,7 +12,7 @@ export default function Header({ collapsed, setCollapsed }) {
   return (
     <>
               {/* HEADER */}
-        <header className="bg-white border-b px-6 py-3 flex items-center justify-between">
+        <header className="h-16 shrink-0 bg-white border-b px-6 flex items-center justify-between">
 
           {/* LEFT */}
           <div className="flex items-center gap-4">
