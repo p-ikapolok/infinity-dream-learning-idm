@@ -359,3 +359,48 @@ export default function InfinityDashboard() {
 
             {/* BOTTOM ROW */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
+{/* ================= 9. CAREER EXPLORATION ================= */}
+              <section className="bg-slate-900 rounded-3xl p-8 text-white relative overflow-hidden shadow-md">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 translate-x-10 -translate-y-10"></div>
+                <div className="relative z-10">
+                  <h2 className="text-xl font-black uppercase tracking-wide mb-2">Career Pathways</h2>
+                  <p className="text-slate-400 font-medium text-sm mb-6">Explore where your current skills can take you.</p>
+                  <div className="flex flex-wrap gap-3">
+                    {careers.map((career, i) => (
+                      <span key={i} className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-xl text-sm font-bold border border-white/10 hover:bg-white/20 transition-colors cursor-pointer">
+                        {career}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </section>
+
+              {/* ================= 10. COMMUNITY PREVIEW ================= */}
+              <section className="bg-indigo-50 border border-indigo-100 rounded-3xl p-8 shadow-sm flex flex-col justify-center">
+                <div className="flex items-center justify-between mb-6">
+                  <h2 className="text-xl font-black text-indigo-950 uppercase tracking-wide">Class Community</h2>
+                  <div className="flex -space-x-3">
+                    {[1, 2, 3].map((u) => (
+                      <div key={u} className="w-8 h-8 rounded-full bg-indigo-200 border-2 border-white flex items-center justify-center text-[10px] font-bold text-indigo-700">U{u}</div>
+                    ))}
+                    <div className="w-8 h-8 rounded-full bg-white border-2 border-white flex items-center justify-center text-[10px] font-bold text-slate-500">+12</div>
+                  </div>
+                </div>
+                <div className="bg-white rounded-2xl p-4 shadow-sm border border-indigo-50 hover:border-indigo-200 transition-colors cursor-pointer">
+                  <div className="flex items-center gap-2 mb-2">
+                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Live Study Group</span>
+                  </div>
+                  <h4 className="font-bold text-slate-900">Grade 5 Science Exam Prep</h4>
+                  <p className="text-sm text-slate-500 mt-1">4 students active right now. Join the voice channel!</p>
+                </div>
+              </section>
+
+            </div>
+
+          </div>
+        </main>
+      </div>
+    </div>
+  );
+}
