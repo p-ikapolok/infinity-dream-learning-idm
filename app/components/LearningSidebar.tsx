@@ -26,9 +26,9 @@ export default function LearningSidebar({ collapsed }) {
   return (
       <>
           {/* SIDEBAR */}
-      <aside className={`bg-white border-r relative transition-all duration-300 ${
-        collapsed ? "w-20" : "w-64"
-      }`}>
+      <aside className={`bg-white border-r h-full flex flex-col transition-all duration-300 ${
+  collapsed ? "w-20" : "w-64"
+}`}>
 
         {/* SIDEBAR HEADER */}
         <div className="p-4 flex items-center gap-2 font-bold text-lg">
