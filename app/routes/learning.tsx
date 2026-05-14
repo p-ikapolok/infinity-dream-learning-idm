@@ -24,14 +24,14 @@ const analytics = [
 ];
 
 const mainSubjects = [
-  { id: Mathematics, name: "Mathematics", progress: 85, lessonsCompleted: 42, totalLessons: 50, icon: "calculator", color: "text-blue-600", bg: "bg-blue-50" },
-  { id: English, name: "English Language", progress: 60, lessonsCompleted: 30, totalLessons: 50, icon: "book", color: "text-indigo-600", bg: "bg-indigo-50" },
-  { id: Kiswahili, name: "Kiswahili", progress: 45, lessonsCompleted: 22, totalLessons: 50, icon: "globe", color: "text-emerald-600", bg: "bg-emerald-50" },
-  { id: Science, name: "Science", progress: 75, lessonsCompleted: 38, totalLessons: 50, icon: "atom", color: "text-cyan-600", bg: "bg-cyan-50" },
-  { id: Social Studies, name: "Social Studies", progress: 50, lessonsCompleted: 25, totalLessons: 50, icon: "map", color: "text-amber-600", bg: "bg-amber-50" },
-  { id: Agriculture, name: "Agriculture", progress: 30, lessonsCompleted: 15, totalLessons: 50, icon: "leaf", color: "text-green-600", bg: "bg-green-50" },
-  { id: ICT, name: "ICT", progress: 90, lessonsCompleted: 45, totalLessons: 50, icon: "laptop", color: "text-violet-600", bg: "bg-violet-50" },
-  { id: Creative Arts, name: "Creative Arts", progress: 20, lessonsCompleted: 10, totalLessons: 50, icon: "palette", color: "text-rose-600", bg: "bg-rose-50" },
+  { id: "Mathematics", name: "Mathematics", progress: 85, lessonsCompleted: 42, totalLessons: 50, icon: "calculator", color: "text-blue-600", bg: "bg-blue-50" },
+  { id: "English", name: "English Language", progress: 60, lessonsCompleted: 30, totalLessons: 50, icon: "book", color: "text-indigo-600", bg: "bg-indigo-50" },
+  { id: "Kiswahili", name: "Kiswahili", progress: 45, lessonsCompleted: 22, totalLessons: 50, icon: "globe", color: "text-emerald-600", bg: "bg-emerald-50" },
+  { id: "Science", name: "Science", progress: 75, lessonsCompleted: 38, totalLessons: 50, icon: "atom", color: "text-cyan-600", bg: "bg-cyan-50" },
+  { id: "Social Studies", name: "Social Studies", progress: 50, lessonsCompleted: 25, totalLessons: 50, icon: "map", color: "text-amber-600", bg: "bg-amber-50" },
+  { id: "Agriculture", name: "Agriculture", progress: 30, lessonsCompleted: 15, totalLessons: 50, icon: "leaf", color: "text-green-600", bg: "bg-green-50" },
+  { id: "ICT", name: "ICT", progress: 90, lessonsCompleted: 45, totalLessons: 50, icon: "laptop", color: "text-violet-600", bg: "bg-violet-50" },
+  { id: "Creative Arts", name: "Creative Arts", progress: 20, lessonsCompleted: 10, totalLessons: 50, icon: "palette", color: "text-rose-600", bg: "bg-rose-50" },
 ];
 
 const aiInsights = [
