@@ -31,8 +31,8 @@ export default function Projects() {
               
               <h3 className="text-xl font-bold text-slate-900 mb-2">{project.title}</h3>
               <p className="text-sm text-slate-500 mb-6 flex-1">
-                Implement a strict requirement using standard functions like $ f(x) = \frac{1}{1 + e^{-x}} $ for the activation layer.
-              </p>
+  {"Implement a strict requirement using standard functions like f(x) = 1 / (1 + e^(-x)) for the activation layer."}
+</p>
               
               <div className="flex items-center gap-3 mt-auto pt-4 border-t-2 border-slate-100">
                 <button className="flex-1 bg-slate-900 hover:bg-slate-800 text-white py-2 rounded-lg font-bold transition-colors">
