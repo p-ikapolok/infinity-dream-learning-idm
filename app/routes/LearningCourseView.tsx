@@ -175,9 +175,9 @@ const handleSubtopicClick = (
                             <span className="text-md text-slate-600 font-medium">
                               {subtopic}
                             </span>
-                          </div>
+                          </button>
                         ))}
-                      </button>
+                      </div>
                     )}
                   </div>
                 );
