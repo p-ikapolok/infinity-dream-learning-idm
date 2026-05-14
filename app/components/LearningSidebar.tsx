@@ -95,14 +95,14 @@ export default function LearningSidebar({ collapsed }) {
   />
 
   <SidebarItem
-    to="/LearningCourseView"
+    to="/Concept"
     collapsed={collapsed}
     icon={<HiLightBulb size={18} />}
     label="Concepts"
   />
 
   <SidebarItem
-    to="/conference"
+    to="/ConferenceRoom"
     collapsed={collapsed}
     icon={<SiZoom size={18} />}
     label="Conference rooms"
