@@ -221,9 +221,9 @@ export default function GlobalDashboard() {
                       <div className={`h-full ${subject.color.replace('text', 'bg')} rounded-full`} style={{ width: `${subject.progress}%` }}></div>
                     </div>
                     
-                    <button className="w-full py-2.5 rounded-lg text-sm font-semibold text-slate-600 bg-slate-100/50 group-hover:bg-white group-hover:text-slate-900 group-hover:shadow-sm transition-all flex items-center justify-center gap-1.5">
+                    <div className="w-full py-2.5 rounded-lg text-sm font-semibold text-slate-600 bg-slate-100/50 group-hover:bg-white group-hover:text-slate-900 group-hover:shadow-sm transition-all flex items-center justify-center gap-1.5">
                       Continue {React.createElement(Icons.chevronRight, { className: "w-4 h-4" })}
-                    </button>
+                    </div>
                   </div>
                 </div>
               ))}
