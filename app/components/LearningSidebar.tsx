@@ -131,12 +131,20 @@ export default function LearningSidebar({ collapsed }) {
         </nav>
 
         {/* PROFILE */}
-        <div className="mt-auto p-3">
-          <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100 justify-center">
-            <img src="https://i.pravatar.cc/40" className="w-8 h-8 rounded-full" />
-            {!collapsed && <span className="text-sm">My Profile</span>}
-          </div>
-        </div>
+        <div className="mt-auto p-2 border-t">
+  <div className="flex items-center gap-2 p-1 rounded-lg hover:bg-gray-100">
+    <img
+      src="https://i.pravatar.cc/40"
+      className="w-7 h-7 rounded-full"
+    />
+
+    {!collapsed && (
+      <span className="text-xs text-gray-600">
+        My Profile
+      </span>
+    )}
+  </div>
+</div>
       </aside>
 </>
   );
