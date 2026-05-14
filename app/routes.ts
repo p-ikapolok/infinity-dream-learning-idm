@@ -8,6 +8,12 @@ export default [
   route("learning", "routes/learning.tsx"),
   route("community", "routes/community.tsx"),
   route("support", "routes/support.tsx"),
+  route("EvaluationQuizzers", "routes/EvaluationQuizzers.tsx"),
+  route("MyPlanning", "routes/MyPlanning.tsx"),
+  route("Projects", "routes/Projects.tsx"),
+  route("MyCourse", "routes/MyCourse.tsx"),
+  route("DiscordIntergration", "routes/DiscordIntergration.tsx"),
+  route("VideosOnDemand", "routes/VideosOnDemand.tsx"),
 
   route("pricing", "routes/pricing.tsx"),
   route("checkout", "routes/checkout.tsx"),
