@@ -15,6 +15,8 @@ export default [
   route("DiscordIntergration", "routes/DiscordIntergration.tsx"),
   route("VideoOnDemand", "routes/VideoOnDemand.tsx"),
   route("Sandboxes", "routes/Sandboxes.tsx"),
+  route("Concept", "routes/Concept.tsx"),
+  route("ConferenceRoom", "routes/ConferenceRoom.tsx"),
 
   route("pricing", "routes/pricing.tsx"),
   route("checkout", "routes/checkout.tsx"),
