@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LearningLayout from '../components/LearningLayout'; // Adjust import path as needed
 
 // ==========================================
@@ -82,7 +83,8 @@ const Icons: Record<string, React.FC<{ className?: string }>> = {
 // MAIN COMPONENT
 // ==========================================
 export default function GlobalDashboard() {
-         const [collapsed, setCollapsed] = useState(false);
+      const [collapsed, setCollapsed] = useState(false);
+      const navigate = useNavigate();
   return (
         <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
       <div className="w-full h-full bg-[#fcfcfd] font-sans text-slate-900 pb-20 overflow-y-auto">
