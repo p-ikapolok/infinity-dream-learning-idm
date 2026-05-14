@@ -86,28 +86,8 @@ export default function InfinityDashboard() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="flex h-screen w-full bg-slate-50 font-sans text-slate-900 overflow-hidden">
-
-      {/* MAIN CONTENT WRAPPER */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        
-        {/* ================= 12. TOP NAVBAR ================= */}
-        <header className="h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-8 shrink-0 z-10">
-          <div className="relative w-96">
-            {React.createElement(Icons.search, { className: "w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" })}
-            <input type="text" placeholder="Search subjects, topics, or AI help..." className="w-full pl-10 pr-4 py-2 bg-slate-100 border-transparent rounded-full text-sm focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none" />
-          </div>
-          
-          <div className="flex items-center gap-4">
-            <button className="relative p-2 text-slate-400 hover:text-indigo-600 transition-colors">
-              {React.createElement(Icons.bell, { className: "w-5 h-5" })}
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
-            </button>
-            <div className="h-8 w-8 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full border-2 border-white shadow-sm flex items-center justify-center text-white font-bold text-xs">
-              AM
-            </div>
-          </div>
-        </header>
+    <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
+      <div className="w-full h-full p-8 bg-slate-50 flex flex-col gap-6 overflow-y-auto">
 
         {/* SCROLLABLE DASHBOARD AREA */}
         <main className="flex-1 overflow-y-auto p-6 lg:p-10 scroll-smooth">
@@ -371,7 +351,7 @@ export default function InfinityDashboard() {
 
           </div>
         </main>
-      </div>
     </div>
+   </LearningLayout>
   );
 }
