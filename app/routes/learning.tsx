@@ -266,4 +266,96 @@ export default function InfinityDashboard() {
             </section>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            
+            {/* ================= 4. OVERALL GRADE PROGRESS (Analytics) ================= */}
+              <section className="lg:col-span-2 space-y-6">
+                <h2 className="text-xl font-black text-slate-900 uppercase tracking-wide">Grade Analytics</h2>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                  {[
+                    { label: "Subjects Done", val: "2", total: "/8", color: "bg-blue-50 text-blue-600" },
+                    { label: "Lessons", val: "142", total: "", color: "bg-purple-50 text-purple-600" },
+                    { label: "Exams Passed", val: "6", total: "", color: "bg-emerald-50 text-emerald-600" },
+                    { label: "Study Hrs", val: "34", total: "h", color: "bg-orange-50 text-orange-600" },
+                  ].map((stat, i) => (
+                    <div key={i} className="bg-white border border-slate-200 rounded-2xl p-5 flex flex-col items-center justify-center text-center shadow-sm">
+                      <div className={`w-10 h-10 rounded-full ${stat.color} flex items-center justify-center mb-3`}>
+                        {React.createElement(Icons.target, { className: "w-5 h-5" })}
+                      </div>
+                      <span className="text-2xl font-black text-slate-900">{stat.val}<span className="text-sm text-slate-400 font-medium">{stat.total}</span></span>
+                      <span className="text-xs font-bold text-slate-500 uppercase tracking-widest mt-1">{stat.label}</span>
+                    </div>
+                  ))}
+                </div>
+{/* ================= 6. REVISION SECTION ================= */}
+                <h2 className="text-xl font-black text-slate-900 uppercase tracking-wide mt-8">Smart Revision</h2>
+                <div className="flex flex-col gap-4">
+                  {revisions.map((rev) => (
+                    <div key={rev.id} className="bg-white border border-slate-200 rounded-2xl p-5 flex items-center justify-between group hover:border-indigo-300 transition-colors shadow-sm">
+                      <div className="flex items-center gap-4">
+                        <div className="w-12 h-12 bg-slate-100 text-slate-400 rounded-xl flex items-center justify-center group-hover:bg-indigo-50 group-hover:text-indigo-600 transition-colors shrink-0">
+                          {React.createElement(Icons.rewind, { className: "w-5 h-5" })}
+                        </div>
+                        <div>
+                          <div className="flex items-center gap-2 mb-1">
+                            <span className="text-xs font-bold bg-slate-100 text-slate-500 px-2 py-0.5 rounded uppercase tracking-wider">{rev.grade}</span>
+                            <h4 className="font-bold text-slate-900">{rev.topic}</h4>
+                          </div>
+                          <p className="text-sm text-slate-600 font-medium">{rev.detail}</p>
+                        </div>
+                      </div>
+                      <button className="hidden md:block px-4 py-2 text-sm font-bold text-indigo-600 bg-indigo-50 rounded-lg hover:bg-indigo-100 transition-colors shrink-0">
+                        Revise Now
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* SIDE COLUMN */}
+              <div className="space-y-8">
+{/* ================= 5. UPCOMING TASKS ================= */}
+                <section className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                  <div className="flex items-center justify-between mb-6">
+                    <h2 className="text-lg font-black text-slate-900 uppercase tracking-wide">Tasks & Exams</h2>
+                    <button className="p-1 text-slate-400 hover:text-indigo-600 transition-colors">
+                      {React.createElement(Icons.menu, { className: "w-5 h-5" })}
+                    </button>
+                  </div>
+                  <div className="space-y-4">
+                    {tasks.map((task) => (
+                      <div key={task.id} className="flex flex-col gap-1 p-4 rounded-2xl border border-slate-100 bg-slate-50 relative overflow-hidden group hover:border-indigo-200 transition-colors">
+                        <div className={`absolute left-0 top-0 bottom-0 w-1 ${task.priority === 'high' ? 'bg-red-500' : task.priority === 'medium' ? 'bg-amber-500' : 'bg-blue-400'}`}></div>
+                        <span className="text-xs font-bold text-slate-500 uppercase tracking-wider ml-2">{task.subject}</span>
+                        <h4 className="font-bold text-slate-900 ml-2">{task.title}</h4>
+                        <div className="flex items-center gap-1 text-xs font-semibold text-slate-500 mt-2 ml-2">
+                          {React.createElement(Icons.clock, { className: "w-3 h-3" })} {task.due}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+                {/* ================= 8. ACHIEVEMENTS SECTION ================= */}
+                <section className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm">
+                  <h2 className="text-lg font-black text-slate-900 uppercase tracking-wide mb-6">Achievements</h2>
+                  <div className="space-y-4">
+                    {achievements.map((ach) => (
+                      <div key={ach.id} className="flex items-center gap-4">
+                        <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-yellow-400 to-orange-500 text-white flex items-center justify-center shadow-md">
+                          {React.createElement(Icons[ach.icon], { className: "w-5 h-5" })}
+                        </div>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-slate-900">{ach.title}</h4>
+                          <div className="h-1.5 w-full bg-slate-100 rounded-full mt-2">
+                            <div className="h-full bg-yellow-400 rounded-full w-full"></div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+
+              </div>
+            </div>
+
+            {/* BOTTOM ROW */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
