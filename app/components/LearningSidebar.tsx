@@ -131,7 +131,7 @@ export default function LearningSidebar({ collapsed }) {
         </nav>
 
         {/* PROFILE */}
-        <div className="absolute bottom-4 left-4 right-4">
+        <div className="mt-auto p-4">
           <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100 justify-center">
             <img src="https://i.pravatar.cc/40" className="w-8 h-8 rounded-full" />
             {!collapsed && <span className="text-sm">My Profile</span>}
