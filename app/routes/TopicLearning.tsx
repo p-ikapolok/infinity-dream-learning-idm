@@ -60,9 +60,15 @@ export default function TopicLearning() {
         
         {/* Header Area */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-white p-4 rounded-xl border-2 border-slate-200">
-          <h1 className="text-xl font-black text-slate-900 uppercase tracking-wide">
-            Topic 1: Numbers
-          </h1>
+          <div>
+  <h1 className="text-xl font-black text-slate-900 uppercase tracking-wide">
+    {subtopic}
+  </h1>
+
+  <p className="text-sm text-slate-500 font-medium mt-1 uppercase tracking-wide">
+    {topicId}
+  </p>
+</div>
           
           <div className="flex items-center gap-2">
             <div className="relative">
