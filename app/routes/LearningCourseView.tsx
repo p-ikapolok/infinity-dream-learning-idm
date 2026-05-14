@@ -1,10 +1,20 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import LearningLayout from '../components/LearningLayout';
 
 export default function CourseTopicsView() {
   // State to manage which topic accordion is open
   const [expandedTopic, setExpandedTopic] = useState<string | null>("numbers");
   const [collapsed, setCollapsed] = useState(false);
+const navigate = useNavigate();
+const handleSubtopicClick = (
+  topicId: string,
+  subtopic: string
+) => {
+  navigate(
+    `/content/${topicId}/${encodeURIComponent(subtopic)}`
+  );
+};
 
   // Mock data structure based on the sketch
   const courseData = {
