@@ -66,8 +66,9 @@ const Icons: Record<string, React.FC<{ className?: string }>> = {
 // COMPONENT
 // ==========================================
 export default function GlobalDashboard() {
+     const [collapsed, setCollapsed] = useState(false);
   return (
-    <LearningLayout>
+        <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-5 font-sans text-slate-900 p-4 lg:p-6 h-full justify-center">
         
         {/* ================= 1. HERO & 3. CONTINUE LEARNING (ROW 1) ================= */}
