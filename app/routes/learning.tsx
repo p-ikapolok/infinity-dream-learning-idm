@@ -87,35 +87,6 @@ export default function InfinityDashboard() {
 
   return (
     <div className="flex h-screen w-full bg-slate-50 font-sans text-slate-900 overflow-hidden">
-      
-      {/* ================= 11. SIDEBAR NAVIGATION ================= */}
-      <aside className={`bg-white border-r border-slate-200 transition-all duration-300 ease-in-out flex flex-col ${collapsed ? "w-20" : "w-64"}`}>
-        <div className="h-16 flex items-center justify-between px-4 border-b border-slate-100 shrink-0">
-          {!collapsed && <span className="font-black text-lg tracking-wide text-indigo-900 uppercase">Infinity Dream</span>}
-          <button onClick={() => setCollapsed(!collapsed)} className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors mx-auto">
-            {React.createElement(Icons.menu, { className: "w-5 h-5" })}
-          </button>
-        </div>
-        
-        <nav className="flex-1 overflow-y-auto py-6 flex flex-col gap-2 px-3">
-          {[
-            { name: "Dashboard", icon: "dashboard", active: true },
-            { name: "Subjects", icon: "book" },
-            { name: "Assignments", icon: "target" },
-            { name: "Exams", icon: "clock" },
-            { name: "Revision", icon: "rewind" },
-            { name: "Achievements", icon: "award" },
-            { name: "Community", icon: "users" },
-            { name: "Career Paths", icon: "atom" },
-            { name: "Settings", icon: "settings" },
-          ].map((item) => (
-            <button key={item.name} className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all font-semibold ${item.active ? "bg-indigo-600 text-white shadow-md shadow-indigo-200" : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"}`}>
-              {React.createElement(Icons[item.icon], { className: "w-5 h-5 shrink-0" })}
-              {!collapsed && <span className="text-sm tracking-wide">{item.name}</span>}
-            </button>
-          ))}
-        </nav>
-      </aside>
 
       {/* MAIN CONTENT WRAPPER */}
       <div className="flex-1 flex flex-col overflow-hidden">
