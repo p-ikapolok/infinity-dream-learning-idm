@@ -232,4 +232,38 @@ export default function InfinityDashboard() {
                     </div>
                   ))}
                 </div>
+              </div>
+
+            </div>
+{/* ================= 3. CURRENT SUBJECTS GRID ================= */}
+            <section>
+              <div className="flex items-center justify-between mb-6">
+                <h2 className="text-xl font-black text-slate-900 uppercase tracking-wide">Current Subjects</h2>
+                <button className="text-sm font-bold text-indigo-600 hover:text-indigo-800 transition-colors">View All Curriculum</button>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+                {subjects.map((sub) => (
+                  <div key={sub.id} className="bg-white border border-slate-200 rounded-3xl p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all group cursor-pointer">
+                    <div className="flex justify-between items-start mb-6">
+                      <div className={`w-12 h-12 rounded-2xl ${sub.bg} ${sub.color} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                        {React.createElement(Icons[sub.icon], { className: "w-6 h-6" })}
+                      </div>
+                      <span className="text-xs font-bold bg-slate-100 text-slate-500 px-2 py-1 rounded-md">{sub.topics} Topics</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 mb-4">{sub.name}</h3>
+                    <div className="space-y-2">
+                      <div className="flex justify-between text-xs font-bold text-slate-500">
+                        <span>Completion</span>
+                        <span>{sub.progress}%</span>
+                      </div>
+                      <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                        <div className={`h-full ${sub.bar} rounded-full transition-all duration-1000`} style={{ width: `${sub.progress}%` }}></div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
