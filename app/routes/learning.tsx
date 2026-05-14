@@ -1,316 +1,235 @@
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import {
-  Menu,
-  Bell,
-  Grid3X3,
-  CheckCircle,
-  Calendar,
-  MessageCircle,
-} from "lucide-react";
+import React, { useState } from "react";
 
-import { FaDiscord } from "react-icons/fa";
-import { SiZoom, SiYoutube, SiCodesandbox } from "react-icons/si";
-import {
-  HiHome,
-  HiOutlineSquares2X2,
-  HiFolder,
-  HiCheckCircle,
-  HiBookOpen,
-  HiLightBulb,
-} from "react-icons/hi2";
+// ==========================================
+// MOCK DATA
+// ==========================================
+const student = {
+  name: "Alex Mercer",
+  grade: "Grade 5",
+  stage: "Primary Level",
+  completion: 68,
+  streak: 14,
+  xp: 12450,
+};
 
-export default function InfinityLearningDashboard() {
+const continueLearning = {
+  subject: "Science",
+  topic: "Plant Reproduction",
+  subtopic: "Pollination",
+  progress: 45,
+};
+
+const subjects = [
+  { id: 1, name: "Mathematics", icon: "calculator", progress: 72, topics: "8/12", color: "text-blue-600", bg: "bg-blue-50", bar: "bg-blue-500" },
+  { id: 2, name: "English", icon: "book", progress: 85, topics: "10/12", color: "text-indigo-600", bg: "bg-indigo-50", bar: "bg-indigo-500" },
+  { id: 3, name: "Science", icon: "atom", progress: 45, topics: "5/12", color: "text-emerald-600", bg: "bg-emerald-50", bar: "bg-emerald-500" },
+  { id: 4, name: "Social Studies", icon: "globe", progress: 90, topics: "11/12", color: "text-amber-600", bg: "bg-amber-50", bar: "bg-amber-500" },
+  { id: 5, name: "Creative Arts", icon: "palette", progress: 30, topics: "3/10", color: "text-pink-600", bg: "bg-pink-50", bar: "bg-pink-500" },
+  { id: 6, name: "ICT", icon: "computer", progress: 100, topics: "10/10", color: "text-cyan-600", bg: "bg-cyan-50", bar: "bg-cyan-500" },
+];
+
+const tasks = [
+  { id: 1, subject: "Mathematics", title: "Algebraic Expressions Quiz", due: "Tomorrow, 10:00 AM", priority: "high" },
+  { id: 2, subject: "Science", title: "Photosynthesis Essay", due: "Friday, 11:59 PM", priority: "medium" },
+  { id: 3, subject: "English", title: "Reading Comprehension", due: "Next Monday", priority: "low" },
+];
+
+const revisions = [
+  { id: 1, grade: "Grade 4", topic: "Fractions", detail: "Review addition: $ \\frac{a}{b} + \\frac{c}{b} = \\frac{a+c}{b} $" },
+  { id: 2, grade: "Grade 3", topic: "Basic Grammar", detail: "Nouns, Verbs, and Adjectives" },
+  { id: 3, grade: "Grade 4", topic: "Geometry", detail: "Area of a circle: $ A = \\pi r^2 $" },
+];
+
+const aiRecommendations = [
+  { id: 1, type: "alert", text: "You are struggling with decimal division.", action: "Revise Decimals" },
+  { id: 2, type: "praise", text: "You perform best in Science! Top 5% in your class.", action: "View Analytics" },
+];
+
+const achievements = [
+  { id: 1, title: "14 Day Streak", icon: "flame" },
+  { id: 2, title: "Algebra Master", icon: "award" },
+  { id: 3, title: "50 Lessons Done", icon: "check-circle" },
+];
+
+const careers = ["Software Engineering", "Medicine", "Data Science", "Cybersecurity"];
+
+// ==========================================
+// SVG ICON COMPONENTS (Strictly inline SVGs)
+// ==========================================
+const Icons: Record<string, React.FC<{ className?: string }>> = {
+  dashboard: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>,
+  book: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>,
+  calculator: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01"/></svg>,
+  atom: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>,
+  globe: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+  palette: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg>,
+  computer: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>,
+  play: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>,
+  clock: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>,
+  sparkles: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 3l1.912 5.813a2 2 0 001.275 1.275L21 12l-5.813 1.912a2 2 0 00-1.275 1.275L12 21l-1.912-5.813a2 2 0 00-1.275-1.275L3 12l5.813-1.912a2 2 0 001.275-1.275L12 3z"/></svg>,
+  flame: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 2.5z"/></svg>,
+  award: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>,
+  "check-circle": ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>,
+  menu: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>,
+  search: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>,
+  bell: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>,
+  rewind: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polygon points="11 19 2 12 11 5 11 19"/><polygon points="22 19 13 12 22 5 22 19"/></svg>,
+  users: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  target: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>,
+  settings: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>,
+};
+
+// ==========================================
+// MAIN PAGE COMPONENT
+// ==========================================
+export default function InfinityDashboard() {
   const [collapsed, setCollapsed] = useState(false);
 
-  const scores = [
-    { title: "AiCE – AI Career Essentials", validated: true, score: "79.28%" },
-    { title: "Front-End Web Development", validated: true, score: "87.93%" },
-    { title: "Virtual Assistant", validated: true, score: "98.04%" },
-    { title: "Professional Foundations", validated: true, score: "97.37%" },
-    { title: "Freelancer Academy - 4-week", validated: false, score: "0.0%" },
-  ];
-const [search, setSearch] = useState("");
-
   return (
-    <div className="flex bg-gray-100 min-h-screen">
-
-      {/* SIDEBAR */}
-      <aside className={`bg-white border-r relative transition-all duration-300 ${
-        collapsed ? "w-20" : "w-64"
-      }`}>
-
-        {/* SIDEBAR HEADER */}
-        <div className="p-4 flex items-center gap-2 font-bold text-lg">
-          <Menu size={18} />
-          {!collapsed && <span className="font-black">infinity</span>}
+    <div className="flex h-screen w-full bg-slate-50 font-sans text-slate-900 overflow-hidden">
+      
+      {/* ================= 11. SIDEBAR NAVIGATION ================= */}
+      <aside className={`bg-white border-r border-slate-200 transition-all duration-300 ease-in-out flex flex-col ${collapsed ? "w-20" : "w-64"}`}>
+        <div className="h-16 flex items-center justify-between px-4 border-b border-slate-100 shrink-0">
+          {!collapsed && <span className="font-black text-lg tracking-wide text-indigo-900 uppercase">Infinity Dream</span>}
+          <button onClick={() => setCollapsed(!collapsed)} className="p-2 text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 rounded-lg transition-colors mx-auto">
+            {React.createElement(Icons.menu, { className: "w-5 h-5" })}
+          </button>
         </div>
-
-{/* SIDEBAR SEARCH (FIXED COLLAPSE) */}
-{!collapsed && (
-  <div className="px-3 mt-2">
-    <div className="flex items-center gap-2 bg-gray-100 px-3 py-2 rounded-lg">
-
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-        <circle cx="11" cy="11" r="7" stroke="#6B7280" strokeWidth="2" />
-        <path d="M20 20l-3-3" stroke="#6B7280" strokeWidth="2" />
-      </svg>
-
-      <input
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        placeholder="Search..."
-        className="bg-transparent outline-none text-sm w-full"
-      />
-    </div>
-  </div>
-)}
-
-        {/* NAV */}
-        <nav className="mt-6 space-y-1 px-3">
-
-          <SidebarItem
-    to="/learning"
-    collapsed={collapsed}
-    icon={<HiHome size={18} />}
-    label="Home"
-  />
-
-  <SidebarItem
-    to="/MyPlanning"
-    collapsed={collapsed}
-    icon={<HiOutlineSquares2X2 size={18} />}
-    label="My Planning"
-  />
-
-  <SidebarItem
-    to="/Projects"
-    collapsed={collapsed}
-    icon={<HiFolder size={18} />}
-    label="Projects"
-  />
-
-  <SidebarItem
-    to="/EvaluationQuizzers"
-    collapsed={collapsed}
-    icon={<HiCheckCircle size={18} />}
-    label="Evaluation quizzes"
-  />
-
-  <SidebarItem
-    to="/MyCourse"
-    collapsed={collapsed}
-    icon={<HiBookOpen size={18} />}
-    label="My courses"
-  />
-
-  <SidebarItem
-    to="/Concept"
-    collapsed={collapsed}
-    icon={<HiLightBulb size={18} />}
-    label="Concepts"
-  />
-
-  <SidebarItem
-    to="/ConferenceRoom"
-    collapsed={collapsed}
-    icon={<SiZoom size={18} />}
-    label="Conference rooms"
-  />
-
-  <SidebarItem
-    to="/Sandboxes"
-    collapsed={collapsed}
-    icon={<SiCodesandbox size={18} />}
-    label="Sandboxes"
-  />
-
-  <SidebarItem
-    to="/VideoOnDemand"
-    collapsed={collapsed}
-    icon={<SiYoutube size={18} />}
-    label="Video on demand"
-  />
-
-  <SidebarItem
-    to="/DiscordIntergration"
-    collapsed={collapsed}
-    icon={<FaDiscord size={18} />}
-    label="Discord"
-  />
+        
+        <nav className="flex-1 overflow-y-auto py-6 flex flex-col gap-2 px-3">
+          {[
+            { name: "Dashboard", icon: "dashboard", active: true },
+            { name: "Subjects", icon: "book" },
+            { name: "Assignments", icon: "target" },
+            { name: "Exams", icon: "clock" },
+            { name: "Revision", icon: "rewind" },
+            { name: "Achievements", icon: "award" },
+            { name: "Community", icon: "users" },
+            { name: "Career Paths", icon: "atom" },
+            { name: "Settings", icon: "settings" },
+          ].map((item) => (
+            <button key={item.name} className={`flex items-center gap-3 px-3 py-3 rounded-xl transition-all font-semibold ${item.active ? "bg-indigo-600 text-white shadow-md shadow-indigo-200" : "text-slate-500 hover:bg-slate-100 hover:text-slate-900"}`}>
+              {React.createElement(Icons[item.icon], { className: "w-5 h-5 shrink-0" })}
+              {!collapsed && <span className="text-sm tracking-wide">{item.name}</span>}
+            </button>
+          ))}
         </nav>
-
-        {/* PROFILE */}
-        <div className="absolute bottom-4 left-4 right-4">
-          <div className="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100 justify-center">
-            <img src="https://i.pravatar.cc/40" className="w-8 h-8 rounded-full" />
-            {!collapsed && <span className="text-sm">My Profile</span>}
-          </div>
-        </div>
       </aside>
 
-      {/* MAIN */}
-      <div className="flex-1">
-
-        {/* HEADER */}
-        <header className="bg-white border-b px-6 py-3 flex items-center justify-between">
-
-          {/* LEFT */}
-          <div className="flex items-center gap-4">
-
-            <div className="font-black text-lg text-red-600">infinity</div>
-
-            {/* HAMBURGER TOGGLE */}
-            <button
-              onClick={() => setCollapsed(!collapsed)}
-              className="p-2 rounded-md hover:bg-gray-100"
-            >
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 6h16M4 12h16M4 18h16"
-                  stroke="#111827"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-
+      {/* MAIN CONTENT WRAPPER */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        
+        {/* ================= 12. TOP NAVBAR ================= */}
+        <header className="h-16 bg-white/80 backdrop-blur-md border-b border-slate-200 flex items-center justify-between px-8 shrink-0 z-10">
+          <div className="relative w-96">
+            {React.createElement(Icons.search, { className: "w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" })}
+            <input type="text" placeholder="Search subjects, topics, or AI help..." className="w-full pl-10 pr-4 py-2 bg-slate-100 border-transparent rounded-full text-sm focus:bg-white focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 transition-all outline-none" />
           </div>
-
-          {/* RIGHT */}
+          
           <div className="flex items-center gap-4">
-
-            <div className="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
-              4210 pts
+            <button className="relative p-2 text-slate-400 hover:text-indigo-600 transition-colors">
+              {React.createElement(Icons.bell, { className: "w-5 h-5" })}
+              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full border-2 border-white"></span>
+            </button>
+            <div className="h-8 w-8 bg-gradient-to-tr from-indigo-500 to-purple-500 rounded-full border-2 border-white shadow-sm flex items-center justify-center text-white font-bold text-xs">
+              AM
             </div>
-
-            {/* BELL */}
-            <button className="p-2 rounded-md hover:bg-gray-100">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7z"
-                  stroke="#111827"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M13.73 21a2 2 0 01-3.46 0"
-                  stroke="#111827"
-                  strokeWidth="2"
-                />
-              </svg>
-            </button>
-
-            {/* 9 DOTS */}
-            <button className="p-2 rounded-md hover:bg-gray-100">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <circle cx="5" cy="5" r="2" fill="#111827" />
-                <circle cx="12" cy="5" r="2" fill="#111827" />
-                <circle cx="19" cy="5" r="2" fill="#111827" />
-
-                <circle cx="5" cy="12" r="2" fill="#111827" />
-                <circle cx="12" cy="12" r="2" fill="#111827" />
-                <circle cx="19" cy="12" r="2" fill="#111827" />
-
-                <circle cx="5" cy="19" r="2" fill="#111827" />
-                <circle cx="12" cy="19" r="2" fill="#111827" />
-                <circle cx="19" cy="19" r="2" fill="#111827" />
-              </svg>
-            </button>
-
-            <img src="https://i.pravatar.cc/40" className="w-9 h-9 rounded-full border" />
           </div>
         </header>
 
-        {/* CONTENT (UNCHANGED) */}
-        <div className="p-6 space-y-4">
-
-          <Card>
-            <div className="flex justify-between mb-4">
-              <h2 className="font-semibold text-gray-700">Upcoming events</h2>
-              <button className="border px-3 py-1 rounded text-sm">View all</button>
-            </div>
-
-            <div className="flex flex-col items-center py-10 text-gray-400">
-              <Calendar size={32} />
-              <p>No upcoming event</p>
-            </div>
-          </Card>
-
-          <Card>
-            <h2 className="font-semibold text-gray-700 mb-2">Current projects</h2>
-            <p className="text-gray-500">None, enjoy the silence.</p>
-          </Card>
-
-          {scores.map((item, index) => (
-            <Card key={index}>
-              <div className="flex justify-between">
-                <div>
-                  <h3 className="font-semibold text-gray-700">
-                    Scores - {item.title}
-                  </h3>
-
-                  <span className={`text-xs px-2 py-1 rounded inline-block mt-1 ${
-                    item.validated
-                      ? "bg-green-100 text-green-700"
-                      : "bg-yellow-100 text-yellow-700"
-                  }`}>
-                    {item.validated ? "Validated" : "Not validated"}
-                  </span>
+        {/* SCROLLABLE DASHBOARD AREA */}
+        <main className="flex-1 overflow-y-auto p-6 lg:p-10 scroll-smooth">
+          <div className="max-w-7xl mx-auto flex flex-col gap-8">
+            
+            {/* ================= 1. TOP WELCOME HERO ================= */}
+            <section className="relative overflow-hidden bg-slate-900 rounded-3xl p-8 lg:p-10 shadow-lg text-white">
+              {/* Abstract Background Shapes */}
+              <div className="absolute top-0 right-0 w-96 h-96 bg-indigo-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-x-20 -translate-y-20"></div>
+              <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-y-20"></div>
+              
+              <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div className="flex-1 space-y-4 text-center md:text-left">
+                  <div className="inline-block bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-widest text-indigo-200 uppercase border border-white/10">
+                    {student.grade} — {student.stage}
+                  </div>
+                  <h1 className="text-4xl font-black tracking-tight">Welcome back, {student.name}!</h1>
+                  <p className="text-slate-300 font-medium text-lg max-w-xl">You are crushing it. Ready to dive into your next big discovery?</p>
+                  
+                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 pt-4">
+                    <button className="bg-white text-slate-900 px-6 py-3 rounded-xl font-bold hover:bg-indigo-50 transition-colors shadow-md shadow-white/10 flex items-center gap-2">
+                      {React.createElement(Icons.play, { className: "w-5 h-5 fill-current" })}
+                      Continue Learning
+                    </button>
+                    <div className="flex items-center gap-4 bg-white/10 backdrop-blur-md px-4 py-3 rounded-xl border border-white/10">
+                      <div className="flex items-center gap-2">
+                        {React.createElement(Icons.flame, { className: "w-5 h-5 text-orange-400" })}
+                        <span className="font-bold">{student.streak} Day Streak</span>
+                      </div>
+                      <div className="w-px h-4 bg-white/20"></div>
+                      <div className="font-bold text-indigo-200">{student.xp} XP</div>
+                    </div>
+                  </div>
                 </div>
 
-                <div className="font-semibold flex items-center gap-1">
-                  {item.score}
-                  {item.validated && <CheckCircle size={16} className="text-green-600" />}
+                {/* Progress Ring */}
+                <div className="relative w-40 h-40 shrink-0 flex items-center justify-center bg-white/5 backdrop-blur-md rounded-full border border-white/10">
+                  <svg className="w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+                    <path className="text-white/10" strokeWidth="3" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                    <path className="text-indigo-400" strokeDasharray={`${student.completion}, 100`} strokeWidth="3" strokeLinecap="round" stroke="currentColor" fill="none" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                  </svg>
+                  <div className="absolute text-center">
+                    <span className="text-3xl font-black">{student.completion}%</span>
+                    <span className="block text-xs text-indigo-200 font-bold uppercase tracking-widest mt-1">Overall</span>
+                  </div>
                 </div>
               </div>
-            </Card>
-          ))}
+            </section>
 
-        </div>
+            {/* ================= 2. CONTINUE LEARNING & 7. AI RECOMMENDATIONS ================= */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              
+              {/* Continue Banner */}
+              <div className="lg:col-span-2 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl p-6 lg:p-8 text-white flex flex-col justify-between relative overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+                <div className="absolute top-0 right-0 p-8 opacity-20">
+                  {React.createElement(Icons.atom, { className: "w-32 h-32" })}
+                </div>
+                <div className="relative z-10">
+                  <span className="bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-white/20">Last Opened • {continueLearning.subject}</span>
+                  <h2 className="text-3xl font-black mt-4 mb-1">{continueLearning.topic}</h2>
+                  <p className="text-emerald-50 font-medium">Subtopic: {continueLearning.subtopic}</p>
+                </div>
+                <div className="relative z-10 mt-8 flex items-center justify-between">
+                  <div className="flex-1 mr-8">
+                    <div className="flex justify-between text-xs font-bold mb-2">
+                      <span>Progress</span>
+                      <span>{continueLearning.progress}%</span>
+                    </div>
+                    <div className="h-2 w-full bg-black/20 rounded-full overflow-hidden">
+                      <div className="h-full bg-white rounded-full" style={{ width: `${continueLearning.progress}%` }}></div>
+                    </div>
+                  </div>
+                  <button className="bg-white text-emerald-700 px-6 py-3 rounded-xl font-bold hover:bg-emerald-50 transition-colors shadow-sm shrink-0">
+                    Resume Lesson
+                  </button>
+                </div>
+              </div>
 
-        <div className="min-h-screen flex flex-col">
-  <main className="flex-1">
-    {/* page content */}
-  </main>
-
-  <footer className="text-center text-xs text-gray-400 py-2">
-    Copyright © 2026 Infinity
-  </footer>
-
-  <button className="fixed bottom-6 right-6 bg-yellow-400 p-4 rounded-full shadow-lg">
-    <MessageCircle />
-  </button>
-</div>
-
-      </div>
-    </div>
-  );
-}
-
-/* SIDEBAR ITEM */
-function SidebarItem({ icon, label, collapsed, to }) {
-  const location = useLocation();
-
-  const active = location.pathname === to;
-
-  return (
-  <Link
-      to={to}>
-    <div className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer ${
-      active ? "bg-red-50 text-red-500" : "text-gray-600 hover:bg-gray-100"
-    }`}>
-      {icon}
-      {!collapsed && <span className="text-sm">{label}</span>}
-    </div>
-  </Link>
-  );
-}
-
-/* CARD */
-function Card({ children }) {
-  return (
-    <div className="bg-white border rounded-lg p-4 shadow-sm">
-      {children}
-    </div>
-  );
-}
+              {/* AI Assistant Hub */}
+              <div className="bg-white border-2 border-indigo-100 rounded-3xl p-6 flex flex-col shadow-sm relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+                <div className="flex items-center gap-2 mb-6">
+                  {React.createElement(Icons.sparkles, { className: "w-5 h-5 text-indigo-500" })}
+                  <h3 className="font-black text-slate-900 tracking-wide uppercase">AI Assistant</h3>
+                </div>
+                <div className="flex flex-col gap-3 flex-1 justify-center">
+                  {aiRecommendations.map((rec) => (
+                    <div key={rec.id} className={`p-4 rounded-xl border ${rec.type === 'alert' ? 'bg-orange-50 border-orange-200' : 'bg-indigo-50 border-indigo-200'}`}>
+                      <p className="text-sm font-semibold text-slate-800 mb-2">{rec.text}</p>
+                      <button className={`text-xs font-bold uppercase tracking-wider hover:underline ${rec.type === 'alert' ? 'text-orange-600' : 'text-indigo-600'}`}>
+                        {rec.action} →
+                      </button>
+                    </div>
+                  ))}
+                </div>
+            
