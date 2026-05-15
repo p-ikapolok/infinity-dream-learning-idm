@@ -17,7 +17,9 @@ export default function CourseTopicsView() {
   const { subjectId } = useParams();
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
 useEffect(() => {
-  setExpandedTopic(selectedCourse?.topics?.[0]?.id || null);
+  if (selectedCourse?.topics?.length) {
+    setExpandedTopic(selectedCourse.topics[0].id);
+  }
 }, [selectedCourse]);
 
   const [collapsed, setCollapsed] = useState(false);
@@ -636,7 +638,7 @@ useEffect(() => {
   },
 ];
 
-  const [selectedCourse, setSelectedCourse] = useState(courses[0]);
+  const [selectedCourse, setSelectedCourse] = useState(courseData[0]);
 
 const filteredTopics = useMemo(() => {
   const q = search.toLowerCase();
