@@ -213,9 +213,25 @@ useEffect(() => {
         lessons: 10,
         color: "from-blue-500 to-indigo-500",
         icon: (
-              <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19h16" /><path d="M4 12h16" /></svg>),
-        subtopics: ["Tenses", "Parts of Speech", "Sentence Structure", "Punctuation", "Verbs"],
-      },
+              <svg 
+                 className="w-7 h-7" 
+                 viewBox="0 0 24 24" 
+                 fill="none" 
+                 stroke="currentColor"  
+                 strokeWidth="2"
+                 >
+                 <path d="M4 19h16" />
+                 <path d="M4 12h16" />
+                 </svg>
+              ),
+        subtopics: [
+                    "Tenses", 
+                    "Parts of Speech", 
+                    "Sentence Structure",
+                    "Punctuation", 
+                    "Verbs"
+                   ],
+                 },
       {
         id: "composition",
         title: "Composition",
@@ -229,17 +245,48 @@ useEffect(() => {
         title: "Reading",
         lessons: 6,
         color: "from-yellow-500 to-orange-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16v16H4z" /></svg>),
-        subtopics: ["Comprehension", "Skimming", "Scanning", "Vocabulary", "Main Ideas"],
-      },
+        icon: (
+               <svg 
+                  className="w-7 h-7" 
+                  viewBox="0 0 24 24" 
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2">
+                  <path d="M4 4h16v16H4z" />
+               </svg>
+              ),
+        subtopics: [
+                     "Comprehension", 
+                     "Skimming", 
+                     "Scanning", 
+                     "Vocabulary",
+                     "Main Ideas"
+                   ],
+                 },
       {
         id: "spelling",
         title: "Spelling",
         lessons: 5,
         color: "from-purple-500 to-pink-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16" /></svg>),
-        subtopics: ["Word Formation", "Prefixes", "Suffixes", "Difficult Words", "Dictation"],
-      },
+        icon: (
+                <svg 
+                    className="w-7 h-7"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    >
+                   <path d="M4 7h16" />
+                   </svg>
+              ),
+        subtopics: [
+                    "Word Formation",
+                    "Prefixes", 
+                    "Suffixes", 
+                    "Difficult Words",
+                    "Dictation"
+                   ],
+                 },
       {
         id: "listening",
         title: "Listening & Speaking",
