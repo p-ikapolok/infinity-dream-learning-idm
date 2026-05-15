@@ -214,7 +214,38 @@ export default function GlobalDashboard() {
                   }}
                   className="group flex flex-col p-6 rounded-lg bg-[#ffffff] border border-[#e5e7eb] hover:border-[#d1d5db] transition-colors duration-150 cursor-pointer active:scale-[0.98]"
                 > 
-                  <div className="flex items-center gap-3 mb-6">  
+                  <div
+  className="relative h-24 -mx-6 -mt-6 mb-6 bg-cover bg-center border-b border-[#e5e7eb]"
+  style={{
+    backgroundImage: `url(${subject.image})`,
+  }}
+>
+  <div className="absolute inset-0 bg-black/20"></div>
+
+  <div className="relative z-10 flex items-end h-full p-4">
+    <div className="flex items-center gap-3">
+
+      <div className="w-10 h-10 rounded-md flex items-center justify-center bg-white/90 text-[#2563eb] backdrop-blur-sm">
+        {React.createElement(Icons[subject.icon], {
+          className: "w-5 h-5",
+        })}
+      </div>
+
+      <div>
+        <h3 className="font-semibold text-white text-[16px]">
+          {subject.name}
+        </h3>
+
+        <p className="text-[12px] font-normal text-white/80">
+          {subject.lessonsCompleted} of {subject.totalLessons} lessons
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div className="mb-2">  
                     <div className="w-10 h-10 rounded-md flex items-center justify-center bg-[#f6f7f9] text-[#6b7280] group-hover:text-[#2563eb] group-hover:bg-[#eff6ff] transition-colors duration-150">  
                       {React.createElement(Icons[subject.icon], { className: "w-5 h-5" })}  
                     </div>  
