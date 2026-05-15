@@ -101,13 +101,13 @@ export default function GlobalDashboard() {
   className="relative w-full py-20 px-6 overflow-hidden"
   style={{
     backgroundImage:
-      "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80')",
+  "url('https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1600&q=80')",
     backgroundSize: "cover",
     backgroundPosition: "center",
   }}
 >
   {/* Soft overlay */}
-  <div className=" max-w-7x1 mx-auto grid md:grid-cols-2 gap-10 inset-0 bg-white/75 backdrop-blur-sm" />
+  <div className="absolute inset-0 bg-black/50" />
 
   {/* Content wrapper (IMPORTANT FIX) */}
   <div className="relative max-w-[1280px] mx-auto px-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
