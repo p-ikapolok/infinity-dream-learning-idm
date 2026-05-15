@@ -114,7 +114,7 @@ export default function GlobalDashboard() {
 
     {/* LEFT SIDE */}
     <div className="flex-1">
-      <span className="inline-block px-3 py-1 bg-white/70 text-grey/70 text-xs font-medium rounded-full border border-grey/30">
+      <span className="inline-block px-3 py-1 bg-white/70 text-white/70 text-xs font-medium rounded-full border border-white/30">
         {student.grade} • {student.stage}
       </span>
 
@@ -122,7 +122,7 @@ export default function GlobalDashboard() {
         Welcome back, {student.name}.
       </h1>
 
-      <p className="mt-4 text-lg text-grey/70 max-w-2xl leading-relaxed">
+      <p className="mt-4 text-lg text-white/70 max-w-2xl leading-relaxed">
         Your journey in the {student.system} continues. Stay consistent, stay curious, and keep building step by step.
       </p>
 
@@ -138,13 +138,13 @@ export default function GlobalDashboard() {
       {/* Progress */}
       <div>
         <div className="flex justify-between text-sm mb-2">
-          <span className="text-grey/60">Overall Progress</span>
-          <span className="font-semibold text-grey/100">{student.overallProgress}%</span>
+          <span className="text-white/60">Overall Progress</span>
+          <span className="font-semibold text-white/100">{student.overallProgress}%</span>
         </div>
 
-        <div className="h-2 w-full bg-white-600 rounded-full overflow-hidden">
+        <div className="h-2 w-full bg-blue-600 rounded-full overflow-hidden">
           <div
-            className="h-full bg-blue-900 rounded-full"
+            className="h-full bg-white-900 rounded-full"
             style={{ width: `${student.overallProgress}%` }}
           />
         </div>
@@ -153,16 +153,16 @@ export default function GlobalDashboard() {
       {/* Inline stats (NOT cards) */}
       <div className="grid grid-cols-2 gap-6">
         <div>
-          <div className="text-xs text-grey/60">Streak</div>
-          <div className="text-2xl font-semibold text-grey/100">
+          <div className="text-xs text-white/60">Streak</div>
+          <div className="text-2xl font-semibold text-white/100">
             {student.streak}
-            <span className="text-sm text-grey/60 ml-1">days</span>
+            <span className="text-sm text-white/60 ml-1">days</span>
           </div>
         </div>
 
         <div>
-          <div className="text-xs text-grey/60">XP</div>
-          <div className="text-2xl font-semibold text-grey/100">
+          <div className="text-xs text-white/60">XP</div>
+          <div className="text-2xl font-semibold text-white/100">
             {student.xpPoints}
           </div>
         </div>
