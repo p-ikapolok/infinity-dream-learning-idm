@@ -242,30 +242,30 @@ export default function MyPlanning() {
         <div className="flex flex-col gap-4">
 
           <input
-            type="text"
-            placeholder="Event title"
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-slate-400"
-          />
+  type="text"
+  placeholder="Event title"
+  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:border-slate-400"
+/>
 
           <input
-            type="date"
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-slate-400"
-          />
+  type="date"
+  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-500 focus:outline-none focus:border-slate-400"
+/>
 
           <input
-            type="time"
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-slate-400"
-          />
+  type="time"
+  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-500 focus:outline-none focus:border-slate-400"
+/>
 
           <textarea
-            rows={4}
-            placeholder="Schedule description..."
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm resize-none focus:outline-none focus:border-slate-400"
-          />
+  rows={4}
+  placeholder="Schedule description..."
+  className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-700 placeholder-slate-400 resize-none focus:outline-none focus:border-slate-400"
+/>
 
-          <button className="w-full py-3 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition">
-            Save Schedule
-          </button>
+          <button className="w-full py-3 rounded-xl bg-blue-500 text-black text-sm font-medium hover:bg-blue-600 transition">
+  Save Schedule
+</button>
 
         </div>
       </div>
