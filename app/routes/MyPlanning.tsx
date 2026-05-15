@@ -3,6 +3,7 @@ import LearningLayout from "../components/LearningLayout";
 
 export default function MyPlanning() {
   const [collapsed, setCollapsed] = useState(false);
+  const [open, setOpen] = useState(false);
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const year = currentDate.getFullYear();
@@ -71,7 +72,7 @@ export default function MyPlanning() {
 
       <div className="flex items-center gap-3">
 
-        <button className="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition">
+        <button onClick={() => setOpen(true)} className="px-5 py-2.5 rounded-xl bg-slate-900 text-white text-sm font-medium hover:bg-slate-800 transition">
           + Create Schedule
         </button>
 
