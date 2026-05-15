@@ -306,7 +306,7 @@ export default function GlobalDashboard() {
                     </div>  
                     
                     {/* Secondary Button format */}
-                    <div className="w-full py-2 rounded-md text-[14px] font-medium text-[#2563eb] bg-transparent border border-[#e5e7eb] group-hover:border-[#2563eb] transition-colors duration-150 flex items-center justify-center gap-1">  
+                    <div className="w-full py-2 rounded-full text-[14px] font-medium text-white bg-[#2563eb] hover:bg-[#22c55e] active:bg-[#16a34a] transition-colors duration-150 flex items-center justify-center gap-1">  
                       Continue {React.createElement(Icons.chevronRight, { className: "w-4 h-4" })}  
                     </div>  
                   </div>  
