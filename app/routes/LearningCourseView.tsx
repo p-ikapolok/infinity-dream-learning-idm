@@ -555,6 +555,20 @@ export default function CourseTopicsView() {
       return matchesTitle || matchesSubtopic;
     });
   }, [search]);
+    const [selectedCourse, setSelectedCourse] = useState(courses[0]);
+const filteredTopics = useMemo(() => {
+  return selectedCourse.topics.filter((topic) => {
+    const q = search.toLowerCase();
+
+    const matchesTitle = topic.title.toLowerCase().includes(q);
+
+    const matchesSubtopic = topic.subtopics.some((sub) =>
+      sub.toLowerCase().includes(q)
+    );
+
+    return matchesTitle || matchesSubtopic;
+  });
+}, [search, selectedCourse]);
 
   return (
     <LearningLayout
