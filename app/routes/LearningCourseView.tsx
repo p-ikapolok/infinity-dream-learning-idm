@@ -212,7 +212,8 @@ useEffect(() => {
         title: "Grammar",
         lessons: 10,
         color: "from-blue-500 to-indigo-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19h16" /><path d="M4 12h16" /></svg>,
+        icon: (
+              <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19h16" /><path d="M4 12h16" /></svg>),
         subtopics: ["Tenses", "Parts of Speech", "Sentence Structure", "Punctuation", "Verbs"],
       },
       {
@@ -220,7 +221,7 @@ useEffect(() => {
         title: "Composition",
         lessons: 8,
         color: "from-green-500 to-emerald-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21l18-18" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21l18-18" /></svg>),
         subtopics: ["Essay Writing", "Paragraphs", "Stories", "Letters", "Creative Writing"],
       },
       {
@@ -228,7 +229,7 @@ useEffect(() => {
         title: "Reading",
         lessons: 6,
         color: "from-yellow-500 to-orange-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16v16H4z" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16v16H4z" /></svg>),
         subtopics: ["Comprehension", "Skimming", "Scanning", "Vocabulary", "Main Ideas"],
       },
       {
@@ -236,7 +237,7 @@ useEffect(() => {
         title: "Spelling",
         lessons: 5,
         color: "from-purple-500 to-pink-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16" /></svg>),
         subtopics: ["Word Formation", "Prefixes", "Suffixes", "Difficult Words", "Dictation"],
       },
       {
@@ -244,7 +245,7 @@ useEffect(() => {
         title: "Listening & Speaking",
         lessons: 6,
         color: "from-indigo-500 to-blue-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9" /></svg>),
         subtopics: ["Listening Skills", "Pronunciation", "Conversation", "Presentation", "Speech"],
       },
     ],
@@ -262,7 +263,7 @@ useEffect(() => {
         title: "Sarufi",
         lessons: 10,
         color: "from-red-500 to-pink-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16" /></svg>),
         subtopics: ["Nomino", "Vitenzi", "Vivumishi", "Sentensi", "Viunganishi"],
       },
       {
@@ -270,7 +271,7 @@ useEffect(() => {
         title: "Fasihi",
         lessons: 8,
         color: "from-orange-500 to-yellow-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>),
         subtopics: ["Hadithi", "Mashairi", "Methali", "Nahau", "Vitendawili"],
       },
       {
@@ -278,7 +279,7 @@ useEffect(() => {
         title: "Insha",
         lessons: 7,
         color: "from-green-500 to-emerald-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21l18-18" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21l18-18" /></svg>),
         subtopics: ["Insha za Maelezo", "Barua", "Hadithi", "Insha Fupi", "Ubunifu"],
       },
       {
@@ -286,7 +287,7 @@ useEffect(() => {
         title: "Usomaji",
         lessons: 6,
         color: "from-blue-500 to-indigo-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>),
         subtopics: ["Ufahamu", "Msamiati", "Kusoma Haraka", "Kuelewa", "Uchambuzi"],
       },
       {
@@ -294,7 +295,7 @@ useEffect(() => {
         title: "Mawasiliano",
         lessons: 6,
         color: "from-purple-500 to-pink-500",
-        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>,
+        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
         subtopics: ["Kuzungumza", "Kusikiliza", "Majadiliano", "Matamshi", "Hotuba"],
       },
     ],
