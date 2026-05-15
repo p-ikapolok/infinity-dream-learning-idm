@@ -62,6 +62,9 @@ export default function CreateScheduleModal({ open, onClose, onSave }: Props) {
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-700 placeholder-slate-400 focus:outline-none focus:border-slate-400"
           />
 
+      <label className="text-xs text-slate-500 mb-1 block">
+  Select date
+</label>        
           <input
             type="date"
             value={date}
@@ -69,6 +72,9 @@ export default function CreateScheduleModal({ open, onClose, onSave }: Props) {
             className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-500 focus:outline-none focus:border-slate-400"
           />
 
+       <label className="text-xs text-slate-500 mb-1 block">
+  Select time
+</label>        
           <input
             type="time"
             value={time}
