@@ -246,7 +246,7 @@ useEffect(() => {
                    strokeWidth="2"
                   >
                    <path d="M3 21l18-18" />
-                   </svg.>
+                   </svg>
                ),
         subtopics: [
                     "Essay Writing", 
