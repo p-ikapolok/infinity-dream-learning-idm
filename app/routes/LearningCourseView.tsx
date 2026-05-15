@@ -222,7 +222,7 @@ export default function CourseTopicsView() {
         <div className="w-full min-h-screen bg-white flex flex-col overflow-hidden">
 
           {/* TOP HEADER */}
-          <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 px-4 md:px-8 py-6">
+          <div className="relative px-4 md:px-8 py-6 overflow-hidden">
 
             {/* TOP BAR */}
             <div className="flex items-start justify-between gap-4 flex-wrap">
