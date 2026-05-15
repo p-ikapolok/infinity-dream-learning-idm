@@ -8,13 +8,15 @@ import { useNavigate, useParams } from "react-router-dom";
 
 import LearningLayout from "../components/LearningLayout";
 
-export async function loader({ params }) {
-  return { subjectId: params.subjectId };
-}
-
 export default function CourseTopicsView() {
   const { subjectId } = useParams();
   const navigate = useNavigate();
+const initialCourse =
+  courseData.find(
+    (c) => c.subject.toLowerCase() === subjectId?.toLowerCase()
+  ) || courseData[0];
+
+const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 
   const courseData = [
   // ===================== MATHEMATICS =====================
@@ -614,13 +616,6 @@ export default function CourseTopicsView() {
     ],
   },
 ];
-
-  const initialCourse =
-  courseData.find(
-    (c) => c.subject.toLowerCase() === subjectId?.toLowerCase()
-  ) || courseData[0];
-
-const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 
   const [expandedTopic, setExpandedTopic] = useState(null);
   const [collapsed, setCollapsed] = useState(false);
