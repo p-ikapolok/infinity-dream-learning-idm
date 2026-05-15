@@ -126,7 +126,7 @@ export default function GlobalDashboard() {
         Your journey in the {student.system} continues. Stay consistent, stay curious, and keep building step by step.
       </p>
 
-      <button className="mt-8 bg-slate-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition flex items-center gap-2 text-sm">
+      <button className="mt-8 bg-blue-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-blue-700 transition flex items-center gap-2 text-sm">
         {React.createElement(Icons.play, { className: "w-4 h-4 fill-white" })}
         Continue Learning: {student.lastSubject}
       </button>
