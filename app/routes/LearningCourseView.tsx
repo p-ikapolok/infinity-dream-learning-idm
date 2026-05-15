@@ -31,7 +31,7 @@ useEffect(() => {
     );
   };
 
-  const courseData = {
+  const courseData = [
     {
     grade: "Grade 6",
     subject: "Mathematics",
@@ -643,7 +643,7 @@ useEffect(() => {
     },
   ],
 },
-  };
+  ];
 
   const [selectedCourse, setSelectedCourse] = useState(courses[0]);
 
