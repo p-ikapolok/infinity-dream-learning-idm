@@ -107,7 +107,7 @@ export default function GlobalDashboard() {
   }}
 >
   {/* Soft overlay */}
-  <div className="max-w-7x1 mx-auto grid md:grid-cols-2 gap-10 inset-0 bg-white/75 backdrop-blur-sm" />
+  <div className="absolute max-w-7x1 mx-auto grid md:grid-cols-2 gap-10 inset-0 bg-white/75 backdrop-blur-sm" />
 
   {/* Content wrapper (IMPORTANT FIX) */}
   <div className="relative max-w-[1280px] mx-auto px-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
