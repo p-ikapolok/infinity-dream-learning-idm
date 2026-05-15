@@ -72,8 +72,15 @@ const mainSubjects = [
     progress: 90, 
     lessonsCompleted: 45, 
     totalLessons: 50, 
-    icon: "laptop" },
-  { id: "Creative Arts", name: "Creative Arts", progress: 20, lessonsCompleted: 10, totalLessons: 50, icon: "palette" },
+    icon: "laptop",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80" },
+  { id: "Creative Arts", 
+    name: "Creative Arts", 
+    progress: 20, 
+    lessonsCompleted: 10, 
+    totalLessons: 50, 
+    icon: "palette",
+    image: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80" },
 ];
 
 const aiInsights = [
