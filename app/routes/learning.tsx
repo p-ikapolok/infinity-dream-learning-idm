@@ -184,19 +184,22 @@ export default function GlobalDashboard() {
     <div className="w-full lg:w-[320px] flex flex-col gap-6">
 
       {/* Progress */}
-      <div>
-        <div className="flex justify-between text-sm mb-2">
-          <span className="text-white/60">Overall Progress</span>
-          <span className="font-semibold text-white/100">{student.overallProgress}%</span>
-        </div>
+<div>
+  <div className="flex justify-between text-sm mb-2">
+    <span className="text-white/70">Overall Progress</span>
+    <span className="font-semibold text-white">{student.overallProgress}%</span>
+  </div>
 
-        <div className="h-2 w-full bg-blue-600 rounded-full overflow-hidden">
-          <div
-            className="h-full bg-white-900 rounded-full"
-            style={{ width: `${student.overallProgress}%` }}
-          />
-        </div>
-      </div>
+  {/* Track (background bar) */}
+  <div className="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+    
+    {/* Fill (progress bar) */}
+    <div
+      className="h-full bg-white rounded-full transition-all duration-300"
+      style={{ width: `${student.overallProgress}%` }}
+    />
+  </div>
+</div>
 
       {/* Inline stats (NOT cards) */}
       <div className="grid grid-cols-2 gap-6">
