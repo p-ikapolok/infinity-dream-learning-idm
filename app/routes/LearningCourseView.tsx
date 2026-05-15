@@ -687,10 +687,9 @@ const filteredTopics = useMemo(() => {
                     <p className="text-blue-100 text-sm">
                       Topics
                     </p>
-
-                    <h3 className="text-3xl font-black text-white mt-1">
-                      {courseData.totalTopics}
-                    </h3>
+        <h3 className="text-3xl font-black text-white mt-1">
+  {selectedCourse.totalTopics}
+     </h3>
                   </div>
 
                   <svg
@@ -717,9 +716,9 @@ const filteredTopics = useMemo(() => {
                       Progress
                     </p>
 
-                    <h3 className="text-3xl font-black text-white mt-1">
-                      {courseData.progress}%
-                    </h3>
+        <h3 className="text-3xl font-black text-white mt-1">
+  {selectedCourse.progress}%
+       </h3>
                   </div>
 
                   <svg
