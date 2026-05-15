@@ -233,8 +233,10 @@ export default function CourseTopicsView() {
   }}
 />
 
+      <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 opacity-90" />
+
             {/* TOP BAR */}
-            <div className="flex items-start justify-between gap-4 flex-wrap">
+            <div className="relative z-10 flex items-start justify-between gap-4 flex-wrap">
 
               {/* LEFT */}
               <div>
