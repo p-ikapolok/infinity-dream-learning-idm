@@ -539,27 +539,12 @@ export default function CourseTopicsView() {
 },
   };
 
-  const filteredTopics = useMemo(() => {
-    return courseData.topics.filter((topic) => {
-      const matchesTitle = topic.title
-        .toLowerCase()
-        .includes(search.toLowerCase());
+  const [selectedCourse, setSelectedCourse] = useState(courses[0]);
 
-      const matchesSubtopic = topic.subtopics.some(
-        (sub) =>
-          sub
-            .toLowerCase()
-            .includes(search.toLowerCase())
-      );
-
-      return matchesTitle || matchesSubtopic;
-    });
-  }, [search]);
-    const [selectedCourse, setSelectedCourse] = useState(courses[0]);
 const filteredTopics = useMemo(() => {
-  return selectedCourse.topics.filter((topic) => {
-    const q = search.toLowerCase();
+  const q = search.toLowerCase();
 
+  return selectedCourse.topics.filter((topic) => {
     const matchesTitle = topic.title.toLowerCase().includes(q);
 
     const matchesSubtopic = topic.subtopics.some((sub) =>
