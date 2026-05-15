@@ -4,7 +4,7 @@ import React, {
   useEffect,
 } from "react";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useLoaderData } from "react-router-dom";
 
 import LearningLayout from "../components/LearningLayout";
@@ -14,6 +14,11 @@ export async function loader({ params }) {
 }
 
 export default function CourseTopicsView() {
+  const { subjectId } = useParams();
+  const selectedCourse =
+  courseData.find(
+    c => c.subject.toLowerCase() === subjectId?.toLowerCase()
+  ) || courseData[0];
   const { subjectId } = useLoaderData();
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
 useEffect(() => {
