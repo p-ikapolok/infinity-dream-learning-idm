@@ -176,7 +176,8 @@ export default function GlobalDashboard() {
               SECTION 2: ANALYTICS OVERVIEW  
               ========================================== */}  
           <section className="w-full">  
-        <span className="text-slate-500">ANALYTICS OVERVIEW</span>
+        <h2 className="text-[22px] font-semibold text-[#111827]">Analytics Overview</h2>  
+              <p className="text-[14px] text-[#6b7280] mt-1">View your overall progress analysis.</p>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">  
               {analytics.map((stat, i) => (  
                 <div key={i} className="flex flex-col gap-2 bg-[#ffffff] rounded-lg p-4 md:p-6 border border-[#e5e7eb]">  
