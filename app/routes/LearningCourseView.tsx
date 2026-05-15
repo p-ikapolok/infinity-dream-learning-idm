@@ -14,33 +14,7 @@ export async function loader({ params }) {
 
 export default function CourseTopicsView() {
   const { subjectId } = useParams();
-  const selectedCourse =
-  courseData.find(
-    c => c.subject.toLowerCase() === subjectId?.toLowerCase()
-  ) || courseData[0];
-  const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
-useEffect(() => {
-  if (selectedCourse?.topics?.length) {
-    setExpandedTopic(selectedCourse.topics[0].id);
-  }
-}, [selectedCourse]);
-
-  const [collapsed, setCollapsed] = useState(false);
-
-  const [search, setSearch] = useState("");
-
   const navigate = useNavigate();
-
-  const handleSubtopicClick = (
-    topicId: string,
-    subtopic: string
-  ) => {
-    navigate(
-      `/content/${topicId}/${encodeURIComponent(
-        subtopic
-      )}`
-    );
-  };
 
   const courseData = [
   // ===================== MATHEMATICS =====================
@@ -641,21 +615,39 @@ useEffect(() => {
   },
 ];
 
+  const selectedCourse =
+    courseData.find(
+      c => c.subject.toLowerCase() === subjectId?.toLowerCase()
+    ) || courseData[0];
+
+  const [expandedTopic, setExpandedTopic] = useState(null);
+  const [collapsed, setCollapsed] = useState(false);
+  const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (selectedCourse?.topics?.length) {
+      setExpandedTopic(selectedCourse.topics[0].id);
+    }
+  }, [selectedCourse]);
+
   const filteredTopics = useMemo(() => {
-  if (!selectedCourse?.topics) return [];
+    if (!selectedCourse?.topics) return [];
 
-  const q = search.toLowerCase();
+    const q = search.toLowerCase();
 
-  return selectedCourse.topics.filter((topic) => {
-    const matchesTitle = topic.title.toLowerCase().includes(q);
+    return selectedCourse.topics.filter((topic) => {
+      return (
+        topic.title.toLowerCase().includes(q) ||
+        topic.subtopics.some(sub =>
+          sub.toLowerCase().includes(q)
+        )
+      );
+    });
+  }, [search, selectedCourse]);
 
-    const matchesSubtopic = topic.subtopics.some((sub) =>
-      sub.toLowerCase().includes(q)
-    );
-
-    return matchesTitle || matchesSubtopic;
-  });
-}, [search, selectedCourse]);
+  const handleSubtopicClick = (topicId, subtopic) => {
+    navigate(`/content/${topicId}/${encodeURIComponent(subtopic)}`);
+  };
 
   return (
     <LearningLayout
