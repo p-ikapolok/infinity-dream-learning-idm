@@ -56,7 +56,7 @@ export default function MyPlanning() {
           </div>
 
 {/* MAIN PLANNING LAYOUT */}
-<div className="flex flex-col flex-1 pt-6">
+<div className="flex flex-col flex-1 pt-10">
 
     {/* Header */}
     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8">
