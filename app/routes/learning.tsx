@@ -97,56 +97,75 @@ export default function GlobalDashboard() {
           {/* ==========================================  
               SECTION 1: TOP HERO  
               ========================================== */}  
-          <section className="w-full bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-6 md:p-8 flex flex-col lg:flex-row justify-between gap-8">  
-            {/* Left Side: Welcome */}  
-            <div className="flex-1 flex flex-col justify-center">  
-              <div className="flex items-center gap-2 mb-3">  
-                <span className="px-2 py-1 bg-[#f6f7f9] text-[#6b7280] text-[12px] font-medium rounded border border-[#e5e7eb]">  
-                  {student.grade} • {student.stage}  
-                </span>  
-              </div>  
-              <h1 className="text-[28px] md:text-[36px] font-semibold tracking-tight text-[#111827] mb-2 leading-tight">  
-                Welcome back, {student.name}.  
-              </h1>  
-              <p className="text-[16px] text-[#6b7280] mb-6 max-w-xl">  
-                Your journey in the {student.system} continues. Stay curious and keep building your knowledge.  
-              </p>  
-              <div>  
-                <button className="bg-[#2563eb] text-white px-5 py-2.5 rounded-md font-medium hover:bg-[#1d4ed8] transition-colors duration-150 flex items-center gap-2 text-[14px] active:scale-[0.98]">  
-                  {React.createElement(Icons.play, { className: "w-4 h-4 fill-white" })}  
-                  Continue Learning: {student.lastSubject}  
-                </button>  
-              </div>  
-            </div>  
+          {/* HERO - FULL WIDTH OPEN LAYOUT */}
+<section className="w-full py-10 md:py-14 flex flex-col lg:flex-row items-start justify-between gap-10">
 
-            {/* Right Side: Progress Stats */}  
-            <div className="lg:w-1/3 flex flex-col justify-center gap-6">  
-              <div>  
-                <div className="flex justify-between text-[14px] font-medium mb-2">  
-                  <span className="text-[#6b7280]">Overall Progress</span>  
-                  <span className="text-[#111827] font-semibold">{student.overallProgress}%</span>  
-                </div>  
-                <div className="h-1.5 w-full bg-[#f6f7f9] rounded-full overflow-hidden">  
-                  <div className="h-full bg-[#2563eb] rounded-full" style={{ width: `${student.overallProgress}%` }}></div>  
-                </div>  
-              </div>  
+  {/* LEFT CONTENT */}
+  <div className="flex-1 flex flex-col justify-center">
 
-              <div className="grid grid-cols-2 gap-4">  
-                <div className="bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-4">  
-                  <div className="text-[#6b7280] text-[12px] font-medium mb-1">Current Streak</div>  
-                  <div className="text-[22px] font-semibold text-[#111827] flex items-baseline gap-1">  
-                    {student.streak} <span className="text-[14px] font-normal text-[#9ca3af]">days</span>  
-                  </div>  
-                </div>  
-                <div className="bg-[#ffffff] border border-[#e5e7eb] rounded-lg p-4">  
-                  <div className="text-[#6b7280] text-[12px] font-medium mb-1">Total XP</div>  
-                  <div className="text-[22px] font-semibold text-[#111827] flex items-baseline gap-1">  
-                    {student.xpPoints} <span className="text-[14px] font-normal text-[#9ca3af]">xp</span>  
-                  </div>  
-                </div>  
-              </div>  
-            </div>  
-          </section>  
+    <div className="flex items-center gap-2 mb-4">
+      <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full border border-slate-200">
+        {student.grade} • {student.stage}
+      </span>
+    </div>
+
+    <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900 leading-tight">
+      Welcome back, {student.name}.
+    </h1>
+
+    <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed">
+      Your journey in the {student.system} continues. Stay curious, stay consistent, and build your knowledge step by step.
+    </p>
+
+    <div className="mt-8">
+      <button className="bg-slate-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition flex items-center gap-2 text-sm">
+        {React.createElement(Icons.play, { className: "w-4 h-4 fill-white" })}
+        Continue Learning: {student.lastSubject}
+      </button>
+    </div>
+
+  </div>
+
+  {/* RIGHT CONTENT (STATS FLOATING - NOT CARD-LIKE) */}
+  <div className="lg:w-[380px] w-full flex flex-col gap-6">
+
+    {/* Progress */}
+    <div>
+      <div className="flex justify-between text-sm mb-2">
+        <span className="text-slate-500">Overall Progress</span>
+        <span className="font-semibold text-slate-900">{student.overallProgress}%</span>
+      </div>
+
+      <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+        <div
+          className="h-full bg-slate-900 rounded-full"
+          style={{ width: `${student.overallProgress}%` }}
+        />
+      </div>
+    </div>
+
+    {/* Stats INLINE (no boxes, no cards) */}
+    <div className="grid grid-cols-2 gap-6 pt-2">
+
+      <div>
+        <div className="text-xs text-slate-500">Streak</div>
+        <div className="text-2xl font-semibold text-slate-900">
+          {student.streak} <span className="text-sm text-slate-500">days</span>
+        </div>
+      </div>
+
+      <div>
+        <div className="text-xs text-slate-500">XP</div>
+        <div className="text-2xl font-semibold text-slate-900">
+          {student.xpPoints}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>  
 
           {/* ==========================================  
               SECTION 2: ANALYTICS OVERVIEW  
