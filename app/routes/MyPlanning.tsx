@@ -46,6 +46,7 @@ export default function MyPlanning() {
                   <p className="text-sm text-slate-600 mt-1 font-medium">{event.desc}</p>
                 </div>
                </div>
+               ))}
 {/* MAIN PLANNING LAYOUT */}
 <div className="flex flex-col flex-1">
 
@@ -277,7 +278,7 @@ export default function MyPlanning() {
   </div>
 </div>
               
-            ))}
+            
             
           </div>
         </div>
