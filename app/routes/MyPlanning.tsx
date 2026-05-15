@@ -296,13 +296,13 @@ export default function MyPlanning() {
       </div>
   </div>
 </div>
-      </div>        
-      </div>
-    </LearningLayout>
+      </div>   
 <CreateScheduleModal
   open={open}
   onClose={() => setOpen(false)}
   onSave={(data) => console.log(data)}
-/>
+/>     
+      </div>
+    </LearningLayout>
   );
 }
