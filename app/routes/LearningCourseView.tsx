@@ -9,6 +9,10 @@ import { useParams } from "react-router";
 
 import LearningLayout from "../components/LearningLayout";
 
+export async function loader({ params }) {
+  return { subjectId: params.subjectId };
+}
+
 export default function CourseTopicsView() {
   const { subjectId } = useParams();
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
