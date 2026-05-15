@@ -249,11 +249,13 @@ export default function MyPlanning() {
 
           <input
   type="date"
+  placeholder="Select date"
   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-500 focus:outline-none focus:border-slate-400"
 />
 
           <input
   type="time"
+  placeholder="Select time"
   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-500 focus:outline-none focus:border-slate-400"
 />
 
