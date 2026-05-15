@@ -88,13 +88,23 @@ export default function MyPlanning() {
       {/* Navigation */}
       <div className="flex items-center gap-3">
 
-        <button className="w-10 h-10 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
-          ←
-        </button>
+        <button
+  onClick={() =>
+    setCurrentDate(new Date(year, month - 1, 1))
+  }
+  className="w-8 h-8 flex items-center justify-center text-slate-600 hover:text-slate-900 transition"
+>
+  ‹
+</button>
 
-        <button className="w-10 h-10 rounded-xl border border-slate-200 hover:bg-slate-50 transition">
-          →
-        </button>
+        <button
+  onClick={() =>
+    setCurrentDate(new Date(year, month + 1, 1))
+  }
+  className="w-8 h-8 flex items-center justify-center text-slate-600 hover:text-slate-900 transition"
+>
+  ›
+</button>
 
         <button className="px-4 py-2 rounded-xl border border-slate-200 text-sm font-medium text-slate-600 hover:bg-slate-50 transition">
           Today
@@ -103,7 +113,7 @@ export default function MyPlanning() {
 
       {/* Current Month */}
       <h3 className="text-lg font-semibold text-slate-900">
-        October 2026
+        {currentDate.toLocaleString("default", { month: "long" })} {year}
       </h3>
 
     </div>
