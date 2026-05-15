@@ -97,9 +97,8 @@ export default function GlobalDashboard() {
           {/* ==========================================  
               SECTION 1: TOP HERO  
               ========================================== */}  
-          {/* HERO - FULL WIDTH OPEN LAYOUT */}
 <section
-  className="relative w-full py-14 overflow-hidden"
+  className="relative w-full py-16 overflow-hidden"
   style={{
     backgroundImage:
       "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80')",
@@ -107,73 +106,70 @@ export default function GlobalDashboard() {
     backgroundPosition: "center",
   }}
 >
-<div className="absolute inset-0 bg-white/70 backdrop-blur-sm" />
+  {/* Soft overlay */}
+  <div className="absolute inset-0 bg-white/75 backdrop-blur-sm" />
 
-  {/* LEFT CONTENT */}
-  <div className="flex-1 flex flex-col justify-center">
+  {/* Content wrapper (IMPORTANT FIX) */}
+  <div className="relative max-w-[1280px] mx-auto px-6 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-10">
 
-    <div className="flex items-center gap-2 mb-4">
-      <span className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-full border border-slate-200">
+    {/* LEFT SIDE */}
+    <div className="flex-1">
+      <span className="inline-block px-3 py-1 bg-white/70 text-slate-600 text-xs font-medium rounded-full border border-slate-200">
         {student.grade} • {student.stage}
       </span>
-    </div>
 
-    <h1 className="text-3xl md:text-5xl font-semibold tracking-tight text-slate-900 leading-tight">
-      Welcome back, {student.name}.
-    </h1>
+      <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-slate-900">
+        Welcome back, {student.name}.
+      </h1>
 
-    <p className="mt-4 text-base md:text-lg text-slate-600 max-w-2xl leading-relaxed">
-      Your journey in the {student.system} continues. Stay curious, stay consistent, and build your knowledge step by step.
-    </p>
+      <p className="mt-4 text-lg text-slate-600 max-w-2xl leading-relaxed">
+        Your journey in the {student.system} continues. Stay consistent, stay curious, and keep building step by step.
+      </p>
 
-    <div className="mt-8">
-      <button className="bg-slate-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition flex items-center gap-2 text-sm">
+      <button className="mt-8 bg-slate-900 text-white px-6 py-3 rounded-lg font-medium hover:bg-slate-800 transition flex items-center gap-2 text-sm">
         {React.createElement(Icons.play, { className: "w-4 h-4 fill-white" })}
         Continue Learning: {student.lastSubject}
       </button>
     </div>
 
-  </div>
+    {/* RIGHT SIDE */}
+    <div className="w-full lg:w-[320px] flex flex-col gap-6">
 
-  {/* RIGHT CONTENT (STATS FLOATING - NOT CARD-LIKE) */}
-  <div className="lg:w-[380px] w-full flex flex-col gap-6">
-
-    {/* Progress */}
-    <div>
-      <div className="flex justify-between text-sm mb-2">
-        <span className="text-slate-500">Overall Progress</span>
-        <span className="font-semibold text-slate-900">{student.overallProgress}%</span>
-      </div>
-
-      <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
-        <div
-          className="h-full bg-slate-900 rounded-full"
-          style={{ width: `${student.overallProgress}%` }}
-        />
-      </div>
-    </div>
-
-    {/* Stats INLINE (no boxes, no cards) */}
-    <div className="grid grid-cols-2 gap-6 pt-2">
-
+      {/* Progress */}
       <div>
-        <div className="text-xs text-slate-500">Streak</div>
-        <div className="text-2xl font-semibold text-slate-900">
-          {student.streak} <span className="text-sm text-slate-500">days</span>
+        <div className="flex justify-between text-sm mb-2">
+          <span className="text-slate-500">Overall Progress</span>
+          <span className="font-semibold text-slate-900">{student.overallProgress}%</span>
+        </div>
+
+        <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-slate-900 rounded-full"
+            style={{ width: `${student.overallProgress}%` }}
+          />
         </div>
       </div>
 
-      <div>
-        <div className="text-xs text-slate-500">XP</div>
-        <div className="text-2xl font-semibold text-slate-900">
-          {student.xpPoints}
+      {/* Inline stats (NOT cards) */}
+      <div className="grid grid-cols-2 gap-6">
+        <div>
+          <div className="text-xs text-slate-500">Streak</div>
+          <div className="text-2xl font-semibold text-slate-900">
+            {student.streak}
+            <span className="text-sm text-slate-500 ml-1">days</span>
+          </div>
+        </div>
+
+        <div>
+          <div className="text-xs text-slate-500">XP</div>
+          <div className="text-2xl font-semibold text-slate-900">
+            {student.xpPoints}
+          </div>
         </div>
       </div>
 
     </div>
-
   </div>
-
 </section>  
 
           {/* ==========================================  
