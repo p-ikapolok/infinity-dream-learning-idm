@@ -19,7 +19,6 @@ export default function CourseTopicsView() {
   courseData.find(
     c => c.subject.toLowerCase() === subjectId?.toLowerCase()
   ) || courseData[0];
-  const { subjectId } = useLoaderData();
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
 useEffect(() => {
   if (selectedCourse?.topics?.length) {
