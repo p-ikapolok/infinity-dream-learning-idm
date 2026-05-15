@@ -615,10 +615,12 @@ export default function CourseTopicsView() {
   },
 ];
 
-  const selectedCourse =
-    courseData.find(
-      c => c.subject.toLowerCase() === subjectId?.toLowerCase()
-    ) || courseData[0];
+  const initialCourse =
+  courseData.find(
+    (c) => c.subject.toLowerCase() === subjectId?.toLowerCase()
+  ) || courseData[0];
+
+const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 
   const [expandedTopic, setExpandedTopic] = useState(null);
   const [collapsed, setCollapsed] = useState(false);
