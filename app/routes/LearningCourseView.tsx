@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import LearningLayout from "../components/LearningLayout";
 
 export default function CourseTopicsView() {
-  const [expandedTopic, setExpandedTopic] =
-    useState<string | null>("numbers");
+  const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
+useEffect(() => {
+  setExpandedTopic(selectedCourse?.topics?.[0]?.id || null);
+}, [selectedCourse]);
 
   const [collapsed, setCollapsed] = useState(false);
 
