@@ -330,23 +330,31 @@ export default function GlobalDashboard() {
 {/* ==========================================
               SECTION 7: SCHOOL MOTTO / MISSION / VISION
               ========================================== */}
-          <section className="w-full py-12 mt-4 flex flex-col items-center justify-center text-center border-t border-[#e5e7eb]">
-            <div className="max-w-2xl mx-auto space-y-5">
-              <h2 className="text-[18px] font-medium text-[#111827]">
-                "{schoolInfo.motto}"
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[14px] text-[#6b7280] mt-4">
-                <div>
-                  <h4 className="font-semibold text-[#111827] mb-1">Our Mission</h4>
-                  <p>{schoolInfo.mission}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-[#111827] mb-1">Our Vision</h4>
-                  <p>{schoolInfo.vision}</p>
-                </div>
-              </div>
-            </div>
-          </section>
+          <section className="w-full py-12 mt-4 flex flex-col items-center justify-center text-center border-t border-[#e5e7eb] bg-blue-600">
+
+  <div className="max-w-2xl mx-auto space-y-5">
+
+    <h2 className="text-[18px] font-medium text-white">
+      "{schoolInfo.motto}"
+    </h2>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[14px] mt-4">
+
+      <div>
+        <h4 className="font-semibold text-white mb-1">Our Mission</h4>
+        <p className="text-blue-100">{schoolInfo.mission}</p>
+      </div>
+
+      <div>
+        <h4 className="font-semibold text-white mb-1">Our Vision</h4>
+        <p className="text-blue-100">{schoolInfo.vision}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
         </div>  
       </div>  
