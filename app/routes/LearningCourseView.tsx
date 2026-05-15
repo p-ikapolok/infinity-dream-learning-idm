@@ -5,7 +5,6 @@ import React, {
 } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
-import { useLoaderData } from "react-router-dom";
 
 import LearningLayout from "../components/LearningLayout";
 
