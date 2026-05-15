@@ -269,7 +269,7 @@ export default function MyPlanning() {
   className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white text-sm text-slate-700 placeholder-slate-400 resize-none focus:outline-none focus:border-slate-400"
 />
 
-          <button className="w-full py-3 rounded-xl bg-blue-500 text-black text-sm font-medium hover:bg-blue-600 transition">
+          <button className="w-fit mx-auto px-5 py-2 rounded-full bg-blue-500 text-black text-sm font-medium hover:bg-blue-600 transition">
   Save Schedule
 </button>
 
