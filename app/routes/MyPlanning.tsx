@@ -269,8 +269,6 @@ export default function MyPlanning() {
 
         </div>
       </div>
-
-    </div>
   </div>
 </div>
       </div>        
