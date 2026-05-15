@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LearningLayout from "../components/LearningLayout";
+import CreateScheduleModal from "../components/CreateScheduleModal";
 
 export default function MyPlanning() {
   const [collapsed, setCollapsed] = useState(false);
@@ -298,5 +299,10 @@ export default function MyPlanning() {
       </div>        
       </div>
     </LearningLayout>
+<CreateScheduleModal
+  open={open}
+  onClose={() => setOpen(false)}
+  onSave={(data) => console.log(data)}
+/>
   );
 }
