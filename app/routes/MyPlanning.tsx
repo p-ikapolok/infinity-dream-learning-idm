@@ -3,6 +3,10 @@ import LearningLayout from "../components/LearningLayout";
 
 export default function MyPlanning() {
   const [collapsed, setCollapsed] = useState(false);
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
 
   return (
     <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
