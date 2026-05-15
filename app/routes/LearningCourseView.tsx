@@ -587,13 +587,14 @@ const filteredTopics = useMemo(() => {
 
               {/* LEFT */}
               <div>
-                <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
-                  {courseData.grade}
-                </p>
 
-                <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
-                  {courseData.subject}
-                </h1>
+             <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
+  {selectedCourse.grade}
+ </p>
+
+             <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
+  {selectedCourse.subject}
+</h1>
 
                 <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">
                   Interactive lessons, practice
