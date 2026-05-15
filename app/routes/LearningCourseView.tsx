@@ -695,7 +695,7 @@ export default function CourseTopicsView() {
                   school to university level.
                 </p>
      <div className="mt-5 flex flex-wrap gap-2">
-  {courses.map((course) => {
+  {courseData.map((course) => {
     const isActive = selectedCourse.subject === course.subject;
 
     return (
