@@ -114,15 +114,15 @@ export default function GlobalDashboard() {
 
     {/* LEFT SIDE */}
     <div className="flex-1">
-      <span className="inline-block px-3 py-1 bg-white/70 text-slate-600 text-xs font-medium rounded-full border border-slate-200">
+      <span className="inline-block px-3 py-1 bg-white/70 text-black/70 text-xs font-medium rounded-full border border-black/30">
         {student.grade} • {student.stage}
       </span>
 
-      <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-slate-900">
+      <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-black">
         Welcome back, {student.name}.
       </h1>
 
-      <p className="mt-4 text-lg text-slate-600 max-w-2xl leading-relaxed">
+      <p className="mt-4 text-lg text-black/70 max-w-2xl leading-relaxed">
         Your journey in the {student.system} continues. Stay consistent, stay curious, and keep building step by step.
       </p>
 
@@ -138,13 +138,13 @@ export default function GlobalDashboard() {
       {/* Progress */}
       <div>
         <div className="flex justify-between text-sm mb-2">
-          <span className="text-slate-500">Overall Progress</span>
-          <span className="font-semibold text-slate-900">{student.overallProgress}%</span>
+          <span className="text-black/60">Overall Progress</span>
+          <span className="font-semibold text-black/100">{student.overallProgress}%</span>
         </div>
 
         <div className="h-2 w-full bg-blue-600 rounded-full overflow-hidden">
           <div
-            className="h-full bg-slate-900 rounded-full"
+            className="h-full bg-blue-900 rounded-full"
             style={{ width: `${student.overallProgress}%` }}
           />
         </div>
@@ -153,16 +153,16 @@ export default function GlobalDashboard() {
       {/* Inline stats (NOT cards) */}
       <div className="grid grid-cols-2 gap-6">
         <div>
-          <div className="text-xs text-slate-500">Streak</div>
-          <div className="text-2xl font-semibold text-slate-900">
+          <div className="text-xs text-black/60">Streak</div>
+          <div className="text-2xl font-semibold text-black/100">
             {student.streak}
-            <span className="text-sm text-slate-500 ml-1">days</span>
+            <span className="text-sm text-black/60 ml-1">days</span>
           </div>
         </div>
 
         <div>
-          <div className="text-xs text-slate-500">XP</div>
-          <div className="text-2xl font-semibold text-slate-900">
+          <div className="text-xs text-black/60">XP</div>
+          <div className="text-2xl font-semibold text-black/100">
             {student.xpPoints}
           </div>
         </div>
