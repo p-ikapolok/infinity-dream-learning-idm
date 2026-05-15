@@ -296,18 +296,6 @@ export default function GlobalDashboard() {
   </div>
 </div>
 
-<div className="mb-2">  
-                    <div className="w-10 h-10 rounded-md flex items-center justify-center bg-[#f6f7f9] text-[#6b7280] group-hover:text-[#2563eb] group-hover:bg-[#eff6ff] transition-colors duration-150">  
-                      {React.createElement(Icons[subject.icon], { className: "w-5 h-5" })}  
-                    </div>  
-                    <div>  
-                      <h3 className="font-semibold text-[#111827] text-[16px]">{subject.name}</h3>  
-                      <p className="text-[12px] font-normal text-[#6b7280]">  
-                        {subject.lessonsCompleted} of {subject.totalLessons} lessons  
-                      </p>  
-                    </div>  
-                  </div>  
-
                   <div className="mt-auto">  
                     <div className="flex justify-between text-[12px] font-medium text-[#6b7280] mb-2">  
                       <span>Progress</span>  
