@@ -32,7 +32,8 @@ useEffect(() => {
   };
 
   const courseData = [
-    {
+  // ===================== MATHEMATICS =====================
+  {
     grade: "Grade 6",
     subject: "Mathematics",
     totalTopics: 24,
@@ -45,19 +46,12 @@ useEffect(() => {
         lessons: 12,
         color: "from-blue-500 to-cyan-500",
         icon: (
-          <svg
-            className="w-7 h-7"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M4 7h16" />
             <path d="M4 12h16" />
             <path d="M4 17h16" />
           </svg>
         ),
-
         subtopics: [
           "Whole Numbers",
           "Integers",
@@ -67,147 +61,83 @@ useEffect(() => {
           "Roman Numerals",
         ],
       },
-
       {
         id: "algebra",
         title: "Algebra",
         lessons: 9,
         color: "from-violet-500 to-fuchsia-500",
         icon: (
-          <svg
-            className="w-7 h-7"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M6 18L18 6" />
             <path d="M6 6l12 12" />
           </svg>
         ),
-
-        subtopics: [
-          "Variables",
-          "Expressions",
-          "Linear Equations",
-          "Algebraic Fractions",
-        ],
+        subtopics: ["Variables", "Expressions", "Linear Equations", "Algebraic Fractions"],
       },
-
       {
         id: "fractions",
         title: "Fractions & Decimals",
         lessons: 11,
         color: "from-orange-500 to-amber-500",
         icon: (
-          <svg
-            className="w-7 h-7"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <circle cx="12" cy="12" r="9" />
             <path d="M7 12h10" />
           </svg>
         ),
-
-        subtopics: [
-          "Equivalent Fractions",
-          "Adding Fractions",
-          "Mixed Numbers",
-          "Decimals",
-        ],
+        subtopics: ["Equivalent Fractions", "Adding Fractions", "Mixed Numbers", "Decimals"],
       },
-
       {
         id: "geometry",
         title: "Geometry",
         lessons: 10,
         color: "from-emerald-500 to-green-500",
         icon: (
-          <svg
-            className="w-7 h-7"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M12 4L4 19h16L12 4z" />
           </svg>
         ),
-
-        subtopics: [
-          "Angles",
-          "Triangles",
-          "Circles",
-          "Polygons",
-        ],
+        subtopics: ["Angles", "Triangles", "Circles", "Polygons"],
       },
-
       {
         id: "measurement",
         title: "Measurement",
         lessons: 8,
         color: "from-pink-500 to-rose-500",
         icon: (
-          <svg
-            className="w-7 h-7"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M4 7h16v10H4z" />
             <path d="M8 7v10" />
             <path d="M12 7v10" />
             <path d="M16 7v10" />
           </svg>
         ),
-
-        subtopics: [
-          "Length",
-          "Area",
-          "Volume",
-          "Mass & Weight",
-        ],
+        subtopics: ["Length", "Area", "Volume", "Mass & Weight"],
       },
-
       {
         id: "statistics",
         title: "Statistics",
         lessons: 7,
         color: "from-indigo-500 to-blue-500",
         icon: (
-          <svg
-            className="w-7 h-7"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M5 19V9" />
             <path d="M12 19V5" />
             <path d="M19 19v-7" />
           </svg>
         ),
-
-        subtopics: [
-          "Graphs",
-          "Tables",
-          "Probability",
-          "Data Analysis",
-        ],
+        subtopics: ["Graphs", "Tables", "Probability", "Data Analysis"],
       },
     ],
-   }
+  },
 
-   // ===================== ENGLISH =====================
+  // ===================== ENGLISH =====================
   {
     grade: "Grade 6",
     subject: "English",
     totalTopics: 5,
     progress: 60,
+
     topics: [
       {
         id: "grammar",
@@ -215,122 +145,63 @@ useEffect(() => {
         lessons: 10,
         color: "from-blue-500 to-indigo-500",
         icon: (
-              <svg 
-                 className="w-7 h-7" 
-                 viewBox="0 0 24 24" 
-                 fill="none" 
-                 stroke="currentColor"  
-                 strokeWidth="2"
-                 >
-                 <path d="M4 19h16" />
-                 <path d="M4 12h16" />
-                 </svg>
-              ),
-        subtopics: [
-                    "Tenses", 
-                    "Parts of Speech", 
-                    "Sentence Structure",
-                    "Punctuation", 
-                    "Verbs"
-                   ],
-                 },
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M4 19h16" />
+            <path d="M4 12h16" />
+          </svg>
+        ),
+        subtopics: ["Tenses", "Parts of Speech", "Sentence Structure", "Punctuation", "Verbs"],
+      },
       {
         id: "composition",
         title: "Composition",
         lessons: 8,
         color: "from-green-500 to-emerald-500",
         icon: (
-               <svg 
-                   className="w-7 h-7"
-                   viewBox="0 0 24 24" 
-                   fill="none"
-                   stroke="currentColor"
-                   strokeWidth="2"
-                  >
-                   <path d="M3 21l18-18" />
-                   </svg>
-               ),
-        subtopics: [
-                    "Essay Writing", 
-                    "Paragraphs", 
-                    "Stories", 
-                    "Letters", 
-                    "Creative Writing"
-                   ],
-                  },
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M3 21l18-18" />
+          </svg>
+        ),
+        subtopics: ["Essay Writing", "Paragraphs", "Stories", "Letters", "Creative Writing"],
+      },
       {
         id: "reading",
         title: "Reading",
         lessons: 6,
         color: "from-yellow-500 to-orange-500",
         icon: (
-               <svg 
-                  className="w-7 h-7" 
-                  viewBox="0 0 24 24" 
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2">
-                  <path d="M4 4h16v16H4z" />
-               </svg>
-              ),
-        subtopics: [
-                     "Comprehension", 
-                     "Skimming", 
-                     "Scanning", 
-                     "Vocabulary",
-                     "Main Ideas"
-                   ],
-                 },
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M4 4h16v16H4z" />
+          </svg>
+        ),
+        subtopics: ["Comprehension", "Skimming", "Scanning", "Vocabulary", "Main Ideas"],
+      },
       {
         id: "spelling",
         title: "Spelling",
         lessons: 5,
         color: "from-purple-500 to-pink-500",
         icon: (
-                <svg 
-                    className="w-7 h-7"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    >
-                   <path d="M4 7h16" />
-                   </svg>
-              ),
-        subtopics: [
-                    "Word Formation",
-                    "Prefixes", 
-                    "Suffixes", 
-                    "Difficult Words",
-                    "Dictation"
-                   ],
-                 },
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M4 7h16" />
+          </svg>
+        ),
+        subtopics: ["Word Formation", "Prefixes", "Suffixes", "Difficult Words", "Dictation"],
+      },
       {
         id: "listening",
         title: "Listening & Speaking",
         lessons: 6,
         color: "from-indigo-500 to-blue-500",
         icon: (
-               <svg 
-                  className="w-7 h-7" 
-                  viewBox="0 0 24 24" 
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  >
-                 <circle cx="12" cy="12" r="9" />
-                 </svg>
-              ),
-        subtopics: [
-                    "Listening Skills",
-                    "Pronunciation",
-                    "Conversation",
-                    "Presentation", 
-                    "Speech"
-                   ],
-                 },
-               ],
-             },
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Listening Skills", "Pronunciation", "Conversation", "Presentation", "Speech"],
+      },
+    ],
+  },
 
   // ===================== KISWAHILI =====================
   {
@@ -338,6 +209,7 @@ useEffect(() => {
     subject: "Kiswahili",
     totalTopics: 5,
     progress: 55,
+
     topics: [
       {
         id: "sarufi",
@@ -345,29 +217,22 @@ useEffect(() => {
         lessons: 10,
         color: "from-red-500 to-pink-500",
         icon: (
-               <svg 
-                   className="w-7 h-7" 
-                   viewBox="0 0 24 24" 
-                   fill="none"
-                   stroke="currentColor"
-                  >
-                   <path d="M4 7h16" />
-                   </svg>
-               ),
-        subtopics: [
-                     "Nomino", 
-                     "Vitenzi", 
-                     "Vivumishi", 
-                     "Sentensi",
-                     "Viunganishi"
-                    ],
-                 },
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 7h16" />
+          </svg>
+        ),
+        subtopics: ["Nomino", "Vitenzi", "Vivumishi", "Sentensi", "Viunganishi"],
+      },
       {
         id: "fasihi",
         title: "Fasihi",
         lessons: 8,
         color: "from-orange-500 to-yellow-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>),
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 4h16v16H4z" />
+          </svg>
+        ),
         subtopics: ["Hadithi", "Mashairi", "Methali", "Nahau", "Vitendawili"],
       },
       {
@@ -375,7 +240,11 @@ useEffect(() => {
         title: "Insha",
         lessons: 7,
         color: "from-green-500 to-emerald-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21l18-18" /></svg>),
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 21l18-18" />
+          </svg>
+        ),
         subtopics: ["Insha za Maelezo", "Barua", "Hadithi", "Insha Fupi", "Ubunifu"],
       },
       {
@@ -383,7 +252,11 @@ useEffect(() => {
         title: "Usomaji",
         lessons: 6,
         color: "from-blue-500 to-indigo-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>),
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 4h16v16H4z" />
+          </svg>
+        ),
         subtopics: ["Ufahamu", "Msamiati", "Kusoma Haraka", "Kuelewa", "Uchambuzi"],
       },
       {
@@ -391,259 +264,371 @@ useEffect(() => {
         title: "Mawasiliano",
         lessons: 6,
         color: "from-purple-500 to-pink-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
         subtopics: ["Kuzungumza", "Kusikiliza", "Majadiliano", "Matamshi", "Hotuba"],
       },
     ],
   },
-},
-   {
-  grade: "Grade 6",
-  subject: "Science",
-  totalTopics: 5,
-  progress: 70,
 
-  topics: [
-    {
-      id: "living-things",
-      title: "Living Things",
-      lessons: 10,
-      color: "from-green-500 to-emerald-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 2v20" /></svg>),
-      subtopics: ["Plants", "Animals", "Cells", "Ecosystems", "Classification"]
-    },
-    {
-      id: "matter",
-      title: "Matter",
-      lessons: 10,
-      color: "from-purple-500 to-indigo-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["States of Matter", "Changes of State", "Mixtures", "Solutions", "Separation"]
-    },
-    {
-      id: "energy",
-      title: "Energy",
-      lessons: 8,
-      color: "from-yellow-500 to-orange-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" /></svg>),
-      subtopics: ["Forms of Energy", "Heat", "Light", "Sound", "Electricity"]
-    },
-    {
-      id: "earth",
-      title: "Earth & Space",
-      lessons: 9,
-      color: "from-blue-500 to-cyan-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["Solar System", "Planets", "Weather", "Climate", "Earth Layers"]
-    },
-    {
-      id: "health",
-      title: "Health Science",
-      lessons: 7,
-      color: "from-red-500 to-pink-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 21s8-4 8-10V5l-8-3-8 3v6c0 6 8 10 8 10z" /></svg>),
-      subtopics: ["Nutrition", "Hygiene", "Diseases", "Vaccination", "First Aid"]
-    },
-  ],
-},
+  // ===================== SCIENCE =====================
+  {
+    grade: "Grade 6",
+    subject: "Science",
+    totalTopics: 5,
+    progress: 70,
 
-  {  
-  grade: "Grade 6",
-  subject: "Social Studies",
-  totalTopics: 5,
-  progress: 50,
+    topics: [
+      {
+        id: "living-things",
+        title: "Living Things",
+        lessons: 10,
+        color: "from-green-500 to-emerald-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 2v20" />
+          </svg>
+        ),
+        subtopics: ["Plants", "Animals", "Cells", "Ecosystems", "Classification"],
+      },
+      {
+        id: "matter",
+        title: "Matter",
+        lessons: 10,
+        color: "from-purple-500 to-indigo-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["States of Matter", "Changes of State", "Mixtures", "Solutions", "Separation"],
+      },
+      {
+        id: "energy",
+        title: "Energy",
+        lessons: 8,
+        color: "from-yellow-500 to-orange-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+          </svg>
+        ),
+        subtopics: ["Forms of Energy", "Heat", "Light", "Sound", "Electricity"],
+      },
+      {
+        id: "earth",
+        title: "Earth & Space",
+        lessons: 9,
+        color: "from-blue-500 to-cyan-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Solar System", "Planets", "Weather", "Climate", "Earth Layers"],
+      },
+      {
+        id: "health",
+        title: "Health Science",
+        lessons: 7,
+        color: "from-red-500 to-pink-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 21s8-4 8-10V5l-8-3-8 3v6c0 6 8 10 8 10z" />
+          </svg>
+        ),
+        subtopics: ["Nutrition", "Hygiene", "Diseases", "Vaccination", "First Aid"],
+      },
+    ],
+  },
 
-  topics: [
-    {
-      id: "history",
-      title: "History",
-      lessons: 8,
-      color: "from-orange-500 to-red-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 6h16v14H4z" /></svg>),
-      subtopics: ["Ancient Civilizations", "Colonial Rule", "Independence", "Leaders", "Timeline"]
-    },
-    {
-      id: "geography",
-      title: "Geography",
-      lessons: 9,
-      color: "from-green-500 to-teal-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["Maps", "Landforms", "Climate", "Rivers", "Population"]
-    },
-    {
-      id: "civics",
-      title: "Civics",
-      lessons: 7,
-      color: "from-blue-500 to-indigo-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21h18" /></svg>),
-      subtopics: ["Rights", "Responsibilities", "Government", "Law", "Leadership"]
-    },
-    {
-      id: "culture",
-      title: "Culture",
-      lessons: 6,
-      color: "from-pink-500 to-rose-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["Traditions", "Ethnic Groups", "Languages", "Music", "Food"]
-    },
-    {
-      id: "economics",
-      title: "Economics",
-      lessons: 6,
-      color: "from-yellow-500 to-orange-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19h16" /></svg>),
-      subtopics: ["Trade", "Money", "Jobs", "Resources", "Market"]
-    },
-  ],
-},
-  {   
-  grade: "Grade 6",
-  subject: "Agriculture",
-  totalTopics: 5,
-  progress: 45,
+  // ===================== SOCIAL STUDIES =====================
+  {
+    grade: "Grade 6",
+    subject: "Social Studies",
+    totalTopics: 5,
+    progress: 50,
 
-  topics: [
-    {
-      id: "farming",
-      title: "Farming",
-      lessons: 10,
-      color: "from-lime-500 to-green-600",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20" /></svg>),
-      subtopics: ["Crop Farming", "Animal Farming", "Tools", "Soil Types", "Irrigation"]
-    },
-    {
-      id: "soil",
-      title: "Soil Science",
-      lessons: 8,
-      color: "from-yellow-600 to-orange-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["Soil Types", "Soil Erosion", "Fertility", "Conservation", "Manure"]
-    },
-    {
-      id: "crops",
-      title: "Crop Production",
-      lessons: 9,
-      color: "from-green-500 to-emerald-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>),
-      subtopics: ["Planting", "Weeding", "Harvesting", "Storage", "Pests"]
-    },
-    {
-      id: "livestock",
-      title: "Livestock",
-      lessons: 8,
-      color: "from-red-500 to-pink-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["Cattle", "Poultry", "Goats", "Feeding", "Diseases"]
-    },
-    {
-      id: "tools",
-      title: "Farm Tools",
-      lessons: 6,
-      color: "from-gray-500 to-slate-600",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21l18-18" /></svg>),
-      subtopics: ["Hand Tools", "Machinery", "Maintenance", "Safety", "Usage"]
-    },
-  ],
-},
-   {   
-  grade: "Grade 6",
-  subject: "ICT",
-  totalTopics: 5,
-  progress: 80,
+    topics: [
+      {
+        id: "history",
+        title: "History",
+        lessons: 8,
+        color: "from-orange-500 to-red-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 6h16v14H4z" />
+          </svg>
+        ),
+        subtopics: ["Ancient Civilizations", "Colonial Rule", "Independence", "Leaders", "Timeline"],
+      },
+      {
+        id: "geography",
+        title: "Geography",
+        lessons: 9,
+        color: "from-green-500 to-teal-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Maps", "Landforms", "Climate", "Rivers", "Population"],
+      },
+      {
+        id: "civics",
+        title: "Civics",
+        lessons: 7,
+        color: "from-blue-500 to-indigo-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 21h18" />
+          </svg>
+        ),
+        subtopics: ["Rights", "Responsibilities", "Government", "Law", "Leadership"],
+      },
+      {
+        id: "culture",
+        title: "Culture",
+        lessons: 6,
+        color: "from-pink-500 to-rose-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Traditions", "Ethnic Groups", "Languages", "Music", "Food"],
+      },
+      {
+        id: "economics",
+        title: "Economics",
+        lessons: 6,
+        color: "from-yellow-500 to-orange-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 19h16" />
+          </svg>
+        ),
+        subtopics: ["Trade", "Money", "Jobs", "Resources", "Market"],
+      },
+    ],
+  },
 
-  topics: [
-    {
-      id: "basics",
-      title: "Computer Basics",
-      lessons: 6,
-      color: "from-sky-500 to-blue-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v12H4z" /></svg>),
-      subtopics: ["Hardware", "Software", "Input Devices", "Output Devices", "OS"]
-    },
-    {
-      id: "internet",
-      title: "Internet",
-      lessons: 7,
-      color: "from-blue-600 to-indigo-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["Browsing", "Email", "Search Engines", "Safety", "Networks"]
-    },
-    {
-      id: "programming",
-      title: "Programming",
-      lessons: 8,
-      color: "from-purple-500 to-pink-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18" /></svg>),
-      subtopics: ["Algorithms", "Loops", "Variables", "Scratch", "Logic"]
-    },
-    {
-      id: "data",
-      title: "Data Handling",
-      lessons: 6,
-      color: "from-green-500 to-emerald-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 19h16" /></svg>),
-      subtopics: ["Tables", "Charts", "Spreadsheets", "Analysis", "Graphs"]
-    },
-    {
-      id: "security",
-      title: "Cyber Safety",
-      lessons: 5,
-      color: "from-red-500 to-rose-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["Passwords", "Scams", "Privacy", "Viruses", "Ethics"]
-    },
-  ],
-},
-   {    
-  grade: "Grade 6",
-  subject: "Creative Arts",
-  totalTopics: 5,
-  progress: 40,
+  // ===================== AGRICULTURE =====================
+  {
+    grade: "Grade 6",
+    subject: "Agriculture",
+    totalTopics: 5,
+    progress: 45,
 
-  topics: [
-    {
-      id: "drawing",
-      title: "Drawing",
-      lessons: 5,
-      color: "from-pink-500 to-rose-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21l18-18" /></svg>),
-      subtopics: ["Sketching", "Shading", "Perspective", "Shapes", "Tools"]
-    },
-    {
-      id: "music",
-      title: "Music",
-      lessons: 6,
-      color: "from-purple-500 to-indigo-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v18" /></svg>),
-      subtopics: ["Rhythm", "Instruments", "Songs", "Pitch", "Harmony"]
-    },
-    {
-      id: "drama",
-      title: "Drama",
-      lessons: 6,
-      color: "from-orange-500 to-red-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>),
-      subtopics: ["Acting", "Scripts", "Stage", "Expression", "Voice"]
-    },
-    {
-      id: "crafts",
-      title: "Crafts",
-      lessons: 5,
-      color: "from-green-500 to-emerald-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>),
-      subtopics: ["Paper Work", "Clay", "Design", "Recycling", "Tools"]
-    },
-    {
-      id: "dance",
-      title: "Dance",
-      lessons: 5,
-      color: "from-yellow-500 to-pink-500",
-      icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v20" /></svg>),
-      subtopics: ["Movements", "Rhythm", "Culture", "Steps", "Performance"]
-    },
-  ],
-},
-  ];
+    topics: [
+      {
+        id: "farming",
+        title: "Farming",
+        lessons: 10,
+        color: "from-lime-500 to-green-600",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 2v20" />
+          </svg>
+        ),
+        subtopics: ["Crop Farming", "Animal Farming", "Tools", "Soil Types", "Irrigation"],
+      },
+      {
+        id: "soil",
+        title: "Soil Science",
+        lessons: 8,
+        color: "from-yellow-600 to-orange-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Soil Types", "Soil Erosion", "Fertility", "Conservation", "Manure"],
+      },
+      {
+        id: "crops",
+        title: "Crop Production",
+        lessons: 9,
+        color: "from-green-500 to-emerald-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 4h16v16H4z" />
+          </svg>
+        ),
+        subtopics: ["Planting", "Weeding", "Harvesting", "Storage", "Pests"],
+      },
+      {
+        id: "livestock",
+        title: "Livestock",
+        lessons: 8,
+        color: "from-red-500 to-pink-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Cattle", "Poultry", "Goats", "Feeding", "Diseases"],
+      },
+      {
+        id: "tools",
+        title: "Farm Tools",
+        lessons: 6,
+        color: "from-gray-500 to-slate-600",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 21l18-18" />
+          </svg>
+        ),
+        subtopics: ["Hand Tools", "Machinery", "Maintenance", "Safety", "Usage"],
+      },
+    ],
+  },
+
+  // ===================== ICT =====================
+  {
+    grade: "Grade 6",
+    subject: "ICT",
+    totalTopics: 5,
+    progress: 80,
+
+    topics: [
+      {
+        id: "basics",
+        title: "Computer Basics",
+        lessons: 6,
+        color: "from-sky-500 to-blue-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 4h16v12H4z" />
+          </svg>
+        ),
+        subtopics: ["Hardware", "Software", "Input Devices", "Output Devices", "OS"],
+      },
+      {
+        id: "internet",
+        title: "Internet",
+        lessons: 7,
+        color: "from-blue-600 to-indigo-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Browsing", "Email", "Search Engines", "Safety", "Networks"],
+      },
+      {
+        id: "programming",
+        title: "Programming",
+        lessons: 8,
+        color: "from-purple-500 to-pink-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 12h18" />
+          </svg>
+        ),
+        subtopics: ["Algorithms", "Loops", "Variables", "Scratch", "Logic"],
+      },
+      {
+        id: "data",
+        title: "Data Handling",
+        lessons: 6,
+        color: "from-green-500 to-emerald-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 19h16" />
+          </svg>
+        ),
+        subtopics: ["Tables", "Charts", "Spreadsheets", "Analysis", "Graphs"],
+      },
+      {
+        id: "security",
+        title: "Cyber Safety",
+        lessons: 5,
+        color: "from-red-500 to-rose-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Passwords", "Scams", "Privacy", "Viruses", "Ethics"],
+      },
+    ],
+  },
+
+  // ===================== CREATIVE ARTS =====================
+  {
+    grade: "Grade 6",
+    subject: "Creative Arts",
+    totalTopics: 5,
+    progress: 40,
+
+    topics: [
+      {
+        id: "drawing",
+        title: "Drawing",
+        lessons: 5,
+        color: "from-pink-500 to-rose-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M3 21l18-18" />
+          </svg>
+        ),
+        subtopics: ["Sketching", "Shading", "Perspective", "Shapes", "Tools"],
+      },
+      {
+        id: "music",
+        title: "Music",
+        lessons: 6,
+        color: "from-purple-500 to-indigo-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 3v18" />
+          </svg>
+        ),
+        subtopics: ["Rhythm", "Instruments", "Songs", "Pitch", "Harmony"],
+      },
+      {
+        id: "drama",
+        title: "Drama",
+        lessons: 6,
+        color: "from-orange-500 to-red-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="9" />
+          </svg>
+        ),
+        subtopics: ["Acting", "Scripts", "Stage", "Expression", "Voice"],
+      },
+      {
+        id: "crafts",
+        title: "Crafts",
+        lessons: 5,
+        color: "from-green-500 to-emerald-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M4 4h16v16H4z" />
+          </svg>
+        ),
+        subtopics: ["Paper Work", "Clay", "Design", "Recycling", "Tools"],
+      },
+      {
+        id: "dance",
+        title: "Dance",
+        lessons: 5,
+        color: "from-yellow-500 to-pink-500",
+        icon: (
+          <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 2v20" />
+          </svg>
+        ),
+        subtopics: ["Movements", "Rhythm", "Culture", "Steps", "Performance"],
+      },
+    ],
+  },
+];
 
   const [selectedCourse, setSelectedCourse] = useState(courses[0]);
 
