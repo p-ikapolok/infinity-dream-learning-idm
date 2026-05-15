@@ -114,7 +114,7 @@ export default function GlobalDashboard() {
 
     {/* LEFT SIDE */}
     <div className="flex-1">
-      <span className="inline-block px-3 py-1 bg-white/70 text-white/70 text-xs font-medium rounded-full border border-white/30">
+      <span className="inline-block px-3 py-1 bg-white/70 text-white/70 text-xs font-medium rounded-full border border-black/30">
         {student.grade} • {student.stage}
       </span>
 
