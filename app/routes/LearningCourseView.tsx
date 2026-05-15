@@ -5,10 +5,12 @@ import React, {
 } from "react";
 
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router";
 
 import LearningLayout from "../components/LearningLayout";
 
 export default function CourseTopicsView() {
+  const { subjectId } = useParams();
   const [expandedTopic, setExpandedTopic] = useState<string | null>(null);
 useEffect(() => {
   setExpandedTopic(selectedCourse?.topics?.[0]?.id || null);
