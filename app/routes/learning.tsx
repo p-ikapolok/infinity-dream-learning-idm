@@ -118,7 +118,7 @@ export default function GlobalDashboard() {
         {student.grade} • {student.stage}
       </span>
 
-      <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-grey">
+      <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-white">
         Welcome back, {student.name}.
       </h1>
 
