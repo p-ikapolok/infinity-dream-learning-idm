@@ -3,8 +3,11 @@ import { useNavigate } from "react-router-dom";
 import LearningLayout from "../components/LearningLayout";
 
 export default function CourseTopicsView() {
-  const [expandedTopic, setExpandedTopic] = useState<string | null>("numbers");
+  const [expandedTopic, setExpandedTopic] =
+    useState<string | null>("numbers");
+
   const [collapsed, setCollapsed] = useState(false);
+
   const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
@@ -14,41 +17,56 @@ export default function CourseTopicsView() {
     subtopic: string
   ) => {
     navigate(
-      `/content/${topicId}/${encodeURIComponent(subtopic)}`
+      `/content/${topicId}/${encodeURIComponent(
+        subtopic
+      )}`
     );
   };
 
   const courseData = {
     grade: "Grade 6",
-    title: "Maths 101",
+    subject: "Mathematics",
+    totalTopics: 24,
+    progress: 68,
+
     topics: [
       {
         id: "numbers",
         title: "Numbers",
+        lessons: 12,
+        color: "from-blue-500 to-cyan-500",
         icon: (
           <svg
-            className="w-5 h-5"
+            className="w-7 h-7"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
           >
-            <path d="M4 7h16M4 12h16M4 17h16" />
+            <path d="M4 7h16" />
+            <path d="M4 12h16" />
+            <path d="M4 17h16" />
           </svg>
         ),
+
         subtopics: [
           "Whole Numbers",
           "Integers",
-          "Factors and Multiples",
           "Prime Numbers",
+          "Factors & Multiples",
+          "Place Values",
+          "Roman Numerals",
         ],
       },
+
       {
         id: "algebra",
         title: "Algebra",
+        lessons: 9,
+        color: "from-violet-500 to-fuchsia-500",
         icon: (
           <svg
-            className="w-5 h-5"
+            className="w-7 h-7"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -58,75 +76,74 @@ export default function CourseTopicsView() {
             <path d="M6 6l12 12" />
           </svg>
         ),
+
         subtopics: [
           "Variables",
           "Expressions",
           "Linear Equations",
+          "Algebraic Fractions",
         ],
       },
+
       {
         id: "fractions",
         title: "Fractions & Decimals",
+        lessons: 11,
+        color: "from-orange-500 to-amber-500",
         icon: (
           <svg
-            className="w-5 h-5"
+            className="w-7 h-7"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
           >
             <circle cx="12" cy="12" r="9" />
-            <path d="M8 12h8" />
+            <path d="M7 12h10" />
           </svg>
         ),
+
         subtopics: [
+          "Equivalent Fractions",
           "Adding Fractions",
-          "Multiplying Decimals",
+          "Mixed Numbers",
+          "Decimals",
         ],
       },
-      {
-        id: "percentages",
-        title: "Percentages",
-        icon: (
-          <svg
-            className="w-5 h-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <path d="M19 5L5 19" />
-            <circle cx="7" cy="7" r="2" />
-            <circle cx="17" cy="17" r="2" />
-          </svg>
-        ),
-        subtopics: [
-          "Calculating Percentages",
-          "Discounts",
-        ],
-      },
+
       {
         id: "geometry",
         title: "Geometry",
+        lessons: 10,
+        color: "from-emerald-500 to-green-500",
         icon: (
           <svg
-            className="w-5 h-5"
+            className="w-7 h-7"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
           >
-            <path d="M12 4L4 18h16L12 4z" />
+            <path d="M12 4L4 19h16L12 4z" />
           </svg>
         ),
-        subtopics: ["Angles", "Polygons"],
+
+        subtopics: [
+          "Angles",
+          "Triangles",
+          "Circles",
+          "Polygons",
+        ],
       },
+
       {
-        id: "measurements",
-        title: "Measurements",
+        id: "measurement",
+        title: "Measurement",
+        lessons: 8,
+        color: "from-pink-500 to-rose-500",
         icon: (
           <svg
-            className="w-5 h-5"
+            className="w-7 h-7"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -138,83 +155,103 @@ export default function CourseTopicsView() {
             <path d="M16 7v10" />
           </svg>
         ),
-        subtopics: ["Length and Area", "Volume"],
+
+        subtopics: [
+          "Length",
+          "Area",
+          "Volume",
+          "Mass & Weight",
+        ],
+      },
+
+      {
+        id: "statistics",
+        title: "Statistics",
+        lessons: 7,
+        color: "from-indigo-500 to-blue-500",
+        icon: (
+          <svg
+            className="w-7 h-7"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <path d="M5 19V9" />
+            <path d="M12 19V5" />
+            <path d="M19 19v-7" />
+          </svg>
+        ),
+
+        subtopics: [
+          "Graphs",
+          "Tables",
+          "Probability",
+          "Data Analysis",
+        ],
       },
     ],
   };
 
   const filteredTopics = useMemo(() => {
     return courseData.topics.filter((topic) => {
-      const matchesTopic = topic.title
+      const matchesTitle = topic.title
         .toLowerCase()
         .includes(search.toLowerCase());
 
-      const matchesSubtopic = topic.subtopics.some((sub) =>
-        sub.toLowerCase().includes(search.toLowerCase())
+      const matchesSubtopic = topic.subtopics.some(
+        (sub) =>
+          sub
+            .toLowerCase()
+            .includes(search.toLowerCase())
       );
 
-      return matchesTopic || matchesSubtopic;
+      return matchesTitle || matchesSubtopic;
     });
   }, [search]);
-
-  const toggleTopic = (id: string) => {
-    setExpandedTopic((prev) =>
-      prev === id ? null : id
-    );
-  };
 
   return (
     <LearningLayout
       collapsed={collapsed}
       setCollapsed={setCollapsed}
     >
-      <div className="w-full h-full bg-slate-100 p-4 md:p-6">
-        <div className="h-full w-full bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden flex flex-col">
+      {/* FULL SCREEN — NO EXTRA SPACE */}
+      <div className="w-full min-h-screen bg-slate-100">
 
-          {/* HERO HEADER */}
-          <div className="relative overflow-hidden bg-gradient-to-r from-blue-700 to-indigo-700 px-5 py-5 md:px-8 md:py-6">
+        {/* MAIN CONTAINER */}
+        <div className="w-full min-h-screen bg-white flex flex-col overflow-hidden">
 
-            <div className="absolute right-0 top-0 opacity-10">
-              <svg
-                width="220"
-                height="220"
-                viewBox="0 0 200 200"
-                fill="none"
-              >
-                <circle
-                  cx="100"
-                  cy="100"
-                  r="80"
-                  stroke="white"
-                  strokeWidth="10"
-                />
-              </svg>
-            </div>
+          {/* TOP HEADER */}
+          <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 px-4 md:px-8 py-6">
 
-            <div className="relative z-10 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+            {/* TOP BAR */}
+            <div className="flex items-start justify-between gap-4 flex-wrap">
 
               {/* LEFT */}
               <div>
-                <p className="text-blue-100 uppercase tracking-[0.2em] text-xs font-semibold">
+                <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
                   {courseData.grade}
                 </p>
 
-                <h1 className="text-3xl md:text-4xl font-black text-white mt-1">
-                  {courseData.title}
+                <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
+                  {courseData.subject}
                 </h1>
 
-                <p className="text-blue-100 mt-2 text-sm md:text-base">
-                  Explore topics, lessons and practice
-                  activities.
+                <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">
+                  Interactive lessons, practice
+                  questions, quizzes and visual
+                  learning for students from primary
+                  school to university level.
                 </p>
               </div>
 
               {/* RIGHT */}
-              <div className="flex items-center gap-3 w-full lg:w-auto">
+              <div className="flex items-center gap-3 w-full md:w-auto">
 
                 {/* SEARCH */}
-                <div className="relative flex-1 lg:w-[320px]">
-                  <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-slate-400">
+                <div className="relative flex-1 md:w-[340px]">
+
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
                     <svg
                       className="w-5 h-5"
                       viewBox="0 0 24 24"
@@ -233,19 +270,20 @@ export default function CourseTopicsView() {
 
                   <input
                     type="text"
-                    placeholder="Search topic..."
+                    placeholder="Search topics or lessons..."
                     value={search}
                     onChange={(e) =>
                       setSearch(e.target.value)
                     }
-                    className="w-full h-12 rounded-2xl border border-white/20 bg-white pl-12 pr-4 text-sm font-medium text-slate-700 outline-none focus:ring-4 focus:ring-blue-300"
+                    className="w-full h-14 rounded-2xl border-0 bg-white text-slate-700 font-medium pl-12 pr-4 outline-none focus:ring-4 focus:ring-blue-300"
                   />
                 </div>
 
                 {/* FILTER */}
-                <button className="h-12 w-12 rounded-2xl bg-white/15 backdrop-blur border border-white/20 flex items-center justify-center text-white hover:bg-white/25 transition">
+                <button className="h-14 w-14 rounded-2xl bg-white/15 border border-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/25 transition">
+
                   <svg
-                    className="w-5 h-5"
+                    className="w-6 h-6"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -258,17 +296,27 @@ export default function CourseTopicsView() {
                 </button>
               </div>
             </div>
-          </div>
 
-          {/* CONTENT */}
-          <div className="flex-1 overflow-y-auto p-4 md:p-6">
+            {/* STATS */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
 
-            {/* TOPICS HEADER */}
-            <div className="flex items-center justify-between mb-5">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center">
+              {/* CARD */}
+              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+
+                <div className="flex items-center justify-between">
+
+                  <div>
+                    <p className="text-blue-100 text-sm">
+                      Topics
+                    </p>
+
+                    <h3 className="text-3xl font-black text-white mt-1">
+                      {courseData.totalTopics}
+                    </h3>
+                  </div>
+
                   <svg
-                    className="w-5 h-5"
+                    className="w-8 h-8 text-white"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -279,21 +327,117 @@ export default function CourseTopicsView() {
                     <path d="M4 18h10" />
                   </svg>
                 </div>
+              </div>
 
-                <div>
-                  <h2 className="text-xl font-black text-slate-800">
-                    Topics
-                  </h2>
+              {/* CARD */}
+              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
 
-                  <p className="text-sm text-slate-500">
-                    {filteredTopics.length} sections
-                  </p>
+                <div className="flex items-center justify-between">
+
+                  <div>
+                    <p className="text-blue-100 text-sm">
+                      Progress
+                    </p>
+
+                    <h3 className="text-3xl font-black text-white mt-1">
+                      {courseData.progress}%
+                    </h3>
+                  </div>
+
+                  <svg
+                    className="w-8 h-8 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="9"
+                    />
+                    <path d="M12 7v5l3 3" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* CARD */}
+              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+
+                <div className="flex items-center justify-between">
+
+                  <div>
+                    <p className="text-blue-100 text-sm">
+                      Lessons
+                    </p>
+
+                    <h3 className="text-3xl font-black text-white mt-1">
+                      84
+                    </h3>
+                  </div>
+
+                  <svg
+                    className="w-8 h-8 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
+                    <path d="M6.5 17A2.5 2.5 0 014 14.5V5a2 2 0 012-2h14v14" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* CARD */}
+              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+
+                <div className="flex items-center justify-between">
+
+                  <div>
+                    <p className="text-blue-100 text-sm">
+                      Quizzes
+                    </p>
+
+                    <h3 className="text-3xl font-black text-white mt-1">
+                      32
+                    </h3>
+                  </div>
+
+                  <svg
+                    className="w-8 h-8 text-white"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path d="M9 11l3 3L22 4" />
+                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+                  </svg>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* TOPIC GRID */}
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+          {/* CONTENT SECTION */}
+          <div className="flex-1 bg-slate-100 px-4 md:px-8 py-6">
+
+            {/* SECTION HEADER */}
+            <div className="flex items-center justify-between mb-5">
+
+              <div>
+                <h2 className="text-2xl font-black text-slate-800">
+                  Course Topics
+                </h2>
+
+                <p className="text-slate-500 text-sm mt-1">
+                  Choose a topic to continue learning
+                </p>
+              </div>
+            </div>
+
+            {/* GRID */}
+            <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
 
               {filteredTopics.map((topic) => {
                 const isExpanded =
@@ -302,33 +446,45 @@ export default function CourseTopicsView() {
                 return (
                   <div
                     key={topic.id}
-                    className="rounded-3xl border border-slate-200 bg-white overflow-hidden hover:shadow-md transition-all"
+                    className="bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300"
                   >
 
                     {/* TOPIC HEADER */}
                     <button
                       onClick={() =>
-                        toggleTopic(topic.id)
+                        setExpandedTopic(
+                          isExpanded
+                            ? null
+                            : topic.id
+                        )
                       }
-                      className="w-full flex items-center justify-between px-5 py-4 text-left"
+                      className="w-full p-5 flex items-center justify-between"
                     >
+
+                      {/* LEFT */}
                       <div className="flex items-center gap-4">
 
-                        <div className="h-12 w-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center">
+                        {/* ICON */}
+                        <div
+                          className={`h-16 w-16 rounded-3xl bg-gradient-to-br ${topic.color} text-white flex items-center justify-center shadow-lg`}
+                        >
                           {topic.icon}
                         </div>
 
-                        <div>
-                          <h3 className="text-base md:text-lg font-bold text-slate-800">
+                        {/* TEXT */}
+                        <div className="text-left">
+                          <h3 className="text-xl font-black text-slate-800">
                             {topic.title}
                           </h3>
 
-                          <p className="text-sm text-slate-500">
-                            {topic.subtopics.length} lessons
+                          <p className="text-slate-500 text-sm mt-1">
+                            {topic.lessons} lessons
+                            available
                           </p>
                         </div>
                       </div>
 
+                      {/* RIGHT */}
                       <div
                         className={`transition-transform duration-300 ${
                           isExpanded
@@ -337,7 +493,7 @@ export default function CourseTopicsView() {
                         }`}
                       >
                         <svg
-                          className="w-5 h-5 text-slate-500"
+                          className="w-6 h-6 text-slate-400"
                           viewBox="0 0 24 24"
                           fill="none"
                           stroke="currentColor"
@@ -350,9 +506,9 @@ export default function CourseTopicsView() {
 
                     {/* SUBTOPICS */}
                     {isExpanded && (
-                      <div className="px-5 pb-5 border-t border-slate-100">
+                      <div className="px-5 pb-5">
 
-                        <div className="pt-4 flex flex-col gap-2">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 
                           {topic.subtopics.map(
                             (subtopic, index) => (
@@ -364,13 +520,15 @@ export default function CourseTopicsView() {
                                     subtopic
                                   )
                                 }
-                                className="group w-full rounded-2xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 transition-all p-4 flex items-center justify-between"
+                                className="group flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 p-4 transition-all"
                               >
+
                                 <div className="flex items-center gap-3">
 
-                                  <div className="h-9 w-9 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-blue-600 group-hover:bg-blue-100">
+                                  <div className="h-11 w-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-blue-600 group-hover:bg-blue-100">
+
                                     <svg
-                                      className="w-4 h-4"
+                                      className="w-5 h-5"
                                       viewBox="0 0 24 24"
                                       fill="none"
                                       stroke="currentColor"
@@ -380,9 +538,15 @@ export default function CourseTopicsView() {
                                     </svg>
                                   </div>
 
-                                  <span className="font-semibold text-slate-700 text-sm md:text-base">
-                                    {subtopic}
-                                  </span>
+                                  <div className="text-left">
+                                    <p className="font-bold text-slate-700">
+                                      {subtopic}
+                                    </p>
+
+                                    <p className="text-xs text-slate-500">
+                                      Interactive lesson
+                                    </p>
+                                  </div>
                                 </div>
 
                                 <svg
