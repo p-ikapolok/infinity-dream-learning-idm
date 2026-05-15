@@ -23,6 +23,7 @@ export default function MyPlanning() {
             Sync Calendar
           </button>
         </div>
+      
 
         {/* Timeline View */}
         <div className="bg-white rounded-xl border-2 border-slate-200 p-6 flex-1">
@@ -44,6 +45,7 @@ export default function MyPlanning() {
                   <h3 className="text-lg font-bold text-slate-900">{event.title}</h3>
                   <p className="text-sm text-slate-600 mt-1 font-medium">{event.desc}</p>
                 </div>
+               </div>
 {/* MAIN PLANNING LAYOUT */}
 <div className="flex flex-col flex-1">
 
@@ -274,7 +276,7 @@ export default function MyPlanning() {
 
   </div>
 </div>
-              </div>
+              
             ))}
             
           </div>
