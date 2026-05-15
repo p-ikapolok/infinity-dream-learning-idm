@@ -7,7 +7,7 @@ export default function LearningLayout({ children }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  // Close mobile sidebar when resizing to desktop
+  // CLOSE MOBILE SIDEBAR ON DESKTOP
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -16,36 +16,45 @@ export default function LearningLayout({ children }) {
     };
 
     window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+
+    return () =>
+      window.removeEventListener(
+        "resize",
+        handleResize
+      );
   }, []);
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gray-100">
+    <div className="flex w-full h-screen overflow-hidden bg-white">
 
-      {/* BACKDROP (MOBILE ONLY) */}
+      {/* MOBILE BACKDROP */}
       {mobileOpen && (
         <div
           onClick={() => setMobileOpen(false)}
-          className="fixed inset-0 bg-black/40 z-40 md:hidden"
+          className="fixed inset-0 z-40 bg-black/40 md:hidden"
         />
       )}
 
       {/* SIDEBAR */}
-      <div
+      <aside
         className={`
-          fixed md:relative z-50 h-full bg-white border-r
-          transition-transform duration-300
-          ${mobileOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"}
+          fixed md:relative z-50 h-full bg-white border-r border-slate-200
+          transition-transform duration-300 ease-in-out
+          ${
+            mobileOpen
+              ? "translate-x-0"
+              : "-translate-x-full md:translate-x-0"
+          }
         `}
       >
         <Sidebar
           collapsed={collapsed}
           setMobileOpen={setMobileOpen}
         />
-      </div>
+      </aside>
 
-      {/* MAIN AREA */}
-      <div className="flex-1 flex flex-col h-full overflow-hidden">
+      {/* MAIN CONTENT AREA */}
+      <div className="flex flex-col flex-1 w-full h-full overflow-hidden">
 
         {/* HEADER */}
         <Header
@@ -55,13 +64,12 @@ export default function LearningLayout({ children }) {
         />
 
         {/* PAGE CONTENT */}
-        <main className="flex-1 overflow-y-auto p-6 bg-slate-50">
+        <main className="flex-1 w-full overflow-y-auto bg-slate-50">
           {children}
         </main>
 
         {/* FOOTER */}
         <Footer />
-
       </div>
     </div>
   );
