@@ -275,4 +275,55 @@ export default function GlobalDashboard() {
               SECTION 5: OPTIONAL CAREER COURSES  
               ========================================== */}  
           {optionalCourses.length > 0 && (  
-            <section classN
+            <section className="w-full flex flex-col gap-4">  
+              <div>  
+                <h2 className="text-[18px] font-semibold text-[#111827]">Additional Learning Paths</h2>  
+                <p className="text-[14px] text-[#6b7280] mt-1">Short courses outside your main curriculum.</p>  
+              </div>  
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">  
+                {optionalCourses.map((course) => (  
+                  <div key={course.id} className="bg-[#ffffff] p-5 rounded-lg border border-[#e5e7eb] flex flex-col md:flex-row md:items-center gap-5 hover:border-[#d1d5db] transition-colors duration-150 cursor-pointer active:scale-[0.98]">  
+                    <div className="flex-1 w-full">  
+                      <div className="text-[12px] font-medium text-[#6b7280] mb-1">{course.pathway}</div>  
+                      <h3 className="font-semibold text-[#111827] text-[16px] mb-3">{course.name}</h3>  
+                      <div className="flex items-center gap-3">  
+                        <div className="h-1.5 flex-1 bg-[#f6f7f9] rounded-full overflow-hidden">  
+                          <div className="h-full bg-[#111827] rounded-full" style={{ width: `${course.progress}%` }}></div>  
+                        </div>  
+                        <span className="text-[12px] font-medium text-[#6b7280]">{course.progress}%</span>  
+                      </div>  
+                    </div>  
+                    <button className="w-full md:w-auto px-4 py-2 bg-transparent text-[#111827] border border-[#e5e7eb] text-[14px] font-medium rounded-md hover:bg-[#f6f7f9] shrink-0 transition-colors duration-150">  
+                      Resume  
+                    </button>  
+                  </div>  
+                ))}  
+              </div>  
+            </section>  
+          )}
+{/* ==========================================
+              SECTION 7: SCHOOL MOTTO / MISSION / VISION
+              ========================================== */}
+          <section className="w-full py-12 mt-4 flex flex-col items-center justify-center text-center border-t border-[#e5e7eb]">
+            <div className="max-w-2xl mx-auto space-y-5">
+              <h2 className="text-[18px] font-medium text-[#111827]">
+                "{schoolInfo.motto}"
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-[14px] text-[#6b7280] mt-4">
+                <div>
+                  <h4 className="font-semibold text-[#111827] mb-1">Our Mission</h4>
+                  <p>{schoolInfo.mission}</p>
+                </div>
+                <div>
+                  <h4 className="font-semibold text-[#111827] mb-1">Our Vision</h4>
+                  <p>{schoolInfo.vision}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div>  
+      </div>  
+    </LearningLayout>
+  );
+}
