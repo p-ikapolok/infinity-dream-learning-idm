@@ -106,9 +106,12 @@ export default function MyPlanning() {
   ›
 </button>
 
-        <button className="px-4 py-2 rounded-xl border border-slate-200 text-sm font-medium text-slate-600 hover:bg-slate-50 transition">
-          Today
-        </button>
+        <button
+  onClick={() => setCurrentDate(new Date())}
+  className="px-4 py-1.5 rounded-full border border-slate-200 text-sm font-medium text-slate-600 hover:bg-slate-50 transition"
+>
+  Today
+</button>
       </div>
 
       {/* Current Month */}
