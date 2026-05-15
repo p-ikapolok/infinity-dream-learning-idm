@@ -601,6 +601,25 @@ const filteredTopics = useMemo(() => {
                   learning for students from primary
                   school to university level.
                 </p>
+     <div className="mt-5 flex flex-wrap gap-2">
+  {courses.map((course) => {
+    const isActive = selectedCourse.subject === course.subject;
+
+    return (
+      <button
+        key={course.subject}
+        onClick={() => setSelectedCourse(course)}
+        className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all border ${
+          isActive
+            ? "bg-white text-indigo-700 border-white shadow-lg"
+            : "bg-white/10 text-white border-white/20 hover:bg-white/20"
+        }`}
+      >
+        {course.subject}
+      </button>
+    );
+  })}
+</div>
               </div>
 
               {/* RIGHT */}
