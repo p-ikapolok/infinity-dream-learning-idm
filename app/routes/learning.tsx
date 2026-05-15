@@ -142,7 +142,7 @@ export default function GlobalDashboard() {
           <span className="font-semibold text-slate-900">{student.overallProgress}%</span>
         </div>
 
-        <div className="h-2 w-full bg-slate-200 rounded-full overflow-hidden">
+        <div className="h-2 w-full bg-blue-600 rounded-full overflow-hidden">
           <div
             className="h-full bg-slate-900 rounded-full"
             style={{ width: `${student.overallProgress}%` }}
