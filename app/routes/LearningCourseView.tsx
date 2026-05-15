@@ -201,7 +201,7 @@ useEffect(() => {
     ],
 
    // ===================== ENGLISH =====================
-  {
+  
     grade: "Grade 6",
     subject: "English",
     totalTopics: 5,
@@ -251,7 +251,7 @@ useEffect(() => {
   },
 
   // ===================== KISWAHILI =====================
-  {
+  
     grade: "Grade 6",
     subject: "Kiswahili",
     totalTopics: 5,
@@ -300,7 +300,7 @@ useEffect(() => {
     ],
   },
 
-   {
+   
   grade: "Grade 6",
   subject: "Science",
   totalTopics: 5,
@@ -349,7 +349,7 @@ useEffect(() => {
     },
   ],
 },
-    {
+    
   grade: "Grade 6",
   subject: "Social Studies",
   totalTopics: 5,
@@ -398,7 +398,7 @@ useEffect(() => {
     },
   ],
 },
-     {
+     
   grade: "Grade 6",
   subject: "Agriculture",
   totalTopics: 5,
@@ -447,7 +447,7 @@ useEffect(() => {
     },
   ],
 },
-      {
+      
   grade: "Grade 6",
   subject: "ICT",
   totalTopics: 5,
@@ -496,7 +496,7 @@ useEffect(() => {
     },
   ],
 },
-       {
+       
   grade: "Grade 6",
   subject: "Creative Arts",
   totalTopics: 5,
