@@ -191,6 +191,106 @@ export default function CourseTopicsView() {
         ],
       },
     ],
+
+   // ===================== ENGLISH =====================
+  {
+    grade: "Grade 6",
+    subject: "English",
+    totalTopics: 5,
+    progress: 60,
+    topics: [
+      {
+        id: "grammar",
+        title: "Grammar",
+        lessons: 10,
+        color: "from-blue-500 to-indigo-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 19h16" /><path d="M4 12h16" /></svg>,
+        subtopics: ["Tenses", "Parts of Speech", "Sentence Structure", "Punctuation", "Verbs"],
+      },
+      {
+        id: "composition",
+        title: "Composition",
+        lessons: 8,
+        color: "from-green-500 to-emerald-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21l18-18" /></svg>,
+        subtopics: ["Essay Writing", "Paragraphs", "Stories", "Letters", "Creative Writing"],
+      },
+      {
+        id: "reading",
+        title: "Reading",
+        lessons: 6,
+        color: "from-yellow-500 to-orange-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16v16H4z" /></svg>,
+        subtopics: ["Comprehension", "Skimming", "Scanning", "Vocabulary", "Main Ideas"],
+      },
+      {
+        id: "spelling",
+        title: "Spelling",
+        lessons: 5,
+        color: "from-purple-500 to-pink-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16" /></svg>,
+        subtopics: ["Word Formation", "Prefixes", "Suffixes", "Difficult Words", "Dictation"],
+      },
+      {
+        id: "listening",
+        title: "Listening & Speaking",
+        lessons: 6,
+        color: "from-indigo-500 to-blue-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9" /></svg>,
+        subtopics: ["Listening Skills", "Pronunciation", "Conversation", "Presentation", "Speech"],
+      },
+    ],
+  },
+
+  // ===================== KISWAHILI =====================
+  {
+    grade: "Grade 6",
+    subject: "Kiswahili",
+    totalTopics: 5,
+    progress: 55,
+    topics: [
+      {
+        id: "sarufi",
+        title: "Sarufi",
+        lessons: 10,
+        color: "from-red-500 to-pink-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16" /></svg>,
+        subtopics: ["Nomino", "Vitenzi", "Vivumishi", "Sentensi", "Viunganishi"],
+      },
+      {
+        id: "fasihi",
+        title: "Fasihi",
+        lessons: 8,
+        color: "from-orange-500 to-yellow-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>,
+        subtopics: ["Hadithi", "Mashairi", "Methali", "Nahau", "Vitendawili"],
+      },
+      {
+        id: "insha",
+        title: "Insha",
+        lessons: 7,
+        color: "from-green-500 to-emerald-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 21l18-18" /></svg>,
+        subtopics: ["Insha za Maelezo", "Barua", "Hadithi", "Insha Fupi", "Ubunifu"],
+      },
+      {
+        id: "usomaji",
+        title: "Usomaji",
+        lessons: 6,
+        color: "from-blue-500 to-indigo-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z" /></svg>,
+        subtopics: ["Ufahamu", "Msamiati", "Kusoma Haraka", "Kuelewa", "Uchambuzi"],
+      },
+      {
+        id: "mawasiliano",
+        title: "Mawasiliano",
+        lessons: 6,
+        color: "from-purple-500 to-pink-500",
+        icon: <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9" /></svg>,
+        subtopics: ["Kuzungumza", "Kusikiliza", "Majadiliano", "Matamshi", "Hotuba"],
+      },
+    ],
+  },
   };
 
   const filteredTopics = useMemo(() => {
