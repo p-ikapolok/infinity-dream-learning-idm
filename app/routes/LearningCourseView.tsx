@@ -1,5 +1,11 @@
-import React, { useMemo, useState } from "react";
+import React, {
+  useMemo,
+  useState,
+  useEffect,
+} from "react";
+
 import { useNavigate } from "react-router-dom";
+
 import LearningLayout from "../components/LearningLayout";
 
 export default function CourseTopicsView() {
