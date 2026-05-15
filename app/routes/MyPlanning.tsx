@@ -52,14 +52,6 @@ export default function MyPlanning() {
 {/* MAIN PLANNING LAYOUT */}
 <div className="flex flex-col flex-1">
 
-  {/* =========================================
-      CALENDAR SECTION
-  ========================================= */}
-  <div className="w-full flex flex-col">
-  {/* content above */}
-
-  <hr className="w-full border-t border-slate-200 mt-6" />
-
     {/* Header */}
     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8">
 
@@ -279,8 +271,6 @@ export default function MyPlanning() {
       </div>
 
     </div>
-   </div>
-
   </div>
 </div>
       </div>        
