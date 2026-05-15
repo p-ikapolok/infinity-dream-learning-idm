@@ -98,7 +98,16 @@ export default function GlobalDashboard() {
               SECTION 1: TOP HERO  
               ========================================== */}  
           {/* HERO - FULL WIDTH OPEN LAYOUT */}
-<section className="w-full py-10 md:py-14 flex flex-col lg:flex-row items-start justify-between gap-10">
+<section
+  className="relative w-full py-14 overflow-hidden"
+  style={{
+    backgroundImage:
+      "url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+<div className="absolute inset-0 bg-white/70 backdrop-blur-sm" />
 
   {/* LEFT CONTENT */}
   <div className="flex-1 flex flex-col justify-center">
