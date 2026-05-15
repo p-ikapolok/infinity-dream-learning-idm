@@ -223,6 +223,15 @@ export default function CourseTopicsView() {
 
           {/* TOP HEADER */}
           <div className="relative px-4 md:px-8 py-6 overflow-hidden">
+        
+         {/* BACKGROUND IMAGE */}
+<div
+  className="absolute inset-0 bg-cover bg-center opacity-30"
+  style={{
+    backgroundImage:
+      "url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80')"
+  }}
+/>
 
             {/* TOP BAR */}
             <div className="flex items-start justify-between gap-4 flex-wrap">
