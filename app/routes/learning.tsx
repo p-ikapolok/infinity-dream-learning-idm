@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import LearningLayout from "./LearningLayout"; // Adjust import path as needed
+import LearningLayout from "../components/LearningLayout"; // Adjust import path as needed
 
 // ==========================================
 // REALISTIC MOCK DATA (ONE PRIMARY SYSTEM)
