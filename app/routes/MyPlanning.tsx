@@ -48,7 +48,6 @@ export default function MyPlanning() {
                </div>
                ))}
           </div>
-        </div>
 
 {/* MAIN PLANNING LAYOUT */}
 <div className="flex flex-col flex-1">
@@ -280,7 +279,7 @@ export default function MyPlanning() {
 
   </div>
 </div>
-              
+      </div>        
       </div>
     </LearningLayout>
   );
