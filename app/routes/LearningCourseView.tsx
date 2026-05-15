@@ -237,9 +237,25 @@ useEffect(() => {
         title: "Composition",
         lessons: 8,
         color: "from-green-500 to-emerald-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 21l18-18" /></svg>),
-        subtopics: ["Essay Writing", "Paragraphs", "Stories", "Letters", "Creative Writing"],
-      },
+        icon: (
+               <svg 
+                   className="w-7 h-7"
+                   viewBox="0 0 24 24" 
+                   fill="none"
+                   stroke="currentColor"
+                   strokeWidth="2"
+                  >
+                   <path d="M3 21l18-18" />
+                   </svg.>
+               ),
+        subtopics: [
+                    "Essay Writing", 
+                    "Paragraphs", 
+                    "Stories", 
+                    "Letters", 
+                    "Creative Writing"
+                   ],
+                  },
       {
         id: "reading",
         title: "Reading",
@@ -292,11 +308,27 @@ useEffect(() => {
         title: "Listening & Speaking",
         lessons: 6,
         color: "from-indigo-500 to-blue-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="9" /></svg>),
-        subtopics: ["Listening Skills", "Pronunciation", "Conversation", "Presentation", "Speech"],
-      },
-    ],
-  },
+        icon: (
+               <svg 
+                  className="w-7 h-7" 
+                  viewBox="0 0 24 24" 
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  >
+                 <circle cx="12" cy="12" r="9" />
+                 </svg>
+              ),
+        subtopics: [
+                    "Listening Skills",
+                    "Pronunciation",
+                    "Conversation",
+                    "Presentation", 
+                    "Speech"
+                   ],
+                 },
+               ],
+             },
 
   // ===================== KISWAHILI =====================
   
@@ -310,9 +342,24 @@ useEffect(() => {
         title: "Sarufi",
         lessons: 10,
         color: "from-red-500 to-pink-500",
-        icon: (<svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 7h16" /></svg>),
-        subtopics: ["Nomino", "Vitenzi", "Vivumishi", "Sentensi", "Viunganishi"],
-      },
+        icon: (
+               <svg 
+                   className="w-7 h-7" 
+                   viewBox="0 0 24 24" 
+                   fill="none"
+                   stroke="currentColor"
+                  >
+                   <path d="M4 7h16" />
+                   </svg>
+               ),
+        subtopics: [
+                     "Nomino", 
+                     "Vitenzi", 
+                     "Vivumishi", 
+                     "Sentensi",
+                     "Viunganishi"
+                    ],
+                 },
       {
         id: "fasihi",
         title: "Fasihi",
