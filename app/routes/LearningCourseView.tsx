@@ -639,9 +639,9 @@ useEffect(() => {
   },
 ];
 
-  const [selectedCourse, setSelectedCourse] = useState(courseData[0]);
+  const filteredTopics = useMemo(() => {
+  if (!selectedCourse?.topics) return [];
 
-const filteredTopics = useMemo(() => {
   const q = search.toLowerCase();
 
   return selectedCourse.topics.filter((topic) => {
