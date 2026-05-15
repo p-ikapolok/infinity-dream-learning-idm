@@ -176,8 +176,8 @@ export default function GlobalDashboard() {
               SECTION 2: ANALYTICS OVERVIEW  
               ========================================== */}  
           <section className="w-full">  
+        <span className="text-slate-500">ANALYTICS OVERVIEW</span>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">  
-                <span className="text-slate-500">ANALYTICS OVERVIEW</span>
               {analytics.map((stat, i) => (  
                 <div key={i} className="flex flex-col gap-2 bg-[#ffffff] rounded-lg p-4 md:p-6 border border-[#e5e7eb]">  
                   <div className="text-[#6b7280]">  
