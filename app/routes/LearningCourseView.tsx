@@ -676,7 +676,7 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 <div className="relative z-10 flex flex-col lg:flex-row lg:items-start gap-6">
 
               {/* LEFT */}
-              <div>
+      <div className="flex-1 min-w-0">
 
              <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
   {selectedCourse.grade}
