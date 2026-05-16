@@ -673,72 +673,73 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
       <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 opacity-90" />
 
             {/* TOP BAR */}
-<div className="relative z-10 flex flex-col lg:flex-row lg:items-start gap-6">
+<div className="relative z-10 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
 
-              {/* LEFT */}
-      <div className="flex-1 min-w-0">
+  {/* LEFT */}
+  <div className="flex-1 min-w-0">
 
-             <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
-  {selectedCourse.grade}
-</p>
+    <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
+      {selectedCourse.grade}
+    </p>
 
-<div className="flex items-center gap-4 mt-1">
+    <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
+      {selectedCourse.subject}
+    </h1>
 
-  {/* SUBJECT */}
-  <h1 className="text-3xl md:text-5xl font-black text-white shrink-0">
-    {selectedCourse.subject}
-  </h1>
+  </div>
 
-  {/* RIGHT */}
-  <div className="flex items-center gap-3 ml-auto">
+  {/* RIGHT (SEARCH + FILTER) */}
+  <div className="flex items-center gap-3 lg:ml-auto">
 
-             {/* SEARCH */}
-      <div className="relative w-[220px] lg:w-[320px]">
+    {/* SEARCH */}
+    <div className="relative w-[220px] lg:w-[320px]">
 
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-          <svg
-            className="w-5 h-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <circle cx="11" cy="11" r="7" />
-            <path d="M20 20l-3.5-3.5" />
-          </svg>
-        </div>
-
-        <input
-          type="text"
-          placeholder="Search projects..."
-          className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
-        />
-      </div>
-
-      {/* FILTER */}
-      <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
-
+      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
         <svg
-          className="w-5 h-5 text-slate-700 transform rotate-90"
+          className="w-5 h-5"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
         >
-          <line x1="4" y1="6" x2="20" y2="6" />
-          <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
-
-          <line x1="4" y1="12" x2="20" y2="12" />
-          <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
-
-          <line x1="4" y1="18" x2="20" y2="18" />
-          <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
+          <circle cx="11" cy="11" r="7" />
+          <path d="M20 20l-3.5-3.5" />
         </svg>
+      </div>
 
-      </button>
+      <input
+        type="text"
+        placeholder="Search projects..."
+        className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
+      />
     </div>
+
+    {/* FILTER */}
+    <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
+
+      <svg
+        className="w-5 h-5 text-slate-700 transform rotate-90"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <line x1="4" y1="6" x2="20" y2="6" />
+        <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
+
+        <line x1="4" y1="12" x2="20" y2="12" />
+        <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
+
+        <line x1="4" y1="18" x2="20" y2="18" />
+        <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
+      </svg>
+
+    </button>
+
+  </div>
+</div>
 
                 <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">
                   Interactive lessons, practice
