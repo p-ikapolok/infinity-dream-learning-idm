@@ -648,402 +648,263 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
   };
 
   return (
-    <LearningLayout
-      collapsed={collapsed}
-      setCollapsed={setCollapsed}
-    >
-      {/* FULL SCREEN — NO EXTRA SPACE */}
-      <div className="w-full min-h-screen bg-slate-100">
+  <LearningLayout
+    collapsed={collapsed}
+    setCollapsed={setCollapsed}
+  >
+    {/* FULL SCREEN — NO EXTRA SPACE */}
+    <div className="w-full min-h-screen bg-slate-100">
 
-        {/* MAIN CONTAINER */}
-        <div className="w-full min-h-screen bg-white flex flex-col overflow-hidden">
+      {/* MAIN CONTAINER */}
+      <div className="w-full min-h-screen bg-white flex flex-col overflow-hidden">
 
-          {/* TOP HEADER */}
-          <div className="relative px-4 md:px-8 py-6 overflow-hidden">
-        
-         {/* BACKGROUND IMAGE */}
-<div
-  className="absolute inset-0 bg-cover bg-center opacity-30"
-  style={{
-    backgroundImage:
-      "url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80')"
-  }}
-/>
+        {/* TOP HEADER */}
+        <div className="relative px-4 md:px-8 py-6 overflow-hidden">
 
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 opacity-90" />
+          {/* BACKGROUND IMAGE */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-30"
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80')"
+            }}
+          />
 
-            {/* TOP BAR */}
-<div className="relative z-10 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 opacity-90" />
 
-  {/* LEFT */}
-  <div className="flex-1 min-w-0">
+          {/* TOP CONTENT */}
+          <div className="relative z-10">
 
-    <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
-      {selectedCourse.grade}
-    </p>
+            {/* TOP BAR (TITLE LEFT + SEARCH RIGHT) */}
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
 
-    <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
-      {selectedCourse.subject}
-    </h1>
+              {/* LEFT */}
+              <div className="flex-1 min-w-0">
 
-  </div>
-
-  {/* RIGHT (SEARCH + FILTER) */}
-  <div className="flex items-center gap-3 lg:ml-auto">
-
-    {/* SEARCH */}
-    <div className="relative w-[220px] lg:w-[320px]">
-
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-        <svg
-          className="w-5 h-5"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-        >
-          <circle cx="11" cy="11" r="7" />
-          <path d="M20 20l-3.5-3.5" />
-        </svg>
-      </div>
-
-      <input
-        type="text"
-        placeholder="Search projects..."
-        className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
-      />
-    </div>
-
-    {/* FILTER */}
-    <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
-
-      <svg
-        className="w-5 h-5 text-slate-700 transform rotate-90"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <line x1="4" y1="6" x2="20" y2="6" />
-        <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
-
-        <line x1="4" y1="12" x2="20" y2="12" />
-        <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
-
-        <line x1="4" y1="18" x2="20" y2="18" />
-        <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
-      </svg>
-
-    </button>
-
-  </div>
-</div>
-
-                <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">
-                  Interactive lessons, practice
-                  questions, quizzes and visual
-                  learning for students from primary
-                  school to university level.
+                <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
+                  {selectedCourse.grade}
                 </p>
-     <div className="mt-5 flex flex-wrap gap-2">
-  {courseData.map((course) => {
-    const isActive = selectedCourse.subject === course.subject;
 
-    return (
-      <button
-        key={course.subject}
-        onClick={() => setSelectedCourse(course)}
-        className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all border ${
-          isActive
-            ? "bg-white text-indigo-700 border-white shadow-lg"
-            : "bg-white/10 text-white border-white/20 hover:bg-white/20"
-        }`}
-      >
-        {course.subject}
-      </button>
-    );
-  })}
-</div>
+                <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
+                  {selectedCourse.subject}
+                </h1>
+
               </div>
 
-            </div>
+              {/* RIGHT (SEARCH + FILTER) */}
+              <div className="flex items-center gap-3 lg:ml-auto">
 
-            {/* STATS */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                {/* SEARCH */}
+                <div className="relative w-[220px] lg:w-[320px]">
 
-              {/* CARD */}
-              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
-
-                <div className="flex items-center justify-between">
-
-                  <div>
-                    <p className="text-blue-100 text-sm">
-                      Topics
-                    </p>
-        <h3 className="text-3xl font-black text-white mt-1">
-  {selectedCourse.totalTopics}
-     </h3>
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M20 20l-3.5-3.5" />
+                    </svg>
                   </div>
 
+                  <input
+                    type="text"
+                    placeholder="Search projects..."
+                    className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
+                  />
+                </div>
+
+                {/* FILTER */}
+                <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
+
                   <svg
-                    className="w-8 h-8 text-white"
+                    className="w-5 h-5 text-slate-700 transform rotate-90"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   >
-                    <path d="M4 6h16" />
-                    <path d="M4 12h16" />
-                    <path d="M4 18h10" />
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
+                    <line x1="4" y1="18" x2="20" y2="18" />
+                    <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
                   </svg>
-                </div>
-              </div>
 
-              {/* CARD */}
-              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+                </button>
 
-                <div className="flex items-center justify-between">
-
-                  <div>
-                    <p className="text-blue-100 text-sm">
-                      Progress
-                    </p>
-
-        <h3 className="text-3xl font-black text-white mt-1">
-  {selectedCourse.progress}%
-       </h3>
-                  </div>
-
-                  <svg
-                    className="w-8 h-8 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <circle
-                      cx="12"
-                      cy="12"
-                      r="9"
-                    />
-                    <path d="M12 7v5l3 3" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* CARD */}
-              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
-
-                <div className="flex items-center justify-between">
-
-                  <div>
-                    <p className="text-blue-100 text-sm">
-                      Lessons
-                    </p>
-
-                    <h3 className="text-3xl font-black text-white mt-1">
-                      84
-                    </h3>
-                  </div>
-
-                  <svg
-                    className="w-8 h-8 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-                    <path d="M6.5 17A2.5 2.5 0 014 14.5V5a2 2 0 012-2h14v14" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* CARD */}
-              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
-
-                <div className="flex items-center justify-between">
-
-                  <div>
-                    <p className="text-blue-100 text-sm">
-                      Quizzes
-                    </p>
-
-                    <h3 className="text-3xl font-black text-white mt-1">
-                      32
-                    </h3>
-                  </div>
-
-                  <svg
-                    className="w-8 h-8 text-white"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M9 11l3 3L22 4" />
-                    <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* CONTENT SECTION */}
-          <div className="flex-1 bg-slate-100 px-4 md:px-8 py-6">
-
-            {/* SECTION HEADER */}
-            <div className="flex items-center justify-between mb-5">
-
-              <div>
-                <h2 className="text-2xl font-black text-slate-800">
-                  Course Topics
-                </h2>
-
-                <p className="text-slate-500 text-sm mt-1">
-                  Choose a topic to continue learning
-                </p>
               </div>
             </div>
 
-            {/* GRID */}
-            <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
+            {/* DESCRIPTION */}
+            <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">
+              Interactive lessons, practice questions, quizzes and visual learning for students from primary school to university level.
+            </p>
 
-              {filteredTopics.map((topic) => {
-                const isExpanded =
-                  expandedTopic === topic.id;
+            {/* SUBJECT CHIPS */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              {courseData.map((course) => {
+                const isActive = selectedCourse.subject === course.subject;
 
                 return (
-                  <div
-                    key={topic.id}
-                    className="bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300"
+                  <button
+                    key={course.subject}
+                    onClick={() => setSelectedCourse(course)}
+                    className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all border ${
+                      isActive
+                        ? "bg-white text-indigo-700 border-white shadow-lg"
+                        : "bg-white/10 text-white border-white/20 hover:bg-white/20"
+                    }`}
                   >
-
-                    {/* TOPIC HEADER */}
-                    <button
-                      onClick={() =>
-                        setExpandedTopic(
-                          isExpanded
-                            ? null
-                            : topic.id
-                        )
-                      }
-                      className="w-full p-5 flex items-center justify-between"
-                    >
-
-                      {/* LEFT */}
-                      <div className="flex items-center gap-4">
-
-                        {/* ICON */}
-                        <div
-                          className={`h-16 w-16 rounded-3xl bg-gradient-to-br ${topic.color} text-white flex items-center justify-center shadow-lg`}
-                        >
-                          {topic.icon}
-                        </div>
-
-                        {/* TEXT */}
-                        <div className="text-left">
-                          <h3 className="text-xl font-black text-slate-800">
-                            {topic.title}
-                          </h3>
-
-                          <p className="text-slate-500 text-sm mt-1">
-                            {topic.lessons} lessons
-                            available
-                          </p>
-                        </div>
-                      </div>
-
-                      {/* RIGHT */}
-                      <div
-                        className={`transition-transform duration-300 ${
-                          isExpanded
-                            ? "rotate-180"
-                            : ""
-                        }`}
-                      >
-                        <svg
-                          className="w-6 h-6 text-slate-400"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <path d="M6 9l6 6 6-6" />
-                        </svg>
-                      </div>
-                    </button>
-
-                    {/* SUBTOPICS */}
-                    {isExpanded && (
-                      <div className="px-5 pb-5">
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-
-                          {topic.subtopics.map(
-                            (subtopic, index) => (
-                              <button
-                                key={index}
-                                onClick={() =>
-                                  handleSubtopicClick(
-                                    topic.id,
-                                    subtopic
-                                  )
-                                }
-                                className="group flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 p-4 transition-all"
-                              >
-
-                                <div className="flex items-center gap-3">
-
-                                  <div className="h-11 w-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-blue-600 group-hover:bg-blue-100">
-
-                                    <svg
-                                      className="w-5 h-5"
-                                      viewBox="0 0 24 24"
-                                      fill="none"
-                                      stroke="currentColor"
-                                      strokeWidth="2"
-                                    >
-                                      <path d="M9 18l6-6-6-6" />
-                                    </svg>
-                                  </div>
-
-                                  <div className="text-left">
-                                    <p className="font-bold text-slate-700">
-                                      {subtopic}
-                                    </p>
-
-                                    <p className="text-xs text-slate-500">
-                                      Interactive lesson
-                                    </p>
-                                  </div>
-                                </div>
-
-                                <svg
-                                  className="w-5 h-5 text-slate-400 group-hover:text-blue-600"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                >
-                                  <path d="M5 12h14" />
-                                  <path d="M12 5l7 7-7 7" />
-                                </svg>
-                              </button>
-                            )
-                          )}
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                    {course.subject}
+                  </button>
                 );
               })}
             </div>
+
           </div>
         </div>
+
+        {/* STATS */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6 px-4 md:px-8">
+
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+            <p className="text-blue-100 text-sm">Topics</p>
+            <h3 className="text-3xl font-black text-white mt-1">
+              {selectedCourse.totalTopics}
+            </h3>
+          </div>
+
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+            <p className="text-blue-100 text-sm">Progress</p>
+            <h3 className="text-3xl font-black text-white mt-1">
+              {selectedCourse.progress}%
+            </h3>
+          </div>
+
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+            <p className="text-blue-100 text-sm">Lessons</p>
+            <h3 className="text-3xl font-black text-white mt-1">84</h3>
+          </div>
+
+          <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+            <p className="text-blue-100 text-sm">Quizzes</p>
+            <h3 className="text-3xl font-black text-white mt-1">32</h3>
+          </div>
+
+        </div>
+
+        {/* CONTENT */}
+        <div className="flex-1 bg-slate-100 px-4 md:px-8 py-6">
+
+          <div className="flex items-center justify-between mb-5">
+            <div>
+              <h2 className="text-2xl font-black text-slate-800">
+                Course Topics
+              </h2>
+              <p className="text-slate-500 text-sm mt-1">
+                Choose a topic to continue learning
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-5">
+
+            {filteredTopics.map((topic) => {
+              const isExpanded = expandedTopic === topic.id;
+
+              return (
+                <div
+                  key={topic.id}
+                  className="bg-white rounded-3xl border border-slate-200 overflow-hidden hover:shadow-xl transition-all duration-300"
+                >
+
+                  <button
+                    onClick={() =>
+                      setExpandedTopic(isExpanded ? null : topic.id)
+                    }
+                    className="w-full p-5 flex items-center justify-between"
+                  >
+
+                    <div className="flex items-center gap-4">
+
+                      <div className={`h-16 w-16 rounded-3xl bg-gradient-to-br ${topic.color} text-white flex items-center justify-center shadow-lg`}>
+                        {topic.icon}
+                      </div>
+
+                      <div className="text-left">
+                        <h3 className="text-xl font-black text-slate-800">
+                          {topic.title}
+                        </h3>
+                        <p className="text-slate-500 text-sm mt-1">
+                          {topic.lessons} lessons available
+                        </p>
+                      </div>
+
+                    </div>
+
+                    <div className={`transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`}>
+                      <svg className="w-6 h-6 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </div>
+
+                  </button>
+
+                  {isExpanded && (
+                    <div className="px-5 pb-5">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+
+                        {topic.subtopics.map((subtopic, index) => (
+                          <button
+                            key={index}
+                            onClick={() => handleSubtopicClick(topic.id, subtopic)}
+                            className="group flex items-center justify-between rounded-2xl border border-slate-200 bg-slate-50 hover:bg-blue-50 hover:border-blue-200 p-4 transition-all"
+                          >
+                            <div className="flex items-center gap-3">
+                              <div className="h-11 w-11 rounded-2xl bg-white border border-slate-200 flex items-center justify-center text-blue-600 group-hover:bg-blue-100">
+                                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                  <path d="M9 18l6-6-6-6" />
+                                </svg>
+                              </div>
+
+                              <div className="text-left">
+                                <p className="font-bold text-slate-700">
+                                  {subtopic}
+                                </p>
+                                <p className="text-xs text-slate-500">
+                                  Interactive lesson
+                                </p>
+                              </div>
+                            </div>
+
+                            <svg className="w-5 h-5 text-slate-400 group-hover:text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                              <path d="M5 12h14" />
+                              <path d="M12 5l7 7-7 7" />
+                            </svg>
+
+                          </button>
+                        ))}
+
+                      </div>
+                    </div>
+                  )}
+
+                </div>
+              );
+            })}
+
+          </div>
+
+        </div>
       </div>
-    </LearningLayout>
-  );
+    </div>
+  </LearningLayout>
+ );
 }
