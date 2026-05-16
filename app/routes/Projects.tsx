@@ -10,7 +10,7 @@ export default function Projects() {
         
         <h1 className="text-2xl font-black text-slate-900 uppercase tracking-wide">Active Projects</h1>
         
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
           {[
             { title: "Build a Neural Network", tag: "AI Engine", status: "In Progress", daysLeft: 3 },
             { title: "E-Commerce Database", tag: "Backend", status: "Not Started", daysLeft: 7 },
