@@ -9,15 +9,17 @@ export default function Projects() {
       <div className="w-full h-full p-8 bg-slate-50 flex flex-col gap-6 overflow-y-auto">
         
   {/* TOP */}
-<div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4">
+<div className="flex items-center justify-between gap-6">
 
   {/* LEFT: TITLE + NAV */}
-  <div className="flex-1">
-    <h1 className="text-3xl font-black text-slate-900 tracking-tight">
+  <div className="flex items-center gap-6">
+
+    <h1 className="text-3xl font-black text-slate-900 tracking-tight whitespace-nowrap">
       Projects
     </h1>
 
-    <div className="flex items-center gap-2 mt-4 overflow-x-auto pb-1">
+    {/* NAV */}
+    <div className="flex items-center gap-2 overflow-x-auto">
       {["Active", "Completed", "Archived", "Drafts"].map((item, i) => (
         <button
           key={i}
@@ -33,11 +35,11 @@ export default function Projects() {
     </div>
   </div>
 
-  {/* RIGHT: SEARCH + FILTER */}
-  <div className="flex items-center gap-3 lg:ml-auto shrink-0">
+  {/* RIGHT: SEARCH + FILTER (TRUE FAR RIGHT) */}
+  <div className="flex items-center gap-3 ml-auto">
 
     {/* SEARCH */}
-    <div className="relative w-[220px] lg:w-[320px]">
+    <div className="relative w-[260px] lg:w-[320px]">
 
       <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
         <svg
