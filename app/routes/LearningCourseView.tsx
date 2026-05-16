@@ -685,36 +685,7 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
              <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
   {selectedCourse.subject}
 </h1>
-
-                <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">
-                  Interactive lessons, practice
-                  questions, quizzes and visual
-                  learning for students from primary
-                  school to university level.
-                </p>
-     <div className="mt-5 flex flex-wrap gap-2">
-  {courseData.map((course) => {
-    const isActive = selectedCourse.subject === course.subject;
-
-    return (
-      <button
-        key={course.subject}
-        onClick={() => setSelectedCourse(course)}
-        className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all border ${
-          isActive
-            ? "bg-white text-indigo-700 border-white shadow-lg"
-            : "bg-white/10 text-white border-white/20 hover:bg-white/20"
-        }`}
-      >
-        {course.subject}
-      </button>
-    );
-  })}
-</div>
-              </div>
-
-     
-             {/* RIGHT */}
+              {/* RIGHT */}
       <div className="flex items-center gap-3 lg:ml-auto">
 
              {/* SEARCH */}
@@ -764,6 +735,34 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 
       </button>
     </div>
+
+                <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">
+                  Interactive lessons, practice
+                  questions, quizzes and visual
+                  learning for students from primary
+                  school to university level.
+                </p>
+     <div className="mt-5 flex flex-wrap gap-2">
+  {courseData.map((course) => {
+    const isActive = selectedCourse.subject === course.subject;
+
+    return (
+      <button
+        key={course.subject}
+        onClick={() => setSelectedCourse(course)}
+        className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all border ${
+          isActive
+            ? "bg-white text-indigo-700 border-white shadow-lg"
+            : "bg-white/10 text-white border-white/20 hover:bg-white/20"
+        }`}
+      >
+        {course.subject}
+      </button>
+    );
+  })}
+</div>
+              </div>
+
             </div>
 
             {/* STATS */}
