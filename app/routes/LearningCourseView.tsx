@@ -713,10 +713,11 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 </div>
               </div>
 
-     {/* SEARCH + FILTER (RIGHT) */}
-    <div className="flex items-center gap-3">
+     
+             {/* RIGHT */}
+      <div className="flex items-center gap-3 lg:ml-auto">
 
-      {/* SEARCH */}
+             {/* SEARCH */}
       <div className="relative w-[220px] lg:w-[320px]">
 
         <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
