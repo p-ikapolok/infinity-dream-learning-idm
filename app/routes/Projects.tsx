@@ -8,17 +8,20 @@ export default function Projects() {
     <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
       <div className="w-full h-full p-8 bg-slate-50 flex flex-col gap-6 overflow-y-auto">
         
-  {/* TOP */}
-<div className="flex items-center justify-between gap-6">
+  {/* HEADER */}
+<div className="flex flex-col gap-5">
 
-  {/* LEFT: TITLE + NAV */}
-  <div className="flex items-center gap-6">
-
-    <h1 className="text-3xl font-black text-slate-900 tracking-tight whitespace-nowrap">
+  {/* ROW 1: TITLE ONLY */}
+  <div>
+    <h1 className="text-3xl font-black text-slate-900 tracking-tight">
       Projects
     </h1>
+  </div>
 
-    {/* NAV */}
+  {/* ROW 2: NAV + SEARCH + FILTER */}
+  <div className="flex items-center justify-between gap-4">
+
+    {/* NAV (LEFT) */}
     <div className="flex items-center gap-2 overflow-x-auto">
       {["Active", "Completed", "Archived", "Drafts"].map((item, i) => (
         <button
@@ -33,59 +36,58 @@ export default function Projects() {
         </button>
       ))}
     </div>
-  </div>
 
-  {/* RIGHT: SEARCH + FILTER (TRUE FAR RIGHT) */}
-  <div className="flex items-center gap-3 ml-auto">
+    {/* SEARCH + FILTER (RIGHT) */}
+    <div className="flex items-center gap-3">
 
-    {/* SEARCH */}
-    <div className="relative w-[260px] lg:w-[320px]">
+      {/* SEARCH */}
+      <div className="relative w-[220px] lg:w-[320px]">
 
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+          <svg
+            className="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="M20 20l-3.5-3.5" />
+          </svg>
+        </div>
+
+        <input
+          type="text"
+          placeholder="Search projects..."
+          className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
+        />
+      </div>
+
+      {/* FILTER */}
+      <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
+
         <svg
-          className="w-5 h-5"
+          className="w-5 h-5 text-slate-700 transform rotate-90"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         >
-          <circle cx="11" cy="11" r="7" />
-          <path d="M20 20l-3.5-3.5" />
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
+
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
+
+          <line x1="4" y1="18" x2="20" y2="18" />
+          <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
         </svg>
-      </div>
 
-      <input
-        type="text"
-        placeholder="Search projects..."
-        className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
-      />
+      </button>
     </div>
-
-    {/* FILTER */}
-    <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
-
-      <svg
-        className="w-5 h-5 text-slate-700 transform rotate-90"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <line x1="4" y1="6" x2="20" y2="6" />
-        <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
-
-        <line x1="4" y1="12" x2="20" y2="12" />
-        <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
-
-        <line x1="4" y1="18" x2="20" y2="18" />
-        <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
-      </svg>
-
-    </button>
   </div>
-
 </div>
         
         <div className="grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-6">
