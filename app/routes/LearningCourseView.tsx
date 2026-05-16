@@ -11,12 +11,6 @@ import LearningLayout from "../components/LearningLayout";
 export default function CourseTopicsView() {
   const { subjectId } = useParams();
   const navigate = useNavigate();
-const initialCourse =
-  courseData.find(
-    (c) => c.subject.toLowerCase() === subjectId?.toLowerCase()
-  ) || courseData[0];
-
-const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 
   const courseData = [
   // ===================== MATHEMATICS =====================
@@ -616,6 +610,13 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
     ],
   },
 ];
+
+const initialCourse =
+  courseData.find(
+    (c) => c.subject.toLowerCase() === subjectId?.toLowerCase()
+  ) || courseData[0];
+
+const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 
   const [expandedTopic, setExpandedTopic] = useState(null);
   const [collapsed, setCollapsed] = useState(false);
