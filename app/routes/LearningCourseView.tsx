@@ -713,56 +713,56 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 </div>
               </div>
 
-              {/* RIGHT */}
-              <div className="flex items-center gap-3 w-full md:w-auto">
+     {/* SEARCH + FILTER (RIGHT) */}
+    <div className="flex items-center gap-3">
 
-                {/* SEARCH */}
-                <div className="relative flex-1 md:w-[340px]">
+      {/* SEARCH */}
+      <div className="relative w-[220px] lg:w-[320px]">
 
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-                    <svg
-                      className="w-5 h-5"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                    >
-                      <circle
-                        cx="11"
-                        cy="11"
-                        r="8"
-                      />
-                      <path d="M21 21l-4.3-4.3" />
-                    </svg>
-                  </div>
+        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+          <svg
+            className="w-5 h-5"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <circle cx="11" cy="11" r="7" />
+            <path d="M20 20l-3.5-3.5" />
+          </svg>
+        </div>
 
-                  <input
-                    type="text"
-                    placeholder="Search topics or lessons..."
-                    value={search}
-                    onChange={(e) =>
-                      setSearch(e.target.value)
-                    }
-                    className="w-full h-14 rounded-2xl border-0 bg-white text-slate-700 font-medium pl-12 pr-4 outline-none focus:ring-4 focus:ring-blue-300"
-                  />
-                </div>
+        <input
+          type="text"
+          placeholder="Search projects..."
+          className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
+        />
+      </div>
 
-                {/* FILTER */}
-                <button className="h-14 w-14 rounded-2xl bg-white/15 border border-white/20 backdrop-blur flex items-center justify-center text-white hover:bg-white/25 transition">
+      {/* FILTER */}
+      <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
 
-                  <svg
-                    className="w-6 h-6"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M4 6h16" />
-                    <path d="M7 12h10" />
-                    <path d="M10 18h4" />
-                  </svg>
-                </button>
-              </div>
+        <svg
+          className="w-5 h-5 text-slate-700 transform rotate-90"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
+
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
+
+          <line x1="4" y1="18" x2="20" y2="18" />
+          <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
+        </svg>
+
+      </button>
+    </div>
             </div>
 
             {/* STATS */}
