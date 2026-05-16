@@ -8,81 +8,75 @@ export default function Projects() {
     <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
       <div className="w-full h-full p-8 bg-slate-50 flex flex-col gap-6 overflow-y-auto">
         
-        {/* HEADER */}
-<div className="flex flex-col gap-5">
+  {/* TOP BAR */}
+<div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
 
-  {/* TITLE */}
-  <h1 className="text-3xl font-black text-slate-900 tracking-tight">
-    Projects
-  </h1>
+  {/* LEFT SIDE */}
+  <div>
+    <h1 className="text-2xl font-black text-slate-900 uppercase tracking-wide">
+      Projects
+    </h1>
 
-  {/* NAV + SEARCH */}
-  <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
+    {/* NAV + SEARCH + FILTER */}
+    <div className="mt-4 flex items-center gap-3 flex-wrap">
 
-    {/* LEFT SIDE */}
-    <div className="flex items-center gap-2 overflow-x-auto pb-1">
-
-      {["Active", "Completed", "Archived", "Drafts"].map((item, i) => (
-        <button
-          key={i}
-          className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${
-            i === 0
-              ? "bg-slate-900 text-white"
-              : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-100"
-          }`}
-        >
-          {item}
-        </button>
-      ))}
-    </div>
-
-    {/* RIGHT SIDE */}
-    <div className="flex items-center gap-3 w-full xl:w-auto">
-
-      {/* SEARCH */}
-      <div className="relative flex-1 xl:w-[320px]">
-
-        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
-          <svg
-            className="w-5 h-5"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
+      {/* NAV */}
+      <div className="flex items-center bg-white border border-slate-200 rounded-xl p-1">
+        {["Active", "Completed", "Archived"].map((tab) => (
+          <button
+            key={tab}
+            className={`px-4 py-2 rounded-lg text-sm font-bold transition ${
+              tab === "Active"
+                ? "bg-slate-900 text-white"
+                : "text-slate-500 hover:bg-slate-100"
+            }`}
           >
-            <circle cx="11" cy="11" r="7" />
-            <path d="M20 20l-3.5-3.5" />
-          </svg>
-        </div>
-
-        <input
-          type="text"
-          placeholder="Search projects..."
-          className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
-        />
+            {tab}
+          </button>
+        ))}
       </div>
 
-      {/* FILTER */}
-      <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
-
+      {/* SEARCH */}
+      <div className="relative w-[180px] sm:w-[220px]">
         <svg
-          className="w-5 h-5 text-slate-700"
+          className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
         >
-          <line x1="4" y1="6" x2="20" y2="6" />
-          <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
-
-          <line x1="4" y1="12" x2="20" y2="12" />
-          <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
-
-          <line x1="4" y1="18" x2="20" y2="18" />
-          <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
+          <circle cx="11" cy="11" r="8" />
+          <path d="M21 21l-4.3-4.3" />
         </svg>
+
+        <input
+          type="text"
+          placeholder="Search..."
+          className="w-full h-11 bg-white border border-slate-200 rounded-xl pl-10 pr-4 text-sm outline-none focus:ring-2 focus:ring-slate-300"
+        />
+      </div>
+
+      {/* FILTER */}
+      <button className="h-11 w-11 rounded-xl bg-white border border-slate-200 flex items-center justify-center hover:bg-slate-50 transition">
+
+        <svg
+  className="w-5 h-5 text-slate-700 transform rotate-90"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+>
+  <line x1="4" y1="6" x2="20" y2="6" />
+  <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
+
+  <line x1="4" y1="12" x2="20" y2="12" />
+  <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
+
+  <line x1="4" y1="18" x2="20" y2="18" />
+  <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
+</svg>
       </button>
     </div>
   </div>
