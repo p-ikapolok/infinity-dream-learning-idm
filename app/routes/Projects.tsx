@@ -11,38 +11,36 @@ export default function Projects() {
         {/* HEADER */}
 <div className="flex flex-col gap-5">
 
-  {/* TOP */}
-  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+  {/* TITLE */}
+  <h1 className="text-3xl font-black text-slate-900 tracking-tight">
+    Projects
+  </h1>
 
-    {/* TITLE + NAV */}
-    <div>
-      <h1 className="text-3xl font-black text-slate-900 tracking-tight">
-        Projects
-      </h1>
+  {/* NAV + SEARCH */}
+  <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
 
-      {/* NAV */}
-      <div className="flex items-center gap-2 mt-4 overflow-x-auto pb-1">
+    {/* LEFT SIDE */}
+    <div className="flex items-center gap-2 overflow-x-auto pb-1">
 
-        {["Active", "Completed", "Archived", "Drafts"].map((item, i) => (
-          <button
-            key={i}
-            className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${
-              i === 0
-                ? "bg-slate-900 text-white"
-                : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-100"
-            }`}
-          >
-            {item}
-          </button>
-        ))}
-      </div>
+      {["Active", "Completed", "Archived", "Drafts"].map((item, i) => (
+        <button
+          key={i}
+          className={`px-4 py-2 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${
+            i === 0
+              ? "bg-slate-900 text-white"
+              : "bg-white border border-slate-200 text-slate-600 hover:bg-slate-100"
+          }`}
+        >
+          {item}
+        </button>
+      ))}
     </div>
 
-    {/* SEARCH + FILTER */}
-    <div className="flex items-center gap-3 w-full lg:w-auto">
+    {/* RIGHT SIDE */}
+    <div className="flex items-center gap-3 w-full xl:w-auto">
 
       {/* SEARCH */}
-      <div className="relative flex-1 lg:w-[320px]">
+      <div className="relative flex-1 xl:w-[320px]">
 
         <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
           <svg
@@ -64,7 +62,7 @@ export default function Projects() {
         />
       </div>
 
-      {/* FILTER BUTTON */}
+      {/* FILTER */}
       <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
 
         <svg
@@ -74,10 +72,16 @@ export default function Projects() {
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
+          strokeLinejoin="round"
         >
-          <path d="M4 6h16" />
-          <path d="M7 12h10" />
-          <path d="M10 18h4" />
+          <line x1="4" y1="6" x2="20" y2="6" />
+          <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
+
+          <line x1="4" y1="12" x2="20" y2="12" />
+          <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
+
+          <line x1="4" y1="18" x2="20" y2="18" />
+          <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
         </svg>
       </button>
     </div>
