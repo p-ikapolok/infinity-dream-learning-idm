@@ -648,243 +648,161 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
   };
 
   return (
-<LearningLayout  
-collapsed={collapsed}  
-setCollapsed={setCollapsed}  
->
-{/* FULL SCREEN — NO EXTRA SPACE */}
-<div className="w-full min-h-screen bg-slate-100">
+  <LearningLayout
+    collapsed={collapsed}
+    setCollapsed={setCollapsed}
+  >
+    {/* FULL SCREEN — NO EXTRA SPACE */}
+    <div className="w-full min-h-screen bg-slate-100">
 
-{/* MAIN CONTAINER */}  
-    <div className="w-full min-h-screen bg-white flex flex-col overflow-hidden">  
+      {/* MAIN CONTAINER */}
+      <div className="w-full min-h-screen bg-white flex flex-col overflow-hidden">
 
-      {/* TOP HEADER */}  
-      <div className="relative px-4 md:px-8 py-6 overflow-hidden">  
+        {/* TOP HEADER */}
+        <div className="relative px-4 md:px-8 py-6 overflow-hidden">
 
-     {/* BACKGROUND IMAGE */}
+          {/* BACKGROUND IMAGE */}
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-30"
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80')"
+            }}
+          />
 
-<div  
-  className="absolute inset-0 bg-cover bg-center opacity-30"  
-  style={{  
-    backgroundImage:  
-      "url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=1600&q=80')"  
-  }}  
-/>  <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 opacity-90" />  
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-700 via-indigo-700 to-violet-700 opacity-90" />
 
-        {/* TOP BAR */}
+          {/* HERO CONTENT (FIXED WRAPPER — IMPORTANT) */}
+          <div className="relative z-10">
 
-<div className="relative z-10 flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">  {/* LEFT */}
+            {/* TOP BAR */}
+            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
 
-  <div className="flex-1 min-w-0">  <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">  
-  {selectedCourse.grade}  
-</p>  
+              {/* LEFT */}
+              <div className="flex-1 min-w-0">
+                <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
+                  {selectedCourse.grade}
+                </p>
 
-<h1 className="text-3xl md:text-5xl font-black text-white mt-1">  
-  {selectedCourse.subject}  
-</h1>
+                <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
+                  {selectedCourse.subject}
+                </h1>
+              </div>
 
-  </div>  {/* RIGHT (SEARCH + FILTER) */}
+              {/* RIGHT (SEARCH + FILTER — KEPT EXACTLY HERE) */}
+              <div className="flex items-center gap-3 lg:ml-auto">
 
-  <div className="flex items-center gap-3 lg:ml-auto">  {/* SEARCH */}  
-<div className="relative w-[220px] lg:w-[320px]">  
+                {/* SEARCH */}
+                <div className="relative w-[220px] lg:w-[320px]">
 
-  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">  
-    <svg  
-      className="w-5 h-5"  
-      viewBox="0 0 24 24"  
-      fill="none"  
-      stroke="currentColor"  
-      strokeWidth="2"  
-    >  
-      <circle cx="11" cy="11" r="7" />  
-      <path d="M20 20l-3.5-3.5" />  
-    </svg>  
-  </div>  
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400">
+                    <svg
+                      className="w-5 h-5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                    >
+                      <circle cx="11" cy="11" r="7" />
+                      <path d="M20 20l-3.5-3.5" />
+                    </svg>
+                  </div>
 
-  <input  
-    type="text"  
-    placeholder="Search projects..."  
-    className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"  
-  />  
-</div>  
+                  <input
+                    type="text"
+                    placeholder="Search projects..."
+                    className="w-full h-12 rounded-2xl border border-slate-200 bg-white pl-12 pr-4 text-sm font-medium outline-none focus:ring-4 focus:ring-slate-200"
+                  />
+                </div>
 
-{/* FILTER */}  
-<button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">  
+                {/* FILTER */}
+                <button className="h-12 w-12 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:bg-slate-100 transition">
+                  <svg
+                    className="w-5 h-5 text-slate-700 transform rotate-90"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />
+                    <line x1="4" y1="18" x2="20" y2="18" />
+                    <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />
+                  </svg>
+                </button>
 
-  <svg  
-    className="w-5 h-5 text-slate-700 transform rotate-90"  
-    viewBox="0 0 24 24"  
-    fill="none"  
-    stroke="currentColor"  
-    strokeWidth="2"  
-    strokeLinecap="round"  
-    strokeLinejoin="round"  
-  >  
-    <line x1="4" y1="6" x2="20" y2="6" />  
-    <circle cx="9" cy="6" r="2" fill="currentColor" stroke="none" />  
+              </div>
+            </div>
 
-    <line x1="4" y1="12" x2="20" y2="12" />  
-    <circle cx="15" cy="12" r="2" fill="currentColor" stroke="none" />  
+            {/* DESCRIPTION */}
+            <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">
+              Interactive lessons, practice questions, quizzes and visual learning for students from primary school to university level.
+            </p>
 
-    <line x1="4" y1="18" x2="20" y2="18" />  
-    <circle cx="11" cy="18" r="2" fill="currentColor" stroke="none" />  
-  </svg>  
+            {/* SUBJECT CHIPS */}
+            <div className="mt-5 flex flex-wrap gap-2">
+              {courseData.map((course) => {
+                const isActive = selectedCourse.subject === course.subject;
 
-</button>
+                return (
+                  <button
+                    key={course.subject}
+                    onClick={() => setSelectedCourse(course)}
+                    className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all border ${
+                      isActive
+                        ? "bg-white text-indigo-700 border-white shadow-lg"
+                        : "bg-white/10 text-white border-white/20 hover:bg-white/20"
+                    }`}
+                  >
+                    {course.subject}
+                  </button>
+                );
+              })}
+            </div>
 
-  </div>  
-</div>  <p className="text-blue-100 mt-2 max-w-xl text-sm md:text-base">  
-              Interactive lessons, practice  
-              questions, quizzes and visual  
-              learning for students from primary  
-              school to university level.  
-            </p>  
- <div className="mt-5 flex flex-wrap gap-2">
+            {/* STATS (FIXED: NOW INSIDE HERO CONTEXT) */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
 
-{courseData.map((course) => {
-const isActive = selectedCourse.subject === course.subject;
+              {/* CARD 1 */}
+              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+                <p className="text-blue-100 text-sm">Topics</p>
+                <h3 className="text-3xl font-black text-white mt-1">
+                  {selectedCourse.totalTopics}
+                </h3>
+              </div>
 
-return (  
-  <button  
-    key={course.subject}  
-    onClick={() => setSelectedCourse(course)}  
-    className={`px-4 py-2 rounded-2xl text-sm font-bold transition-all border ${  
-      isActive  
-        ? "bg-white text-indigo-700 border-white shadow-lg"  
-        : "bg-white/10 text-white border-white/20 hover:bg-white/20"  
-    }`}  
-  >  
-    {course.subject}  
-  </button>  
-);
+              {/* CARD 2 */}
+              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+                <p className="text-blue-100 text-sm">Progress</p>
+                <h3 className="text-3xl font-black text-white mt-1">
+                  {selectedCourse.progress}%
+                </h3>
+              </div>
 
-})}
+              {/* CARD 3 */}
+              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+                <p className="text-blue-100 text-sm">Lessons</p>
+                <h3 className="text-3xl font-black text-white mt-1">
+                  84
+                </h3>
+              </div>
 
-</div>  
-              </div>  </div>  
+              {/* CARD 4 */}
+              <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">
+                <p className="text-blue-100 text-sm">Quizzes</p>
+                <h3 className="text-3xl font-black text-white mt-1">
+                  32
+                </h3>
+              </div>
 
-        {/* STATS */}  
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">  
+            </div>
 
-          {/* CARD */}  
-          <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">  
-
-            <div className="flex items-center justify-between">  
-
-              <div>  
-                <p className="text-blue-100 text-sm">  
-                  Topics  
-                </p>  
-    <h3 className="text-3xl font-black text-white mt-1">
-
-{selectedCourse.totalTopics}
-</h3>
-</div>
-
-<svg  
-                className="w-8 h-8 text-white"  
-                viewBox="0 0 24 24"  
-                fill="none"  
-                stroke="currentColor"  
-                strokeWidth="2"  
-              >  
-                <path d="M4 6h16" />  
-                <path d="M4 12h16" />  
-                <path d="M4 18h10" />  
-              </svg>  
-            </div>  
-          </div>  
-
-          {/* CARD */}  
-          <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">  
-
-            <div className="flex items-center justify-between">  
-
-              <div>  
-                <p className="text-blue-100 text-sm">  
-                  Progress  
-                </p>  
-
-    <h3 className="text-3xl font-black text-white mt-1">
-
-{selectedCourse.progress}%
-</h3>
-</div>
-
-<svg  
-                className="w-8 h-8 text-white"  
-                viewBox="0 0 24 24"  
-                fill="none"  
-                stroke="currentColor"  
-                strokeWidth="2"  
-              >  
-                <circle  
-                  cx="12"  
-                  cy="12"  
-                  r="9"  
-                />  
-                <path d="M12 7v5l3 3" />  
-              </svg>  
-            </div>  
-          </div>  
-
-          {/* CARD */}  
-          <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">  
-
-            <div className="flex items-center justify-between">  
-
-              <div>  
-                <p className="text-blue-100 text-sm">  
-                  Lessons  
-                </p>  
-
-                <h3 className="text-3xl font-black text-white mt-1">  
-                  84  
-                </h3>  
-              </div>  
-
-              <svg  
-                className="w-8 h-8 text-white"  
-                viewBox="0 0 24 24"  
-                fill="none"  
-                stroke="currentColor"  
-                strokeWidth="2"  
-              >  
-                <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />  
-                <path d="M6.5 17A2.5 2.5 0 014 14.5V5a2 2 0 012-2h14v14" />  
-              </svg>  
-            </div>  
-          </div>  
-
-          {/* CARD */}  
-          <div className="bg-white/10 border border-white/10 rounded-3xl p-4 backdrop-blur">  
-
-            <div className="flex items-center justify-between">  
-
-              <div>  
-                <p className="text-blue-100 text-sm">  
-                  Quizzes  
-                </p>  
-
-                <h3 className="text-3xl font-black text-white mt-1">  
-                  32  
-                </h3>  
-              </div>  
-
-              <svg  
-                className="w-8 h-8 text-white"  
-                viewBox="0 0 24 24"  
-                fill="none"  
-                stroke="currentColor"  
-                strokeWidth="2"  
-              >  
-                <path d="M9 11l3 3L22 4" />  
-                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />  
-              </svg>  
-            </div>  
-          </div>  
-        </div>  
-      </div>  
+          </div>
+        </div>
 
       {/* CONTENT SECTION */}  
       <div className="flex-1 bg-slate-100 px-4 md:px-8 py-6">  
