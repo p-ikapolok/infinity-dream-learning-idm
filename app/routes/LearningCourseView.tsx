@@ -680,13 +680,17 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
 
              <p className="text-xs uppercase tracking-[0.25em] text-blue-100 font-bold">
   {selectedCourse.grade}
- </p>
+</p>
 
-             <h1 className="text-3xl md:text-5xl font-black text-white mt-1">
-  {selectedCourse.subject}
-</h1>
-              {/* RIGHT */}
-      <div className="flex items-center gap-3 lg:ml-auto">
+<div className="flex items-center gap-4 mt-1">
+
+  {/* SUBJECT */}
+  <h1 className="text-3xl md:text-5xl font-black text-white shrink-0">
+    {selectedCourse.subject}
+  </h1>
+
+  {/* RIGHT */}
+  <div className="flex items-center gap-3 ml-auto">
 
              {/* SEARCH */}
       <div className="relative w-[220px] lg:w-[320px]">
