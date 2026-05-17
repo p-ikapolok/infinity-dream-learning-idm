@@ -576,4 +576,3 @@ export function findLesson(
     lesson,
   };
 }
-}
