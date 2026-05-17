@@ -60,7 +60,7 @@ export default [
   route("ApplicationPage", "routes/ApplicationPage.tsx"),
   route("CourseViewPage", "routes/CourseViewPage.tsx"),
   route(
-  "content/:topicId/:subtopic",
+  "learn/:subject/:topic/:subtopic/:lessonId",
   "routes/learn.$subject.$topic.$subtopic.$lessonId.tsx"
 ),
 
