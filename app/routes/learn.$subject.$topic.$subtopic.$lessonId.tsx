@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import LearningLayout from "../components/LearningLayout";
 import MarkdownRenderer from "../components/MarkdownRenderer";
 import QuizCard from "../components/QuizCard";
-import { lessonData } from "../data/lessons";
+import { lessons } from "../data/lessons";
 
 // ==============================
 // SLUG NORMALIZER
