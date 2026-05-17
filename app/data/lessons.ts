@@ -548,26 +548,32 @@ export function findLesson(
   subtopicSlug: string,
   lessonId: string
 ) {
+  const normalize = (str: string = "") =>
+    str.toLowerCase().replace(/\s+/g, "-");
+
   const subject = subjects.find(
-    (s) => s.slug === subjectSlug
+    (s) => normalize(s.slug) === normalize(subjectSlug)
   );
 
   const topic = subject?.topics.find(
-    (t) => t.slug === topicSlug
+    (t) => normalize(t.slug) === normalize(topicSlug)
   );
 
   const subtopic = topic?.subtopics.find(
-    (s) => s.slug === subtopicSlug
+    (s) => normalize(s.slug) === normalize(subtopicSlug)
   );
 
   const lesson = subtopic?.lessons.find(
-    (l) => l.lessonId === lessonId
+    (l) =>
+      normalize(l.lessonId) === normalize(lessonId) ||
+      normalize(l.title) === normalize(lessonId)
   );
 
   return {
     subject,
     topic,
     subtopic,
-    lesson
+    lesson,
   };
+}
 }
