@@ -3,58 +3,7 @@ import { useParams } from "react-router-dom";
 import LearningLayout from "../components/LearningLayout";
 import MarkdownRenderer from "../components/MarkdownRenderer";
 import QuizCard from "../components/QuizCard";
-import { lessons } from "../data/lessons";
-
-// ==============================
-// SLUG NORMALIZER
-// ==============================
-const normalize = (str: string = "") =>
-  str.toLowerCase().replace(/\s+/g, "-");
-
-// ==============================
-// FIND LESSON
-// ==============================
-function findLesson(
-  subject: string,
-  topic: string,
-  subtopic: string,
-  lessonId: string
-) {
-  const s = normalize(subject);
-  const t = normalize(topic);
-  const st = normalize(subtopic);
-  const lid = normalize(lessonId);
-
-  // FIX: use "lessons" not lessonData
-  const subjectData = lessons.find(
-    (subj) => normalize(subj.name) === s
-  );
-
-  if (!subjectData) return {};
-
-  const topicData = subjectData.topics.find(
-    (top) => normalize(top.name) === t
-  );
-
-  if (!topicData) return { subject: subjectData };
-
-  const subtopicData = topicData.subtopics.find(
-    (sub) => normalize(sub.name) === st
-  );
-
-  if (!subtopicData) return { subject: subjectData, topic: topicData };
-
-  const lesson = subtopicData.lessons.find(
-    (l) => normalize(l.id) === lid || normalize(l.slug) === lid
-  );
-
-  return {
-    subject: subjectData,
-    topic: topicData,
-    subtopic: subtopicData,
-    lesson,
-  };
-}
+import { findLesson } from "../data/lessons";
 
 // ==============================
 // MAIN COMPONENT
@@ -122,7 +71,7 @@ export default function LessonRoute() {
         {/* CONTENT */}
         <div className="flex-1 px-6 md:px-12 py-8 grid grid-cols-1 lg:grid-cols-3 gap-10">
 
-          {/* LEFT CONTENT */}
+          {/* LEFT */}
           <div className="lg:col-span-2 space-y-10">
 
             <div className="aspect-video w-full rounded-xl overflow-hidden border border-slate-200">
@@ -156,7 +105,7 @@ export default function LessonRoute() {
 
           </div>
 
-          {/* RIGHT SIDEBAR */}
+          {/* SIDEBAR */}
           <aside className="bg-white border border-slate-200 rounded-xl p-5 h-fit">
             <h3 className="font-bold text-slate-800 mb-3">
               Lesson Tasks
