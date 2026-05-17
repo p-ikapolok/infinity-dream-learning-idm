@@ -25,7 +25,8 @@ function findLesson(
   const st = normalize(subtopic);
   const lid = normalize(lessonId);
 
-  const subjectData = lessonData.find(
+  // FIX: use "lessons" not lessonData
+  const subjectData = lessons.find(
     (subj) => normalize(subj.name) === s
   );
 
