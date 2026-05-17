@@ -86,4 +86,5 @@ return ( <LearningLayout> <div className="w-full min-h-screen bg-slate-50 flex f
   </div>
 </LearningLayout>
 
-); }
+ ); 
+}
