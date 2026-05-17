@@ -1,14 +1,104 @@
 import React, { useState } from "react"; import { useParams } from "react-router-dom"; import LearningLayout from "../components/LearningLayout"; import MarkdownRenderer from "../components/MarkdownRenderer"; import QuizCard from "../components/QuizCard"; import { findLesson } from "../data/lessons";
 
-export default function LessonRoute() { const { subject, topic, subtopic, lessonId } = useParams();
+// ==============================
+// SLUG NORMALIZER (CRITICAL FIX)
+// ==============================
+const normalize = (str: string = "") =>
+  str.toLowerCase().replace(/\s+/g, "-");
 
-const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+// ==============================
+// FIND LESSON (SAFE + ROBUST)
+// ==============================
+function findLesson(subject: string, topic: string, subtopic: string, lessonId: string) {
+  const s = normalize(subject);
+  const t = normalize(topic);
+  const st = normalize(subtopic);
+  const lid = normalize(lessonId);
 
-const { subject: subjectData, topic: topicData, subtopic: subtopicData, lesson } = findLesson(subject!, topic!, subtopic!, lessonId!);
+  const subjectData = lessonData.find(
+    (subj) => normalize(subj.name) === s
+  );
 
-if (!lesson) { return ( <LearningLayout> <div className="p-10 text-slate-700"> <h1 className="text-2xl font-bold">Lesson not found</h1> <p className="mt-2">Check your URL parameters.</p> </div> </LearningLayout> ); }
+  if (!subjectData) return {};
 
-return ( <LearningLayout> <div className="w-full min-h-screen bg-slate-50 flex flex-col">
+  const topicData = subjectData.topics.find(
+    (top) => normalize(top.name) === t
+  );
+
+  if (!topicData) return { subject: subjectData };
+
+  const subtopicData = topicData.subtopics.find(
+    (sub) => normalize(sub.name) === st
+  );
+
+  if (!subtopicData) return { subject: subjectData, topic: topicData };
+
+  const lesson = subtopicData.lessons.find(
+    (l) => normalize(l.id) === lid || normalize(l.slug) === lid
+  );
+
+  return {
+    subject: subjectData,
+    topic: topicData,
+    subtopic: subtopicData,
+    lesson,
+  };
+}
+
+// ==============================
+// MAIN COMPONENT
+// ==============================
+export default function LessonRoute() {
+  const { subject, topic, subtopic, lessonId } = useParams();
+
+  const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
+
+  // ==============================
+  // SAFE GUARD (NO CRASH)
+  // ==============================
+  if (!subject || !topic || !subtopic || !lessonId) {
+    return (
+      <LearningLayout>
+        <div className="p-10 text-red-500 font-semibold">
+          Missing URL parameters
+        </div>
+      </LearningLayout>
+    );
+  }
+
+  // ==============================
+  // FIND LESSON
+  // ==============================
+  const result = useMemo(
+    () => findLesson(subject, topic, subtopic, lessonId),
+    [subject, topic, subtopic, lessonId]
+  );
+
+  const { subject: subjectData, topic: topicData, subtopic: subtopicData, lesson } = result;
+
+  // ==============================
+  // NOT FOUND STATE
+  // ==============================
+  if (!lesson) {
+    return (
+      <LearningLayout>
+        <div className="p-10 text-slate-700">
+          <h1 className="text-2xl font-bold">Lesson not found</h1>
+          <p className="mt-2">Check your URL parameters.</p>
+
+          <div className="mt-4 text-sm text-slate-500">
+            <p>Subject: {subject}</p>
+            <p>Topic: {topic}</p>
+            <p>Subtopic: {subtopic}</p>
+            <p>Lesson ID: {lessonId}</p>
+          </div>
+        </div>
+      </LearningLayout>
+    );
+  }
+
+return ( 
+       <LearningLayout> <div className="w-full min-h-screen bg-slate-50 flex flex-col">
 
 {/* HEADER */}
     <div className="px-6 md:px-12 py-6 bg-white border-b border-slate-200">
