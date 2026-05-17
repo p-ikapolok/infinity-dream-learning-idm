@@ -61,7 +61,7 @@ export default [
   route("CourseViewPage", "routes/CourseViewPage.tsx"),
   route(
   "content/:topicId/:subtopic",
-  "routes/TopicLearning.tsx"
+  "routes/learn.$subject.$topic.$subtopic.$lessonId.tsx"
 ),
 
 route("ai", "ai/learning-portal-dashboard.tsx", [
