@@ -643,12 +643,15 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
     });
   }, [search, selectedCourse]);
 
-  const slugify = (text) =>
+  const slugify = (text: string = "") =>
   text.toLowerCase().replace(/\s+/g, "-");
 
-const handleSubtopicClick = (topicId, subtopic) => {
+const handleSubtopicClick = (
+  topicId: string,
+  subtopic: string
+) => {
   navigate(
-    `/learn/${slugify(selectedCourse.subject)}/${slugify(topicId)}/${slugify(subtopic)}/lesson-1`
+    `/learn/${slugify(selectedCourse?.subject)}/${slugify(topicId)}/${slugify(subtopic)}/lesson-1`
   );
 };
 
