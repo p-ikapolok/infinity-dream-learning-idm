@@ -643,9 +643,14 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
     });
   }, [search, selectedCourse]);
 
-  const handleSubtopicClick = (topicId, subtopic) => {
-    navigate(`/content/${topicId}/${encodeURIComponent(subtopic)}`);
-  };
+  const slugify = (text) =>
+  text.toLowerCase().replace(/\s+/g, "-");
+
+const handleSubtopicClick = (topicId, subtopic) => {
+  navigate(
+    `/learn/${slugify(selectedCourse.subject)}/${slugify(topicId)}/${slugify(subtopic)}/lesson-1`
+  );
+};
 
   return (
   <LearningLayout
