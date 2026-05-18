@@ -23,10 +23,25 @@ export default function LessonRoute() {
     );
   }
 
-  const result = useMemo(
-    () => findLesson(subject, topic, subtopic, lessonId),
-    [subject, topic, subtopic, lessonId]
-  );
+  const result = useMemo(() => {
+  try {
+    return findLesson(
+      subject || "",
+      topic || "",
+      subtopic || "",
+      lessonId || ""
+    );
+  } catch (error) {
+    console.error("findLesson error:", error);
+
+    return {
+      subject: null,
+      topic: null,
+      subtopic: null,
+      lesson: null,
+    };
+  }
+}, [subject, topic, subtopic, lessonId]);
 
   const { subject: subjectData, topic: topicData, subtopic: subtopicData, lesson } =
     result;
