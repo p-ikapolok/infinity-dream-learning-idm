@@ -9,7 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import LearningLayout from "../components/LearningLayout";
 
 export default function CourseTopicsView() {
-  const { subjectId } = useParams();
+  const { subjectId = "" } = useParams();
   const navigate = useNavigate();
 
   const courseData = [
@@ -613,7 +613,9 @@ export default function CourseTopicsView() {
 
 const initialCourse =
   courseData.find(
-    (c) => c.subject.toLowerCase() === subjectId?.toLowerCase()
+    (c) =>
+      c.subject.toLowerCase() ===
+      decodeURIComponent(subjectId).toLowerCase()
   ) || courseData[0];
 
 const [selectedCourse, setSelectedCourse] = useState(initialCourse);
