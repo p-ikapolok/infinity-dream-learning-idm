@@ -24,27 +24,31 @@ export default function LessonRoute() {
   }
 
   const result = useMemo(() => {
-  try {
-    return findLesson(
-      subject || "",
-      topic || "",
-      subtopic || "",
-      lessonId || ""
-    );
-  } catch (error) {
-    console.error("findLesson error:", error);
+    try {
+      return findLesson(
+        subject || "",
+        topic || "",
+        subtopic || "",
+        lessonId || ""
+      );
+    } catch (error) {
+      console.error("findLesson error:", error);
 
-    return {
-      subject: null,
-      topic: null,
-      subtopic: null,
-      lesson: null,
-    };
-  }
-}, [subject, topic, subtopic, lessonId]);
+      return {
+        subject: null,
+        topic: null,
+        subtopic: null,
+        lesson: null,
+      };
+    }
+  }, [subject, topic, subtopic, lessonId]);
 
-  const { subject: subjectData, topic: topicData, subtopic: subtopicData, lesson } =
-    result;
+  const {
+    subject: subjectData,
+    topic: topicData,
+    subtopic: subtopicData,
+    lesson,
+  } = result;
 
   if (!lesson) {
     return (
@@ -89,35 +93,40 @@ export default function LessonRoute() {
           {/* LEFT */}
           <div className="lg:col-span-2 space-y-10">
 
+            {/* VIDEO */}
             <div className="aspect-video w-full rounded-xl overflow-hidden border border-slate-200">
               <iframe
                 className="w-full h-full"
-                src={`https://www.youtube.com/embed/${lesson.youtubeId}`}
+                src={`https://www.youtube.com/embed/${lesson.youtubeId || ""}`}
                 title="Lesson video"
                 allowFullScreen
               />
             </div>
 
+            {/* INTRO */}
             <div>
               <h2 className="text-xl font-bold mb-3">Introduction</h2>
               <p className="text-slate-700 leading-relaxed">
-                {lesson.intro}
+                {lesson.intro || ""}
               </p>
             </div>
 
+            {/* LEARNING */}
             <div>
               <h2 className="text-xl font-bold mb-3">Learn</h2>
-              <MarkdownRenderer content={lesson.learning} />
+              <MarkdownRenderer content={lesson.learning || ""} />
             </div>
 
-            <QuizCard
-              question={lesson.exercise.question}
-              options={lesson.exercise.options}
-              correctIndex={lesson.exercise.correctIndex}
-              selectedAnswer={selectedAnswer}
-              onSelect={setSelectedAnswer}
-            />
-
+            {/* QUIZ (SAFE) */}
+            {lesson.exercise && (
+              <QuizCard
+                question={lesson.exercise?.question || ""}
+                options={lesson.exercise?.options || []}
+                correctIndex={lesson.exercise?.correctIndex ?? 0}
+                selectedAnswer={selectedAnswer}
+                onSelect={setSelectedAnswer}
+              />
+            )}
           </div>
 
           {/* SIDEBAR */}
@@ -127,7 +136,7 @@ export default function LessonRoute() {
             </h3>
 
             <ul className="space-y-2">
-              {lesson.tasks.map((task, i) => (
+              {lesson.tasks?.map((task, i) => (
                 <li key={i} className="text-slate-600 text-sm flex gap-2">
                   <span className="text-blue-500">•</span>
                   {task}
