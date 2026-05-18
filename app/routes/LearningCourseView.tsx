@@ -646,19 +646,26 @@ const [selectedCourse, setSelectedCourse] = useState(initialCourse);
   }, [search, selectedCourse]);
 
   const slugify = (text: string = "") =>
-  text.toLowerCase().replace(/\s+/g, "-");
+  text
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "-");
 
 const handleSubtopicClick = (
   topicId: string,
   subtopic: string
 ) => {
-  const subjectSlug = slugify(selectedCourse.subject);
-  const topicSlug = slugify(topicId);
-  const subtopicSlug = slugify(subtopic);
+  try {
+    const subjectSlug = slugify(selectedCourse?.subject);
+    const topicSlug = slugify(topicId);
+    const subtopicSlug = slugify(subtopic);
 
-  navigate(
-    `/learn/${subjectSlug}/${topicSlug}/${subtopicSlug}/lesson-1`
-  );
+    navigate(
+      `/learn/${subjectSlug}/${topicSlug}/${subtopicSlug}/lesson-1`
+    );
+  } catch (error) {
+    console.error("Navigation error:", error);
+  }
 };
 
   return (
