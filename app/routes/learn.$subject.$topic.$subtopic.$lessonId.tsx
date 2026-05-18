@@ -5,9 +5,6 @@ import MarkdownRenderer from "../components/MarkdownRenderer";
 import QuizCard from "../components/QuizCard";
 import { findLesson } from "../data/lessons";
 
-// ==============================
-// ICONS (from your old UI)
-// ==============================
 const Icons = {
   ChevronRight: ({ className }: any) => (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -26,9 +23,6 @@ const Icons = {
   ),
 };
 
-// ==============================
-// MAIN COMPONENT
-// ==============================
 export default function LessonRoute() {
   const { subject, topic, subtopic, lessonId } = useParams();
 
@@ -48,7 +42,6 @@ export default function LessonRoute() {
     try {
       return findLesson(subject, topic, subtopic, lessonId);
     } catch (err) {
-      console.error(err);
       return { subject: null, topic: null, subtopic: null, lesson: null };
     }
   }, [subject, topic, subtopic, lessonId]);
@@ -58,33 +51,35 @@ export default function LessonRoute() {
   if (!lesson) {
     return (
       <LearningLayout>
-        <div className="p-10 text-slate-700">
+        <div className="p-10">
           <h1 className="text-2xl font-bold">Lesson not found</h1>
-          <p className="mt-2">Check your URL parameters.</p>
         </div>
       </LearningLayout>
     );
   }
 
-  // ==============================
-  // TASK STATE (checkbox style)
-  // ==============================
-  const [completedTasks, setCompletedTasks] = useState<boolean[]>(
-    lesson.tasks?.map(() => false) || []
-  );
-
-  const toggleTask = (index: number) => {
-    setCompletedTasks((prev) =>
-      prev.map((t, i) => (i === index ? !t : t))
-    );
+  // ==========================
+  // REAL NAVIGATION LOGIC
+  // ==========================
+  const goNext = () => {
+    const nextId = Number(lessonId) + 1;
+    window.location.href = `/learn/${subject}/${topic}/${subtopic}/${nextId}`;
   };
+
+  const goPrev = () => {
+    const prevId = Number(lessonId) - 1;
+    window.location.href = `/learn/${subject}/${topic}/${subtopic}/${prevId}`;
+  };
+
+  const isFirst = Number(lessonId) <= 1;
+  const isLast = lesson.isLast === true; // optional flag (recommended later)
 
   return (
     <LearningLayout>
       <div className="w-full min-h-screen bg-[#f8fafc] flex flex-col">
 
-        {/* ================= HEADER (RESTORED STYLE) ================= */}
-        <header className="px-6 md:px-12 py-5 bg-white border-b border-slate-200 flex items-center justify-between">
+        {/* ================= HEADER (FULL WIDTH LIKE BEFORE) ================= */}
+        <header className="w-full px-6 md:px-12 py-5 bg-white border-b border-slate-200 flex items-center justify-between">
           
           <div className="flex items-center text-sm text-slate-500">
             <span>{subjectData?.title}</span>
@@ -94,17 +89,14 @@ export default function LessonRoute() {
             <span className="text-slate-900">{subtopicData?.title}</span>
           </div>
 
-          <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 text-xs font-bold">
-            AM
-          </div>
         </header>
 
-        {/* ================= MAIN ================= */}
-        <main className="flex-1 px-6 md:px-12 py-10 max-w-[1280px] mx-auto flex flex-col gap-10">
+        {/* ================= FULL WIDTH CONTENT (NO CENTER LIMITS) ================= */}
+        <main className="w-full px-6 md:px-12 py-10 flex flex-col gap-10">
 
           {/* TITLE */}
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-slate-900">
+            <h1 className="text-4xl font-black text-slate-900">
               {lesson.title}
             </h1>
             <p className="text-slate-500 mt-2">
@@ -112,8 +104,8 @@ export default function LessonRoute() {
             </p>
           </div>
 
-          {/* VIDEO */}
-          <div className="aspect-video w-full rounded-xl overflow-hidden border border-slate-200 bg-black">
+          {/* VIDEO FULL WIDTH FEEL */}
+          <div className="w-full aspect-video rounded-xl overflow-hidden border border-slate-200">
             <iframe
               className="w-full h-full"
               src={`https://www.youtube.com/embed/${lesson.youtubeId}`}
@@ -123,18 +115,20 @@ export default function LessonRoute() {
           </div>
 
           {/* INTRO */}
-          <div>
-            <h2 className="text-xl font-semibold mb-3">Introduction</h2>
-            <p className="text-slate-700 leading-relaxed">
+          <section>
+            <h2 className="text-xl font-bold mb-3">Introduction</h2>
+            <p className="text-slate-700 leading-relaxed text-lg">
               {lesson.intro}
             </p>
-          </div>
+          </section>
 
-          {/* LEARN */}
-          <div>
-            <h2 className="text-xl font-semibold mb-3">Learn</h2>
-            <MarkdownRenderer content={lesson.learning} />
-          </div>
+          {/* LEARNING (FULL WIDTH TEXT EXPERIENCE RESTORED) */}
+          <section>
+            <h2 className="text-xl font-bold mb-3">Learn</h2>
+            <div className="text-slate-800 text-lg leading-[1.8]">
+              <MarkdownRenderer content={lesson.learning} />
+            </div>
+          </section>
 
           {/* QUIZ */}
           {lesson.exercise && (
@@ -146,51 +140,58 @@ export default function LessonRoute() {
               onSelect={setSelectedAnswer}
             />
           )}
+
         </main>
 
-        {/* ================= SIDEBAR TASKS (RESTORED) ================= */}
-        <aside className="fixed right-6 top-32 w-72 bg-white border border-slate-200 rounded-xl p-5 hidden lg:block">
-          <h3 className="font-bold mb-3 text-slate-800">Lesson Tasks</h3>
+        {/* ================= TASKS (RIGHT SIDE LIKE ORIGINAL, NOT CENTER KILLING LAYOUT) ================= */}
+        <aside className="hidden lg:block fixed right-6 top-32 w-80 bg-white border border-slate-200 rounded-xl p-5">
+          <h3 className="font-bold mb-3">Lesson Tasks</h3>
 
-          <div className="space-y-2">
-            {lesson.tasks?.map((task, i) => (
-              <label
-                key={i}
-                className="flex items-start gap-2 text-sm text-slate-600 cursor-pointer"
-              >
-                <input
-                  type="checkbox"
-                  checked={completedTasks[i]}
-                  onChange={() => toggleTask(i)}
-                />
-                <span>{task}</span>
-              </label>
+          <ul className="space-y-2">
+            {lesson.tasks?.map((task: string, i: number) => (
+              <li key={i} className="flex items-start gap-2 text-sm text-slate-600">
+                <Icons.Check className="w-4 h-4 mt-0.5 text-slate-400" />
+                {task}
+              </li>
             ))}
-          </div>
+          </ul>
         </aside>
 
-        {/* ================= FOOTER NAVIGATION (IMPORTANT RESTORE) ================= */}
-        <footer className="sticky bottom-0 bg-white border-t border-slate-200 px-6 md:px-12 py-4 flex items-center justify-between">
+        {/* ================= FOOTER NAVIGATION (RESTORED EXACT BEHAVIOR) ================= */}
+        <footer className="sticky bottom-0 w-full bg-white border-t border-slate-200 px-6 md:px-12 py-4 flex items-center justify-between">
 
-          <button
-            onClick={() => window.history.back()}
-            className="flex items-center gap-2 text-slate-600"
-          >
-            <Icons.ChevronLeft className="w-4 h-4" />
-            Previous
-          </button>
+          {/* PREVIOUS (ONLY IF NOT FIRST) */}
+          <div className="w-[120px]">
+            {!isFirst && (
+              <button
+                onClick={goPrev}
+                className="flex items-center gap-2 text-slate-600 hover:text-slate-900 font-medium"
+              >
+                <Icons.ChevronLeft className="w-4 h-4" />
+                Previous
+              </button>
+            )}
+          </div>
 
-          <button className="px-6 py-2 bg-blue-600 text-white rounded-md font-medium">
+          {/* MARK COMPLETE (CENTER LIKE ORIGINAL) */}
+          <button className="px-6 py-2 bg-white border border-slate-200 rounded-md font-medium hover:bg-slate-50">
             Mark Complete
           </button>
 
-          <button
-            onClick={() => window.location.reload()}
-            className="flex items-center gap-2 text-blue-600"
-          >
-            Next
-            <Icons.ChevronRight className="w-4 h-4" />
-          </button>
+          {/* NEXT */}
+          <div className="w-[120px] flex justify-end">
+            {!isLast ? (
+              <button
+                onClick={goNext}
+                className="flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium"
+              >
+                Next
+                <Icons.ChevronRight className="w-4 h-4" />
+              </button>
+            ) : (
+              <span className="text-green-600 font-medium">Finished</span>
+            )}
+          </div>
 
         </footer>
 
