@@ -4,7 +4,8 @@ import React, {
   useEffect,
 } from "react";
 
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useParams } from "@remix-run/react";
 
 import LearningLayout from "../components/LearningLayout";
 
@@ -652,8 +653,12 @@ const handleSubtopicClick = (
   topicId: string,
   subtopic: string
 ) => {
+  const subjectSlug = slugify(selectedCourse.subject);
+  const topicSlug = slugify(topicId);
+  const subtopicSlug = slugify(subtopic);
+
   navigate(
-    `/learn/${slugify(selectedCourse?.subject)}/${slugify(topicId)}/${slugify(subtopic)}/lesson-1`
+    `/learn/${subjectSlug}/${topicSlug}/${subtopicSlug}/lesson-1`
   );
 };
 
