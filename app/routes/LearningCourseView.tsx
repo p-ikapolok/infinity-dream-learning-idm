@@ -4,7 +4,7 @@ import React, {
   useEffect,
 } from "react";
 
-import { useParams, useNavigate } from "@remix-run/react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import LearningLayout from "../components/LearningLayout";
 
