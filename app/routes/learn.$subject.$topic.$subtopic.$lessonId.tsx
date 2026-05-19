@@ -157,7 +157,7 @@ export default function LessonRoute() {
         {/* ==========================================
             STICKY BOTTOM FOOTER (Navigation)
             ========================================== */}
-        <div className="sticky bottom-0 w-full bg-[#f8fafc]/90 backdrop-blur-md border-t border-[#e2e8f0] px-6 lg:px-12 py-4 flex items-center justify-between z-10 shadow-[0_-4px_24px_rgba(0,0,0,0.02)] mt-auto">
+        <div className="w-full border-t border-[#e2e8f0] px-6 lg:px-12 py-10 flex items-center justify-between mt-16">
 
           {/* Previous Button Placeholder for Alignment */}
           <div className="w-[120px]">
