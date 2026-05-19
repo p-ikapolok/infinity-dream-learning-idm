@@ -125,6 +125,7 @@ export default function LessonRoute() {
                 <Icons.BookOpen className="w-4 h-4" /> Part {currentStep + 1} of {lessonData.length}
               </span>
             </div>
+     </section>
 
           {/* INTRO */}
           <section>
