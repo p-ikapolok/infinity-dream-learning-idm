@@ -1,157 +1,357 @@
 import React, { useState } from "react";
 import LearningLayout from "../components/LearningLayout";
 
-export default function ConferenceRoom() {
-  const [collapsed, setCollapsed] = useState(true); // Auto-collapse sidebar for focus mode
-  const [micEnabled, setMicEnabled] = useState(false);
-  const [videoEnabled, setVideoEnabled] = useState(true);
+// ==========================================
+// MOCK ACTIVE CALLS
+// ==========================================
+const initialCalls = [
+  {
+    id: 1,
+    title: "Advanced Calculus Discussion",
+    host: "Mr. James",
+    participants: 18,
+    platform: "Zoom",
+    link: "https://zoom.us/",
+    status: "Live"
+  },
+  {
+    id: 2,
+    title: "Physics Revision Group",
+    host: "Sarah K.",
+    participants: 11,
+    platform: "Google Meet",
+    link: "https://meet.google.com/",
+    status: "Live"
+  }
+];
+
+// ==========================================
+// ICONS
+// ==========================================
+const Icons: Record<string, React.FC<{ className?: string }>> = {
+  Video: ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <rect x="3" y="6" width="13" height="12" rx="2" />
+      <polygon points="16 10 21 7 21 17 16 14" />
+    </svg>
+  ),
+
+  Users: ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+      <circle cx="9" cy="7" r="4" />
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+    </svg>
+  ),
+
+  Plus: ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <line x1="12" y1="5" x2="12" y2="19" />
+      <line x1="5" y1="12" x2="19" y2="12" />
+    </svg>
+  ),
+
+  External: ({ className }) => (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+      <polyline points="15 3 21 3 21 9" />
+      <line x1="10" y1="14" x2="21" y2="3" />
+    </svg>
+  )
+};
+
+// ==========================================
+// MAIN COMPONENT
+// ==========================================
+export default function ConferenceCalls() {
+  const [collapsed, setCollapsed] = useState(false);
+
+  const [calls, setCalls] = useState(initialCalls);
+
+  // MODAL STATE
+  const [showModal, setShowModal] = useState(false);
+
+  const [callTitle, setCallTitle] = useState("");
+  const [platform, setPlatform] = useState("Zoom");
+
+  // ==========================================
+  // CREATE CALL
+  // ==========================================
+  const createCall = () => {
+    if (!callTitle.trim()) return;
+
+    const newCall = {
+      id: Date.now(),
+      title: callTitle,
+      host: "You",
+      participants: 1,
+      platform,
+      link:
+        platform === "Zoom"
+          ? "https://zoom.us/"
+          : "https://meet.google.com/",
+      status: "Live"
+    };
+
+    setCalls([newCall, ...calls]);
+
+    // RESET
+    setCallTitle("");
+    setPlatform("Zoom");
+    setShowModal(false);
+
+    // REDIRECT
+    window.location.href = newCall.link;
+  };
+
+  // ==========================================
+  // END CALL
+  // ==========================================
+  const endCall = (id: number) => {
+    setCalls(calls.filter((call) => call.id !== id));
+  };
 
   return (
     <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
-      <div className="w-full h-full bg-slate-900 flex flex-col overflow-hidden relative">
-        
-        {/* Top Information Bar */}
-        <div className="h-14 bg-slate-900 border-b border-slate-800 flex justify-between items-center px-6 text-white shrink-0">
-          <div className="flex items-center gap-3">
-            <span className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></span>
-            <h1 className="font-bold tracking-wider">Live: Advanced Data Structures</h1>
-            <span className="bg-slate-800 text-slate-300 text-xs px-2 py-1 rounded font-mono">01:24:05</span>
+
+      <div className="w-full min-h-screen bg-slate-50 p-6 md:p-8 flex flex-col gap-6">
+
+        {/* HEADER */}
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+
+          <div>
+            <h1 className="text-3xl font-black text-slate-900">
+              Conference Calls
+            </h1>
+
+            <p className="text-slate-500 mt-1">
+              Join active Zoom or Google Meet study sessions.
+            </p>
           </div>
-          <div className="flex items-center gap-4 text-sm text-slate-400 font-medium">
-            <span className="flex items-center gap-1">
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-              </svg>
-              42 Participants
-            </span>
-          </div>
+
+          {/* CREATE BUTTON */}
+          <button
+            onClick={() => setShowModal(true)}
+            className="flex items-center justify-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors"
+          >
+            <Icons.Plus className="w-5 h-5" />
+            Start Conference
+          </button>
         </div>
 
-        {/* Main Stage & Chat Container */}
-        <div className="flex-1 flex overflow-hidden">
-          
-          {/* Video Grid Stage */}
-          <div className="flex-1 p-4 flex flex-col gap-4 overflow-y-auto">
-            {/* Presenter / Screen Share */}
-            <div className="w-full bg-slate-800 rounded-xl border border-slate-700 flex-1 relative overflow-hidden flex items-center justify-center">
-              <div className="text-center text-slate-500">
-                <svg className="w-16 h-16 mx-auto mb-4 opacity-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                  <line x1="8" y1="21" x2="16" y2="21"></line>
-                  <line x1="12" y1="17" x2="12" y2="21"></line>
-                </svg>
-                <p className="font-bold tracking-widest uppercase">Instructor Screen Share</p>
-              </div>
-              <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md px-3 py-1 rounded text-white text-xs font-bold">
-                Prof. Alan Turing
-              </div>
-            </div>
+        {/* ACTIVE CALLS */}
+        <div className="flex flex-col gap-4">
 
-            {/* Participant Mini-Grid */}
-            <div className="h-40 shrink-0 grid grid-cols-4 gap-4">
-              {[1, 2, 3, 4].map((user) => (
-                <div key={user} className="bg-slate-800 rounded-xl border border-slate-700 relative overflow-hidden flex items-center justify-center">
-                  <svg className="w-10 h-10 text-slate-600" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                  </svg>
-                  <div className="absolute bottom-2 left-2 bg-black/60 px-2 py-0.5 rounded text-white text-[10px] font-bold">
-                    Student {user}
+          {calls.length === 0 ? (
+            <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center">
+
+              <Icons.Video className="w-12 h-12 mx-auto text-slate-300 mb-4" />
+
+              <h2 className="text-xl font-bold text-slate-700">
+                No Active Calls
+              </h2>
+
+              <p className="text-slate-500 mt-2">
+                Start a conference call to begin.
+              </p>
+
+            </div>
+          ) : (
+            calls.map((call) => (
+              <div
+                key={call.id}
+                className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 hover:border-blue-300 transition-colors"
+              >
+
+                {/* LEFT */}
+                <div className="flex items-start gap-4">
+
+                  <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-700 shrink-0">
+                    <Icons.Video className="w-7 h-7" />
+                  </div>
+
+                  <div>
+
+                    <div className="flex items-center gap-3 flex-wrap">
+
+                      <h2 className="text-xl font-bold text-slate-900">
+                        {call.title}
+                      </h2>
+
+                      <span className="px-2 py-1 rounded-full bg-red-100 text-red-600 text-xs font-bold uppercase tracking-wide animate-pulse">
+                        LIVE
+                      </span>
+
+                    </div>
+
+                    <div className="flex flex-wrap items-center gap-5 mt-3 text-sm text-slate-500">
+
+                      <span>
+                        Host:{" "}
+                        <span className="font-semibold text-slate-700">
+                          {call.host}
+                        </span>
+                      </span>
+
+                      <span className="flex items-center gap-1">
+                        <Icons.Users className="w-4 h-4" />
+                        {call.participants} participants
+                      </span>
+
+                      <span className="font-medium text-blue-600">
+                        {call.platform}
+                      </span>
+
+                    </div>
+
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Right Sidebar: Live Chat */}
-          <div className="w-80 bg-slate-800 border-l border-slate-700 flex flex-col shrink-0">
-            <div className="p-4 border-b border-slate-700 font-bold text-white uppercase tracking-widest text-sm">
-              Session Chat
-            </div>
-            
-            <div className="flex-1 overflow-y-auto p-4 flex flex-col gap-4">
-              <div className="bg-slate-700/50 p-3 rounded-lg rounded-tl-none">
-                <span className="text-xs text-blue-400 font-bold mb-1 block">Sarah J.</span>
-                <p className="text-sm text-slate-200">Could you re-explain how $ O(n \log n) $ works for Merge Sort?</p>
-              </div>
-              <div className="bg-slate-700/50 p-3 rounded-lg rounded-tl-none">
-                <span className="text-xs text-purple-400 font-bold mb-1 block">Mike T.</span>
-                <p className="text-sm text-slate-200">Wait, does that mean $ \Omega(n) $ is the best case?</p>
-              </div>
-            </div>
+                {/* ACTIONS */}
+                <div className="flex items-center gap-3">
 
-            <div className="p-4 border-t border-slate-700 bg-slate-900">
-              <input 
-                type="text" 
-                placeholder="Type a message..." 
-                className="w-full bg-slate-800 text-white placeholder-slate-400 text-sm px-4 py-3 rounded-lg border border-slate-600 focus:outline-none focus:border-blue-500"
-              />
-            </div>
-          </div>
+                  {/* JOIN */}
+                  <button
+                    onClick={() => {
+                      window.location.href = call.link;
+                    }}
+                    className="flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors"
+                  >
+                    Join Call
+                    <Icons.External className="w-4 h-4" />
+                  </button>
+
+                  {/* END */}
+                  <button
+                    onClick={() => endCall(call.id)}
+                    className="px-5 py-3 border border-red-200 text-red-600 hover:bg-red-50 rounded-xl font-semibold transition-colors"
+                  >
+                    End
+                  </button>
+
+                </div>
+              </div>
+            ))
+          )}
 
         </div>
 
-        {/* Bottom Control Dock */}
-        <div className="h-20 bg-slate-900 border-t border-slate-800 flex items-center justify-center gap-4 shrink-0 px-6">
-          
-          <button 
-            onClick={() => setMicEnabled(!micEnabled)}
-            className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${micEnabled ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-red-500 text-white hover:bg-red-600"}`}
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {micEnabled ? (
-                <>
-                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
-                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-                  <line x1="12" y1="19" x2="12" y2="23"></line>
-                  <line x1="8" y1="23" x2="16" y2="23"></line>
-                </>
-              ) : (
-                <>
-                  <line x1="1" y1="1" x2="23" y2="23"></line>
-                  <path d="M9 9v3a3 3 0 0 0 5.12 2.12M15 9.34V4a3 3 0 0 0-5.94-.6"></path>
-                  <path d="M17 16.95A7 7 0 0 1 5 12v-2m14 0v2a7 7 0 0 1-.11 1.23"></path>
-                  <line x1="12" y1="19" x2="12" y2="23"></line>
-                  <line x1="8" y1="23" x2="16" y2="23"></line>
-                </>
-              )}
-            </svg>
-          </button>
+        {/* ==========================================
+            CREATE CONFERENCE MODAL
+        ========================================== */}
+        {showModal && (
+          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
 
-          <button 
-            onClick={() => setVideoEnabled(!videoEnabled)}
-            className={`w-12 h-12 rounded-full flex items-center justify-center transition-colors ${videoEnabled ? "bg-slate-700 text-white hover:bg-slate-600" : "bg-red-500 text-white hover:bg-red-600"}`}
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              {videoEnabled ? (
-                <>
-                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
-                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
-                </>
-              ) : (
-                <>
-                  <path d="M16 16v1a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2m5.66 0H14a2 2 0 0 1 2 2v3.34l1 1L23 7v10"></path>
-                  <line x1="1" y1="1" x2="23" y2="23"></line>
-                </>
-              )}
-            </svg>
-          </button>
+            <div className="w-full max-w-lg bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden">
 
-          <button className="w-12 h-12 rounded-full bg-slate-700 text-white hover:bg-slate-600 flex items-center justify-center transition-colors ml-4">
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-              <line x1="9" y1="3" x2="9" y2="21"></line>
-            </svg>
-          </button>
+              {/* HEADER */}
+              <div className="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
 
-          <button className="px-6 h-12 rounded-full bg-red-600 hover:bg-red-700 text-white font-bold uppercase tracking-widest text-sm transition-colors ml-auto">
-            Leave Session
-          </button>
+                <div>
+                  <h2 className="text-2xl font-black text-slate-900">
+                    Start Conference
+                  </h2>
 
-        </div>
+                  <p className="text-sm text-slate-500 mt-1">
+                    Create a live Zoom or Google Meet session.
+                  </p>
+                </div>
+
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500"
+                >
+                  ✕
+                </button>
+
+              </div>
+
+              {/* BODY */}
+              <div className="p-6 flex flex-col gap-6">
+
+                {/* TITLE */}
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Conference Title
+                  </label>
+
+                  <input
+                    type="text"
+                    value={callTitle}
+                    onChange={(e) => setCallTitle(e.target.value)}
+                    placeholder="Enter conference name..."
+                    className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-500"
+                  />
+                </div>
+
+                {/* PLATFORM */}
+                <div>
+
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Platform
+                  </label>
+
+                  <div className="grid grid-cols-2 gap-4">
+
+                    <button
+                      onClick={() => setPlatform("Zoom")}
+                      className={`p-4 rounded-2xl border-2 transition-all ${
+                        platform === "Zoom"
+                          ? "border-blue-600 bg-blue-50 text-blue-700"
+                          : "border-slate-200 hover:border-slate-300"
+                      }`}
+                    >
+                      <div className="font-bold">Zoom</div>
+
+                      <div className="text-sm opacity-70 mt-1">
+                        Start with Zoom
+                      </div>
+                    </button>
+
+                    <button
+                      onClick={() => setPlatform("Google Meet")}
+                      className={`p-4 rounded-2xl border-2 transition-all ${
+                        platform === "Google Meet"
+                          ? "border-green-600 bg-green-50 text-green-700"
+                          : "border-slate-200 hover:border-slate-300"
+                      }`}
+                    >
+                      <div className="font-bold">Google Meet</div>
+
+                      <div className="text-sm opacity-70 mt-1">
+                        Start with Meet
+                      </div>
+                    </button>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+              {/* FOOTER */}
+              <div className="px-6 py-5 border-t border-slate-200 flex items-center justify-end gap-3">
+
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="px-5 py-3 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-medium"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  onClick={createCall}
+                  className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold"
+                >
+                  Start Conference
+                </button>
+
+              </div>
+
+            </div>
+          </div>
+        )}
 
       </div>
     </LearningLayout>
