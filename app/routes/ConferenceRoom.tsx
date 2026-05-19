@@ -1,215 +1,120 @@
 import React, { useState } from "react";
 import LearningLayout from "../components/LearningLayout";
+import { ConferenceCall } from "../types/conference";
 import CreateConferenceModal from "../components/CreateConferenceModal";
+import { Plus, Users, Video, Zoom, GoogleMeet } from "../components/Icons";
 
-// ==========================================
-// TYPES
-// ==========================================
-type Platform = "Zoom" | "Google Meet";
-
-interface ConferenceCall {
-  id: number;
-  title: string;
-  host: string;
-  participants: number;
-  platform: Platform;
-  link: string;
-}
-
-// ==========================================
-// MOCK DATA
-// ==========================================
-const initialCalls: ConferenceCall[] = [
+const INITIAL_CALLS: ConferenceCall[] = [
   {
     id: 1,
-    title: "Advanced Calculus Discussion",
-    host: "Mr. James",
-    participants: 18,
+    title: "Advanced React Patterns Discussion",
+    host: "Dr. Emily Chen",
+    participants: 24,
     platform: "Zoom",
-    link: "https://zoom.us/j/123",
+    link: "https://zoom.us/j/123456789",
+    status: "Live"
   },
   {
     id: 2,
-    title: "Physics Revision Group",
-    host: "Sarah K.",
-    participants: 11,
+    title: "UX/UI Design Weekly Review",
+    host: "Michael Torres",
+    participants: 8,
     platform: "Google Meet",
     link: "https://meet.google.com/abc-defg-hij",
-  },
+    status: "Live"
+  }
 ];
 
-// ==========================================
-// ICONS (FULL SVG SYSTEM)
-// ==========================================
-const Icons = {
-  Video: (p: any) => (
-    <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <rect x="3" y="6" width="13" height="12" rx="2" />
-      <polygon points="16 10 21 7 21 17 16 14" />
-    </svg>
-  ),
-
-  Users: (p: any) => (
-    <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="9" cy="7" r="4" />
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-    </svg>
-  ),
-
-  Plus: (p: any) => (
-    <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <line x1="12" y1="5" x2="12" y2="19" />
-      <line x1="5" y1="12" x2="19" y2="12" />
-    </svg>
-  ),
-
-  External: (p: any) => (
-    <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-      <polyline points="15 3 21 3 21 9" />
-      <line x1="10" y1="14" x2="21" y2="3" />
-    </svg>
-  ),
-};
-
-// ==========================================
-// PLATFORM DETECTION (SYSTEM LEVEL)
-// ==========================================
-function detectPlatform(link: string): Platform {
-  if (link.includes("zoom")) return "Zoom";
-  return "Google Meet";
-}
-
-// ==========================================
-// MAIN COMPONENT
-// ==========================================
 export default function ConferenceCalls() {
-  const [calls, setCalls] = useState(initialCalls);
+  const [collapsed, setCollapsed] = useState(false);
+  const [calls, setCalls] = useState<ConferenceCall[]>(INITIAL_CALLS);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // MODAL CONTROL
-  const [open, setOpen] = useState(false);
-
-  // ==========================================
-  // CREATE CALL HANDLER (FROM MODAL)
-  // ==========================================
-  const handleCreate = (data: {
-    title: string;
-    platform: Platform;
-    link: string;
-  }) => {
-    const newCall: ConferenceCall = {
-      id: Date.now(),
-      title: data.title,
-      platform: data.platform,
-      link: data.link,
-      host: "You",
-      participants: 1,
-    };
-
-    setCalls((prev) => [newCall, ...prev]);
-
-    // AUTO JOIN AFTER CREATION (optional behavior)
-    window.open(data.link, "_blank");
+  const joinCall = (link: string) => {
+    window.open(link, "_blank", "noopener,noreferrer");
   };
 
-  // ==========================================
-  // JOIN CALL
-  // ==========================================
-  const joinCall = (call: ConferenceCall) => {
-    window.open(call.link, "_blank");
-  };
-
-  // ==========================================
-  // END CALL
-  // ==========================================
   const endCall = (id: number) => {
-    setCalls((prev) => prev.filter((c) => c.id !== id));
+    setCalls((prevCalls) => prevCalls.filter((call) => call.id !== id));
+  };
+
+  const createCall = (newCall: ConferenceCall) => {
+    setCalls((prevCalls) => [newCall, ...prevCalls]);
   };
 
   return (
-    <LearningLayout>
-      <div className="w-full min-h-screen bg-slate-50 p-6 md:p-8 flex flex-col gap-6">
-
-        {/* HEADER */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 flex justify-between items-center">
-
+    <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
+      <div className="w-full h-full bg-[#f8fafc] font-sans text-[#0f172a] p-6 lg:p-10 overflow-y-auto">
+        
+        <div className="max-w-[1440px] mx-auto w-full flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
           <div>
-            <h1 className="text-3xl font-black text-slate-900">
-              Conference Calls
-            </h1>
-            <p className="text-slate-500 mt-1">
-              Live Zoom & Google Meet study rooms
-            </p>
+            <h1 className="text-[28px] md:text-[32px] font-semibold tracking-tight">Conference Calls</h1>
+            <p className="text-[15px] text-[#64748b] mt-1">Join active discussions and live lectures.</p>
           </div>
-
-          {/* OPEN MODAL */}
-          <button
-            onClick={() => setOpen(true)}
-            className="flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700"
+          <button 
+            onClick={() => setIsModalOpen(true)}
+            className="flex items-center justify-center gap-2 bg-[#2563eb] text-white px-5 py-2.5 rounded-md text-[14px] font-medium hover:bg-[#1d4ed8] transition-all active:scale-[0.98] shadow-sm"
           >
-            <Icons.Plus className="w-5 h-5" />
-            Create Call
+            <Plus className="w-4 h-4" />
+            New Conference
           </button>
         </div>
 
-        {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-
+        <div className="max-w-[1440px] mx-auto w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {calls.map((call) => (
-            <div
-              key={call.id}
-              className="bg-white border border-slate-200 rounded-2xl p-5"
+            <div 
+              key={call.id} 
+              className="bg-white border border-[#e2e8f0] rounded-xl p-6 flex flex-col hover:border-[#cbd5e1] hover:shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-200"
             >
-
-              <div className="flex gap-3">
-                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
-                  <Icons.Video className="w-6 h-6" />
+              <div className="flex items-center justify-between mb-4">
+                <div className="flex items-center gap-2 bg-[#fef2f2] border border-[#fecaca] px-2.5 py-1 rounded-full">
+                  <div className="w-2 h-2 bg-[#ef4444] rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                  <span className="text-[11px] font-bold text-[#ef4444] tracking-widest uppercase">
+                    {call.status}
+                  </span>
                 </div>
-
-                <div>
-                  <h2 className="font-bold">{call.title}</h2>
-
-                  <div className="text-sm text-slate-500 flex gap-2 mt-1">
-                    <span>{detectPlatform(call.link)}</span>
-                    <span>•</span>
-                    <span>{call.participants} participants</span>
-                  </div>
+                <div className="flex items-center gap-1.5 text-[13px] font-medium text-[#64748b]">
+                  {call.platform === "Zoom" ? <Zoom className="w-4 h-4 text-[#2563eb]" /> : <GoogleMeet className="w-4 h-4 text-[#0f9d58]" />}
+                  {call.platform}
                 </div>
               </div>
 
-              {/* ACTIONS */}
-              <div className="flex justify-between mt-5">
+              <div className="flex flex-col gap-1 mb-6 flex-1">
+                <h3 className="text-[18px] font-semibold text-[#0f172a] leading-tight line-clamp-2">
+                  {call.title}
+                </h3>
+                <p className="text-[14px] text-[#64748b]">Hosted by {call.host}</p>
+                <div className="flex items-center gap-2 mt-3 text-[14px] text-[#64748b] font-medium bg-[#f8fafc] w-fit px-3 py-1.5 rounded-md border border-[#e2e8f0]">
+                  <Users className="w-4 h-4" />
+                  {call.participants} {call.participants === 1 ? "Participant" : "Participants"}
+                </div>
+              </div>
 
-                <button
-                  onClick={() => joinCall(call)}
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold"
-                >
-                  Join
-                </button>
-
-                <button
+              <div className="grid grid-cols-2 gap-3 mt-auto pt-4 border-t border-[#e2e8f0]">
+                <button 
                   onClick={() => endCall(call.id)}
-                  className="px-4 py-2 text-sm border border-red-200 text-red-600 rounded-lg"
+                  className="w-full py-2.5 text-[14px] font-medium text-[#ef4444] bg-white border border-[#fecaca] rounded-md hover:bg-[#fef2f2] transition-colors"
                 >
                   End
                 </button>
-
+                <button 
+                  onClick={() => joinCall(call.link)}
+                  className="w-full py-2.5 text-[14px] font-medium text-white bg-[#2563eb] rounded-md hover:bg-[#1d4ed8] transition-colors flex items-center justify-center gap-2"
+                >
+                  <Video className="w-4 h-4" />
+                  Join
+                </button>
               </div>
-
             </div>
           ))}
-
         </div>
 
-        {/* ==========================================
-            MODAL (CONNECTED PROPERLY)
-        ========================================== */}
-        <CreateConferenceModal
-          open={open}
-          onClose={() => setOpen(false)}
-          onCreate={handleCreate}
+        <CreateConferenceModal 
+          isOpen={isModalOpen} 
+          onClose={() => setIsModalOpen(false)} 
+          onCreate={createCall} 
         />
-
+        
       </div>
     </LearningLayout>
   );
