@@ -22,6 +22,15 @@ const initialCalls = [
     platform: "Google Meet",
     link: "https://meet.google.com/",
     status: "Live"
+  },
+  {
+    id: 3,
+    title: "AI & Robotics Community",
+    host: "Peter",
+    participants: 26,
+    platform: "Zoom",
+    link: "https://zoom.us/",
+    status: "Live"
   }
 ];
 
@@ -69,21 +78,19 @@ export default function ConferenceCalls() {
 
   const [calls, setCalls] = useState(initialCalls);
 
-  // MODAL STATE
-  const [showModal, setShowModal] = useState(false);
-
-  const [callTitle, setCallTitle] = useState("");
-  const [platform, setPlatform] = useState("Zoom");
-
   // ==========================================
-  // CREATE CALL
+  // CREATE NEW CALL
   // ==========================================
   const createCall = () => {
-    if (!callTitle.trim()) return;
+    const platform = window.confirm(
+      "Press OK for Zoom or Cancel for Google Meet"
+    )
+      ? "Zoom"
+      : "Google Meet";
 
     const newCall = {
       id: Date.now(),
-      title: callTitle,
+      title: "New Conference Call",
       host: "You",
       participants: 1,
       platform,
@@ -96,12 +103,7 @@ export default function ConferenceCalls() {
 
     setCalls([newCall, ...calls]);
 
-    // RESET
-    setCallTitle("");
-    setPlatform("Zoom");
-    setShowModal(false);
-
-    // REDIRECT
+    // Redirect instantly
     window.location.href = newCall.link;
   };
 
@@ -132,7 +134,7 @@ export default function ConferenceCalls() {
 
           {/* CREATE BUTTON */}
           <button
-            onClick={() => setShowModal(true)}
+            onClick={createCall}
             className="flex items-center justify-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold transition-colors"
           >
             <Icons.Plus className="w-5 h-5" />
@@ -145,7 +147,6 @@ export default function ConferenceCalls() {
 
           {calls.length === 0 ? (
             <div className="bg-white border border-slate-200 rounded-2xl p-10 text-center">
-
               <Icons.Video className="w-12 h-12 mx-auto text-slate-300 mb-4" />
 
               <h2 className="text-xl font-bold text-slate-700">
@@ -153,9 +154,8 @@ export default function ConferenceCalls() {
               </h2>
 
               <p className="text-slate-500 mt-2">
-                Start a conference call to begin.
+                Start a new conference call to begin.
               </p>
-
             </div>
           ) : (
             calls.map((call) => (
@@ -164,7 +164,7 @@ export default function ConferenceCalls() {
                 className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 hover:border-blue-300 transition-colors"
               >
 
-                {/* LEFT */}
+                {/* LEFT INFO */}
                 <div className="flex items-start gap-4">
 
                   <div className="w-14 h-14 rounded-2xl bg-blue-100 flex items-center justify-center text-blue-700 shrink-0">
@@ -172,7 +172,6 @@ export default function ConferenceCalls() {
                   </div>
 
                   <div>
-
                     <div className="flex items-center gap-3 flex-wrap">
 
                       <h2 className="text-xl font-bold text-slate-900">
@@ -204,7 +203,6 @@ export default function ConferenceCalls() {
                       </span>
 
                     </div>
-
                   </div>
                 </div>
 
@@ -234,125 +232,7 @@ export default function ConferenceCalls() {
               </div>
             ))
           )}
-
         </div>
-
-        {/* ==========================================
-            CREATE CONFERENCE MODAL
-        ========================================== */}
-        {showModal && (
-          <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-
-            <div className="w-full max-w-lg bg-white rounded-3xl border border-slate-200 shadow-2xl overflow-hidden">
-
-              {/* HEADER */}
-              <div className="px-6 py-5 border-b border-slate-200 flex items-center justify-between">
-
-                <div>
-                  <h2 className="text-2xl font-black text-slate-900">
-                    Start Conference
-                  </h2>
-
-                  <p className="text-sm text-slate-500 mt-1">
-                    Create a live Zoom or Google Meet session.
-                  </p>
-                </div>
-
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="w-10 h-10 rounded-full hover:bg-slate-100 flex items-center justify-center text-slate-500"
-                >
-                  ✕
-                </button>
-
-              </div>
-
-              {/* BODY */}
-              <div className="p-6 flex flex-col gap-6">
-
-                {/* TITLE */}
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Conference Title
-                  </label>
-
-                  <input
-                    type="text"
-                    value={callTitle}
-                    onChange={(e) => setCallTitle(e.target.value)}
-                    placeholder="Enter conference name..."
-                    className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-500"
-                  />
-                </div>
-
-                {/* PLATFORM */}
-                <div>
-
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Platform
-                  </label>
-
-                  <div className="grid grid-cols-2 gap-4">
-
-                    <button
-                      onClick={() => setPlatform("Zoom")}
-                      className={`p-4 rounded-2xl border-2 transition-all ${
-                        platform === "Zoom"
-                          ? "border-blue-600 bg-blue-50 text-blue-700"
-                          : "border-slate-200 hover:border-slate-300"
-                      }`}
-                    >
-                      <div className="font-bold">Zoom</div>
-
-                      <div className="text-sm opacity-70 mt-1">
-                        Start with Zoom
-                      </div>
-                    </button>
-
-                    <button
-                      onClick={() => setPlatform("Google Meet")}
-                      className={`p-4 rounded-2xl border-2 transition-all ${
-                        platform === "Google Meet"
-                          ? "border-green-600 bg-green-50 text-green-700"
-                          : "border-slate-200 hover:border-slate-300"
-                      }`}
-                    >
-                      <div className="font-bold">Google Meet</div>
-
-                      <div className="text-sm opacity-70 mt-1">
-                        Start with Meet
-                      </div>
-                    </button>
-
-                  </div>
-
-                </div>
-
-              </div>
-
-              {/* FOOTER */}
-              <div className="px-6 py-5 border-t border-slate-200 flex items-center justify-end gap-3">
-
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="px-5 py-3 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-50 font-medium"
-                >
-                  Cancel
-                </button>
-
-                <button
-                  onClick={createCall}
-                  className="px-6 py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                >
-                  Start Conference
-                </button>
-
-              </div>
-
-            </div>
-          </div>
-        )}
-
       </div>
     </LearningLayout>
   );
