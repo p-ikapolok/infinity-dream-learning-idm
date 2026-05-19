@@ -91,25 +91,40 @@ export default function LessonRoute() {
         {/* ================= FULL WIDTH CONTENT (NO CENTER LIMITS) ================= */}
         <main className="w-full px-6 md:px-12 py-10 flex flex-col gap-10">
 
-          {/* TITLE */}
-          <div>
-            <h1 className="text-4xl font-black text-slate-900">
-              {lesson.title}
-            </h1>
-            <p className="text-slate-500 mt-2">
-              Duration: {lesson.duration}
-            </p>
-          </div>
+                    {/* Lesson Hero: Title & Integrated Video */}
+          <section className="w-full flex flex-col gap-6">
+            <div>
+              <div className="text-[13px] font-semibold text-[#2563eb] tracking-wide uppercase mb-2">
+                Lesson {currentStep + 1}
+              </div>
+              <h1 className="text-[32px] md:text-[40px] font-semibold tracking-tight text-[#0f172a] leading-tight">
+                {currentTopic.title}
+              </h1>
+            </div>
 
-          {/* VIDEO FULL WIDTH FEEL */}
-          <div className="w-full aspect-video rounded-xl overflow-hidden border border-slate-200">
-            <iframe
-              className="w-full h-full"
-              src={`https://www.youtube.com/embed/${lesson.youtubeId}`}
-              title="Lesson video"
-              allowFullScreen
-            />
-          </div>
+            {/* Natural Video Embedding (No heavy borders/cards) */}
+            <div className="w-full aspect-video rounded-xl overflow-hidden bg-black shadow-[0_4px_24px_rgba(0,0,0,0.06)] border border-[#e2e8f0]">
+              <iframe 
+                className="w-full h-full"
+                src={`https://www.youtube.com/embed/${currentTopic.youtubeId}`} 
+                title="YouTube video player" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen>
+              </iframe>
+            </div>
+
+            {/* Lesson Metadata Row */}
+            <div className="flex flex-wrap items-center gap-6 text-[14px] text-[#64748b] border-b border-[#e2e8f0] pb-6">
+              <span className="flex items-center gap-2">
+                <Icons.Clock className="w-4 h-4" /> 12 min read
+              </span>
+              <span className="flex items-center gap-2">
+                <Icons.PlayCircle className="w-4 h-4" /> Video: 5:30
+              </span>
+              <span className="flex items-center gap-2">
+                <Icons.BookOpen className="w-4 h-4" /> Part {currentStep + 1} of {lessonData.length}
+              </span>
+            </div>
 
           {/* INTRO */}
           <section>
