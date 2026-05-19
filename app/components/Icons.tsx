@@ -1,130 +1,25 @@
-import React, { useState, useEffect } from "react";
-import { ConferenceCall } from "../types/conference";
-import { X, Zoom, GoogleMeet } from "./Icons";
+import React from "react";
 
-interface CreateConferenceModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onCreate: (call: ConferenceCall) => void;
-}
+export const Plus = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 5v14m-7-7h14"/></svg>
+);
 
-const detectPlatform = (link: string): "Zoom" | "Google Meet" => {
-  if (link.toLowerCase().includes("zoom.us")) return "Zoom";
-  return "Google Meet";
-};
+export const Users = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+);
 
-export default function CreateConferenceModal({ isOpen, onClose, onCreate }: CreateConferenceModalProps) {
-  const [title, setTitle] = useState("");
-  const [link, setLink] = useState("");
-  const [platform, setPlatform] = useState<"Zoom" | "Google Meet">("Zoom");
-  const [error, setError] = useState("");
+export const Video = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect x="2" y="6" width="14" height="12" rx="2" ry="2"/></svg>
+);
 
-  useEffect(() => {
-    if (link) setPlatform(detectPlatform(link));
-  }, [link]);
+export const X = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+);
 
-  if (!isOpen) return null;
+export const Zoom = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M4.585 13.607l-.27-.012H1.886l3.236-3.163-.006-.025H2.49v-.884h4.945v.847L4.17 13.565h.415zm2.748-2.616c0-1.428 1.13-2.585 2.52-2.585 1.393 0 2.52 1.157 2.52 2.585 0 1.43-1.127 2.587-2.52 2.587-1.39 0-2.52-1.158-2.52-2.587zm3.927 0c0-.853-.615-1.572-1.407-1.572-.79 0-1.405.719-1.405 1.572 0 .852.615 1.572 1.405 1.572.792 0 1.407-.72 1.407-1.572zm2.083 0c0-1.428 1.13-2.585 2.52-2.585 1.392 0 2.52 1.157 2.52 2.585 0 1.43-1.128 2.587-2.52 2.587-1.39 0-2.52-1.158-2.52-2.587zm3.927 0c0-.853-.614-1.572-1.406-1.572-.793 0-1.407.719-1.407 1.572 0 .852.614 1.572 1.407 1.572.792 0 1.406-.72 1.406-1.572zM21.51 8.5v6.082h-1.107V9.757h-.037l-1.63 4.825h-.93L16.17 9.757h-.035v4.825H15.03V8.5h1.564l1.455 4.385h.037L19.544 8.5h1.966z"/></svg>
+);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!title.trim() || !link.trim()) {
-      setError("Both title and link are required.");
-      return;
-    }
-
-    const newCall: ConferenceCall = {
-      id: Date.now(),
-      title: title.trim(),
-      host: "Current User",
-      participants: 1,
-      platform,
-      link: link.trim(),
-      status: "Live",
-    };
-
-    onCreate(newCall);
-    setTitle("");
-    setLink("");
-    setError("");
-    onClose();
-  };
-
-  return (
-    <div className="fixed inset-0 z-50 bg-[#0f172a]/40 backdrop-blur-sm flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl shadow-lg border border-[#e2e8f0] w-full max-w-md overflow-hidden flex flex-col">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-[#e2e8f0]">
-          <h2 className="text-[18px] font-semibold text-[#0f172a]">Create Conference Call</h2>
-          <button onClick={onClose} className="text-[#64748b] hover:text-[#0f172a] transition-colors">
-            <X className="w-5 h-5" />
-          </button>
-        </div>
-
-        <form onSubmit={handleSubmit} className="p-6 flex flex-col gap-5">
-          {error && <div className="text-[13px] text-[#ef4444] bg-[#fef2f2] p-3 rounded-md border border-[#fca5a5]">{error}</div>}
-          
-          <div className="flex flex-col gap-2">
-            <label className="text-[14px] font-medium text-[#0f172a]">Conference Title</label>
-            <input 
-              type="text" 
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              placeholder="e.g. Weekly Design Sync"
-              className="w-full px-4 py-2 border border-[#e2e8f0] rounded-md text-[14px] focus:outline-none focus:border-[#2563eb] transition-colors"
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label className="text-[14px] font-medium text-[#0f172a]">Meeting Link (Zoom or Google Meet)</label>
-            <input 
-              type="url" 
-              value={link}
-              onChange={(e) => setLink(e.target.value)}
-              placeholder="https://..."
-              className="w-full px-4 py-2 border border-[#e2e8f0] rounded-md text-[14px] focus:outline-none focus:border-[#2563eb] transition-colors"
-            />
-          </div>
-
-          <div className="flex flex-col gap-2">
-            <label className="text-[14px] font-medium text-[#0f172a]">Platform</label>
-            <div className="grid grid-cols-2 gap-3">
-              <button
-                type="button"
-                onClick={() => setPlatform("Zoom")}
-                className={`py-2 border rounded-md text-[14px] font-medium transition-all flex items-center justify-center gap-2 ${
-                  platform === "Zoom" ? "bg-[#eff6ff] border-[#2563eb] text-[#2563eb]" : "bg-white border-[#e2e8f0] text-[#64748b] hover:bg-[#f8fafc]"
-                }`}
-              >
-                <Zoom className="w-4 h-4" /> Zoom
-              </button>
-              <button
-                type="button"
-                onClick={() => setPlatform("Google Meet")}
-                className={`py-2 border rounded-md text-[14px] font-medium transition-all flex items-center justify-center gap-2 ${
-                  platform === "Google Meet" ? "bg-[#eff6ff] border-[#2563eb] text-[#2563eb]" : "bg-white border-[#e2e8f0] text-[#64748b] hover:bg-[#f8fafc]"
-                }`}
-              >
-                <GoogleMeet className="w-4 h-4" /> Google Meet
-              </button>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-end gap-3 mt-4 pt-4 border-t border-[#e2e8f0]">
-            <button 
-              type="button" 
-              onClick={onClose}
-              className="px-4 py-2 text-[14px] font-medium text-[#64748b] hover:bg-[#f8fafc] border border-transparent rounded-md transition-colors"
-            >
-              Cancel
-            </button>
-            <button 
-              type="submit"
-              className="px-4 py-2 bg-[#2563eb] text-white text-[14px] font-medium rounded-md hover:bg-[#1d4ed8] transition-colors active:scale-[0.98]"
-            >
-              Create Call
-            </button>
-          </div>
-        </form>
-      </div>
-    </div>
-  );
-}
+export const GoogleMeet = ({ className = "w-5 h-5" }: { className?: string }) => (
+  <svg className={className} viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm4.82 14.346h-1.565v-3.79l-1.92 3.79h-1.28l-1.92-3.79v3.79H8.57V8.57h1.564l2.553 5.066 2.554-5.066h1.578v7.776z"/></svg>
+);
