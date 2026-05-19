@@ -154,49 +154,46 @@ export default function LessonRoute() {
           </ul>
         </aside>
 
-        {/* ==========================================
-            STICKY BOTTOM FOOTER (Navigation)
-            ========================================== */}
-        <div className="w-full border-t border-[#e2e8f0] px-6 lg:px-12 py-10 flex items-center justify-between mt-16">
+        {/* NAVIGATION */}
+<div className="w-full border-t border-[#e2e8f0] px-6 lg:px-12 py-10 flex items-center justify-between mt-16">
 
-          {/* Previous Button Placeholder for Alignment */}
-          <div className="w-[120px]">
-            {currentStep > 0 && (
-              <button 
-                onClick={handlePrevious}
-                className="flex items-center gap-2 text-[14px] text-[#64748b] font-medium hover:text-[#0f172a] transition-colors duration-150"
-              >
-                <Icons.ChevronLeft className="w-4 h-4" />
-                Previous
-              </button>
-            )}
-          </div>
+  {/* PREVIOUS */}
+  <div className="w-[120px]">
+    {!isFirst && (
+      <button
+        onClick={goPrev}
+        className="flex items-center gap-2 text-[14px] text-[#64748b] font-medium hover:text-[#0f172a] transition-colors duration-150"
+      >
+        <Icons.ChevronLeft className="w-4 h-4" />
+        Previous
+      </button>
+    )}
+  </div>
 
-          {/* Mark Complete (Center) */}
-          <button className="flex items-center gap-2 px-6 py-2.5 bg-white border border-[#e2e8f0] text-[#0f172a] text-[14px] font-medium rounded-md hover:bg-[#f9fafb] transition-colors duration-150 shadow-sm active:scale-[0.98]">
-            <Icons.Check className="w-4 h-4 text-[#2563eb]" />
-            Mark Complete
-          </button>
+  {/* MARK COMPLETE */}
+  <button className="flex items-center gap-2 px-6 py-2.5 bg-white border border-[#e2e8f0] text-[#0f172a] text-[14px] font-medium rounded-md hover:bg-[#f9fafb] transition-colors duration-150 shadow-sm active:scale-[0.98]">
+    <Icons.Check className="w-4 h-4 text-[#2563eb]" />
+    Mark Complete
+  </button>
 
-          {/* Next Button */}
-          <div className="w-[120px] flex justify-end">
-            {currentStep < lessonData.length - 1 ? (
-              <button 
-                onClick={handleNext}
-                className="flex items-center gap-2 text-[14px] text-[#2563eb] font-medium hover:text-[#1d4ed8] transition-colors duration-150"
-              >
-                Next
-                <Icons.ChevronRight className="w-4 h-4" />
-              </button>
-            ) : (
-              <span className="text-[14px] text-[#16a34a] font-medium flex items-center gap-1">
-                Finished
-              </span>
-            )}
-          </div>
+  {/* NEXT */}
+  <div className="w-[120px] flex justify-end">
+    {!isLast ? (
+      <button
+        onClick={goNext}
+        className="flex items-center gap-2 text-[14px] text-[#2563eb] font-medium hover:text-[#1d4ed8] transition-colors duration-150"
+      >
+        Next
+        <Icons.ChevronRight className="w-4 h-4" />
+      </button>
+    ) : (
+      <span className="text-[14px] text-[#16a34a] font-medium flex items-center gap-1">
+        Finished
+      </span>
+    )}
+  </div>
 
 </div>
-
       </div>
     </LearningLayout>
   );
