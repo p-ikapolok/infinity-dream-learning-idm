@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import LearningLayout from "../components/LearningLayout";
 
 // ==========================================
-// MOCK ACTIVE CALLS
+// TYPES
 // ==========================================
-const initialCalls = [
+type Platform = "Zoom" | "Google Meet";
+
+interface ConferenceCall {
+  id: number;
+  title: string;
+  host: string;
+  participants: number;
+  platform: Platform;
+  link: string;
+  status: "Live" | "Ended";
+}
+
+// ==========================================
+// MOCK INITIAL DATA
+// ==========================================
+const initialCalls: ConferenceCall[] = [
   {
     id: 1,
     title: "Advanced Calculus Discussion",
@@ -12,7 +27,7 @@ const initialCalls = [
     participants: 18,
     platform: "Zoom",
     link: "https://zoom.us/",
-    status: "Live"
+    status: "Live",
   },
   {
     id: 2,
@@ -21,305 +36,235 @@ const initialCalls = [
     participants: 11,
     platform: "Google Meet",
     link: "https://meet.google.com/",
-    status: "Live"
-  }
+    status: "Live",
+  },
 ];
 
 // ==========================================
-// SVG ICONS
+// ICONS (FULL SVG)
 // ==========================================
-const Icons: Record<string, React.FC<{ className?: string }>> = {
-  Video: ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+const Icons = {
+  Video: (p: any) => (
+    <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <rect x="3" y="6" width="13" height="12" rx="2" />
       <polygon points="16 10 21 7 21 17 16 14" />
     </svg>
   ),
-
-  Users: ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+  Users: (p: any) => (
+    <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
     </svg>
   ),
-
-  Plus: ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  Plus: (p: any) => (
+    <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <line x1="12" y1="5" x2="12" y2="19" />
       <line x1="5" y1="12" x2="19" y2="12" />
     </svg>
   ),
-
-  External: ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+  External: (p: any) => (
+    <svg {...p} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
       <polyline points="15 3 21 3 21 9" />
       <line x1="10" y1="14" x2="21" y2="3" />
     </svg>
   ),
-
-  Alert: ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-      <line x1="12" y1="9" x2="12" y2="13" />
-      <line x1="12" y1="17" x2="12.01" y2="17" />
-    </svg>
-  ),
-
-  Clock: ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="12" r="10" />
-      <polyline points="12 6 12 12 16 14" />
-    </svg>
-  ),
-
-  Calendar: ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-      <rect x="3" y="4" width="18" height="18" rx="2" />
-      <line x1="16" y1="2" x2="16" y2="6" />
-      <line x1="8" y1="2" x2="8" y2="6" />
-      <line x1="3" y1="10" x2="21" y2="10" />
-    </svg>
-  )
 };
+
+// ==========================================
+// FAKE WEBSOCKET ENGINE (CLIENT ONLY)
+// ==========================================
+class FakeWebSocketEngine {
+  private listeners: ((data: any) => void)[] = [];
+
+  connect(callback: (data: any) => void) {
+    this.listeners.push(callback);
+  }
+
+  emit(data: any) {
+    this.listeners.forEach((fn) => fn(data));
+  }
+
+  simulateRandomActivity() {
+    // Simulate participant changes every few seconds
+    setInterval(() => {
+      const callId = Math.floor(Math.random() * 2) + 1;
+      const change = Math.random() > 0.5 ? 1 : -1;
+
+      this.emit({
+        type: "PARTICIPANT_UPDATE",
+        callId,
+        change,
+      });
+    }, 2500);
+  }
+}
+
+const ws = new FakeWebSocketEngine();
 
 // ==========================================
 // MAIN COMPONENT
 // ==========================================
 export default function ConferenceCalls() {
-  const [collapsed, setCollapsed] = useState(false);
-  const [calls, setCalls] = useState(initialCalls);
+  const [calls, setCalls] = useState<ConferenceCall[]>(initialCalls);
 
-  const [showModal, setShowModal] = useState(false);
-  const [callTitle, setCallTitle] = useState("");
-  const [platform, setPlatform] = useState("Zoom");
-  const [meetingLink, setMeetingLink] = useState("");
+  const callsRef = useRef(calls);
+  callsRef.current = calls;
 
+  // ==========================================
+  // REAL-TIME SYSTEM SIMULATION
+  // ==========================================
+  useEffect(() => {
+    ws.connect((event) => {
+      if (event.type === "PARTICIPANT_UPDATE") {
+        setCalls((prev) =>
+          prev.map((call) =>
+            call.id === event.callId
+              ? {
+                  ...call,
+                  participants: Math.max(
+                    0,
+                    call.participants + event.change
+                  ),
+                }
+              : call
+          )
+        );
+      }
+    });
+
+    ws.simulateRandomActivity();
+  }, []);
+
+  // ==========================================
   // CREATE CALL
+  // ==========================================
   const createCall = () => {
-    if (!callTitle.trim()) return;
-
-    const newCall = {
+    const newCall: ConferenceCall = {
       id: Date.now(),
-      title: callTitle,
+      title: "New Live Session",
       host: "You",
       participants: 1,
-      platform,
-      link:
-        meetingLink ||
-        (platform === "Zoom"
-          ? "https://zoom.us/"
-          : "https://meet.google.com/"),
-      status: "Live"
+      platform: "Zoom",
+      link: "https://zoom.us/",
+      status: "Live",
     };
 
-    setCalls([newCall, ...calls]);
+    setCalls((prev) => [newCall, ...prev]);
 
-    setCallTitle("");
-    setMeetingLink("");
-    setPlatform("Zoom");
-    setShowModal(false);
-
-    window.location.href = newCall.link;
+    // simulate "broadcast to websocket"
+    ws.emit({
+      type: "CALL_CREATED",
+      call: newCall,
+    });
   };
 
+  // ==========================================
+  // JOIN CALL
+  // ==========================================
+  const joinCall = (call: ConferenceCall) => {
+    window.open(call.link, "_blank");
+
+    // simulate participant increase
+    ws.emit({
+      type: "PARTICIPANT_UPDATE",
+      callId: call.id,
+      change: 1,
+    });
+  };
+
+  // ==========================================
   // END CALL
+  // ==========================================
   const endCall = (id: number) => {
-    setCalls(calls.filter((c) => c.id !== id));
+    setCalls((prev) => prev.filter((c) => c.id !== id));
   };
 
+  // ==========================================
+  // UI
+  // ==========================================
   return (
-    <LearningLayout collapsed={collapsed} setCollapsed={setCollapsed}>
+    <LearningLayout>
       <div className="w-full min-h-screen bg-slate-50 p-6 md:p-8 flex flex-col gap-6">
 
         {/* HEADER */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+        <div className="bg-white border border-slate-200 rounded-2xl p-6 flex justify-between items-center">
 
           <div>
             <h1 className="text-3xl font-black text-slate-900">
-              Conference Calls
+              Live Conference System
             </h1>
             <p className="text-slate-500 mt-1">
-              Join active Zoom or Google Meet study sessions.
+              WebSocket simulation (frontend-only)
             </p>
           </div>
 
           <button
-            onClick={() => setShowModal(true)}
-            className="flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-semibold"
+            onClick={createCall}
+            className="flex items-center gap-2 px-5 py-3 bg-blue-600 text-white rounded-xl font-semibold hover:bg-blue-700"
           >
             <Icons.Plus className="w-5 h-5" />
-            Start Conference
+            Create Call
           </button>
+
         </div>
 
         {/* GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
 
           {calls.map((call) => (
             <div
               key={call.id}
-              className="bg-white border border-slate-200 rounded-2xl p-5 flex flex-col gap-4 hover:border-blue-300 transition"
+              className="bg-white border border-slate-200 rounded-2xl p-5 transition hover:shadow-md"
             >
 
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-700">
+              <div className="flex gap-3">
+                <div className="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center">
                   <Icons.Video className="w-6 h-6" />
                 </div>
 
                 <div>
-                  <h2 className="font-bold text-slate-900">{call.title}</h2>
-                  <p className="text-sm text-slate-500">Host: {call.host}</p>
+                  <h2 className="font-bold text-slate-900">
+                    {call.title}
+                  </h2>
 
-                  <div className="flex items-center gap-2 text-sm text-slate-500 mt-1">
-                    <Icons.Users className="w-4 h-4" />
-                    {call.participants}
+                  <div className="text-sm text-slate-500 flex gap-2 mt-1">
+                    <span>{call.platform}</span>
+                    <span>•</span>
+                    <span>{call.participants} live</span>
                   </div>
-
-                  <p className="text-sm text-blue-600 font-semibold mt-1">
-                    {call.platform}
-                  </p>
                 </div>
               </div>
 
-              <div className="flex justify-between">
+              {/* REAL-TIME INDICATOR */}
+              <div className="mt-4 flex items-center gap-2 text-red-600 text-xs font-bold">
+                <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+                LIVE • REAL TIME
+              </div>
+
+              {/* ACTIONS */}
+              <div className="flex justify-between mt-5">
+
                 <button
-                  onClick={() => (window.location.href = call.link)}
-                  className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-xl text-sm"
+                  onClick={() => joinCall(call)}
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-700"
                 >
                   Join
-                  <Icons.External className="w-4 h-4" />
                 </button>
 
                 <button
                   onClick={() => endCall(call.id)}
-                  className="px-4 py-2 border border-red-200 text-red-600 rounded-xl text-sm"
+                  className="px-4 py-2 border border-red-200 text-red-600 rounded-lg text-sm hover:bg-red-50"
                 >
                   End
                 </button>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* NEXT UPGRADES */}
-        <div className="bg-white border border-slate-200 rounded-2xl p-6 mt-6">
-          <h2 className="text-xl font-black mb-4">Next Upgrades</h2>
-
-          <ul className="space-y-3 text-sm text-slate-700">
-
-            <li className="flex items-center gap-2">
-              <Icons.Alert className="w-4 h-4 text-red-500" />
-              Live badge auto detection from Zoom links
-            </li>
-
-            <li className="flex items-center gap-2">
-              <Icons.Video className="w-4 h-4 text-green-600" />
-              Join in browser vs open app
-            </li>
-
-            <li className="flex items-center gap-2">
-              <Icons.Alert className="w-4 h-4 text-slate-500" />
-              Password protected calls
-            </li>
-
-            <li className="flex items-center gap-2">
-              <Icons.Users className="w-4 h-4 text-blue-500" />
-              Real-time participant counter UI
-            </li>
-
-            <li className="flex items-center gap-2 border-t pt-3">
-              <Icons.Clock className="w-4 h-4 text-purple-500" />
-              Live WebSocket real-time calls
-            </li>
-
-            <li className="flex items-center gap-2">
-              <Icons.Users className="w-4 h-4 text-indigo-500" />
-              Participant simulation counter
-            </li>
-
-            <li className="flex items-center gap-2">
-              <Icons.Video className="w-4 h-4 text-red-500" />
-              Private invite links
-            </li>
-
-            <li className="flex items-center gap-2">
-              <Icons.Calendar className="w-4 h-4 text-green-500" />
-              Scheduled meetings (Google Calendar style)
-            </li>
-
-          </ul>
-        </div>
-
-        {/* MODAL */}
-        {showModal && (
-          <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-
-            <div className="w-full max-w-lg bg-white rounded-3xl">
-
-              <div className="p-5 border-b">
-                <h2 className="text-xl font-bold">Start Conference</h2>
-              </div>
-
-              <div className="p-5 flex flex-col gap-4">
-
-                <input
-                  value={callTitle}
-                  onChange={(e) => setCallTitle(e.target.value)}
-                  placeholder="Title"
-                  className="border p-3 rounded-xl"
-                />
-
-                <div className="flex gap-3">
-                  <button
-                    onClick={() => setPlatform("Zoom")}
-                    className={`flex-1 p-3 border rounded-xl ${
-                      platform === "Zoom" ? "bg-blue-50" : ""
-                    }`}
-                  >
-                    Zoom
-                  </button>
-
-                  <button
-                    onClick={() => setPlatform("Google Meet")}
-                    className={`flex-1 p-3 border rounded-xl ${
-                      platform === "Google Meet" ? "bg-green-50" : ""
-                    }`}
-                  >
-                    Meet
-                  </button>
-                </div>
-
-                <input
-                  value={meetingLink}
-                  onChange={(e) => setMeetingLink(e.target.value)}
-                  placeholder="Paste meeting link"
-                  className="border p-3 rounded-xl"
-                />
-
-              </div>
-
-              <div className="p-5 flex justify-end gap-3 border-t">
-                <button
-                  onClick={() => setShowModal(false)}
-                  className="px-4 py-2 border rounded-xl"
-                >
-                  Cancel
-                </button>
-
-                <button
-                  onClick={createCall}
-                  className="px-5 py-2 bg-blue-600 text-white rounded-xl"
-                >
-                  Start
-                </button>
               </div>
 
             </div>
-          </div>
-        )}
+          ))}
+
+        </div>
 
       </div>
     </LearningLayout>
