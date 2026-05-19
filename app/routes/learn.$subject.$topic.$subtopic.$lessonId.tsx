@@ -5,22 +5,19 @@ import MarkdownRenderer from "../components/MarkdownRenderer";
 import QuizCard from "../components/QuizCard";
 import { findLesson } from "../data/lessons";
 
-const Icons = {
-  ChevronRight: ({ className }: any) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  ),
-  ChevronLeft: ({ className }: any) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <path d="m15 18-6-6 6-6" />
-    </svg>
-  ),
-  Check: ({ className }: any) => (
-    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor">
-      <polyline points="20 6 9 17 4 12" />
-    </svg>
-  ),
+// ==========================================
+// CLEAN SVG ICONS
+// ==========================================
+const Icons: Record<string, React.FC<{ className?: string }>> = {
+  Search: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>,
+  ChevronRight: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>,
+  ChevronLeft: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>,
+  Clock: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>,
+  PlayCircle: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4Z"/></svg>,
+  BookOpen: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>,
+  Check: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"/></svg>,
+  CheckCircle: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>,
+  Sparkles: ({ className }) => <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/></svg>
 };
 
 export default function LessonRoute() {
@@ -157,46 +154,46 @@ export default function LessonRoute() {
           </ul>
         </aside>
 
-        {/* ================= BOTTOM NAVIGATION ================= */}
-<div className="w-full px-6 md:px-12 py-10 flex items-center justify-between border-t border-slate-200 mt-16">
+        {/* ==========================================
+            STICKY BOTTOM FOOTER (Navigation)
+            ========================================== */}
+        <div className="sticky bottom-0 w-full bg-[#f8fafc]/90 backdrop-blur-md border-t border-[#e2e8f0] px-6 lg:px-12 py-4 flex items-center justify-between z-10 shadow-[0_-4px_24px_rgba(0,0,0,0.02)] mt-auto">
 
-  {/* PREVIOUS */}
-  <div className="w-[120px]">
-    {!isFirst && (
-      <button
-        onClick={goPrev}
-        className="flex items-center gap-2 text-[14px] text-slate-600 font-medium hover:text-slate-900 transition-colors"
-      >
-        <Icons.ChevronLeft className="w-4 h-4" />
-        Previous
-      </button>
-    )}
-  </div>
+          {/* Previous Button Placeholder for Alignment */}
+          <div className="w-[120px]">
+            {currentStep > 0 && (
+              <button 
+                onClick={handlePrevious}
+                className="flex items-center gap-2 text-[14px] text-[#64748b] font-medium hover:text-[#0f172a] transition-colors duration-150"
+              >
+                <Icons.ChevronLeft className="w-4 h-4" />
+                Previous
+              </button>
+            )}
+          </div>
 
-  {/* MARK COMPLETE */}
-  <button
-    className="flex items-center gap-2 px-6 py-2.5 bg-white border border-slate-200 text-slate-900 text-[14px] font-medium rounded-md hover:bg-slate-50 transition-colors shadow-sm"
-  >
-    <Icons.Check className="w-4 h-4 text-blue-600" />
-    Mark Complete
-  </button>
+          {/* Mark Complete (Center) */}
+          <button className="flex items-center gap-2 px-6 py-2.5 bg-white border border-[#e2e8f0] text-[#0f172a] text-[14px] font-medium rounded-md hover:bg-[#f9fafb] transition-colors duration-150 shadow-sm active:scale-[0.98]">
+            <Icons.Check className="w-4 h-4 text-[#2563eb]" />
+            Mark Complete
+          </button>
 
-  {/* NEXT */}
-  <div className="w-[120px] flex justify-end">
-    {!isLast ? (
-      <button
-        onClick={goNext}
-        className="flex items-center gap-2 text-[14px] text-blue-600 font-medium hover:text-blue-800 transition-colors"
-      >
-        Next
-        <Icons.ChevronRight className="w-4 h-4" />
-      </button>
-    ) : (
-      <span className="text-[14px] text-green-600 font-medium">
-        Finished
-      </span>
-    )}
-  </div>
+          {/* Next Button */}
+          <div className="w-[120px] flex justify-end">
+            {currentStep < lessonData.length - 1 ? (
+              <button 
+                onClick={handleNext}
+                className="flex items-center gap-2 text-[14px] text-[#2563eb] font-medium hover:text-[#1d4ed8] transition-colors duration-150"
+              >
+                Next
+                <Icons.ChevronRight className="w-4 h-4" />
+              </button>
+            ) : (
+              <span className="text-[14px] text-[#16a34a] font-medium flex items-center gap-1">
+                Finished
+              </span>
+            )}
+          </div>
 
 </div>
 
