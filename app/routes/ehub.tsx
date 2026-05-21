@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router";
 import NotificationMenu from "../components/NotificationMenu";
 import NineDotsMenu from "../components/NineDotsMenu";
 import ProfileMenu from "../components/ProfileMenu"; // adjust path if needed
