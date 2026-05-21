@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Layout from "../components/layout";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router";
 
 export default function Password() {
   const [showCurrent, setShowCurrent] = useState(false);
