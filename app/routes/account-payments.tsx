@@ -1,5 +1,5 @@
 import Layout from "../components/layout";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router";
 
 export default function AccountPayments() {
   const location = useLocation();
