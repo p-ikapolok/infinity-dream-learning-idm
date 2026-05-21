@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
-import Header from "./Header";
+import Header from "./header";
 import Banner from "./Banner";
-import Footer from "./Footer";
+import Footer from "./footer";
 
 type Props = {
   children: ReactNode;
