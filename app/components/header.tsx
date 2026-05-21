@@ -2,7 +2,7 @@ import { useState } from "react";
 import NotificationMenu from "./NotificationMenu";
 import NineDotsMenu from "./NineDotsMenu";
 import ProfileMenu from "./ProfileMenu";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router";
 
 export default function Header() {
   const [showNotifications, setShowNotifications] = useState(false);
