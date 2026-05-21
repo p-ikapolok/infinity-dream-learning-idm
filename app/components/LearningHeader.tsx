@@ -44,7 +44,9 @@ export default function Header({ collapsed, setCollapsed }) {
             </div>
 
             {/* BELL */}
-            <button className="p-2 rounded-md hover:bg-gray-100">
+            <button
+              onClick={() => setShowNotifications(!showNotifications)}
+ className="p-2 rounded-md hover:bg-gray-100">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <path
                   d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7z"
