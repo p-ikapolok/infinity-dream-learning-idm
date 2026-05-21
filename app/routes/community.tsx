@@ -1,16 +1,16 @@
-import Layout from "../components/layout";
+import CommunityLayout from "../components/CommunityLayout";
 
 export default function Community() {
   return (
-    <Layout>
-      <div className="w-full h-screen overflow-hidden bg-white">
+    <CommunityLayout>
+      <div className="w-full h-full">
         <iframe
           src="https://infinity-dream-community.circle.so/"
           title="Infinity Dream Community"
-          className="w-full h-screen border-0"
+          className="w-full h-full border-0"
           allow="camera; microphone; fullscreen; clipboard-write"
         />
       </div>
-    </Layout>
+    </CommunityLayout>
   );
 }
