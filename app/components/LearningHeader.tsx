@@ -64,8 +64,8 @@ export default function Header({ collapsed, setCollapsed }) {
             </button>
 
             {/* 9 DOTS */}
-            <button
-              onClick={() => setMenuOpen(!menuOpen)}
+            <button 
+       onClick={() => setMenuOpen(!menuOpen)}
  className="p-2 rounded-md hover:bg-gray-100">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <circle cx="5" cy="5" r="2" fill="#111827" />
@@ -82,7 +82,33 @@ export default function Header({ collapsed, setCollapsed }) {
               </svg>
             </button>
 
-            <img src="https://i.pravatar.cc/40" className="w-9 h-9 rounded-full border" />
+                      {/* Profile icon */}
+          <div className="relative">
+            <button
+              onClick={() => {
+  setProfileOpen(!profileOpen);
+  setMenuOpen(false);
+  setShowNotifications(false);
+}}
+              className="w-10 h-10 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 focus:outline-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6 text-gray-700"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 20a8 8 0 0116 0" />
+              </svg>
+            </button>
+
+              {profileOpen && (
+  <div className="absolute right-0 mt-3 z-50">
+    <ProfileMenu menuOpen={profileOpen} />
+  </div>
+)}
+     </div>
           </div>
         </header>           
     </>
