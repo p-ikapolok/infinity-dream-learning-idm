@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router";
 import Layout from "../components/layout";
 import { useState, useEffect } from "react";
 import BasicInfoModal from "../components/BasicInfoModal";
