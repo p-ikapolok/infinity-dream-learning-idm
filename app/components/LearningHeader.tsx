@@ -39,48 +39,69 @@ export default function Header({ collapsed, setCollapsed }) {
           {/* RIGHT */}
           <div className="flex items-center gap-4">
 
-            <span
+                      {/* Points */}
+          <span
   onClick={() => navigate("/RewardsPage")}
- className="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
-              4210 pts
-            </span>
+  className="text-gray-700 font-semibold cursor-pointer hover:text-blue-600"
+>
+  4210 points
+</span>
 
-            {/* BELL */}
+                      {/* Notification bell */}
+          <div className="relative">
             <button
               onClick={() => setShowNotifications(!showNotifications)}
- className="p-2 rounded-md hover:bg-gray-100">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7z"
-                  stroke="#111827"
-                  strokeWidth="2"
-                />
-                <path
-                  d="M13.73 21a2 2 0 01-3.46 0"
-                  stroke="#111827"
-                  strokeWidth="2"
-                />
+              className="text-gray-600 hover:text-gray-800 relative"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M15 17h5l-1.4-1.4A2 2 0 0118 14.2V11a6 6 0 10-12 0v3.2c0 .5-.2 1-.6 1.4L4 17h5m6 0v1a3 3 0 11-6 0v-1" />
+              </svg>
+
+              <span className="absolute top-0 right-0 block w-2 h-2 bg-red-500 rounded-full"></span>
+            </button>
+
+            {showNotifications && (
+  <div className="absolute right-0 mt-3 z-50">
+    <NotificationMenu />
+  </div>
+)}
+          </div>
+
+                      {/* 9-dots menu */}
+          <div className="relative">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="text-gray-600 hover:text-gray-800"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-6 h-6"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="5" cy="5" r="1.5" />
+                <circle cx="12" cy="5" r="1.5" />
+                <circle cx="19" cy="5" r="1.5" />
+                <circle cx="5" cy="12" r="1.5" />
+                <circle cx="12" cy="12" r="1.5" />
+                <circle cx="19" cy="12" r="1.5" />
+                <circle cx="5" cy="19" r="1.5" />
+                <circle cx="12" cy="19" r="1.5" />
+                <circle cx="19" cy="19" r="1.5" />
               </svg>
             </button>
 
-            {/* 9 DOTS */}
-            <button 
-       onClick={() => setMenuOpen(!menuOpen)}
- className="p-2 rounded-md hover:bg-gray-100">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <circle cx="5" cy="5" r="2" fill="#111827" />
-                <circle cx="12" cy="5" r="2" fill="#111827" />
-                <circle cx="19" cy="5" r="2" fill="#111827" />
-
-                <circle cx="5" cy="12" r="2" fill="#111827" />
-                <circle cx="12" cy="12" r="2" fill="#111827" />
-                <circle cx="19" cy="12" r="2" fill="#111827" />
-
-                <circle cx="5" cy="19" r="2" fill="#111827" />
-                <circle cx="12" cy="19" r="2" fill="#111827" />
-                <circle cx="19" cy="19" r="2" fill="#111827" />
-              </svg>
-            </button>
+            {menuOpen && (
+  <div className="absolute right-0 mt-3 z-50">
+    <NineDotsMenu />
+  </div>
+)}
+          </div>
 
                       {/* Profile icon */}
           <div className="relative">
