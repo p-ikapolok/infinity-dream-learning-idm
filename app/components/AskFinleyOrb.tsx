@@ -63,7 +63,7 @@ export default function AskFinleyWidget() {
                   letterSpacing="2"
                 >
                   <textPath href="#circlePath">
-                    ASK FINLEY • ASK FINLEY •
+                   ASK FINLEY • ASK FINLEY • ASK FINLEY •
                   </textPath>
                 </text>
               </svg>
