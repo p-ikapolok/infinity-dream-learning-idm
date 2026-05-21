@@ -2,7 +2,7 @@ import Layout from "../components/layout";
 
 export default function Community() {
   return (
-    <Layout>
+    <layout>
       <div className="w-full h-screen overflow-hidden bg-white">
         <iframe
           src="https://infinity-dream-community.circle.so/"
@@ -11,6 +11,6 @@ export default function Community() {
           allow="camera; microphone; fullscreen; display-capture"
         />
       </div>
-    </Layout>
+    </layout>
   );
 }
