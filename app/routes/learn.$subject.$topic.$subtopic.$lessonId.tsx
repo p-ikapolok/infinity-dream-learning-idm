@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 import LearningLayout from "../components/LearningLayout";
 import MarkdownRenderer from "../components/MarkdownRenderer";
 import QuizCard from "../components/QuizCard";
