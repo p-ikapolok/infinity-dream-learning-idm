@@ -1,6 +1,6 @@
 import Layout from "../components/Layout";
 
-export default function CommunityFeed() {
+export default function Community() {
   return (
     <Layout>
       <div className="w-full h-screen overflow-hidden bg-white">
