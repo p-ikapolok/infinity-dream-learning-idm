@@ -39,9 +39,11 @@ export default function Header({ collapsed, setCollapsed }) {
           {/* RIGHT */}
           <div className="flex items-center gap-4">
 
-            <div className="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
+            <span
+  onClick={() => navigate("/RewardsPage")}
+ className="bg-yellow-200 text-yellow-900 px-3 py-1 rounded-full text-sm font-semibold">
               4210 pts
-            </div>
+            </span>
 
             {/* BELL */}
             <button
@@ -62,7 +64,9 @@ export default function Header({ collapsed, setCollapsed }) {
             </button>
 
             {/* 9 DOTS */}
-            <button className="p-2 rounded-md hover:bg-gray-100">
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+ className="p-2 rounded-md hover:bg-gray-100">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                 <circle cx="5" cy="5" r="2" fill="#111827" />
                 <circle cx="12" cy="5" r="2" fill="#111827" />
