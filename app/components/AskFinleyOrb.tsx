@@ -23,10 +23,8 @@ export default function AskFinleyWidget() {
         }}
       >
         {!open && (
-          <button
-            onClick={() => setOpen(true)}
-            className="finley-orb"
-          >
+          <button onClick={() => setOpen(true)} className="finley-orb">
+            
             {/* GLOW */}
             <div className="finley-glow" />
 
@@ -40,10 +38,7 @@ export default function AskFinleyWidget() {
               <div className="finley-inner-core" />
 
               {/* ROTATING TEXT */}
-              <svg
-                className="finley-text"
-                viewBox="0 0 100 100"
-              >
+              <svg className="finley-text" viewBox="0 0 100 100">
                 <defs>
                   <path
                     id="circlePath"
@@ -58,12 +53,12 @@ export default function AskFinleyWidget() {
 
                 <text
                   fill="white"
-                  fontSize="7"
+                  fontSize="8.5"
                   fontWeight="600"
                   letterSpacing="2"
                 >
                   <textPath href="#circlePath">
-                   ASK FINLEY • ASK FINLEY • ASK FINLEY •
+                    ASK FINLEY • ASK FINLEY • ASK FINLEY •
                   </textPath>
                 </text>
               </svg>
@@ -73,11 +68,8 @@ export default function AskFinleyWidget() {
 
         {/* CHATBOX */}
         {open && (
-          <div
-            className={`finley-chatbox ${
-              fullscreen ? "fullscreen" : ""
-            }`}
-          >
+          <div className={`finley-chatbox ${fullscreen ? "fullscreen" : ""}`}>
+
             {/* HEADER */}
             <div className="finley-header">
 
@@ -96,21 +88,11 @@ export default function AskFinleyWidget() {
               </div>
 
               <div className="finley-actions">
-                <button
-                  onClick={() =>
-                    setFullscreen(!fullscreen)
-                  }
-                >
-                  {fullscreen ? (
-                    <Minimize2 size={16} />
-                  ) : (
-                    <Maximize2 size={16} />
-                  )}
+                <button onClick={() => setFullscreen(!fullscreen)}>
+                  {fullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
                 </button>
 
-                <button
-                  onClick={() => setOpen(false)}
-                >
+                <button onClick={() => setOpen(false)}>
                   <X size={16} />
                 </button>
               </div>
@@ -119,10 +101,7 @@ export default function AskFinleyWidget() {
             {/* BODY */}
             <div className="finley-body">
               <div className="finley-message">
-                <div className="finley-ai-avatar">
-                  ✦
-                </div>
-
+                <div className="finley-ai-avatar">✦</div>
                 <div className="finley-bubble">
                   Hello 👋 I'm Finley.  
                   How can I help you today?
@@ -133,11 +112,7 @@ export default function AskFinleyWidget() {
             {/* INPUT */}
             <div className="finley-input-area">
               <div className="finley-input-box">
-                <input
-                  type="text"
-                  placeholder="Ask Finley..."
-                />
-
+                <input type="text" placeholder="Ask Finley..." />
                 <button>
                   <Send size={16} />
                 </button>
@@ -151,8 +126,8 @@ export default function AskFinleyWidget() {
       <style>{`
         .finley-orb {
           position: relative;
-          width: 42px;
-          height: 42px;
+          width: 62px;
+          height: 62px;
           border: none;
           background: transparent;
           cursor: pointer;
@@ -170,8 +145,8 @@ export default function AskFinleyWidget() {
             #ff008c,
             #ff9800
           );
-          filter: blur(10px);
-          opacity: 0.9;
+          filter: blur(16px);
+          opacity: 0.95;
           animation: spinSlow 8s linear infinite;
         }
 
@@ -197,12 +172,12 @@ export default function AskFinleyWidget() {
           );
           background-size: 300% 300%;
           animation: gradientMove 5s ease infinite;
-          opacity: 0.8;
+          opacity: 0.85;
         }
 
         .finley-inner-core {
           position: absolute;
-          inset: 9px;
+          inset: 13px;
           border-radius: 50%;
           background: rgba(255,255,255,0.9);
           filter: blur(1px);
@@ -388,48 +363,26 @@ export default function AskFinleyWidget() {
         }
 
         @keyframes rotateText {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
         }
 
         @keyframes spinSlow {
-          from {
-            transform: rotate(0deg) scale(1);
-          }
-          50% {
-            transform: rotate(180deg) scale(1.08);
-          }
-          to {
-            transform: rotate(360deg) scale(1);
-          }
+          from { transform: rotate(0deg) scale(1); }
+          50% { transform: rotate(180deg) scale(1.08); }
+          to { transform: rotate(360deg) scale(1); }
         }
 
         @keyframes gradientMove {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
         }
 
         @keyframes float {
-          0% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-5px);
-          }
-          100% {
-            transform: translateY(0px);
-          }
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-5px); }
+          100% { transform: translateY(0px); }
         }
       `}</style>
     </>
