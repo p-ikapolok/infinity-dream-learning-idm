@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate, Link, NavLink, useParams } from "react-router-dom";
+import { useNavigate, Link, NavLink, useParams } from "react-router";
 
 export default function CommunitySidebar() {
 const [searchOpen, setSearchOpen] = useState(false);
