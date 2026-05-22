@@ -44,39 +44,42 @@ export default function CBCAnalyticsDashboard() {
 
   return (
     <div className="w-full min-h-screen bg-slate-100 p-4 lg:p-6">
-      <div className="w-full space-y-8">
+
+      <div className="w-full space-y-6">
 
         {/* HEADER */}
-        <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 lg:p-8 flex flex-col lg:flex-row justify-between gap-6">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 lg:p-8 flex flex-col lg:flex-row justify-between gap-6">
 
-          <div>
-            <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4">
 
-              <div className="w-16 h-16 rounded-2xl bg-indigo-600 flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.7"
-                  className="w-8 h-8 text-white"
-                >
-                  <path d="M12 14L3 9l9-5 9 5-9 5z" />
-                  <path d="M3 9v6l9 5 9-5V9" />
-                </svg>
-              </div>
+            <div className="w-16 h-16 rounded-2xl bg-indigo-600 flex items-center justify-center">
 
-              <div>
-                <h1 className="text-3xl font-bold text-slate-900">
-                  CBC Student Analytics
-                </h1>
-
-                <p className="text-slate-500 mt-1">
-                  Infinity Dream Learning • Term 2 Performance Report
-                </p>
-              </div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.7"
+                className="w-8 h-8 text-white"
+              >
+                <path d="M12 14L3 9l9-5 9 5-9 5z" />
+                <path d="M3 9v6l9 5 9-5V9" />
+              </svg>
 
             </div>
+
+            <div>
+
+              <h1 className="text-3xl font-bold text-slate-900">
+                CBC Student Analytics
+              </h1>
+
+              <p className="text-slate-500 mt-1">
+                Infinity Dream Learning • Term 2 Performance Report
+              </p>
+
+            </div>
+
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -162,95 +165,228 @@ export default function CBCAnalyticsDashboard() {
         </div>
 
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 items-start">
 
-          {/* SUBJECT PERFORMANCE */}
-          <div className="xl:col-span-2 bg-white rounded-3xl shadow-sm border border-slate-200 p-6">
+          {/* LEFT SIDE */}
+          <div className="xl:col-span-2 space-y-6">
 
-            <div className="flex items-center justify-between mb-8">
+            {/* SUBJECT PERFORMANCE */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
 
-              <div>
-                <h2 className="text-2xl font-bold text-slate-900">
-                  Subject Performance
+              <div className="flex items-center justify-between mb-8">
+
+                <div>
+                  <h2 className="text-2xl font-bold text-slate-900">
+                    Subject Performance
+                  </h2>
+
+                  <p className="text-slate-500 mt-1">
+                    CBC competency-based evaluation overview
+                  </p>
+                </div>
+
+                <div className="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-xl font-semibold">
+                  Term 2
+                </div>
+
+              </div>
+
+              <div className="space-y-5">
+
+                {subjects.map((subject) => (
+                  <div key={subject.name}>
+
+                    <div className="flex items-center justify-between mb-2">
+
+                      <h3 className="font-semibold text-slate-800">
+                        {subject.name}
+                      </h3>
+
+                      <div className="flex items-center gap-3">
+
+                        <span className="font-bold text-slate-700">
+                          {subject.score}%
+                        </span>
+
+                        <span
+                          className={`px-3 py-1 rounded-full text-sm font-bold ${gradeColor(subject.grade)}`}
+                        >
+                          {subject.grade}
+                        </span>
+
+                      </div>
+
+                    </div>
+
+                    <div className="w-full h-4 bg-slate-200 rounded-full overflow-hidden">
+
+                      <div
+                        className="h-full bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"
+                        style={{ width: `${subject.score}%` }}
+                      />
+
+                    </div>
+
+                  </div>
+                ))}
+
+              </div>
+            </div>
+
+            {/* PERFORMANCE TREND */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+
+              <div className="flex items-center justify-between mb-6">
+
+                <div>
+                  <h2 className="text-2xl font-bold text-slate-900">
+                    Academic Trend
+                  </h2>
+
+                  <p className="text-slate-500 mt-1">
+                    Continuous assessment growth
+                  </p>
+                </div>
+
+                <div className="bg-emerald-100 text-emerald-700 px-3 py-2 rounded-xl font-bold">
+                  +24%
+                </div>
+
+              </div>
+
+              <div className="relative h-64 flex items-end gap-4">
+
+                {performanceTrend.map((value, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center flex-1"
+                  >
+
+                    <div
+                      className="w-full rounded-t-2xl bg-gradient-to-t from-indigo-600 to-sky-400"
+                      style={{ height: `${value * 2}px` }}
+                    />
+
+                    <span className="mt-2 text-xs text-slate-500">
+                      W{index + 1}
+                    </span>
+
+                  </div>
+                ))}
+
+              </div>
+            </div>
+
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="space-y-6">
+
+            {/* PROFILE */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+
+              <div className="flex flex-col items-center text-center">
+
+                <div className="w-24 h-24 rounded-3xl bg-indigo-600 text-white flex items-center justify-center text-3xl font-bold shadow-lg">
+                  DK
+                </div>
+
+                <h2 className="mt-5 text-2xl font-bold text-slate-900">
+                  Daniel Kimani
+                </h2>
+
+                <p className="text-slate-500">
+                  Grade 8 • Junior Secondary School
+                </p>
+
+              </div>
+
+              <div className="mt-8 grid grid-cols-2 gap-4">
+
+                <MiniInfo title="Admission" value="CBC-2026-018" />
+                <MiniInfo title="Class" value="8 North" />
+                <MiniInfo title="Gender" value="Male" />
+                <MiniInfo title="Guardian" value="Mrs. Kimani" />
+
+              </div>
+
+            </div>
+
+            {/* ATTENDANCE */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+
+              <h3 className="font-bold text-slate-800 mb-5">
+                Attendance Trend
+              </h3>
+
+              <div className="flex items-end justify-between gap-2 h-40">
+
+                {attendance.map((value, index) => (
+                  <div
+                    key={index}
+                    className="flex-1 rounded-t-2xl bg-indigo-500"
+                    style={{ height: `${value}%` }}
+                  />
+                ))}
+
+              </div>
+
+              <div className="flex justify-between text-xs text-slate-400 mt-3">
+                <span>Jan</span>
+                <span>Feb</span>
+                <span>Mar</span>
+                <span>Apr</span>
+                <span>May</span>
+                <span>Jun</span>
+              </div>
+
+            </div>
+
+            {/* CBC COMPETENCIES */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+
+              <div className="mb-6">
+
+                <h2 className="text-xl font-bold text-slate-900">
+                  CBC Competencies
                 </h2>
 
                 <p className="text-slate-500 mt-1">
-                  CBC competency-based evaluation overview
+                  Learner competency evaluation
                 </p>
+
               </div>
 
-              <div className="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-xl font-semibold">
-                Term 2
-              </div>
+              <div className="space-y-5">
 
-            </div>
+                {competencies.map((item) => (
+                  <div key={item.title}>
 
-            <div className="space-y-5">
+                    <div className="flex justify-between mb-2">
 
-              {subjects.map((subject) => (
-                <div key={subject.name}>
-
-                  <div className="flex items-center justify-between mb-2">
-
-                    <h3 className="font-semibold text-slate-800">
-                      {subject.name}
-                    </h3>
-
-                    <div className="flex items-center gap-3">
-
-                      <span className="font-bold text-slate-700">
-                        {subject.score}%
+                      <span className="font-semibold text-slate-700">
+                        {item.title}
                       </span>
 
-                      <span
-                        className={`px-3 py-1 rounded-full text-sm font-bold ${gradeColor(subject.grade)}`}
-                      >
-                        {subject.grade}
+                      <span className="font-bold text-slate-900">
+                        {item.value}%
                       </span>
 
                     </div>
+
+                    <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
+
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500"
+                        style={{ width: `${item.value}%` }}
+                      />
+
+                    </div>
+
                   </div>
+                ))}
 
-                  <div className="w-full h-4 bg-slate-200 rounded-full overflow-hidden">
-
-                    <div
-                      className="h-full bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"
-                      style={{ width: `${subject.score}%` }}
-                    />
-
-                  </div>
-
-                </div>
-              ))}
-
-            </div>
-          </div>
-
-          {/* STUDENT PROFILE */}
-          <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6">
-
-            <div className="flex flex-col items-center text-center">
-
-              <div className="w-24 h-24 rounded-3xl bg-indigo-600 text-white flex items-center justify-center text-3xl font-bold shadow-lg">
-                DK
               </div>
-
-              <h2 className="mt-5 text-2xl font-bold text-slate-900">
-                Daniel Kimani
-              </h2>
-
-              <p className="text-slate-500">
-                Grade 8 • Junior Secondary School
-              </p>
-
-            </div>
-
-            <div className="mt-8 grid grid-cols-2 gap-4">
-
-              <MiniInfo title="Admission" value="CBC-2026-018" />
-              <MiniInfo title="Class" value="8 North" />
-              <MiniInfo title="Gender" value="Male" />
-              <MiniInfo title="Guardian" value="Mrs. Kimani" />
 
             </div>
 
@@ -280,6 +416,7 @@ function StatCard({
       <div className="flex items-center justify-between">
 
         <div>
+
           <p className="text-sm text-slate-500 font-medium">
             {title}
           </p>
@@ -287,6 +424,7 @@ function StatCard({
           <h3 className="text-2xl font-bold text-slate-900 mt-1">
             {value}
           </h3>
+
         </div>
 
         <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-slate-700 shadow-sm">
@@ -294,6 +432,7 @@ function StatCard({
         </div>
 
       </div>
+
     </div>
   );
 }
