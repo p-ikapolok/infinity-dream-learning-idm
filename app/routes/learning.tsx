@@ -227,26 +227,9 @@ export default function GlobalDashboard() {
           {/* ==========================================  
               SECTION 2: ANALYTICS OVERVIEW  
               ========================================== */}  
-          <section className="w-full flex flex-col gap-4">  
-        <h2 className="text-[22px] font-semibold text-[#111827]">Analytics Overview</h2>  
-              <p className="text-[14px] text-[#6b7280] mt-1">View your overall progress analysis.</p>
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">  
-              {analytics.map((stat, i) => (  
-                <div key={i} className="flex flex-col gap-2 bg-[#ffffff] rounded-lg p-4 md:p-6 border border-[#e5e7eb]">  
-                  <div className="text-[#6b7280]">  
-                    {React.createElement(Icons[stat.icon], { className: "w-5 h-5" })}  
-                  </div>  
-                  <div className="mt-1">  
-                    <div className="text-[22px] font-semibold text-[#111827] leading-none mb-1">{stat.value}</div>  
-                    <div className="text-[12px] font-medium text-[#6b7280]">{stat.label}</div>  
-                  </div> 
-                </div>  
-              ))}  
-            </div>  
-                 <div>
-                  <Analytics />
-                 </div>
-          </section>  
+          <section className="w-full">
+           <Analytics />
+          </section>
 
           {/* ==========================================  
               SECTION 3: SUBJECTS AREA (MAIN SECTION)  
