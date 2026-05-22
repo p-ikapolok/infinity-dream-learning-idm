@@ -239,13 +239,13 @@ export default function GlobalDashboard() {
                   <div className="mt-1">  
                     <div className="text-[22px] font-semibold text-[#111827] leading-none mb-1">{stat.value}</div>  
                     <div className="text-[12px] font-medium text-[#6b7280]">{stat.label}</div>  
-                  </div>  
-                 <div>
-                  <Analytics />
-                 </div>
+                  </div> 
                 </div>  
               ))}  
             </div>  
+                 <div>
+                  <Analytics />
+                 </div>
           </section>  
 
           {/* ==========================================  
