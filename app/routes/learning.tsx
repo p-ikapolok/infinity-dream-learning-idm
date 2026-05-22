@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import Analytics from "../components/Analytics";
 import LearningLayout from "../components/LearningLayout"; // Adjust import path as needed
 
 // ==========================================
@@ -242,6 +243,9 @@ export default function GlobalDashboard() {
                 </div>  
               ))}  
             </div>  
+           <div>
+             <Analytics />
+          </div>
           </section>  
 
           {/* ==========================================  
