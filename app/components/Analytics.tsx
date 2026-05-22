@@ -1,403 +1,248 @@
 import React from "react";
 
-export default function CBCAnalyticsDashboard() {
+export default function LMSAI_CBC_Dashboard() {
   const subjects = [
-    { name: "Mathematics", score: 78, grade: "ME" },
-    { name: "English", score: 84, grade: "EE" },
-    { name: "Kiswahili", score: 81, grade: "EE" },
-    { name: "Integrated Science", score: 73, grade: "ME" },
-    { name: "Social Studies", score: 88, grade: "EE" },
-    { name: "Creative Arts", score: 91, grade: "EX" },
-    { name: "Pre-Technical", score: 76, grade: "ME" },
+    { name: "Mathematics", score: 78, classAvg: 72 },
+    { name: "English", score: 84, classAvg: 80 },
+    { name: "Kiswahili", score: 81, classAvg: 78 },
+    { name: "Science", score: 73, classAvg: 76 },
+    { name: "Social Studies", score: 88, classAvg: 83 },
+    { name: "Creative Arts", score: 91, classAvg: 85 },
+    { name: "Pre-Technical", score: 76, classAvg: 74 },
   ];
 
   const competencies = [
-    { title: "Communication", value: 86 },
-    { title: "Critical Thinking", value: 79 },
-    { title: "Creativity", value: 92 },
-    { title: "Citizenship", value: 81 },
-    { title: "Digital Literacy", value: 88 },
+    { name: "Communication", value: 86 },
+    { name: "Critical Thinking", value: 79 },
+    { name: "Creativity", value: 92 },
+    { name: "Citizenship", value: 81 },
+    { name: "Digital Literacy", value: 88 },
   ];
 
   const attendance = [92, 95, 94, 96, 97, 93];
 
-  const performanceTrend = [62, 68, 70, 74, 79, 82, 86];
+  const avg =
+    subjects.reduce((a, b) => a + b.score, 0) / subjects.length;
 
-  const average = Math.round(
-    subjects.reduce((acc, item) => acc + item.score, 0) /
-      subjects.length
+  const classAvg =
+    subjects.reduce((a, b) => a + b.classAvg, 0) / subjects.length;
+
+  const weakSubjects = subjects.filter((s) => s.score < 80);
+
+  const highRiskSubjects = subjects.filter(
+    (s) => s.score + 5 < s.classAvg
   );
 
-  const gradeColor = (grade: string) => {
-    switch (grade) {
-      case "EX":
-        return "bg-emerald-100 text-emerald-700";
+  const predictedNextTerm = Math.min(
+    100,
+    Math.round(avg + ((avg - 70) / 10) * 6)
+  );
 
-      case "EE":
-        return "bg-blue-100 text-blue-700";
+  const predictedGrade =
+    predictedNextTerm >= 85
+      ? "EE+"
+      : predictedNextTerm >= 75
+      ? "EE"
+      : "ME";
 
-      case "ME":
-        return "bg-amber-100 text-amber-700";
+  const riskLevel =
+    avg < 70 ? "HIGH RISK" : avg < 80 ? "MODERATE" : "LOW RISK";
 
-      default:
-        return "bg-slate-100 text-slate-700";
-    }
-  };
+  /* ---------------- ICONS ---------------- */
+
+  const IconChart = () => (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M4 19V5" />
+      <path d="M8 19v-8" />
+      <path d="M12 19v-5" />
+      <path d="M16 19v-11" />
+      <path d="M20 19V9" />
+    </svg>
+  );
+
+  const IconWarning = () => (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M12 9v4" />
+      <path d="M12 17h.01" />
+      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+    </svg>
+  );
+
+  const IconTarget = () => (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="6" />
+      <circle cx="12" cy="12" r="2" />
+    </svg>
+  );
+
+  const IconSchool = () => (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M3 10l9-5 9 5-9 5-9-5z" />
+      <path d="M21 10v6" />
+      <path d="M3 10v6" />
+      <path d="M12 15v7" />
+    </svg>
+  );
+
+  const IconUser = () => (
+    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
+      <path d="M20 21a8 8 0 0 0-16 0" />
+      <circle cx="12" cy="7" r="4" />
+    </svg>
+  );
+
+  /* ---------------- UI ---------------- */
 
   return (
-    <div className="w-full min-h-screen bg-slate-100 p-4 lg:p-6">
-
-      <div className="w-full space-y-6">
+    <div className="w-full min-h-screen bg-slate-100 p-6">
+      <div className="max-w-7xl mx-auto space-y-6">
 
         {/* HEADER */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 lg:p-8 flex flex-col xl:flex-row justify-between gap-6">
-
+        <div className="bg-white border rounded-2xl p-6 flex justify-between items-center">
           <div className="flex items-center gap-4">
-
-            <div className="w-16 h-16 rounded-2xl bg-indigo-600 flex items-center justify-center">
-
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.7"
-                className="w-8 h-8 text-white"
-              >
-                <path d="M12 14L3 9l9-5 9 5-9 5z" />
-                <path d="M3 9v6l9 5 9-5V9" />
-              </svg>
-
-            </div>
-
+            <IconSchool />
             <div>
-
-              <h1 className="text-3xl font-bold text-slate-900">
-                CBC Student Analytics
+              <h1 className="text-xl font-bold">
+                CBC AI Learning Management System
               </h1>
-
-              <p className="text-slate-500 mt-1">
-                Infinity Dream Learning • Term 2 Performance Report
+              <p className="text-sm text-slate-500">
+                Predictive analytics for student performance
               </p>
-
             </div>
-
           </div>
+        </div>
 
-          {/* STATS */}
-          <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 w-full xl:w-auto">
-
-            <StatCard
-              title="Mean Score"
-              value={`${average}%`}
-              color="bg-blue-50"
-              icon={
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  className="w-6 h-6"
-                >
-                  <path d="M4 20V10" />
-                  <path d="M10 20V4" />
-                  <path d="M16 20v-7" />
-                  <path d="M22 20v-3" />
-                </svg>
-              }
-            />
-
-            <StatCard
-              title="CBC Level"
-              value="EE"
-              color="bg-emerald-50"
-              icon={
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  className="w-6 h-6"
-                >
-                  <path d="M20 6L9 17l-5-5" />
-                </svg>
-              }
-            />
-
-            <StatCard
-              title="Attendance"
-              value="95%"
-              color="bg-amber-50"
-              icon={
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  className="w-6 h-6"
-                >
-                  <path d="M8 2v4" />
-                  <path d="M16 2v4" />
-                  <rect x="3" y="6" width="18" height="15" rx="2" />
-                  <path d="M3 10h18" />
-                </svg>
-              }
-            />
-
-            <StatCard
-              title="Class Rank"
-              value="7 / 48"
-              color="bg-purple-50"
-              icon={
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  className="w-6 h-6"
-                >
-                  <path d="M8 21h8" />
-                  <path d="M12 17v4" />
-                  <path d="M7 4h10" />
-                  <path d="M17 4v3a5 5 0 0 1-10 0V4" />
-                </svg>
-              }
-            />
-
-          </div>
+        {/* METRICS */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <Metric title="Student Average" value={`${avg.toFixed(1)}%`} icon={<IconChart />} />
+          <Metric title="Class Average" value={`${classAvg.toFixed(1)}%`} icon={<IconChart />} />
+          <Metric title="Risk Level" value={riskLevel} icon={<IconWarning />} />
+          <Metric title="Predicted Grade" value={predictedGrade} icon={<IconTarget />} />
         </div>
 
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 2xl:grid-cols-12 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-          {/* LEFT SIDE */}
-          <div className="2xl:col-span-8 grid grid-cols-1 xl:grid-cols-2 gap-6">
+          {/* LEFT */}
+          <div className="lg:col-span-2 space-y-6">
 
-            {/* SUBJECT PERFORMANCE */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 xl:col-span-2">
+            {/* SUBJECT ANALYSIS */}
+            <div className="bg-white border rounded-2xl p-6">
+              <h2 className="font-bold mb-4 flex items-center gap-2">
+                <IconChart /> Subject Intelligence
+              </h2>
 
-              <div className="flex items-center justify-between mb-8">
+              {subjects.map((s) => {
+                const diff = s.score - s.classAvg;
 
-                <div>
+                return (
+                  <div key={s.name} className="mb-4">
+                    <div className="flex justify-between text-sm">
+                      <span>{s.name}</span>
+                      <span>
+                        {s.score}% vs {s.classAvg}%
+                      </span>
+                    </div>
 
-                  <h2 className="text-2xl font-bold text-slate-900">
-                    Subject Performance
-                  </h2>
+                    <div className="h-2 bg-slate-200 rounded-full mt-1">
+                      <div
+                        className={`h-2 rounded-full ${
+                          diff >= 0 ? "bg-emerald-500" : "bg-red-500"
+                        }`}
+                        style={{ width: `${s.score}%` }}
+                      />
+                    </div>
 
-                  <p className="text-slate-500 mt-1">
-                    CBC competency-based evaluation overview
-                  </p>
-
-                </div>
-
-                <div className="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-xl font-semibold">
-                  Term 2
-                </div>
-
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-                {subjects.map((subject) => (
-                  <div key={subject.name}>
-
-                    <div className="flex items-center justify-between mb-2">
-
-                      <h3 className="font-semibold text-slate-800">
-                        {subject.name}
-                      </h3>
-
-                      <div className="flex items-center gap-3">
-
-                        <span className="font-bold text-slate-700">
-                          {subject.score}%
-                        </span>
-
-                        <span
-                          className={`px-3 py-1 rounded-full text-sm font-bold ${gradeColor(subject.grade)}`}
-                        >
-                          {subject.grade}
-                        </span>
-
+                    {diff < 0 && (
+                      <div className="text-xs text-red-500 mt-1 flex items-center gap-1">
+                        <IconWarning />
+                        Below class average by {Math.abs(diff)}%
                       </div>
-
-                    </div>
-
-                    <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
-
-                      <div
-                        className="h-full bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"
-                        style={{ width: `${subject.score}%` }}
-                      />
-
-                    </div>
-
+                    )}
                   </div>
-                ))}
-
-              </div>
+                );
+              })}
             </div>
 
-            {/* PERFORMANCE TREND */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+            {/* WEAK AREAS */}
+            <div className="bg-white border rounded-2xl p-6">
+              <h2 className="font-bold mb-3 flex items-center gap-2">
+                <IconWarning /> Learning Gaps
+              </h2>
 
-              <div className="flex items-center justify-between mb-6">
-
-                <div>
-
-                  <h2 className="text-xl font-bold text-slate-900">
-                    Academic Trend
-                  </h2>
-
-                  <p className="text-slate-500 mt-1">
-                    Continuous assessment growth
-                  </p>
-
-                </div>
-
-                <div className="bg-emerald-100 text-emerald-700 px-3 py-2 rounded-xl font-bold">
-                  +24%
-                </div>
-
-              </div>
-
-              <div className="relative h-52 flex items-end gap-3">
-
-                {performanceTrend.map((value, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center flex-1"
-                  >
-
-                    <div
-                      className="w-full max-w-[40px] rounded-t-xl bg-gradient-to-t from-indigo-600 to-sky-400 transition-all duration-300"
-                      style={{
-                        height: `${value * 1.3}px`,
-                      }}
-                    />
-
-                    <span className="mt-2 text-xs text-slate-500 font-medium">
-                      W{index + 1}
-                    </span>
-
+              {weakSubjects.length === 0 ? (
+                <p className="text-green-600">No critical gaps detected</p>
+              ) : (
+                weakSubjects.map((s) => (
+                  <div key={s.name} className="text-red-500 text-sm">
+                    • {s.name}
                   </div>
-                ))}
-
-              </div>
+                ))
+              )}
             </div>
 
-            {/* CBC COMPETENCIES */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+            {/* RISK ENGINE */}
+            <div className="bg-white border rounded-2xl p-6">
+              <h2 className="font-bold mb-3 flex items-center gap-2">
+                <IconWarning /> Risk Analysis
+              </h2>
 
-              <div className="mb-6">
-
-                <h2 className="text-xl font-bold text-slate-900">
-                  CBC Competencies
-                </h2>
-
-                <p className="text-slate-500 mt-1">
-                  Learner competency evaluation
-                </p>
-
-              </div>
-
-              <div className="space-y-5">
-
-                {competencies.map((item) => (
-                  <div key={item.title}>
-
-                    <div className="flex justify-between mb-2">
-
-                      <span className="font-semibold text-slate-700">
-                        {item.title}
-                      </span>
-
-                      <span className="font-bold text-slate-900">
-                        {item.value}%
-                      </span>
-
-                    </div>
-
-                    <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
-
-                      <div
-                        className="h-full rounded-full bg-gradient-to-r from-emerald-500 to-cyan-500"
-                        style={{ width: `${item.value}%` }}
-                      />
-
-                    </div>
-
+              {highRiskSubjects.length === 0 ? (
+                <p className="text-green-600">Student above expected level</p>
+              ) : (
+                highRiskSubjects.map((s) => (
+                  <div key={s.name} className="text-orange-500 text-sm">
+                    • {s.name}
                   </div>
-                ))}
-
-              </div>
+                ))
+              )}
             </div>
-
           </div>
 
-          {/* RIGHT SIDE */}
-          <div className="2xl:col-span-4 grid grid-cols-1 gap-6">
+          {/* RIGHT */}
+          <div className="space-y-6">
 
-            {/* PROFILE */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+            {/* PREDICTION */}
+            <div className="bg-white border rounded-2xl p-6">
+              <h2 className="font-bold flex items-center gap-2">
+                <IconTarget /> Next Term Prediction
+              </h2>
 
-              <div className="flex flex-col items-center text-center">
+              <p className="text-3xl font-bold text-indigo-600 mt-3">
+                {predictedNextTerm}%
+              </p>
 
-                <div className="w-24 h-24 rounded-3xl bg-indigo-600 text-white flex items-center justify-center text-3xl font-bold shadow-lg">
-                  DK
-                </div>
-
-                <h2 className="mt-5 text-2xl font-bold text-slate-900">
-                  Daniel Kimani
-                </h2>
-
-                <p className="text-slate-500">
-                  Grade 8 • Junior Secondary School
-                </p>
-
-              </div>
-
-              <div className="mt-8 grid grid-cols-2 gap-4">
-
-                <MiniInfo title="Admission" value="CBC-2026-018" />
-                <MiniInfo title="Class" value="8 North" />
-                <MiniInfo title="Gender" value="Male" />
-                <MiniInfo title="Guardian" value="Mrs. Kimani" />
-
-              </div>
-
+              <p className="text-sm text-slate-500">
+                Expected Grade: {predictedGrade}
+              </p>
             </div>
 
             {/* ATTENDANCE */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+            <div className="bg-white border rounded-2xl p-6">
+              <h2 className="font-bold mb-3 flex items-center gap-2">
+                <IconSchool /> Attendance
+              </h2>
 
-              <h3 className="font-bold text-slate-800 mb-5">
-                Attendance Trend
-              </h3>
-
-              <div className="flex items-end justify-between gap-3 h-32">
-
-                {attendance.map((value, index) => (
+              <div className="flex items-end gap-2 h-32">
+                {attendance.map((a, i) => (
                   <div
-                    key={index}
-                    className="flex-1 max-w-[36px] mx-auto rounded-t-xl bg-indigo-500"
-                    style={{ height: `${value}%` }}
+                    key={i}
+                    className="flex-1 bg-indigo-500 rounded-t"
+                    style={{ height: `${a}%` }}
                   />
                 ))}
-
               </div>
-
-              <div className="flex justify-between text-xs text-slate-400 mt-3">
-                <span>Jan</span>
-                <span>Feb</span>
-                <span>Mar</span>
-                <span>Apr</span>
-                <span>May</span>
-                <span>Jun</span>
-              </div>
-
             </div>
 
+            {/* PROFILE */}
+            <div className="bg-white border rounded-2xl p-6 text-center">
+              <IconUser />
+              <h2 className="font-bold mt-3">Student Profile</h2>
+              <p className="text-sm text-slate-500">
+                AI-Tracked Learner
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -405,66 +250,16 @@ export default function CBCAnalyticsDashboard() {
   );
 }
 
-type StatCardProps = {
-  title: string;
-  value: string;
-  icon: React.ReactNode;
-  color: string;
-};
+/* ---------------- METRIC CARD ---------------- */
 
-function StatCard({
-  title,
-  value,
-  icon,
-  color,
-}: StatCardProps) {
+function Metric({ title, value, icon }: any) {
   return (
-    <div className={`rounded-2xl p-4 ${color}`}>
-
-      <div className="flex items-center justify-between">
-
-        <div>
-
-          <p className="text-sm text-slate-500 font-medium">
-            {title}
-          </p>
-
-          <h3 className="text-2xl font-bold text-slate-900 mt-1">
-            {value}
-          </h3>
-
-        </div>
-
-        <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-slate-700 shadow-sm">
-          {icon}
-        </div>
-
+    <div className="bg-white border rounded-xl p-4 flex items-center justify-between">
+      <div>
+        <p className="text-xs text-slate-500">{title}</p>
+        <p className="font-bold">{value}</p>
       </div>
-
-    </div>
-  );
-}
-
-type MiniInfoProps = {
-  title: string;
-  value: string;
-};
-
-function MiniInfo({
-  title,
-  value,
-}: MiniInfoProps) {
-  return (
-    <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4">
-
-      <p className="text-sm text-slate-500">
-        {title}
-      </p>
-
-      <h3 className="font-bold text-slate-800 mt-1">
-        {value}
-      </h3>
-
+      <div className="text-slate-600">{icon}</div>
     </div>
   );
 }
