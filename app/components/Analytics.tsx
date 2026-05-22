@@ -318,6 +318,7 @@ export default function CBCAnalyticsDashboard() {
   }, []);
 
   const overallGrade = getGrade(globalMean);
+  const formula = String.raw`P_{t+1} = S_t + \frac{\sum_{i=1}^{n} (S_i - S_{i-1})}{n}`;
 
   return (
     <div className="w-full min-h-screen bg-[#f8fafc] text-[#0f172a] font-sans p-4 md:p-8">
@@ -490,8 +491,8 @@ export default function CBCAnalyticsDashboard() {
               <p className="text-[13px] text-[#94a3b8] leading-relaxed mb-4">
                 Based on current momentum and moving averages, the expected baseline score is calculated via: <br/>
                 <span className="block mt-2 font-mono text-xs text-[#cbd5e1] opacity-90">
-                  $ P_{t+1} = S_t + \frac{\sum_{i=1}^{n} (S_i - S_{i-1})}{n} $
-                </span>
+  $ {formula} $
+               </span>
               </p>
             </div>
             
