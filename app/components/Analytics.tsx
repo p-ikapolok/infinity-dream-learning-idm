@@ -1,228 +1,211 @@
 import React from "react";
 
-export default function LMSAI_CBC_Dashboard() {
+export default function CBCAnalyticsDashboard() {
   const subjects = [
-    { name: "Mathematics", score: 78, classAvg: 72 },
-    { name: "English", score: 84, classAvg: 80 },
-    { name: "Kiswahili", score: 81, classAvg: 78 },
-    { name: "Science", score: 73, classAvg: 76 },
-    { name: "Social Studies", score: 88, classAvg: 83 },
-    { name: "Creative Arts", score: 91, classAvg: 85 },
-    { name: "Pre-Technical", score: 76, classAvg: 74 },
+    { name: "Mathematics", score: 78, grade: "ME" },
+    { name: "English", score: 84, grade: "EE" },
+    { name: "Kiswahili", score: 81, grade: "EE" },
+    { name: "Integrated Science", score: 73, grade: "ME" },
+    { name: "Social Studies", score: 88, grade: "EE" },
+    { name: "Creative Arts", score: 91, grade: "EX" },
+    { name: "Pre-Technical", score: 76, grade: "ME" },
   ];
 
   const competencies = [
-    { name: "Communication", value: 86 },
-    { name: "Critical Thinking", value: 79 },
-    { name: "Creativity", value: 92 },
-    { name: "Citizenship", value: 81 },
-    { name: "Digital Literacy", value: 88 },
+    { title: "Communication", value: 86 },
+    { title: "Critical Thinking", value: 79 },
+    { title: "Creativity", value: 92 },
+    { title: "Citizenship", value: 81 },
+    { title: "Digital Literacy", value: 88 },
   ];
 
   const attendance = [92, 95, 94, 96, 97, 93];
 
-  const avg =
-    subjects.reduce((a, b) => a + b.score, 0) / subjects.length;
+  const performanceTrend = [62, 68, 70, 74, 79, 82, 86];
 
-  const classAvg =
-    subjects.reduce((a, b) => a + b.classAvg, 0) / subjects.length;
-
-  const weakSubjects = subjects.filter((s) => s.score < 80);
-
-  const highRiskSubjects = subjects.filter(
-    (s) => s.score + 5 < s.classAvg
+  const average = Math.round(
+    subjects.reduce((acc, item) => acc + item.score, 0) / subjects.length
   );
 
-  const predictedNextTerm = Math.min(
-    100,
-    Math.round(avg + ((avg - 70) / 10) * 6)
-  );
-
-  const predictedGrade =
-    predictedNextTerm >= 85
-      ? "EE+"
-      : predictedNextTerm >= 75
-      ? "EE"
-      : "ME";
-
-  const riskLevel =
-    avg < 70 ? "HIGH RISK" : avg < 80 ? "MODERATE" : "LOW RISK";
-
-  /* ---------------- ICONS ---------------- */
-
-  const IconChart = () => (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M4 19V5" />
-      <path d="M8 19v-8" />
-      <path d="M12 19v-5" />
-      <path d="M16 19v-11" />
-      <path d="M20 19V9" />
-    </svg>
-  );
-
-  const IconWarning = () => (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M12 9v4" />
-      <path d="M12 17h.01" />
-      <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-    </svg>
-  );
-
-  const IconTarget = () => (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="6" />
-      <circle cx="12" cy="12" r="2" />
-    </svg>
-  );
-
-  const IconSchool = () => (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M3 10l9-5 9 5-9 5-9-5z" />
-      <path d="M21 10v6" />
-      <path d="M3 10v6" />
-      <path d="M12 15v7" />
-    </svg>
-  );
-
-  const IconUser = () => (
-    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2">
-      <path d="M20 21a8 8 0 0 0-16 0" />
-      <circle cx="12" cy="7" r="4" />
-    </svg>
-  );
-
-  /* ---------------- UI ---------------- */
+  const gradeColor = (grade: string) => {
+    switch (grade) {
+      case "EX":
+        return "bg-emerald-100 text-emerald-700";
+      case "EE":
+        return "bg-blue-100 text-blue-700";
+      case "ME":
+        return "bg-amber-100 text-amber-700";
+      default:
+        return "bg-slate-100 text-slate-700";
+    }
+  };
 
   return (
-    <div className="w-full min-h-screen bg-slate-100 p-6">
+    <div className="w-full min-h-screen bg-slate-100 p-4 lg:p-6">
       <div className="max-w-7xl mx-auto space-y-6">
 
         {/* HEADER */}
-        <div className="bg-white border rounded-2xl p-6 flex justify-between items-center">
+        <div className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col xl:flex-row justify-between gap-6">
+
           <div className="flex items-center gap-4">
-            <IconSchool />
+            <div className="w-14 h-14 rounded-2xl bg-indigo-600 flex items-center justify-center">
+              <svg viewBox="0 0 24 24" className="w-7 h-7 text-white" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 14L3 9l9-5 9 5-9 5z" />
+                <path d="M3 9v6l9 5 9-5V9" />
+              </svg>
+            </div>
+
             <div>
-              <h1 className="text-xl font-bold">
-                CBC AI Learning Management System
+              <h1 className="text-2xl font-bold text-slate-900">
+                CBC Student Analytics
               </h1>
-              <p className="text-sm text-slate-500">
-                Predictive analytics for student performance
+              <p className="text-slate-500 text-sm">
+                Term 2 Performance Dashboard
               </p>
             </div>
           </div>
-        </div>
 
-        {/* METRICS */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-          <Metric title="Student Average" value={`${avg.toFixed(1)}%`} icon={<IconChart />} />
-          <Metric title="Class Average" value={`${classAvg.toFixed(1)}%`} icon={<IconChart />} />
-          <Metric title="Risk Level" value={riskLevel} icon={<IconWarning />} />
-          <Metric title="Predicted Grade" value={predictedGrade} icon={<IconTarget />} />
+          {/* STATS */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <StatCard title="Mean" value={`${average}%`} />
+            <StatCard title="Level" value="EE" />
+            <StatCard title="Attendance" value="95%" />
+            <StatCard title="Rank" value="7/48" />
+          </div>
         </div>
 
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
           {/* LEFT */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="xl:col-span-2 space-y-6">
 
-            {/* SUBJECT ANALYSIS */}
-            <div className="bg-white border rounded-2xl p-6">
-              <h2 className="font-bold mb-4 flex items-center gap-2">
-                <IconChart /> Subject Intelligence
-              </h2>
+            {/* SUBJECTS */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h2 className="text-xl font-bold mb-4">Subject Performance</h2>
 
-              {subjects.map((s) => {
-                const diff = s.score - s.classAvg;
-
-                return (
-                  <div key={s.name} className="mb-4">
-                    <div className="flex justify-between text-sm">
-                      <span>{s.name}</span>
-                      <span>
-                        {s.score}% vs {s.classAvg}%
+              <div className="space-y-4">
+                {subjects.map((s) => (
+                  <div key={s.name}>
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="font-medium">{s.name}</span>
+                      <span className="flex gap-2">
+                        {s.score}%
+                        <span className={`px-2 rounded ${gradeColor(s.grade)}`}>
+                          {s.grade}
+                        </span>
                       </span>
                     </div>
 
-                    <div className="h-2 bg-slate-200 rounded-full mt-1">
+                    <div className="w-full h-2 bg-slate-200 rounded-full">
                       <div
-                        className={`h-2 rounded-full ${
-                          diff >= 0 ? "bg-emerald-500" : "bg-red-500"
-                        }`}
+                        className="h-2 bg-indigo-500 rounded-full"
                         style={{ width: `${s.score}%` }}
                       />
                     </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-                    {diff < 0 && (
-                      <div className="text-xs text-red-500 mt-1 flex items-center gap-1">
-                        <IconWarning />
-                        Below class average by {Math.abs(diff)}%
+            {/* TREND */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h2 className="text-xl font-bold mb-4">Academic Trend</h2>
+
+              <div className="flex items-end gap-2 h-40">
+                {performanceTrend.map((v, i) => (
+                  <div
+                    key={i}
+                    className="flex-1 bg-indigo-500 rounded-t"
+                    style={{ height: `${v * 2}px` }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* COMPETENCIES */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h2 className="text-xl font-bold mb-4">CBC Competencies</h2>
+
+              <div className="space-y-3">
+                {competencies.map((c) => (
+                  <div key={c.title}>
+                    <div className="flex justify-between text-sm">
+                      <span>{c.title}</span>
+                      <span>{c.value}%</span>
+                    </div>
+                    <div className="h-2 bg-slate-200 rounded-full">
+                      <div
+                        className="h-2 bg-emerald-500 rounded-full"
+                        style={{ width: `${c.value}%` }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* STRANDS */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h2 className="text-xl font-bold mb-4">CBC Strand Breakdown</h2>
+
+              {[
+                {
+                  subject: "Mathematics",
+                  strands: [
+                    { name: "Numbers", value: 82 },
+                    { name: "Algebra", value: 74 },
+                    { name: "Geometry", value: 80 },
+                  ],
+                },
+                {
+                  subject: "English",
+                  strands: [
+                    { name: "Reading", value: 88 },
+                    { name: "Writing", value: 81 },
+                    { name: "Listening", value: 85 },
+                  ],
+                },
+              ].map((item) => (
+                <div key={item.subject} className="mb-5">
+                  <h3 className="font-semibold mb-2">{item.subject}</h3>
+
+                  {item.strands.map((s) => (
+                    <div key={s.name} className="mb-2">
+                      <div className="flex justify-between text-xs">
+                        <span>{s.name}</span>
+                        <span>{s.value}%</span>
                       </div>
-                    )}
-                  </div>
-                );
-              })}
+                      <div className="h-2 bg-slate-200 rounded-full">
+                        <div
+                          className="h-2 bg-sky-500 rounded-full"
+                          style={{ width: `${s.value}%` }}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
 
-            {/* WEAK AREAS */}
-            <div className="bg-white border rounded-2xl p-6">
-              <h2 className="font-bold mb-3 flex items-center gap-2">
-                <IconWarning /> Learning Gaps
-              </h2>
-
-              {weakSubjects.length === 0 ? (
-                <p className="text-green-600">No critical gaps detected</p>
-              ) : (
-                weakSubjects.map((s) => (
-                  <div key={s.name} className="text-red-500 text-sm">
-                    • {s.name}
-                  </div>
-                ))
-              )}
-            </div>
-
-            {/* RISK ENGINE */}
-            <div className="bg-white border rounded-2xl p-6">
-              <h2 className="font-bold mb-3 flex items-center gap-2">
-                <IconWarning /> Risk Analysis
-              </h2>
-
-              {highRiskSubjects.length === 0 ? (
-                <p className="text-green-600">Student above expected level</p>
-              ) : (
-                highRiskSubjects.map((s) => (
-                  <div key={s.name} className="text-orange-500 text-sm">
-                    • {s.name}
-                  </div>
-                ))
-              )}
-            </div>
           </div>
 
           {/* RIGHT */}
           <div className="space-y-6">
 
-            {/* PREDICTION */}
-            <div className="bg-white border rounded-2xl p-6">
-              <h2 className="font-bold flex items-center gap-2">
-                <IconTarget /> Next Term Prediction
-              </h2>
+            {/* PROFILE */}
+            <div className="bg-white rounded-2xl border border-slate-200 p-6 text-center">
+              <div className="w-20 h-20 mx-auto bg-indigo-600 text-white flex items-center justify-center rounded-2xl text-2xl font-bold">
+                DK
+              </div>
 
-              <p className="text-3xl font-bold text-indigo-600 mt-3">
-                {predictedNextTerm}%
-              </p>
-
-              <p className="text-sm text-slate-500">
-                Expected Grade: {predictedGrade}
-              </p>
+              <h2 className="mt-4 font-bold text-lg">Daniel Kimani</h2>
+              <p className="text-sm text-slate-500">Grade 8 Student</p>
             </div>
 
             {/* ATTENDANCE */}
-            <div className="bg-white border rounded-2xl p-6">
-              <h2 className="font-bold mb-3 flex items-center gap-2">
-                <IconSchool /> Attendance
-              </h2>
+            <div className="bg-white rounded-2xl border border-slate-200 p-6">
+              <h3 className="font-bold mb-3">Attendance</h3>
 
               <div className="flex items-end gap-2 h-32">
                 {attendance.map((a, i) => (
@@ -235,14 +218,6 @@ export default function LMSAI_CBC_Dashboard() {
               </div>
             </div>
 
-            {/* PROFILE */}
-            <div className="bg-white border rounded-2xl p-6 text-center">
-              <IconUser />
-              <h2 className="font-bold mt-3">Student Profile</h2>
-              <p className="text-sm text-slate-500">
-                AI-Tracked Learner
-              </p>
-            </div>
           </div>
         </div>
       </div>
@@ -250,16 +225,12 @@ export default function LMSAI_CBC_Dashboard() {
   );
 }
 
-/* ---------------- METRIC CARD ---------------- */
-
-function Metric({ title, value, icon }: any) {
+/* STAT CARD */
+function StatCard({ title, value }: any) {
   return (
-    <div className="bg-white border rounded-xl p-4 flex items-center justify-between">
-      <div>
-        <p className="text-xs text-slate-500">{title}</p>
-        <p className="font-bold">{value}</p>
-      </div>
-      <div className="text-slate-600">{icon}</div>
+    <div className="bg-slate-50 border rounded-xl p-3 text-center">
+      <p className="text-xs text-slate-500">{title}</p>
+      <p className="font-bold text-lg">{value}</p>
     </div>
   );
 }
