@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function CBCAnalyticsDashboard() {
   const subjects = [
     { name: "Mathematics", score: 78, grade: "ME" },
@@ -48,7 +50,7 @@ export default function CBCAnalyticsDashboard() {
       <div className="w-full space-y-6">
 
         {/* HEADER */}
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 lg:p-8 flex flex-col lg:flex-row justify-between gap-6">
+        <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 lg:p-8 flex flex-col xl:flex-row justify-between gap-6">
 
           <div className="flex items-center gap-4">
 
@@ -82,7 +84,8 @@ export default function CBCAnalyticsDashboard() {
 
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {/* STATS */}
+          <div className="grid grid-cols-2 xl:grid-cols-4 gap-4 w-full xl:w-auto">
 
             <StatCard
               title="Mean Score"
@@ -165,17 +168,18 @@ export default function CBCAnalyticsDashboard() {
         </div>
 
         {/* MAIN GRID */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-1 2xl:grid-cols-12 gap-6 items-start">
 
           {/* LEFT SIDE */}
-          <div className="xl:col-span-2 space-y-6">
+          <div className="2xl:col-span-8 grid grid-cols-1 xl:grid-cols-2 gap-6">
 
             {/* SUBJECT PERFORMANCE */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 xl:col-span-2">
 
               <div className="flex items-center justify-between mb-8">
 
                 <div>
+
                   <h2 className="text-2xl font-bold text-slate-900">
                     Subject Performance
                   </h2>
@@ -183,6 +187,7 @@ export default function CBCAnalyticsDashboard() {
                   <p className="text-slate-500 mt-1">
                     CBC competency-based evaluation overview
                   </p>
+
                 </div>
 
                 <div className="bg-indigo-50 text-indigo-700 px-4 py-2 rounded-xl font-semibold">
@@ -191,7 +196,7 @@ export default function CBCAnalyticsDashboard() {
 
               </div>
 
-              <div className="space-y-5">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 {subjects.map((subject) => (
                   <div key={subject.name}>
@@ -218,7 +223,7 @@ export default function CBCAnalyticsDashboard() {
 
                     </div>
 
-                    <div className="w-full h-4 bg-slate-200 rounded-full overflow-hidden">
+                    <div className="w-full h-3 bg-slate-200 rounded-full overflow-hidden">
 
                       <div
                         className="h-full bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full"
@@ -239,13 +244,15 @@ export default function CBCAnalyticsDashboard() {
               <div className="flex items-center justify-between mb-6">
 
                 <div>
-                  <h2 className="text-2xl font-bold text-slate-900">
+
+                  <h2 className="text-xl font-bold text-slate-900">
                     Academic Trend
                   </h2>
 
                   <p className="text-slate-500 mt-1">
                     Continuous assessment growth
                   </p>
+
                 </div>
 
                 <div className="bg-emerald-100 text-emerald-700 px-3 py-2 rounded-xl font-bold">
@@ -254,7 +261,7 @@ export default function CBCAnalyticsDashboard() {
 
               </div>
 
-              <div className="relative h-64 flex items-end gap-4">
+              <div className="relative h-52 flex items-end gap-3">
 
                 {performanceTrend.map((value, index) => (
                   <div
@@ -263,11 +270,13 @@ export default function CBCAnalyticsDashboard() {
                   >
 
                     <div
-                      className="w-full rounded-t-2xl bg-gradient-to-t from-indigo-600 to-sky-400"
-                      style={{ height: `${value * 2}px` }}
+                      className="w-full max-w-[40px] rounded-t-xl bg-gradient-to-t from-indigo-600 to-sky-400 transition-all duration-300"
+                      style={{
+                        height: `${value * 1.3}px`,
+                      }}
                     />
 
-                    <span className="mt-2 text-xs text-slate-500">
+                    <span className="mt-2 text-xs text-slate-500 font-medium">
                       W{index + 1}
                     </span>
 
@@ -275,71 +284,6 @@ export default function CBCAnalyticsDashboard() {
                 ))}
 
               </div>
-            </div>
-
-          </div>
-
-          {/* RIGHT SIDE */}
-          <div className="space-y-6">
-
-            {/* PROFILE */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-
-              <div className="flex flex-col items-center text-center">
-
-                <div className="w-24 h-24 rounded-3xl bg-indigo-600 text-white flex items-center justify-center text-3xl font-bold shadow-lg">
-                  DK
-                </div>
-
-                <h2 className="mt-5 text-2xl font-bold text-slate-900">
-                  Daniel Kimani
-                </h2>
-
-                <p className="text-slate-500">
-                  Grade 8 • Junior Secondary School
-                </p>
-
-              </div>
-
-              <div className="mt-8 grid grid-cols-2 gap-4">
-
-                <MiniInfo title="Admission" value="CBC-2026-018" />
-                <MiniInfo title="Class" value="8 North" />
-                <MiniInfo title="Gender" value="Male" />
-                <MiniInfo title="Guardian" value="Mrs. Kimani" />
-
-              </div>
-
-            </div>
-
-            {/* ATTENDANCE */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
-
-              <h3 className="font-bold text-slate-800 mb-5">
-                Attendance Trend
-              </h3>
-
-              <div className="flex items-end justify-between gap-2 h-40">
-
-                {attendance.map((value, index) => (
-                  <div
-                    key={index}
-                    className="flex-1 rounded-t-2xl bg-indigo-500"
-                    style={{ height: `${value}%` }}
-                  />
-                ))}
-
-              </div>
-
-              <div className="flex justify-between text-xs text-slate-400 mt-3">
-                <span>Jan</span>
-                <span>Feb</span>
-                <span>Mar</span>
-                <span>Apr</span>
-                <span>May</span>
-                <span>Jun</span>
-              </div>
-
             </div>
 
             {/* CBC COMPETENCIES */}
@@ -386,6 +330,70 @@ export default function CBCAnalyticsDashboard() {
                   </div>
                 ))}
 
+              </div>
+            </div>
+
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="2xl:col-span-4 grid grid-cols-1 gap-6">
+
+            {/* PROFILE */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+
+              <div className="flex flex-col items-center text-center">
+
+                <div className="w-24 h-24 rounded-3xl bg-indigo-600 text-white flex items-center justify-center text-3xl font-bold shadow-lg">
+                  DK
+                </div>
+
+                <h2 className="mt-5 text-2xl font-bold text-slate-900">
+                  Daniel Kimani
+                </h2>
+
+                <p className="text-slate-500">
+                  Grade 8 • Junior Secondary School
+                </p>
+
+              </div>
+
+              <div className="mt-8 grid grid-cols-2 gap-4">
+
+                <MiniInfo title="Admission" value="CBC-2026-018" />
+                <MiniInfo title="Class" value="8 North" />
+                <MiniInfo title="Gender" value="Male" />
+                <MiniInfo title="Guardian" value="Mrs. Kimani" />
+
+              </div>
+
+            </div>
+
+            {/* ATTENDANCE */}
+            <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
+
+              <h3 className="font-bold text-slate-800 mb-5">
+                Attendance Trend
+              </h3>
+
+              <div className="flex items-end justify-between gap-3 h-32">
+
+                {attendance.map((value, index) => (
+                  <div
+                    key={index}
+                    className="flex-1 max-w-[36px] mx-auto rounded-t-xl bg-indigo-500"
+                    style={{ height: `${value}%` }}
+                  />
+                ))}
+
+              </div>
+
+              <div className="flex justify-between text-xs text-slate-400 mt-3">
+                <span>Jan</span>
+                <span>Feb</span>
+                <span>Mar</span>
+                <span>Apr</span>
+                <span>May</span>
+                <span>Jun</span>
               </div>
 
             </div>
