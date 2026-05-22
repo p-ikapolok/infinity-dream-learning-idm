@@ -43,8 +43,8 @@ export default function CBCAnalyticsDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-100 p-6 lg:p-10">
-      <div className="max-w-7xl mx-auto space-y-8">
+    <div className="w-full min-h-screen bg-slate-100 p-4 lg:p-6">
+      <div className="w-full space-y-8">
 
         {/* HEADER */}
         <div className="bg-white rounded-3xl shadow-sm border border-slate-200 p-6 lg:p-8 flex flex-col lg:flex-row justify-between gap-6">
