@@ -1,19 +1,37 @@
 import { useState, useEffect, useRef } from "react";
-import { Link } from "react-router"; 
+import { Link } from "react-router";
 
 export default function FloatingFinley() {
   const [isOpen, setIsOpen] = useState(false);
-  const [message, setMessage] = useState("");
+  const agentContainerRef = useRef(null);
+
+  // This replaces your <script> tag.
+  // React can't run <script> in JSX, so we inject it with useEffect
+  useEffect(() => {
+    if (!isOpen) return;
+    if (!agentContainerRef.current) return;
+
+    // Don't load twice if already loaded
+    if (document.querySelector('script[src="https://agentplace.io/admin/embed/v1.js"]')) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://agentplace.io/admin/embed/v1.js";
+    script.setAttribute("data-agent-url", "https://sby6peojhojj.run.agentplace.io/");
+    script.setAttribute("data-controls", "input");
+    script.async = true;
+
+    agentContainerRef.current.appendChild(script);
+  }, [isOpen]);
 
   return (
     <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-      
-      {/* 
-        Chat Window Popover 
-      */}
+
+      {/* Chat Window Popover */}
       {isOpen && (
         <div className="mb-4 w-[360px] sm:w-[400px] bg-white dark:bg-gray-900 shadow-2xl rounded-2xl border border-gray-200 dark:border-gray-800 overflow-hidden flex flex-col h-[550px] transition-all transform origin-bottom-right duration-300">
-          
+
           {/* Chat Header */}
           <div className="bg-blue-600 text-white px-5 py-4 font-semibold flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -21,8 +39,8 @@ export default function FloatingFinley() {
               <span className="text-lg">Ask Finley</span>
             </div>
             {/* Expand to Full Page Icon */}
-            <Link 
-              to="/PublicSupport" 
+            <Link
+              to="/PublicSupport"
               className="text-blue-200 hover:text-white transition-colors"
               title="Open full support page"
             >
@@ -32,10 +50,14 @@ export default function FloatingFinley() {
             </Link>
           </div>
 
-          {/* Chat Messages Area */}
-          <div className="flex-1 p-5 space-y-4 overflow-y-auto bg-gray-50 dark:bg-gray-950/50">
-            {/* Finley Initial Message */}
-            <div className="flex items-start space-x-3">
+          {/* AgentPlace Agent Lives Here */}
+          {/* This div is where your embed script will render */}
+          <div
+            ref={agentContainerRef}
+            className="flex-1 overflow-hidden bg-gray-50 dark:bg-gray-950/50 flex flex-col"
+          >
+            {/* Fallback message while agent loads */}
+            <div className="flex items-start space-x-3 p-5">
               <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center bg-blue-100 dark:bg-blue-900/50 rounded-full border border-blue-200 dark:border-blue-800">
                 <svg className="w-5 h-5 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z" />
@@ -49,29 +71,13 @@ export default function FloatingFinley() {
             </div>
           </div>
 
-          {/* Input Area */}
-          <div className="p-4 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
-            <div className="flex items-center gap-3">
-              <input
-                type="text"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                placeholder="Type your question..."
-                className="flex-1 bg-gray-100 dark:bg-gray-800 border border-transparent focus:border-blue-500 dark:focus:border-blue-500 focus:bg-white dark:focus:bg-gray-950 rounded-full px-5 py-3 outline-none text-gray-900 dark:text-white text-base transition-all"
-              />
-              <button className="w-12 h-12 flex-shrink-0 flex items-center justify-center bg-blue-600 hover:bg-blue-500 transition-colors rounded-full shadow-md">
-                <svg className="w-5 h-5 text-white transform -rotate-45 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-                </svg>
-              </button>
-            </div>
-          </div>
+          {/* NOTE: I removed your old Input Area on purpose.
+              AgentPlace already brings its own input because of data-controls="input".
+              If you keep both, you will have 2 inputs. */}
         </div>
       )}
 
-      {/* 
-        Floating Action Button 
-      */}
+      {/* Floating Action Button */}
       <div className="relative group">
         {/* Tooltip prompt when closed */}
         {!isOpen && (
@@ -103,7 +109,7 @@ export default function FloatingFinley() {
           )}
         </button>
       </div>
-      
+
     </div>
   );
 }
