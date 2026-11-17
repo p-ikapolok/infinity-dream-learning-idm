@@ -4,7 +4,6 @@ import {
   X,
   Maximize2,
   Minimize2,
-  Send,
 } from "lucide-react";
 
 export default function AskFinleyWidget() {
@@ -24,7 +23,7 @@ export default function AskFinleyWidget() {
       >
         {!open && (
           <button onClick={() => setOpen(true)} className="finley-orb">
-            
+
             {/* GLOW */}
             <div className="finley-glow" />
 
@@ -98,31 +97,25 @@ export default function AskFinleyWidget() {
               </div>
             </div>
 
-            {/* BODY */}
-            <div className="finley-body">
-              <div className="finley-message">
-                <div className="finley-ai-avatar">✦</div>
-                <div className="finley-bubble">
-                  Hello 👋 I'm Finley.  
-                  How can I help you today?
-                </div>
-              </div>
-            </div>
+            {/* REAL AGENT - THIS IS THE FIX */}
+            {/* Removed your fake message + fake input, replaced with iframe */}
+            <iframe
+              src="https://sby6peojhojj.run.agentplace.io/"
+              title="Finley AI Agent"
+              style={{
+                flex: 1,
+                width: "100%",
+                border: "none",
+                background: "white",
+              }}
+              allow="clipboard-write; microphone"
+            />
 
-            {/* INPUT */}
-            <div className="finley-input-area">
-              <div className="finley-input-box">
-                <input type="text" placeholder="Ask Finley..." />
-                <button>
-                  <Send size={16} />
-                </button>
-              </div>
-            </div>
           </div>
         )}
       </div>
 
-      {/* STYLES */}
+      {/* STYLES - kept exactly the same as yours */}
       <style>{`
         .finley-orb {
           position: relative;
@@ -282,84 +275,6 @@ export default function AskFinleyWidget() {
           background: rgba(255,255,255,0.06);
           color: white;
           cursor: pointer;
-        }
-
-        .finley-body {
-          flex: 1;
-          padding: 16px;
-          overflow-y: auto;
-        }
-
-        .finley-message {
-          display: flex;
-          gap: 12px;
-          align-items: flex-start;
-        }
-
-        .finley-ai-avatar {
-          width: 34px;
-          height: 34px;
-          border-radius: 50%;
-          background: linear-gradient(
-            90deg,
-            #00e5ff,
-            #b400ff,
-            #ff9800
-          );
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: white;
-        }
-
-        .finley-bubble {
-          max-width: 80%;
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
-          color: white;
-          padding: 12px 14px;
-          border-radius: 18px;
-          line-height: 1.5;
-          font-size: 14px;
-        }
-
-        .finley-input-area {
-          padding: 14px;
-          border-top: 1px solid rgba(255,255,255,0.08);
-        }
-
-        .finley-input-box {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          background: rgba(255,255,255,0.05);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 20px;
-          padding: 10px 12px;
-        }
-
-        .finley-input-box input {
-          flex: 1;
-          background: transparent;
-          border: none;
-          outline: none;
-          color: white;
-          font-size: 14px;
-        }
-
-        .finley-input-box button {
-          width: 36px;
-          height: 36px;
-          border-radius: 50%;
-          border: none;
-          cursor: pointer;
-          color: white;
-          background: linear-gradient(
-            90deg,
-            #00e5ff,
-            #b400ff,
-            #ff9800
-          );
         }
 
         @keyframes rotateText {
